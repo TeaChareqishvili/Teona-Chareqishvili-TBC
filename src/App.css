@@ -97,6 +97,11 @@
     font-size:24px;
     color:#edeeee;
     margin:20px 0;
+    transition: all 0.4s;
+}
+.mobile-ul-nav>li:hover{
+    color:#15a2a0;
+   
 }
 .mobile-link{
   width: 35px;

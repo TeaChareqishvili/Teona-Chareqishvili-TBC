@@ -16,6 +16,7 @@ function App() {
 //   openMenu.style.display = "none";
 // }
 
+
   // function to open menu for mobile
   const handleOpenMenu = () => {
     const openMenu = document.querySelector(".mobile-menu");
