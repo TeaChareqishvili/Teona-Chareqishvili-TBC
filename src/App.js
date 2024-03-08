@@ -3,8 +3,35 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { TiSocialFacebook } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTwitter } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 function App() {
+
+// კონსტის გატანა გარეთ უფრო სწორი იქნებოდა ცალ-ცალკე რომ არ ეწეროს იგივე ორივე ფუნქციაში მაგრამ 
+// არ იმუშავა მასე და რომ  დავსერჩე ჰუკის გამოყენებას ითხოვს. 
+
+
+// if(window.innerWidth>=1024){
+//   const openMenu = document.querySelector(".mobile-menu");
+//   openMenu.style.display = "none";
+// }
+
+  // function to open menu for mobile
+  const handleOpenMenu = () => {
+    const openMenu = document.querySelector(".mobile-menu");
+    if (openMenu.style.display === "none") {
+      openMenu.style.display = "block";
+    }
+  };
+
+  // function to close menu for mobile
+  const handleCloseMenu = ()=>{
+    const openMenu = document.querySelector(".mobile-menu");
+    if (openMenu.style.display === "block") {
+      openMenu.style.display = "none";
+    }
+  }
+
   return (
     <div className="App">
       <header className="header">
@@ -12,7 +39,10 @@ function App() {
           <div className="logo">
             <span>ANY LOGO</span>
           </div>
-          <GiHamburgerMenu className="burger-menu" />
+          <GiHamburgerMenu
+            className="burger-menu"
+            onClick={() => handleOpenMenu()}
+          />
           <div className="header-navigation">
             <nav className="navigation">
               <ul className="ul-nav">
@@ -22,6 +52,36 @@ function App() {
                 <li>კონტაქტი</li>
               </ul>
             </nav>
+          </div>
+        </div>
+        <div className="mobile-menu" style={{ display: "none" }}>
+          <div className="close-menu" onClick={()=>handleCloseMenu()}>
+            <IoClose className="close-menu-icon" />
+          </div>
+          <div className="mobile-navigation">
+            <nav>
+              <ul className="mobile-ul-nav">
+                <li>მთავარი</li>
+                <li>ჩვენ შესახებ</li>
+                <li>სიახლეები</li>
+                <li>კონტაქტი</li>
+              </ul>
+            </nav>
+          </div>
+          <div className="social-links">
+            <div>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                {" "}
+                <TiSocialFacebook className="mobile-link" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                <AiFillInstagram className="mobile-link" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                {" "}
+                <FaTwitter className="mobile-link" />
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -70,14 +130,22 @@ function App() {
           <div className="social-links">
             <p>დაგვეკონტაქტეთ</p>
             <div className="links">
-              <TiSocialFacebook className="link" />
-              <AiFillInstagram className="link" />
-              <FaTwitter className="link" />
+              <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                {" "}
+                <TiSocialFacebook className="link" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                <AiFillInstagram className="link" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                {" "}
+                <FaTwitter className="link" />
+              </a>
             </div>
           </div>
           <div className="email">
             <label>
-              <input type="email" placeholder="E-mail" required />
+              <input type="email" placeholder="E-mail" />
             </label>
             <button className="send-btn">გაგზავნა</button>
           </div>
