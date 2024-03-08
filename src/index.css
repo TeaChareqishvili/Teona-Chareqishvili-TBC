@@ -19,3 +19,7 @@ body{
   font-family: "tbc-helvetica-roman";
   src: url(./fonts/HELVETICANEUELTGEO-55ROMAN\ copy.ttf);
 }
+@font-face {
+  font-family: "tbc-helvetica-bold";
+  src: url(./fonts/HELVETICA-NEUE-LT-GEO-75-BOLD\ copy.ttf);
+}
