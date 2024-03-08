@@ -24,3 +24,7 @@ body{
   font-family: "tbc-helvetica-bold";
   src: url(./fonts/HELVETICA-NEUE-LT-GEO-75-BOLD\ copy.ttf);
 }
+@font-face {
+  font-family: "tbc-telegraf-light";
+  src: url(./fonts/PPTelegraf-Ultralight\ copy.otf);
+}
