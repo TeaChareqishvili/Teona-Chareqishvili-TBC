@@ -11,6 +11,8 @@ function App() {
 // არ იმუშავა მასე და რომ  დავსერჩე ჰუკის გამოყენებას ითხოვს. 
 
 
+
+
 // if(window.innerWidth>=1024){
 //   const openMenu = document.querySelector(".mobile-menu");
 //   openMenu.style.display = "none";
@@ -42,7 +44,7 @@ function App() {
           </div>
           <GiHamburgerMenu
             className="burger-menu"
-            onClick={() => handleOpenMenu()}
+            onClick={handleOpenMenu}
           />
           <div className="header-navigation">
             <nav className="navigation">
@@ -56,7 +58,7 @@ function App() {
           </div>
         </div>
         <div className="mobile-menu" style={{ display: "none" }}>
-          <div className="close-menu" onClick={()=>handleCloseMenu()}>
+          <div className="close-menu" onClick={handleCloseMenu}>
             <IoClose className="close-menu-icon" />
           </div>
           <div className="mobile-navigation">
