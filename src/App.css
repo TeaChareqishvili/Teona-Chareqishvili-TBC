@@ -131,48 +131,70 @@
   max-width: 400px;
 }
 
-/* abous us section style */
+/* blog section style */
 
-.about-us {
+.blog-section {
   width: 100%;
-  margin: 40px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 40px auto;
 }
-.about-us-container {
+
+.blog-wrapper {
   width: 80%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column-reverse;
+  flex-wrap: wrap;
 }
-
-.about-us-text > h2 {
-  color: #edeeee;
-  font-family: "tbc-helvetica-bold";
-  font-feature-settings: "case" on;
-  font-size: 24px;
-  line-height: 1.75;
-}
-.about-us-text > p {
-  color: #d1cfcf;
-  letter-spacing: 1.6px;
-  font-family: "tbc-helvetica-light";
-  font-size: 16px;
+.blog-img {
+  min-width: 250px;
+  position: relative;
   margin: 20px 0;
 }
-.about-us-img {
-  width: 100%;
-  position: relative;
-}
-
-.about-us-img > img {
+.blog-img > img {
   width: 100%;
   height: 100%;
-  margin: 15px 0;
   object-fit: cover;
+}
+.blog-img:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+.blog-content {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+.blog-content > h2 {
+  font-family: "bold";
+  font-size: 20px;
+  color: #edeeee;
+  text-align: left;
+}
+.blog-content > p {
+  font-family: "roman";
+  font-size: 18px;
+  color: #d1cfcf;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.blog-content > p:hover {
+  color: goldenrod;
+}
+.blog-content > span {
+  color: #c5c2c2;
+  font-size: 16px;
+  font-family: "roman";
 }
 
 /* footer style */
@@ -236,6 +258,7 @@
 .email {
   position: relative;
   width: 250px;
+  margin-top: 20px;
 }
 input {
   width: 100%;
@@ -268,6 +291,18 @@ input {
 }
 
 @media (min-width: 768px) {
+  /* blog style */
+
+  .blog-content > span {
+    font-size: 22px;
+  }
+  .blog-content > p {
+    font-size: 24px;
+  }
+  .blog-content > h2 {
+    font-size: 28px;
+  }
+
   .footer-container {
     width: 100%;
     display: flex;
@@ -278,6 +313,9 @@ input {
   .footer {
     padding: 30px 40px;
   }
+  .email {
+    margin-top: unset;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -286,10 +324,10 @@ input {
   .header-navigation {
     display: block;
   }
-  .burger-menu {
-    display: none;
-  }
 
+  .mobile-menu {
+    opacity: 0;
+  }
   /* banner section*/
 
   .banner-content > h1 {
@@ -300,18 +338,28 @@ input {
   }
 
   /* about us section style */
-  .about-us-container {
-    align-items: flex-start;
-    flex-direction: row;
-    justify-content: space-between;
-    overflow: hidden;
+
+  .blog-wrapper {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
-  .about-us-text {
-    margin-left: 30px;
-    max-width: 550px;
+  .blog-img {
+    margin: 20px 30px;
+    max-width: 500px;
   }
-  .about-us-img {
-    min-width: 450px;
+
+  .blog-content > span {
+    font-size: 22px;
+  }
+  .blog-content > p {
+    font-size: 24px;
+  }
+  .blog-content > h2 {
+    font-size: 34px;
   }
 
   /* footer style */
