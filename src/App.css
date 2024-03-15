@@ -81,52 +81,6 @@
   color: #edeeee;
 }
 
-/* banner section style */
-.banner-section {
-  width: 100%;
-  position: relative;
-}
-
-.banner {
-  width: 100%;
-  height: 700px;
-}
-
-.banner:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.banner > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.banner-content {
-  position: absolute;
-  top: 30%;
-  left: 10%;
-}
-
-.banner-content > h1 {
-  font-family: "tbc-helvetica-bold";
-  font-feature-settings: "case" on;
-  font-size: 40px;
-  color: #d1cfcf;
-  line-height: 1.25;
-}
-.banner-content > p {
-  font-family: "tbc-helvetica-roman";
-  font-size: 18px;
-  color: #d1cfcf;
-  line-height: 1.75;
-  max-width: 400px;
-}
-
 /* blog section style */
 
 .blog-section {
@@ -191,6 +145,68 @@
   color: #c5c2c2;
   font-size: 16px;
   font-family: "roman";
+}
+
+/* main */
+
+main {
+  padding: 30px 10px;
+}
+
+/* search section sttyle */
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-label {
+  position: relative;
+}
+.search-input {
+  outline: none;
+  padding: 7px 20px;
+  border: 2px solid #e5563b;
+  width: 200px;
+  border-radius: 20px 0 0 20px;
+  color: #2e3037;
+  font-family: "tbc-helvetica-roman";
+  font-size: 18px;
+}
+
+::placeholder {
+  color: #e5563b;
+}
+.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-btn {
+  height: 39.5px;
+  width: 150px;
+  border: none;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 20px 20px 0;
+  background-color: #e5563b;
+  color: #ffffff;
+  font-family: "tbc-helvetica-bold";
+  font-size: 18px;
+  cursor: pointer;
+  letter-spacing: 1.2px;
+  text-align: center;
+  transition: all 0.4s;
+}
+.search-btn:hover {
+  transform: scaleX(1.1);
+}
+
+.search-icon {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  color: #e5563b;
 }
 
 /* footer style */
@@ -269,7 +285,7 @@
   width: 250px;
   margin-top: 20px;
 }
-input {
+.subscribe {
   width: 100%;
   outline: none;
   color: #25262b;
@@ -298,10 +314,13 @@ input {
 .send-btn:hover {
   background-color: #5d2d34;
 }
-input:focus {
+.subscribe:focus {
   border: solid 2px #5d2d34;
 }
 
+main {
+  flex: 1;
+}
 @media (min-width: 768px) {
   /* blog style */
 
@@ -314,6 +333,8 @@ input:focus {
   .blog-content > h2 {
     font-size: 28px;
   }
+
+  /* footer style */
 
   .footer-container {
     width: 100%;
@@ -341,16 +362,7 @@ input:focus {
     display: none;
   }
 
-  /* banner section*/
-
-  .banner-content > h1 {
-    font-size: 56px;
-  }
-  .banner-content > p {
-    font-size: 20px;
-  }
-
-  /* about us section style */
+  /* blog section style */
 
   .blog-wrapper {
     width: 100%;

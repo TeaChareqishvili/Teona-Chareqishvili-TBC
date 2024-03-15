@@ -1,8 +1,7 @@
 import "./App.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-// import { Banner } from "./components/Banner";
-// import { BlogLayout } from "./components/BlogLayout";
+import { MainContent } from "./components/MainContent";
 
 function App() {
   // function setPreferredColorScheme() {
@@ -23,8 +22,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Banner />
-      <BlogLayout /> */}
+      <MainContent />
       <Footer />
     </div>
   );
