@@ -4,7 +4,7 @@
   width: 100%;
   background-color: transparent;
   padding: 30px 0;
-  position: fixed;
+  /* position: fixed; */
   z-index: 1;
   border-bottom: 1px solid #e5563b;
 }
@@ -197,11 +197,12 @@
 
 .footer {
   width: 100%;
-  background-color: #25262b;
+  background-color: #2e3037;
   padding: 30px 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 2px solid #e5563b;
 }
 
 .footer-container {
@@ -218,14 +219,14 @@
   font-size: 13px;
   font-family: "tbc-telegraf-light";
   margin-bottom: 5px;
-  color: #c5c2c2;
+  color: #ffffff;
   letter-spacing: 1.1px;
 }
 
 .social-links > p {
   font-family: "tbc-helvetica-light";
   font-size: 16px;
-  color: #edeeee;
+  color: #ffffff;
   margin-bottom: 12px;
 }
 
@@ -251,6 +252,18 @@
   color: #ffffff;
 }
 
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.nav-links > h2 {
+  color: #ffffff;
+  font-family: "tbc-helvetica-bold";
+  font-size: 24px;
+  margin-bottom: 7px;
+}
 .email {
   position: relative;
   width: 250px;
@@ -262,7 +275,7 @@ input {
   color: #25262b;
   font-family: "tbc-helvetica-roman";
   font-size: 16px;
-  border: solid 2px #c34054;
+  border: solid 2px #e5563b;
   border-radius: 7px;
   padding: 15px 20px;
 }
@@ -275,7 +288,7 @@ input {
   border-radius: 10px;
   border: none;
   color: #edeeee;
-  background-color: #c34054;
+  background-color: #e5563b;
   font-family: "tbc-helvetica-roman";
   font-feature-settings: "case" on;
   cursor: pointer;
@@ -283,7 +296,10 @@ input {
 }
 
 .send-btn:hover {
-  background-color: #15a2a0;
+  background-color: #5d2d34;
+}
+input:focus {
+  border: solid 2px #5d2d34;
 }
 
 @media (min-width: 768px) {
