@@ -1,6 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
-import { HeaderNavigation } from "./HeaderNavigation";
+import { Navigation } from "./Navigation";
 import { SocialLinks } from "./SocialLinks";
 import logo from "../assets/image/logo.webp";
 
@@ -29,7 +29,7 @@ const Header = () => {
         </div>
         <GiHamburgerMenu className="burger-menu" onClick={handleOpenMenu} />
         <div className="header-navigation">
-          <HeaderNavigation marginLeft="30px" display="flex" />
+          <Navigation marginLeft="30px" display="flex" />
         </div>
       </div>
       <div className="mobile-menu" style={{ display: "none" }}>
@@ -37,7 +37,7 @@ const Header = () => {
           <IoClose className="close-menu-icon" />
         </div>
         <div className="mobile-navigation">
-          <HeaderNavigation
+          <Navigation
             flexDirection="column"
             alingItems="flex-start"
             marginBottom="20px"

@@ -1,4 +1,4 @@
-const HeaderNavigation = ({
+const Navigation = ({
   flexDirection,
   alingItems,
   marginBottom,
@@ -56,4 +56,4 @@ const HeaderNavigation = ({
   );
 };
 
-export { HeaderNavigation };
+export { Navigation };

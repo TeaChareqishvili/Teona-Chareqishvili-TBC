@@ -1,6 +1,6 @@
 import { SocialLinks } from "./SocialLinks";
 import logo from "../assets/image/logo.webp";
-import { HeaderNavigation } from "./HeaderNavigation";
+import { Navigation } from "./Navigation";
 
 const Footer = () => {
   return (
@@ -18,9 +18,8 @@ const Footer = () => {
         </div>
         <div className="nav-links">
           <h2>Links</h2>
-          <HeaderNavigation color="#FFFFFF" marginBottom="7px" />
+          <Navigation color="#FFFFFF" marginBottom="7px" />
         </div>
-
         <div className="email">
           <label>
             <input className="subscribe" type="email" placeholder="E-mail" />
