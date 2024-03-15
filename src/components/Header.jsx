@@ -2,6 +2,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { HeaderNavigation } from "./HeaderNavigation";
 import { SocialLinks } from "./SocialLinks";
+import headerLogo from "../assets/image/logo.webp";
 
 const Header = () => {
   // function to open menu for mobile
@@ -24,7 +25,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <span>ANY LOGO</span>
+          <img src={headerLogo} alt="logo" />
         </div>
         <GiHamburgerMenu className="burger-menu" onClick={handleOpenMenu} />
         <div className="header-navigation">
@@ -40,6 +41,7 @@ const Header = () => {
             flexDirection="column"
             alingItems="flex-start"
             marginBottom="20px"
+            color="#FFFFFF"
           />
         </div>
         <SocialLinks justifyContent="flex-start" marginRight="10px" />

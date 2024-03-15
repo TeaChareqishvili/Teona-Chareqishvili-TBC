@@ -4,23 +4,28 @@ const HeaderNavigation = ({
   marginBottom,
   marginLeft,
   display,
+  color,
 }) => {
   const navList = [
     {
       id: 1,
-      title: "მთავარი",
+      title: "Home",
     },
     {
       id: 2,
-      title: "ჩვენ შესახებ",
+      title: "Shop",
     },
     {
       id: 3,
-      title: "სიახლეები",
+      title: "Blog",
     },
     {
       id: 4,
-      title: "კონტაქტი",
+      title: "About",
+    },
+    {
+      id: 5,
+      title: "Contact",
     },
   ];
 
@@ -40,6 +45,7 @@ const HeaderNavigation = ({
             style={{
               marginBottom: marginBottom,
               marginLeft: marginLeft,
+              color: color,
             }}
           >
             {item.title}
