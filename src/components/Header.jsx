@@ -44,7 +44,7 @@ const Header = () => {
             color="#FFFFFF"
           />
         </div>
-        <SocialLinks justifyContent="flex-start" marginRight="10px" />
+        <SocialLinks justifyContent="flex-start" />
       </div>
     </header>
   );

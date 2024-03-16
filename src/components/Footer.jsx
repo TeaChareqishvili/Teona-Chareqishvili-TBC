@@ -14,7 +14,7 @@ const Footer = () => {
             <p className="rights">© 2024 ყველა უფლება დაცულია</p>
             <p className="rules">წესები და პირობები</p>
           </div>
-          <SocialLinks marginRight="10px" />
+          <SocialLinks />
         </div>
         <div className="nav-links">
           <h2>Links</h2>
