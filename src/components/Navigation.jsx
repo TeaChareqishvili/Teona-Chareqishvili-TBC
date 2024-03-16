@@ -1,29 +1,13 @@
-const HeaderNavigation = ({
+import { navList } from "./projectData";
+
+const Navigation = ({
   flexDirection,
   alingItems,
   marginBottom,
   marginLeft,
   display,
+  color,
 }) => {
-  const navList = [
-    {
-      id: 1,
-      title: "მთავარი",
-    },
-    {
-      id: 2,
-      title: "ჩვენ შესახებ",
-    },
-    {
-      id: 3,
-      title: "სიახლეები",
-    },
-    {
-      id: 4,
-      title: "კონტაქტი",
-    },
-  ];
-
   return (
     <nav className="navigation" style={{ display: display }}>
       {navList.map((item) => (
@@ -40,6 +24,7 @@ const HeaderNavigation = ({
             style={{
               marginBottom: marginBottom,
               marginLeft: marginLeft,
+              color: color,
             }}
           >
             {item.title}
@@ -50,4 +35,4 @@ const HeaderNavigation = ({
   );
 };
 
-export { HeaderNavigation };
+export { Navigation };

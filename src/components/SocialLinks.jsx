@@ -1,29 +1,17 @@
-import { TiSocialFacebook } from "react-icons/ti";
-import { AiFillInstagram } from "react-icons/ai";
-import { FaTwitter } from "react-icons/fa";
+import { socilaLinkData } from "./projectData";
 
-const SocialLinks = ({ justifyContent, marginRight }) => {
+const SocialLinks = ({ justifyContent, marginRight = "10px" }) => {
   return (
     <div className="social-links">
-      <p>დაგვეკონტაქტეთ</p>
+      <p>Contact Us</p>
       <div className="links" style={{ justifyContent: justifyContent }}>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer">
-          {" "}
-          <TiSocialFacebook
-            className="link"
-            style={{ marginRight: marginRight }}
-          />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">
-          <AiFillInstagram
-            className="link"
-            style={{ marginRight: marginRight }}
-          />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noreferrer">
-          {" "}
-          <FaTwitter className="link" style={{ marginRight: marginRight }} />
-        </a>
+        {socilaLinkData.map((item) => (
+          <div key={item.id} style={{ marginRight: marginRight }}>
+            <a href={item.address} target="_blank" rel="noreferrer">
+              {item.link}
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   );
