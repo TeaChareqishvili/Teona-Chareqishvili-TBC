@@ -11,8 +11,8 @@ const Footer = () => {
             <img src={logo} alt="logo" />
           </div>
           <div className="footer-rights">
-            <p className="rights">© 2024 ყველა უფლება დაცულია</p>
-            <p className="rules">წესები და პირობები</p>
+            <p className="rights">© 2024 all rights reserved</p>
+            <p className="rules">Rules and Terms</p>
           </div>
           <SocialLinks />
         </div>

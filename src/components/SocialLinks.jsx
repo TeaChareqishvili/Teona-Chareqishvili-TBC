@@ -3,7 +3,7 @@ import { socilaLinkData } from "./projectData";
 const SocialLinks = ({ justifyContent, marginRight = "10px" }) => {
   return (
     <div className="social-links">
-      <p>დაგვეკონტაქტეთ</p>
+      <p>Contact Us</p>
       <div className="links" style={{ justifyContent: justifyContent }}>
         {socilaLinkData.map((item) => (
           <div key={item.id} style={{ marginRight: marginRight }}>
