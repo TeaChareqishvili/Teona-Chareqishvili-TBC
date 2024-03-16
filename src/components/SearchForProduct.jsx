@@ -1,6 +1,6 @@
 import { ImSearch } from "react-icons/im";
 
-const SearchProduct = () => {
+const SearchForProduct = () => {
   return (
     <div className="search-wrapper">
       <label className="search-label">
@@ -12,4 +12,4 @@ const SearchProduct = () => {
   );
 };
 
-export { SearchProduct };
+export { SearchForProduct };

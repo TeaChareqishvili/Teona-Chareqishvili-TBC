@@ -20,4 +20,28 @@ const socilaLinkData = [
   },
 ];
 
+const navList = [
+  {
+    id: 1,
+    title: "Home",
+  },
+  {
+    id: 2,
+    title: "Shop",
+  },
+  {
+    id: 3,
+    title: "Blog",
+  },
+  {
+    id: 4,
+    title: "About",
+  },
+  {
+    id: 5,
+    title: "Contact",
+  },
+];
+
 export { socilaLinkData };
+export { navList };

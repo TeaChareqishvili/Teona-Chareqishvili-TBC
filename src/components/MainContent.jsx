@@ -1,10 +1,10 @@
-import { SearchProduct } from "./SearchProduct";
+import { SearchForProduct } from "./SearchForProduct";
 import { ProductContainer } from "./products/ProductContainer";
 
 const MainContent = () => {
   return (
     <main>
-      <SearchProduct />
+      <SearchForProduct />
       <ProductContainer />
     </main>
   );

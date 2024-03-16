@@ -1,3 +1,5 @@
+import { navList } from "./projectData";
+
 const Navigation = ({
   flexDirection,
   alingItems,
@@ -6,29 +8,6 @@ const Navigation = ({
   display,
   color,
 }) => {
-  const navList = [
-    {
-      id: 1,
-      title: "Home",
-    },
-    {
-      id: 2,
-      title: "Shop",
-    },
-    {
-      id: 3,
-      title: "Blog",
-    },
-    {
-      id: 4,
-      title: "About",
-    },
-    {
-      id: 5,
-      title: "Contact",
-    },
-  ];
-
   return (
     <nav className="navigation" style={{ display: display }}>
       {navList.map((item) => (
