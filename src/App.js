@@ -1,8 +1,9 @@
 import "./App.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { MainContent } from "./components/MainContent";
+// import { MainContent } from "./components/MainContent";
 import { Routes, Route } from "react-router-dom";
+import { ContactLayout } from "./components/contactPage/ContactLayout";
 
 function App() {
   function setPreferredColorScheme() {
@@ -21,7 +22,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <MainContent />
+      <ContactLayout />
+      {/* <MainContent /> */}
       <Routes>{/* <Route path="/" element={< />} /> */}</Routes>
       <Footer />
     </div>
