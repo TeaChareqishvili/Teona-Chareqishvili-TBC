@@ -450,6 +450,7 @@ main {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
+  grid-area: contact;
 }
 .contact-info-wrapper p {
   display: flex;
@@ -486,6 +487,8 @@ form {
   margin: 15px 0;
   padding: 40px 30px;
   position: relative;
+  grid-area: form;
+  border-radius: 7px;
 }
 form:before {
   content: "Fill The Form";
@@ -500,6 +503,7 @@ form:before {
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  border-radius: 7px 0 0 0;
 }
 form div {
   width: 100%;
@@ -530,4 +534,17 @@ form div {
   height: 40px;
   border-radius: 7px;
   letter-spacing: 1.2px;
+}
+.contact-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "contact map"
+    "form map";
+  gap: 25px;
+}
+
+.map-wrapper {
+  grid-area: map;
 }
