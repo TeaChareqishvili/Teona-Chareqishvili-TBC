@@ -2,6 +2,7 @@ import "./App.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { MainContent } from "./components/MainContent";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   function setPreferredColorScheme() {
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       <Header />
       <MainContent />
+      <Routes>{/* <Route path="/" element={< />} /> */}</Routes>
       <Footer />
     </div>
   );

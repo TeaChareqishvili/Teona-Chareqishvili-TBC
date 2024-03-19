@@ -84,6 +84,7 @@
 
 main {
   padding: 30px 10px;
+  flex: 1;
 }
 
 /* search section sttyle */
@@ -384,9 +385,6 @@ main {
   border: solid 2px #5d2d34;
 }
 
-main {
-  flex: 1;
-}
 @media (min-width: 768px) {
   /* footer style */
 
