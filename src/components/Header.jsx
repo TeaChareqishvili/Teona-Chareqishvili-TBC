@@ -2,28 +2,29 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Navigation } from "./Navigation";
 import logo from "../assets/image/logo.webp";
 import { MobileMenu } from "./MobileMenu";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Header = () => {
-  // function to open menu for mobile
-  const handleOpenMenu = () => {
-    const openMenu = document.querySelector(".mobile-menu");
-    if (openMenu.style.display === "none") {
-      openMenu.style.display = "block";
-    }
-  };
-
+  const [open, setOpen] = useState(false);
   return (
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            {" "}
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
-        <GiHamburgerMenu className="burger-menu" onClick={handleOpenMenu} />
+        <GiHamburgerMenu
+          className="burger-menu"
+          onClick={() => setOpen(true)}
+        />
         <div className="header-navigation">
           <Navigation marginLeft="30px" display="flex" />
         </div>
       </div>
-      <MobileMenu />
+      {open && <MobileMenu setOpen={setOpen} />}
     </header>
   );
 };
