@@ -2,17 +2,10 @@ import { IoClose } from "react-icons/io5";
 import { SocialLinks } from "./SocialLinks";
 import { Navigation } from "./Navigation";
 
-const MobileMenu = () => {
-  // function to close menu for mobile
-  const handleCloseMenu = () => {
-    const openMenu = document.querySelector(".mobile-menu");
-    if (openMenu.style.display === "block") {
-      openMenu.style.display = "none";
-    }
-  };
+const MobileMenu = ({ setOpen }) => {
   return (
-    <div className="mobile-menu" style={{ display: "none" }}>
-      <div className="close-menu" onClick={handleCloseMenu}>
+    <div className="mobile-menu">
+      <div className="close-menu" onClick={() => setOpen(false)}>
         <IoClose className="close-menu-icon" />
       </div>
       <div className="mobile-navigation">

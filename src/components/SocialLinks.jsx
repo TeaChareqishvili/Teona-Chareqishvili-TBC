@@ -1,15 +1,16 @@
 import { socilaLinkData } from "./projectData";
+import { Link } from "react-router-dom";
 
 const SocialLinks = ({ justifyContent, marginRight = "10px" }) => {
   return (
     <div className="social-links">
-      <p>Contact Us</p>
+      <p>Find Us</p>
       <div className="links" style={{ justifyContent: justifyContent }}>
         {socilaLinkData.map((item) => (
           <div key={item.id} style={{ marginRight: marginRight }}>
-            <a href={item.address} target="_blank" rel="noreferrer">
+            <Link to={item.address} target="_blank" rel="noreferrer">
               {item.link}
-            </a>
+            </Link>
           </div>
         ))}
       </div>

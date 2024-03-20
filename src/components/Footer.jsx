@@ -1,6 +1,7 @@
 import { SocialLinks } from "./SocialLinks";
 import logo from "../assets/image/logo.webp";
 import { Navigation } from "./Navigation";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,7 +9,10 @@ const Footer = () => {
       <div className="footer-container">
         <div>
           <div className="logo">
-            <img src={logo} alt="logo" />
+            <Link to="/">
+              {" "}
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="footer-rights">
             <p className="rights">© 2024 all rights reserved</p>
