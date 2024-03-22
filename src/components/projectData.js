@@ -11,6 +11,9 @@ import shoes from "../assets/image/productImg/shoes.webp";
 import tShirt from "../assets/image/productImg/T-shirt.webp";
 import tShirt2 from "../assets/image/productImg/T-shirt2.webp";
 import jeans from "../assets/image/productImg/jeans.webp";
+import { CiSearch } from "react-icons/ci";
+import { BsPerson } from "react-icons/bs";
+import { IoCartOutline } from "react-icons/io5";
 
 const socilaLinkData = [
   {
@@ -37,15 +40,15 @@ const navList = [
   },
   {
     id: 2,
-    title: "Shop",
+    title: "Men",
   },
   {
     id: 3,
-    title: "Blog",
+    title: "Women",
   },
   {
     id: 4,
-    title: "About",
+    title: "Blog",
   },
   {
     id: 5,
@@ -136,6 +139,22 @@ const productData = [
   },
 ];
 
+const iconData = [
+  {
+    id: 1,
+    icon: <CiSearch className="user-icon" />,
+  },
+  {
+    id: 2,
+    icon: <BsPerson className="user-icon" />,
+  },
+  {
+    id: 3,
+    icon: <IoCartOutline className="user-icon" />,
+  },
+];
+
+export { iconData };
 export { productData };
 export { socilaLinkData };
 export { navList };

@@ -1,6 +1,6 @@
 import "./App.css";
 import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+// import { Footer } from "./components/Footer";
 import { MainContent } from "./components/mainContent/MainContent";
 import { Routes, Route } from "react-router-dom";
 import { ContactLayout } from "./components/contactPage/ContactLayout";
@@ -30,7 +30,7 @@ function App() {
           <Route path="/Contact" element={<ContactLayout />} />
         </Routes>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
