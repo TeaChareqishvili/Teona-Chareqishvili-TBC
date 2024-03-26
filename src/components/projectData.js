@@ -14,6 +14,22 @@ import jeans from "../assets/image/productImg/jeans.webp";
 import { CiSearch } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
+import blog1 from "../assets/image/blogImages/blog1.webp";
+import blog19 from "../assets/image/blogImages/blog19.webp";
+import blog3 from "../assets/image/blogImages/blog3.webp";
+import blog4 from "../assets/image/blogImages/blog4.webp";
+import blog5 from "../assets/image/blogImages/blog5.webp";
+import blog20 from "../assets/image/blogImages/blog20.webp";
+import blog14 from "../assets/image/blogImages/blog14.webp";
+import blog8 from "../assets/image/blogImages/blog8.webp";
+import blog9 from "../assets/image/blogImages/blog9.webp";
+import blog10 from "../assets/image/blogImages/blog10.webp";
+import blog11 from "../assets/image/blogImages/blog11.webp";
+import blog15 from "../assets/image/blogImages/blog15.webp";
+import blog18 from "../assets/image/blogImages/blog18.webp";
+import blog17 from "../assets/image/blogImages/blog17.webp";
+import blog13 from "../assets/image/blogImages/blog13.webp";
+import blog12 from "../assets/image/blogImages/blog12.webp";
 
 const socilaLinkData = [
   {
@@ -161,7 +177,7 @@ const blogData = [
     description:
       "Learn how to improve your sleep quality with these simple tips.",
     date: "2023-01-05",
-    image: "../assets/image/blogImages/blog1.webp",
+    image: blog1,
   },
   {
     id: 2,
@@ -169,7 +185,7 @@ const blogData = [
     description:
       "Discover delicious and nutritious breakfast recipes to start your day right.",
     date: "2023-02-12",
-    image: "../assets/image/blogImages/blog19.webp",
+    image: blog19,
   },
   {
     id: 3,
@@ -177,7 +193,7 @@ const blogData = [
     description:
       "Find out how to maintain productivity and focus while working remotely.",
     date: "2023-03-20",
-    image: "../assets/image/blogImages/blog18.webp",
+    image: blog18,
   },
 
   {
@@ -186,7 +202,7 @@ const blogData = [
     description:
       "Explore the many benefits of incorporating meditation into your daily routine.",
     date: "2023-10-15",
-    image: "../assets/image/blogImages/blog15.webp",
+    image: blog15,
   },
   {
     id: 5,
@@ -194,7 +210,7 @@ const blogData = [
     description:
       "Learn the basics of yoga and how to get started with your practice.",
     date: "2023-11-28",
-    image: "../assets/image/blogImages/blog12.webp",
+    image: blog12,
   },
   {
     id: 6,
@@ -202,7 +218,7 @@ const blogData = [
     description:
       "Master the art of time management with these proven strategies.",
     date: "2023-04-08",
-    image: "../assets/image/blogImages/blog17.webp",
+    image: blog17,
   },
   {
     id: 7,
@@ -210,7 +226,7 @@ const blogData = [
     description:
       "Practice mindfulness to reduce stress and improve your overall well-being.",
     date: "2023-05-17",
-    image: "../assets/image/blogImages/blog12.webp",
+    image: blog12,
   },
   {
     id: 8,
@@ -218,7 +234,7 @@ const blogData = [
     description:
       "Harness the power of positive thinking to achieve your goals and live a happier life.",
     date: "2023-06-22",
-    image: "../assets/image/blogImages/blog17.webp",
+    image: blog17,
   },
   {
     id: 9,
@@ -226,7 +242,7 @@ const blogData = [
     description:
       "Discover simple yet effective ways to make exercise a regular part of your life.",
     date: "2023-07-11",
-    image: "../assets/image/blogImages/blog11.webp",
+    image: blog11,
   },
   {
     id: 10,
@@ -234,7 +250,7 @@ const blogData = [
     description:
       "Improve your posture and reduce back pain with these easy-to-follow tips.",
     date: "2023-08-29",
-    image: "../assets/image/blogImages/blog8.webp",
+    image: blog8,
   },
   {
     id: 11,
@@ -242,7 +258,7 @@ const blogData = [
     description:
       "Learn about the importance of hydration and how drinking enough water can benefit your health.",
     date: "2023-09-14",
-    image: "../assets/image/blogImages/blog3.webp",
+    image: blog3,
   },
   {
     id: 12,
@@ -250,7 +266,7 @@ const blogData = [
     description:
       "Discover the therapeutic benefits of journaling and how it can help you gain insights into your thoughts and emotions.",
     date: "2023-10-03",
-    image: "../assets/image/blogImages/blog13.webp",
+    image: blog13,
   },
   {
     id: 13,
@@ -258,7 +274,7 @@ const blogData = [
     description:
       "Fuel your workday with these nutritious and satisfying snack options.",
     date: "2023-11-19",
-    image: "../assets/image/blogImages/blog19.webp",
+    image: blog19,
   },
   {
     id: 14,
@@ -266,7 +282,7 @@ const blogData = [
     description:
       "Set and achieve your goals with these practical tips and strategies.",
     date: "2023-12-07",
-    image: "../assets/image/blogImages/blog14.webp",
+    image: blog14,
   },
   {
     id: 15,
@@ -274,7 +290,7 @@ const blogData = [
     description:
       "Explore the latest supercars and hypercars that are setting speed records this year.",
     date: "2023-01-15",
-    image: "../assets/image/blogImages/blog9.webp",
+    image: blog9,
   },
   {
     id: 16,
@@ -282,7 +298,7 @@ const blogData = [
     description:
       "Plan your next road trip like a pro with these essential tips and tricks.",
     date: "2023-02-28",
-    image: "../assets/image/blogImages/blog20.webp",
+    image: blog20,
   },
   {
     id: 17,
@@ -290,7 +306,7 @@ const blogData = [
     description:
       "Embark on a photographic journey into the wild and capture stunning images of nature's beauty.",
     date: "2023-03-10",
-    image: "../assets/image/blogImages/blog5.webp",
+    image: blog5,
   },
   {
     id: 18,
@@ -298,7 +314,7 @@ const blogData = [
     description:
       "Discover lesser-known treasures and iconic landmarks in the United States' national parks.",
     date: "2023-04-20",
-    image: "../assets/image/blogImages/blog14.webp",
+    image: blog14,
   },
   {
     id: 19,
@@ -306,7 +322,7 @@ const blogData = [
     description:
       "Learn how to properly care for your furry friends and ensure their health and happiness.",
     date: "2023-05-05",
-    image: "../assets/image/blogImages/blog10.webp",
+    image: blog10,
   },
   {
     id: 20,
@@ -314,7 +330,7 @@ const blogData = [
     description:
       "Harness the power of positive thinking to achieve your goals and live a happier life.",
     date: "2023-06-22",
-    image: "../assets/image/blogImages/blog4.webp",
+    image: blog4,
   },
 ];
 export { blogData };
