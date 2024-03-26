@@ -1,6 +1,6 @@
 import { SocialLinks } from "./SocialLinks";
 import logo from "../assets/image/footerLogo.webp";
-// import { Navigation } from "./Navigation";
+import { Navigation } from "./Navigation";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -26,12 +26,12 @@ const Footer = () => {
           {" "}
           <img src={logo} alt="logo" />
         </Link>
-        {/* <Navigation
+        <Navigation
           color="#FFFFFF"
           marginBottom="7px"
           display="flex"
           marginLeft="30px"
-        /> */}
+        />
       </div>
       <div className="border"></div>
       <p className="rights">© 2024 all rights reserved</p>

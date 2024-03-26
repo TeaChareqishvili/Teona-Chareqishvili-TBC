@@ -31,7 +31,7 @@
 }
 
 .li-nav {
-  font-size: 18px;
+  font-size: 11px;
   color: #38393b;
   cursor: pointer;
   font-family: "tbc-helvetica-bold";
@@ -723,6 +723,10 @@ main {
     flex-direction: row;
   }
 
+  .li-nav {
+    font-size: 16px;
+  }
+
   .log-in-input {
     width: 300px;
   }
@@ -748,6 +752,9 @@ main {
 
   /* footer style */
 
+  .li-nav {
+    font-size: 18px;
+  }
   /* .footer {
     padding: 30px 0;
   } */

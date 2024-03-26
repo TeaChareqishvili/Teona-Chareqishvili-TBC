@@ -339,7 +339,7 @@ const blogData = [
 
 const logIn = {
   name: "Teona",
-  lastName: "ChareqiShvili",
+  lastName: "Chareqishvili",
   email: "Teona@gmail.com",
   password: "",
   confirm: "",
