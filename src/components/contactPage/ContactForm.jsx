@@ -1,6 +1,6 @@
 const ContactForm = () => {
   return (
-    <form>
+    <form className="contact-form">
       <div>
         <label>
           <input className="form-input" type="text" placeholder="Name" />

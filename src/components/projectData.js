@@ -159,14 +159,17 @@ const iconData = [
   {
     id: 1,
     icon: <CiSearch className="user-icon" />,
+    title: "Search",
   },
   {
     id: 2,
     icon: <BsPerson className="user-icon" />,
+    title: "LogIn",
   },
   {
     id: 3,
     icon: <IoCartOutline className="user-icon" />,
+    title: "Cart",
   },
 ];
 
@@ -333,6 +336,16 @@ const blogData = [
     image: blog4,
   },
 ];
+
+const logIn = {
+  name: "Teona",
+  lastName: "ChareqiShvili",
+  email: "Teona@gmail.com",
+  password: "",
+  confirm: "",
+};
+
+export { logIn };
 export { blogData };
 export { iconData };
 export { productData };

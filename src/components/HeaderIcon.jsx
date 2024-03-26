@@ -1,19 +1,20 @@
 import { iconData } from "./projectData";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const HeaderIcon = ({ color, marginRight, alignItmes }) => {
   return (
     <div style={{ alignItems: alignItmes }} className="icon-wrapper">
       {iconData.map((item) => (
         <div key={item.id}>
-          <Link
+          <NavLink
+            to={item.title}
             style={{
               color: color,
               marginRight: marginRight,
             }}
           >
             {item.icon}
-          </Link>
+          </NavLink>
         </div>
       ))}
     </div>
