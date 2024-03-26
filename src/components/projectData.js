@@ -154,6 +154,170 @@ const iconData = [
   },
 ];
 
+const blogData = [
+  {
+    id: 1,
+    title: "10 Tips for Better Sleep",
+    description:
+      "Learn how to improve your sleep quality with these simple tips.",
+    date: "2023-01-05",
+    image: "../assets/image/blogImages/blog1.webp",
+  },
+  {
+    id: 2,
+    title: "Healthy Breakfast Ideas",
+    description:
+      "Discover delicious and nutritious breakfast recipes to start your day right.",
+    date: "2023-02-12",
+    image: "../assets/image/blogImages/blog19.webp",
+  },
+  {
+    id: 3,
+    title: "How to Stay Productive While Working from Home",
+    description:
+      "Find out how to maintain productivity and focus while working remotely.",
+    date: "2023-03-20",
+    image: "../assets/image/blogImages/blog18.webp",
+  },
+
+  {
+    id: 4,
+    title: "The Benefits of Meditation",
+    description:
+      "Explore the many benefits of incorporating meditation into your daily routine.",
+    date: "2023-10-15",
+    image: "../assets/image/blogImages/blog15.webp",
+  },
+  {
+    id: 5,
+    title: "Beginner's Guide to Yoga",
+    description:
+      "Learn the basics of yoga and how to get started with your practice.",
+    date: "2023-11-28",
+    image: "../assets/image/blogImages/blog12.webp",
+  },
+  {
+    id: 6,
+    title: "Effective Time Management Techniques",
+    description:
+      "Master the art of time management with these proven strategies.",
+    date: "2023-04-08",
+    image: "../assets/image/blogImages/blog17.webp",
+  },
+  {
+    id: 7,
+    title: "Mindfulness Exercises for Stress Relief",
+    description:
+      "Practice mindfulness to reduce stress and improve your overall well-being.",
+    date: "2023-05-17",
+    image: "../assets/image/blogImages/blog12.webp",
+  },
+  {
+    id: 8,
+    title: "The Power of Positive Thinking",
+    description:
+      "Harness the power of positive thinking to achieve your goals and live a happier life.",
+    date: "2023-06-22",
+    image: "../assets/image/blogImages/blog17.webp",
+  },
+  {
+    id: 9,
+    title: "Easy Ways to Incorporate Exercise into Your Daily Routine",
+    description:
+      "Discover simple yet effective ways to make exercise a regular part of your life.",
+    date: "2023-07-11",
+    image: "../assets/image/blogImages/blog11.webp",
+  },
+  {
+    id: 10,
+    title: "Simple Tips for Better Posture",
+    description:
+      "Improve your posture and reduce back pain with these easy-to-follow tips.",
+    date: "2023-08-29",
+    image: "../assets/image/blogImages/blog8.webp",
+  },
+  {
+    id: 11,
+    title: "Benefits of Drinking Water",
+    description:
+      "Learn about the importance of hydration and how drinking enough water can benefit your health.",
+    date: "2023-09-14",
+    image: "../assets/image/blogImages/blog3.webp",
+  },
+  {
+    id: 12,
+    title: "The Art of Journaling for Self-Reflection",
+    description:
+      "Discover the therapeutic benefits of journaling and how it can help you gain insights into your thoughts and emotions.",
+    date: "2023-10-03",
+    image: "../assets/image/blogImages/blog13.webp",
+  },
+  {
+    id: 13,
+    title: "Healthy Snack Ideas for Work",
+    description:
+      "Fuel your workday with these nutritious and satisfying snack options.",
+    date: "2023-11-19",
+    image: "../assets/image/blogImages/blog19.webp",
+  },
+  {
+    id: 14,
+    title: "Tips for Effective Goal Setting",
+    description:
+      "Set and achieve your goals with these practical tips and strategies.",
+    date: "2023-12-07",
+    image: "../assets/image/blogImages/blog14.webp",
+  },
+  {
+    id: 15,
+    title: "The Top 10 Fastest Cars of 2023",
+    description:
+      "Explore the latest supercars and hypercars that are setting speed records this year.",
+    date: "2023-01-15",
+    image: "../assets/image/blogImages/blog9.webp",
+  },
+  {
+    id: 16,
+    title: "Tips for Planning a Road Trip",
+    description:
+      "Plan your next road trip like a pro with these essential tips and tricks.",
+    date: "2023-02-28",
+    image: "../assets/image/blogImages/blog20.webp",
+  },
+  {
+    id: 17,
+    title: "Adventures in Wildlife Photography",
+    description:
+      "Embark on a photographic journey into the wild and capture stunning images of nature's beauty.",
+    date: "2023-03-10",
+    image: "../assets/image/blogImages/blog5.webp",
+  },
+  {
+    id: 18,
+    title: "Exploring National Parks: Hidden Gems and Must-See Attractions",
+    description:
+      "Discover lesser-known treasures and iconic landmarks in the United States' national parks.",
+    date: "2023-04-20",
+    image: "../assets/image/blogImages/blog14.webp",
+  },
+  {
+    id: 19,
+    title: "The Ultimate Guide to Pet Care",
+    description:
+      "Learn how to properly care for your furry friends and ensure their health and happiness.",
+    date: "2023-05-05",
+    image: "../assets/image/blogImages/blog10.webp",
+  },
+  {
+    id: 20,
+    title: "The Power of Positive Thinking",
+    description:
+      "Harness the power of positive thinking to achieve your goals and live a happier life.",
+    date: "2023-06-22",
+    image: "../assets/image/blogImages/blog4.webp",
+  },
+];
+export { blogData };
 export { iconData };
 export { productData };
 export { socilaLinkData };
