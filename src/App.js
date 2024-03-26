@@ -4,6 +4,8 @@ import { Footer } from "./components/Footer";
 import { MainContent } from "./components/mainContent/MainContent";
 import { Routes, Route } from "react-router-dom";
 import { ContactLayout } from "./components/contactPage/ContactLayout";
+import { Blog } from "./components/Blog";
+import { LogIn } from "./components/LogIn";
 
 function App() {
   // function setPreferredColorScheme() {
@@ -28,6 +30,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/Contact" element={<ContactLayout />} />
+          <Route path="/Blog" element={<Blog />} />
+          <Route path="/LogIn" element={<LogIn />} />
         </Routes>
       </main>
       <Footer />
