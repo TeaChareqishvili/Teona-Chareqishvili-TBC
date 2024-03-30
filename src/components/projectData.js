@@ -337,15 +337,31 @@ const blogData = [
   },
 ];
 
-const logIn = {
-  name: "Teona",
-  lastName: "Chareqishvili",
-  email: "Teona@gmail.com",
-  password: "",
-  confirm: "",
-};
+const inputFields = [
+  { name: "name", type: "text", placeholder: "Name", required: true },
+  { name: "lastName", type: "text", placeholder: "Last Name", required: true },
+  { name: "email", type: "email", placeholder: "Email", required: true },
+  {
+    name: "password",
+    type: "password",
+    placeholder: "Write Password",
+    pattern: "(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
+    title:
+      "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+    required: true,
+  },
+  {
+    name: "confirmPassword",
+    type: "password",
+    placeholder: "Confirm Password",
+    pattern: "(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
+    title:
+      "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+    required: true,
+  },
+];
 
-export { logIn };
+export { inputFields };
 export { blogData };
 export { iconData };
 export { productData };
