@@ -15,6 +15,7 @@ const LogIn = () => {
     confirmPassword: "",
   });
 
+  // function which updates input values
   const handleChange = (event) => {
     const { name, value } = event.target;
     setValue((prevState) => {
@@ -22,6 +23,7 @@ const LogIn = () => {
     });
   };
 
+  // function which checks password match and shows appropriate pop-up
   const handleSubmit = (event) => {
     event.preventDefault();
     const passwordsMatch = value.password === value.confirmPassword;
