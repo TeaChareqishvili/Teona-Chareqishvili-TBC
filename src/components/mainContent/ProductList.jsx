@@ -1,10 +1,12 @@
 import { ProductItems } from "./ProductItems";
-import { productData } from "../projectData";
 
-const ProductList = () => {
+const ProductList = ({ filteredProducts, sorted }) => {
+  const productsToRender =
+    filteredProducts.length > 0 ? filteredProducts : sorted;
+
   return (
     <>
-      {productData.map((item) => (
+      {productsToRender.map((item) => (
         <ProductItems
           key={item.id}
           imgUrl={item.imgUrl}

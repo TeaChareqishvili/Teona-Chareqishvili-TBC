@@ -1,4 +1,4 @@
-import { socilaLinkData } from "./projectData";
+import { socilaLinkData } from "../projectData";
 import { Link } from "react-router-dom";
 
 const SocialLinks = ({ justifyContent, marginRight = "10px" }) => {

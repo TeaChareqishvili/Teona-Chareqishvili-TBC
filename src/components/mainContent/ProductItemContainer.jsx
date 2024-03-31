@@ -1,10 +1,10 @@
 import { ProductList } from "./ProductList";
 
-const ProductItemContainer = () => {
+const ProductItemContainer = ({ filteredProducts, sorted }) => {
   return (
     <div className="product-item-wrapper">
       <div className="product-item-container">
-        <ProductList />
+        <ProductList filteredProducts={filteredProducts} sorted={sorted} />
       </div>
       <div className="show-more">
         <button>Show More</button>

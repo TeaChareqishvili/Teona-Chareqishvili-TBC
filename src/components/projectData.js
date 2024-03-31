@@ -80,6 +80,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "79$",
     type: "New",
+    category: "bag",
   },
   {
     id: 2,
@@ -88,6 +89,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "154$",
     type: "Sale",
+    category: "jeans",
   },
   {
     id: 3,
@@ -95,7 +97,8 @@ const productData = [
     title: "Watch",
     description: "Lorem ipsum dolor sit amet",
     price: "454$",
-    type: "Sold",
+    type: "new",
+    category: "watch",
   },
   {
     id: 4,
@@ -104,38 +107,43 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "354$",
     type: "New",
+    category: "watch",
   },
   {
     id: 5,
     imgUrl: bag2,
     title: "Bag",
     description: "Lorem ipsum dolor sit amet",
-    price: "57$",
+    price: "65$",
     type: "New",
+    category: "bag",
   },
   {
     id: 6,
     imgUrl: tShirt,
-    title: "T-shirt",
+    title: "Tshirt",
     description: "Lorem ipsum dolor sit amet",
     price: "57$",
     type: "New",
+    category: "t-shirt",
   },
   {
     id: 7,
     imgUrl: bag3,
     title: "Bag",
     description: "Lorem ipsum dolor sit amet",
-    price: "57$",
+    price: "80$",
     type: "Sale",
+    category: "bag",
   },
   {
     id: 8,
     imgUrl: shoes,
     title: "Shoes",
     description: "Lorem ipsum dolor sit amet",
-    price: "57$",
+    price: "134$",
     type: "New",
+    category: "shoes",
   },
   {
     id: 9,
@@ -144,14 +152,52 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "99$",
     type: "Sale",
+    category: "jeans",
   },
   {
     id: 10,
     imgUrl: tShirt2,
-    title: "T-shirt",
+    title: "Tshirt",
     description: "Lorem ipsum dolor sit amet",
-    price: "57$",
-    type: "Sold",
+    price: "78$",
+    type: "Sale",
+    category: "t-shirt",
+  },
+  {
+    id: 11,
+    imgUrl: jeans,
+    title: "Jeans",
+    description: "Lorem ipsum dolor sit amet",
+    price: "104$",
+    type: "Sale",
+    category: "jeans",
+  },
+  {
+    id: 12,
+    imgUrl: shoes,
+    title: "Shoes",
+    description: "Lorem ipsum dolor sit amet",
+    price: "60$",
+    type: "New",
+    category: "shoes",
+  },
+  {
+    id: 13,
+    imgUrl: tShirt,
+    title: "Tshirt",
+    description: "Lorem ipsum dolor sit amet",
+    price: "95$",
+    type: "New",
+    category: "t-shirt",
+  },
+  {
+    id: 14,
+    imgUrl: bag3,
+    title: "Bag",
+    description: "Lorem ipsum dolor sit amet",
+    price: "147$",
+    type: "Sale",
+    category: "bag",
   },
 ];
 
@@ -337,15 +383,31 @@ const blogData = [
   },
 ];
 
-const logIn = {
-  name: "Teona",
-  lastName: "Chareqishvili",
-  email: "Teona@gmail.com",
-  password: "",
-  confirm: "",
-};
+const inputFields = [
+  { name: "name", type: "text", placeholder: "Name", required: true },
+  { name: "lastName", type: "text", placeholder: "Last Name", required: true },
+  { name: "email", type: "email", placeholder: "Email", required: true },
+  {
+    name: "password",
+    type: "password",
+    placeholder: "Write Password",
+    pattern: "(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
+    title:
+      "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+    required: true,
+  },
+  {
+    name: "confirmPassword",
+    type: "password",
+    placeholder: "Confirm Password",
+    pattern: "(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
+    title:
+      "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
+    required: true,
+  },
+];
 
-export { logIn };
+export { inputFields };
 export { blogData };
 export { iconData };
 export { productData };

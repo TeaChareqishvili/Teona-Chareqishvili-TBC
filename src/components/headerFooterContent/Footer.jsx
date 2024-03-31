@@ -1,5 +1,5 @@
 import { SocialLinks } from "./SocialLinks";
-import logo from "../assets/image/footerLogo.webp";
+import logo from "../../assets/image/footerLogo.webp";
 import { Navigation } from "./Navigation";
 import { Link } from "react-router-dom";
 
