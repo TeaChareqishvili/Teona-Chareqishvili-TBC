@@ -1,4 +1,4 @@
-import { iconData } from "./projectData";
+import { iconData } from "../projectData";
 import { NavLink } from "react-router-dom";
 
 const HeaderIcon = ({ color, marginRight, alignItmes }) => {

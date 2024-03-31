@@ -1,11 +1,11 @@
 import "./App.css";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Header } from "./components/headerFooterContent/Header";
+import { Footer } from "./components/headerFooterContent/Footer";
 import { MainContent } from "./components/mainContent/MainContent";
 import { Routes, Route } from "react-router-dom";
 import { ContactLayout } from "./components/contactPage/ContactLayout";
 import { Blog } from "./components/Blog";
-import { LogIn } from "./components/LogIn";
+import { LogIn } from "./components/userLogIn/LogIn";
 
 function App() {
   // function setPreferredColorScheme() {

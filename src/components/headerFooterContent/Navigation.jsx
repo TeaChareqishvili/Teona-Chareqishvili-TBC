@@ -1,4 +1,4 @@
-import { navList } from "./projectData";
+import { navList } from "../projectData";
 import { NavLink } from "react-router-dom";
 
 const Navigation = ({

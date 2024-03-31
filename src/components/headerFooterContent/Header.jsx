@@ -1,6 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Navigation } from "./Navigation";
-import logo from "../assets/image/logo.webp";
+import logo from "../../assets/image/logo.webp";
 import { MobileMenu } from "./MobileMenu";
 import { Link } from "react-router-dom";
 import { useState } from "react";
