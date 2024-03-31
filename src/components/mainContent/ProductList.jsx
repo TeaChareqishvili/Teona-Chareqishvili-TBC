@@ -1,11 +1,10 @@
 import { ProductItems } from "./ProductItems";
-import { productData } from "../projectData";
+// import { productData } from "../projectData";
 
-const ProductList = ({ filteredProducts }) => {
+const ProductList = ({ filteredProducts, sorted }) => {
   const productsToRender =
-    filteredProducts.length > 0 ? filteredProducts : productData;
+    filteredProducts.length > 0 ? filteredProducts : sorted;
 
-  console.log(filteredProducts, "filter");
   return (
     <>
       {productsToRender.map((item) => (

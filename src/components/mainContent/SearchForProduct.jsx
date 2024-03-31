@@ -11,8 +11,13 @@ const debounce = (func, delay) => {
   };
 };
 
-const SearchForProduct = ({ filteredProducts, setFilteredProducts }) => {
+const SearchForProduct = ({
+  filteredProducts,
+  setFilteredProducts,
+  setSorted,
+}) => {
   const [search, setSearch] = useState("");
+  const [isSorted, setIsSorted] = useState(false);
 
   // function get input value and calls new function with the new value
   const handleChange = (event) => {
@@ -40,13 +45,38 @@ const SearchForProduct = ({ filteredProducts, setFilteredProducts }) => {
     }
   };
 
+  // function to sort products according price
+  const handleSort = () => {
+    setIsSorted(!isSorted);
+    if (filteredProducts.length > 0) {
+      const sortedProducts = [...filteredProducts].sort(
+        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+      );
+      if (isSorted) {
+        setFilteredProducts([]);
+        setSearch("");
+      } else {
+        setFilteredProducts(sortedProducts);
+      }
+    } else {
+      const sortedProducts = [...productData].sort(
+        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+      );
+      if (isSorted) {
+        setSorted(productData);
+      } else {
+        setSorted(sortedProducts);
+      }
+    }
+  };
+
   return (
     <div className="search-wrapper">
       <div style={{ width: "200px" }}>
         {" "}
         {filteredProducts.length > 0 && (
           <span className="item-number">
-            {filteredProducts.length} items in stock are available
+            {filteredProducts.length} items are available in store
           </span>
         )}
       </div>
@@ -62,7 +92,9 @@ const SearchForProduct = ({ filteredProducts, setFilteredProducts }) => {
           />
           <ImSearch className="search-icon" />
         </label>
-        <button className="search-btn">Search</button>
+        <button className="search-btn" onClick={handleSort}>
+          Sort
+        </button>
       </div>
     </div>
   );
