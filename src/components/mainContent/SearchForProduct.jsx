@@ -93,7 +93,7 @@ const SearchForProduct = ({
           <ImSearch className="search-icon" />
         </label>
         <button className="search-btn" onClick={handleSort}>
-          Sort
+          {isSorted ? "Reset" : "Sort"}
         </button>
       </div>
     </div>
