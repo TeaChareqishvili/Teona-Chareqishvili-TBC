@@ -80,6 +80,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "79$",
     type: "New",
+    category: "bag",
   },
   {
     id: 2,
@@ -88,6 +89,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "154$",
     type: "Sale",
+    category: "jeans",
   },
   {
     id: 3,
@@ -96,6 +98,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "454$",
     type: "Sold",
+    category: "watch",
   },
   {
     id: 4,
@@ -104,6 +107,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "354$",
     type: "New",
+    category: "watch",
   },
   {
     id: 5,
@@ -112,6 +116,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "57$",
     type: "New",
+    category: "bag",
   },
   {
     id: 6,
@@ -120,6 +125,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "57$",
     type: "New",
+    category: "t-shirt",
   },
   {
     id: 7,
@@ -128,6 +134,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "57$",
     type: "Sale",
+    category: "bag",
   },
   {
     id: 8,
@@ -136,6 +143,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "57$",
     type: "New",
+    category: "shoes",
   },
   {
     id: 9,
@@ -144,6 +152,7 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "99$",
     type: "Sale",
+    category: "jeans",
   },
   {
     id: 10,
@@ -152,6 +161,43 @@ const productData = [
     description: "Lorem ipsum dolor sit amet",
     price: "57$",
     type: "Sold",
+    category: "t-shirt",
+  },
+  {
+    id: 11,
+    imgUrl: jeans,
+    title: "Jeans",
+    description: "Lorem ipsum dolor sit amet",
+    price: "99$",
+    type: "Sale",
+    category: "jeans",
+  },
+  {
+    id: 12,
+    imgUrl: shoes,
+    title: "Shoes",
+    description: "Lorem ipsum dolor sit amet",
+    price: "57$",
+    type: "New",
+    category: "shoes",
+  },
+  {
+    id: 13,
+    imgUrl: tShirt,
+    title: "T-shirt",
+    description: "Lorem ipsum dolor sit amet",
+    price: "57$",
+    type: "New",
+    category: "t-shirt",
+  },
+  {
+    id: 14,
+    imgUrl: bag3,
+    title: "Bag",
+    description: "Lorem ipsum dolor sit amet",
+    price: "57$",
+    type: "Sale",
+    category: "bag",
   },
 ];
 
