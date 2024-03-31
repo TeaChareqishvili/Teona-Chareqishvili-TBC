@@ -1,5 +1,4 @@
 import { ProductItems } from "./ProductItems";
-// import { productData } from "../projectData";
 
 const ProductList = ({ filteredProducts, sorted }) => {
   const productsToRender =

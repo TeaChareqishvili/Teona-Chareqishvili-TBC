@@ -6,7 +6,7 @@ import { productData } from "../projectData";
 const MainContent = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [sorted, setSorted] = useState([...productData]);
-  console.log(sorted, "sorted state");
+
   return (
     <>
       <SearchForProduct
