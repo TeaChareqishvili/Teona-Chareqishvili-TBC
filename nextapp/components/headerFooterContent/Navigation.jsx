@@ -1,5 +1,5 @@
 import { navList } from "../projectData";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
 const Navigation = ({
   flexDirection,
@@ -20,18 +20,17 @@ const Navigation = ({
             alignItems: alingItems,
           }}
         >
-          <NavLink
+          <Link
+            href={item.title === "Home" ? "/" : `/${item.title}`}
             className="li-nav"
             style={{
               marginBottom: marginBottom,
               marginLeft: marginLeft,
               color: color,
             }}
-            to={item.title === "Home" ? "/" : `/${item.title}`}
           >
-            {" "}
             <li>{item.title}</li>
-          </NavLink>
+          </Link>
         </ul>
       ))}
     </nav>

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Header } from "./components/headerFooterContent/Header";
+import { Header } from "../nextapp/components/headerFooterContent/Header";
 import { Footer } from "./components/headerFooterContent/Footer";
 import { MainContent } from "./components/mainContent/MainContent";
 import { Routes, Route } from "react-router-dom";

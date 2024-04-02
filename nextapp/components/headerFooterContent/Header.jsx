@@ -1,10 +1,11 @@
+"use client";
+
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Navigation } from "./Navigation";
-import logo from "../../assets/image/logo.webp";
-import { MobileMenu } from "./MobileMenu";
-import { Link } from "react-router-dom";
+import { Navigation } from "../headerFooterContent/Navigation";
+import logo from "../../public/assets/image/logo.webp";
+import { MobileMenu } from "../headerFooterContent/MobileMenu";
 import { useState } from "react";
-import { HeaderIcon } from "./HeaderIcon";
+import { HeaderIcon } from "../headerFooterContent/HeaderIcon";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -12,10 +13,8 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <Link to="/">
-          {" "}
-          <img src={logo} alt="logo" />
-        </Link>
+        {" "}
+        <img src={logo} alt="logo" />
         <GiHamburgerMenu
           className="burger-menu"
           onClick={() => setOpen(true)}

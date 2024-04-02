@@ -1,7 +1,10 @@
-import { SocialLinks } from "./SocialLinks";
-import logo from "../../assets/image/footerLogo.webp";
-import { Navigation } from "./Navigation";
-import { Link } from "react-router-dom";
+"use client";
+
+import { SocialLinks } from "../headerFooterContent/SocialLinks";
+import logo from "../../public/assets/image/footerLogo.webp";
+import { Navigation } from "../headerFooterContent/Navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -22,9 +25,10 @@ const Footer = () => {
       </div>
       <div className="border"></div>
       <div className="footer-container">
-        <Link to="/">
+        {" "}
+        <Link href="/">
           {" "}
-          <img src={logo} alt="logo" />
+          <Image src={logo} alt="logo" />
         </Link>
         <Navigation
           color="#FFFFFF"
