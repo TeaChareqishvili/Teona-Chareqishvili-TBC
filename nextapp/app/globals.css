@@ -1,6 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "tbc-helvetica-light";
+  src: url(../public/assets/fonts/HELVETICANEUELTGEO-45LIGHTS\ copy.ttf);
+}
+@font-face {
+  font-family: "tbc-helvetica-roman";
+  src: url(../public/assets/fonts/HELVETICANEUELTGEO-55ROMAN\ copy.ttf);
+}
+@font-face {
+  font-family: "tbc-helvetica-bold";
+  src: url(../public/assets/fonts/HELVETICA-NEUE-LT-GEO-75-BOLD\ copy.ttf);
+}
+@font-face {
+  font-family: "tbc-telegraf-light";
+  src: url(../public/assets/fonts/PPTelegraf-Ultralight\ copy.otf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 /* header style */
 
 .header {

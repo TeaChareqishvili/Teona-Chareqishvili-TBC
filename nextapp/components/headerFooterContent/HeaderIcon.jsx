@@ -1,20 +1,20 @@
 import { iconData } from "../projectData";
-// import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
-const HeaderIcon = () => {
+const HeaderIcon = ({ color, marginRight, alignItmes }) => {
   return (
-    <div className="icon-wrapper">
+    <div style={{ alignItems: alignItmes }} className="icon-wrapper">
       {iconData.map((item) => (
         <div key={item.id}>
-          {/* <NavLink
-            to={item.title} */}
-          {/* style={{
+          <Link
+            href={item.title}
+            style={{
               color: color,
               marginRight: marginRight,
             }}
-          > */}
-          {item.icon}
-          {/* </NavLink> */}
+          >
+            {item.icon}
+          </Link>
         </div>
       ))}
     </div>
@@ -22,5 +22,3 @@ const HeaderIcon = () => {
 };
 
 export { HeaderIcon };
-
-// { color, marginRight, alignItmes }

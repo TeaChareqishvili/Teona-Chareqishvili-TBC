@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Navigation } from "../headerFooterContent/Navigation";
 import logo from "../../public/assets/image/logo.webp";
@@ -14,7 +14,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         {" "}
-        <img src={logo} alt="logo" />
+        <Image src={logo} alt="logo" />
         <GiHamburgerMenu
           className="burger-menu"
           onClick={() => setOpen(true)}
@@ -22,7 +22,7 @@ const Header = () => {
         <div className="header-navigation">
           <Navigation marginLeft="30px" display="flex" />
         </div>
-        <HeaderIcon marginRight="15px" alignItmes="center" />
+        <HeaderIcon marginRight="20px" alignItmes="center" />
       </div>
       {open && <MobileMenu setOpen={setOpen} />}
     </header>
