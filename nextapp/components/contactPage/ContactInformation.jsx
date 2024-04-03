@@ -1,4 +1,4 @@
-import { SocialLinks } from "../../../src/components/headerFooterContent/SocialLinks";
+import { SocialLinks } from "../headerFooterContent/SocialLinks";
 
 const ContactInformation = () => {
   return (

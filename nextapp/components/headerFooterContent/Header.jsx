@@ -6,6 +6,7 @@ import logo from "../../public/assets/image/logo.webp";
 import { MobileMenu } from "../headerFooterContent/MobileMenu";
 import { useState } from "react";
 import { HeaderIcon } from "../headerFooterContent/HeaderIcon";
+import Link from "next/link";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,10 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         {" "}
-        <Image src={logo} alt="logo" />
+        <Link href="/">
+          {" "}
+          <Image src={logo} alt="logo" />
+        </Link>
         <GiHamburgerMenu
           className="burger-menu"
           onClick={() => setOpen(true)}

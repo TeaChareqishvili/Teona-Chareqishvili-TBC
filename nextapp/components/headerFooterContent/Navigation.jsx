@@ -21,7 +21,7 @@ const Navigation = ({
           }}
         >
           <Link
-            href={item.title === "Home" ? "/" : `/${item.title}`}
+            href={item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`}
             className="li-nav"
             style={{
               marginBottom: marginBottom,

@@ -205,17 +205,17 @@ const iconData = [
   {
     id: 1,
     icon: <CiSearch className="user-icon" />,
-    title: "Search",
+    title: "search",
   },
   {
     id: 2,
     icon: <BsPerson className="user-icon" />,
-    title: "LogIn",
+    title: "logIn",
   },
   {
     id: 3,
     icon: <IoCartOutline className="user-icon" />,
-    title: "Cart",
+    title: "cart",
   },
 ];
 
