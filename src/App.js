@@ -4,7 +4,7 @@ import { Footer } from "./components/headerFooterContent/Footer";
 import { MainContent } from "../nextapp/components/mainContent/MainContent";
 import { Routes, Route } from "react-router-dom";
 import { ContactLayout } from "../nextapp/app/contact/ContactLayout";
-import { Blog } from "./components/Blog";
+import { Blog } from "../nextapp/components/Blog";
 import { LogIn } from "../nextapp/components/userLogIn/LogIn";
 
 function App() {

@@ -14,6 +14,7 @@ const MobileMenu = ({ setOpen }) => {
           alingItems="flex-start"
           marginBottom="20px"
           color="#FFFFFF"
+          fontSize="25px"
         />
       </div>
       <SocialLinks justifyContent="flex-start" />

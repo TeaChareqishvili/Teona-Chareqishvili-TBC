@@ -28,7 +28,7 @@ const Footer = () => {
         {" "}
         <Link href="/">
           {" "}
-          <Image src={logo} alt="logo" />
+          <Image className="footer-logo" src={logo} alt="logo" />
         </Link>
         <Navigation
           color="#FFFFFF"

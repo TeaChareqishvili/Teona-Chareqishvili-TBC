@@ -8,6 +8,7 @@ const Navigation = ({
   marginLeft,
   display,
   color,
+  fontSize,
 }) => {
   return (
     <nav className="navigation" style={{ display: display }}>
@@ -29,7 +30,7 @@ const Navigation = ({
               color: color,
             }}
           >
-            <li>{item.title}</li>
+            <li style={{ fontSize: fontSize }}>{item.title}</li>
           </Link>
         </ul>
       ))}
