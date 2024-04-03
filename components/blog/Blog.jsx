@@ -1,4 +1,4 @@
-import { blogData } from "./projectData";
+import { blogData } from "../projectData";
 const Blog = () => {
   return (
     <div className="blog-wrapper">
