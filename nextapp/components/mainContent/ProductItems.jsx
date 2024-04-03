@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 const ProductItems = ({ imgUrl, title, description, price, type }) => {
   return (
     <>
       <div className="item-wrapper">
         <div className="product-img">
-          <img src={imgUrl} alt="product" />
+          <Image src={imgUrl} alt="product" />
           <div className="add-cart">
             <button>ADD TO CART</button>
           </div>

@@ -1,7 +1,7 @@
 import "./App.css";
 import { Header } from "../nextapp/components/headerFooterContent/Header";
 import { Footer } from "./components/headerFooterContent/Footer";
-import { MainContent } from "./components/mainContent/MainContent";
+import { MainContent } from "../nextapp/components/mainContent/MainContent";
 import { Routes, Route } from "react-router-dom";
 import { ContactLayout } from "../nextapp/app/contact/ContactLayout";
 import { Blog } from "./components/Blog";

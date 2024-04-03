@@ -1,3 +1,5 @@
+"use client";
+
 import { SearchForProduct } from "./SearchForProduct";
 import { ProductItemContainer } from "./ProductItemContainer";
 import { useState } from "react";

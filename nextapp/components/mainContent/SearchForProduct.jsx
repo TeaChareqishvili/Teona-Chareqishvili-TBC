@@ -1,3 +1,5 @@
+"use client";
+
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 import { productData } from "../projectData";
