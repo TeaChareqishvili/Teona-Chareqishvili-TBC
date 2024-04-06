@@ -4,11 +4,14 @@ import { Navigation } from "./Navigation";
 
 const MobileMenu = ({ setOpen }) => {
   return (
-    <div className="mobile-menu">
-      <div className="close-menu" onClick={() => setOpen(false)}>
-        <IoClose className="close-menu-icon" />
+    <div className="fixed top-0 right-0 w-1/2 h-screen bg-gray-800 p-8 flex items-start justify-start flex-col z-10">
+      <div
+        className="w-9 h-9 cursor-pointer mb-8"
+        onClick={() => setOpen(false)}
+      >
+        <IoClose className="w-full h-full text-gray-200" />
       </div>
-      <div className="mobile-navigation">
+      <div>
         <Navigation
           flexDirection="column"
           alingItems="flex-start"

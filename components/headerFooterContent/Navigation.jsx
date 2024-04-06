@@ -11,11 +11,11 @@ const Navigation = ({
   fontSize,
 }) => {
   return (
-    <nav className="navigation" style={{ display: display }}>
+    <nav style={{ display: display }}>
       {navList.map((item) => (
         <ul
           key={item.id}
-          className="ul-nav"
+          className="flex items-center"
           style={{
             flexDirection: flexDirection,
             alignItems: alingItems,
@@ -23,14 +23,19 @@ const Navigation = ({
         >
           <Link
             href={item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`}
-            className="li-nav"
+            className="text-sm md:text-base lg:text-lg xl:text-xl  text-gray-700 font-bold uppercase cursor-pointer transition duration-500 transform hover:text-red-600 hover:scale-105"
             style={{
               marginBottom: marginBottom,
               marginLeft: marginLeft,
               color: color,
             }}
           >
-            <li style={{ fontSize: fontSize }}>{item.title}</li>
+            <li
+              className="font-tbc-helvetica-bold"
+              style={{ fontSize: fontSize }}
+            >
+              {item.title}
+            </li>
           </Link>
         </ul>
       ))}
