@@ -256,53 +256,6 @@ body {
 .show-more:hover > button {
   background-color: #e5563b;
 }
-/* footer style */
-
-/* .footer {
-  width: 100%;
-  background-color: #171613;
-  padding: 30px 20px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border-top: 2px solid #4f4f4f;
-} */
-
-/* .footer-logo {
-  margin-bottom: 15px;
-} */
-
-/* .footer-container {
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-} */
-/* .footer-container h3 {
-  color: #ffffff;
-  font-size: 24px;
-  font-family: "tbc-helvetica-bold";
-  line-height: 1.3;
-  margin-bottom: 12px;
-} */
-/* .footer-container p {
-  color: #ffffff;
-  font-size: 15px;
-  font-family: "tbc-helvetica-roman";
-  line-height: 1.6;
-  margin-bottom: 15px;
-} */
-
-/* .rights {
-  font-size: 13px;
-  font-family: "tbc-telegraf-light";
-  color: #ffffff;
-  letter-spacing: 1.1px;
-  margin: 0 7px;
-} */
 
 .link {
   width: 35px;
@@ -334,52 +287,6 @@ body {
   font-size: 24px;
   margin-bottom: 7px;
 }
-/* .email {
-  width: clamp(275px, 100%, 400px);
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-} */
-
-/* .subscribe {
-  width: clamp(275px, 100%, 400px);
-  height: 49px;
-  outline: none;
-  color: #25262b;
-  font-family: "tbc-helvetica-roman";
-  font-size: 16px;
-  border: none;
-  padding: 15px 20px;
-  background-color: #ffffff;
-  margin-bottom: 15px;
-} */
-/* .send-btn {
-  width: clamp(275px, 100%, 400px);
-  padding: 15px 20px;
-  border: none;
-  color: #edeeee;
-  background-color: #ff1f23;
-  font-family: "tbc-helvetica-roman";
-  font-feature-settings: "case" on;
-  cursor: pointer;
-  transition: all 0.4s;
-  margin-bottom: 10px;
-} */
-
-/* .border {
-  width: 80%;
-  background-color: white;
-  height: 0.5px;
-  margin: 25px auto;
-} */
-
-/* .send-btn:hover {
-  background-color: #5d2d34;
-} */
-/* .subscribe:focus {
-  border: solid 2px #5d2d34;
-} */
 
 /* blog style */
 
@@ -496,29 +403,31 @@ body {
     "map";
   gap: 15px;
 }
-.contact-info-wrapper {
+/* .contact-info-wrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
   grid-area: contact;
-}
-.contact-info-wrapper p {
+} */
+
+/* .contact-info-wrapper p {
   display: flex;
   align-items: center;
   color: #303132;
   font-family: "tbc-helvetica-light";
   font-size: 16px;
   margin-bottom: 6px;
-}
-.contact-info-wrapper h2 {
+} */
+
+/* .contact-info-wrapper h2 {
   font-family: "tbc-helvetica-bold";
   font-size: 24px;
   color: #303132;
   margin-bottom: 5px;
-}
+} */
 
-.contact-info-wrapper a {
+/* .contact-info-wrapper a {
   text-decoration: none;
   color: #8e8d8d;
   margin-left: 6px;
@@ -528,7 +437,7 @@ body {
 }
 .contact-info-wrapper a:hover {
   color: #833323;
-}
+} */
 .contact-form {
   height: 500px;
   display: flex;
@@ -542,6 +451,7 @@ body {
   grid-area: form;
   border-radius: 7px;
 }
+
 .contact-form:before {
   content: "Send Us Your Message";
   width: 200px;
@@ -556,15 +466,15 @@ body {
   color: #ffffff;
   border-radius: 7px 0 0 0;
 }
-.contact-form div {
+/* .contact-form div {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
+} */
 
-.form-input {
+/* .form-input {
   padding: 10px 20px;
   outline: none;
   background-color: #f3f1f1;
@@ -575,8 +485,9 @@ body {
   border-radius: 7px;
   width: 250px;
   margin: 10px 20px;
-}
-.form-btn {
+} */
+
+/* .form-btn {
   background-color: #303132;
   padding: 7px 20px;
   border: none;
@@ -589,7 +500,7 @@ body {
   border-radius: 7px;
   letter-spacing: 1.2px;
   margin-top: 15px;
-}
+} */
 
 .map-wrapper {
   grid-area: map;
@@ -704,21 +615,6 @@ body {
 }
 
 @media (min-width: 900px) {
-  /* .footer-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-  } */
-  /* .footer-logo {
-    margin-bottom: unset;
-  } */
-
-  /* .li-nav {
-    font-size: 16px;
-  } */
-
   .log-in-input {
     width: 300px;
   }
@@ -728,31 +624,6 @@ body {
 }
 
 @media (min-width: 1024px) {
-  /* header style */
-
-  /* .header-navigation {
-    display: block;
-  } */
-
-  /* .burger-menu {
-    display: none;
-  } */
-
-  /* .icon-wrapper {
-    display: flex;
-  } */
-
-  /* footer style */
-
-  /* .li-nav {
-    font-size: 18px;
-  } */
-
-  /* .footer-container {
-    width: 80%;
-    margin: auto;
-  } */
-
   .log-in-input {
     width: 400px;
   }
