@@ -1,19 +1,34 @@
+"use client";
+import { useState, useEffect } from "react";
 import { ProductItems } from "./ProductItems";
 
 const ProductList = ({ filteredProducts, sorted }) => {
-  const productsToRender =
-    filteredProducts.length > 0 ? filteredProducts : sorted;
+  // const productsToRender =
+  //   filteredProducts.length > 0 ? filteredProducts : sorted;
 
+  const [productItems, setProductItems] = useState([]);
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((res) => {
+        setProductItems(res.products);
+      });
+  }, []);
+  console.log(productItems);
   return (
     <>
-      {productsToRender.map((item) => (
+      {productItems.map((item) => (
         <ProductItems
           key={item.id}
-          imgUrl={item.imgUrl}
           title={item.title}
-          description={item.description}
+          brand={item.brand}
+          category={item.category}
+          discount={item.discountPercentage}
           price={item.price}
-          type={item.type}
+          rating={item.raiting}
+          imgUrl={item.thumbnail}
+          stock={item.stock}
         />
       ))}
     </>

@@ -1,6 +1,16 @@
 import Image from "next/image";
 
-const ProductItems = ({ imgUrl, title, description, price, type }) => {
+const ProductItems = ({
+  imgUrl,
+  title,
+  brand,
+  category,
+  discount,
+  description,
+  price,
+  rating,
+  stock,
+}) => {
   return (
     <>
       <div className="item-wrapper">
