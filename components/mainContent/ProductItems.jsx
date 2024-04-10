@@ -1,20 +1,48 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const ProductItems = ({ imgUrl, title, description, price, type }) => {
+const ProductItems = ({
+  imgUrl,
+  title,
+  brand,
+  category,
+  discount,
+  price,
+  rating,
+  stock,
+  id,
+}) => {
   return (
     <>
-      <div className="item-wrapper">
+      <div className="item-wrapper flex flex-col items-center justify-center border border-gray-300 shadow transition-shadow  cursor-pointer  rounded p-2 mb-2 hover:shadow-lg">
         <div className="product-img">
-          <Image src={imgUrl} alt="product" />
+          <Image
+            className="object-fill"
+            src={imgUrl}
+            alt="product"
+            width={100}
+            height={100}
+          />
           <div className="add-cart">
             <button>ADD TO CART</button>
           </div>
-          <span>{type}</span>
+          <span>Rating-{rating}</span>
         </div>
         <div>
-          <p className="product-title">{title}</p>
-          <p className="product-price">{price}</p>
-          <p className="product-description">{description}</p>
+          <p className="font-medium text green-950 font-tbc-helbetica-bold">
+            {title}
+          </p>
+          <p className="font-base text green-950 font-tbc-helbetica-bold">
+            {brand} / {category}
+          </p>
+          <p className="text-[#ff1f1f] font-[18px] font-tbc-helbetica-bold">
+            {price}$
+          </p>
+          <p className="text-[#678E6C] text-base font-tbc-helvetica-bold">
+            {discount}%
+          </p>
+          <p className="product-description">{stock} left in stock</p>
+          <Link href={`/product/${id}`}>view details</Link>
         </div>
       </div>
     </>

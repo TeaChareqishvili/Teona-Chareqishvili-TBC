@@ -7,6 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        customFont: [
+          "tbc-helvetica-bold",
+          "tbc-helvetica-light",
+          "tbc-helvetica-roman",
+          "tbc-telegraf-light",
+        ],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

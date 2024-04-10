@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const HeaderIcon = ({ alignItmes }) => {
   return (
-    <div style={{ alignItems: alignItmes }} className="icon-wrapper">
+    <div style={{ alignItems: alignItmes }} className="hidden lg:flex">
       {iconData.map((item) => (
         <div key={item.id} style={{ display: "flex", alignItems: "center" }}>
           <Link href={item.title}>{item.icon}</Link>
