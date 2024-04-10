@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import blogImage from "../../public/assets/image/blogImages/blog3.webp";
+import Link from "next/link";
 const Blog = () => {
   const [blog, setBlog] = useState([]);
 
@@ -14,7 +15,7 @@ const Blog = () => {
     }
     getBlog();
   }, []);
-  console.log(blog, "blog");
+
   return (
     <div className="flex items-center justify-center flex-col md:flex-row md:flex-wrap p-4">
       {blog.map((item) => (
@@ -34,7 +35,10 @@ const Blog = () => {
             <h2>{item.title}</h2>
             <p>{item.description}</p>
             <span>{item.date}</span>
-            <button>Read More</button>
+            <Link href={`/singleBlog/${item.id}`}>
+              {" "}
+              <button>Read More</button>
+            </Link>
           </div>
         </div>
       ))}
