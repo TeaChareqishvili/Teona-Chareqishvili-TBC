@@ -1,65 +1,73 @@
 "use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { Loading } from "../../../components/Loading";
 
-const ProductDetails = ({ params }) => {
+const ProductDetails = ({ params: { id } }) => {
   const [productDetail, setProductDetail] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // fetches single item from products
     async function getSingleItem() {
-      const res = await fetch(`https://dummyjson.com/products/${params.id}`);
-      const data = await res.json();
-      setProductDetail(data);
+      try {
+        const res = await fetch(`https://dummyjson.com/products/${id}`);
+        const data = await res.json();
+        setProductDetail(data);
+      } catch (err) {
+        setError("Failed to fetch product details.");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     }
     getSingleItem();
-  }, []);
+  }, [id]);
+
+  // if there is no data loader is rendered
+  if (loading) return <Loading />;
 
   console.log(productDetail);
+
   return (
     <div className="single-product-wrapper">
       <div className="image-wrapper">
-        {productDetail.images &&
-          productDetail.images.map((image, index) => (
-            <div className="w-[250px] height-[250px]">
-              <Image
-                key={index}
-                src={image}
-                alt="item"
-                width={150}
-                height={150}
-                className="cursor-pointer m-[20px] hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-          ))}
+        {productDetail.images?.map((image, index) => (
+          <div key={index} className="w-[250px] h-[250px]">
+            {" "}
+            <Image
+              src={image}
+              alt="item"
+              width={250}
+              height={250}
+              className="cursor-pointer m-[20px] hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+        ))}
       </div>
       <div>
         <p className="font-base mb-[10px]">
-          <strong>Brand:</strong>
-          {productDetail.brand}
+          <strong>Brand:</strong> {productDetail.brand}
         </p>
         <p className="font-base mb-[10px]">
-          <strong>Title:</strong>
-          {productDetail.title}
+          <strong>Title:</strong> {productDetail.title}
         </p>
         <p className="font-base mb-[10px]">
-          <strong>Category:</strong>
-          {productDetail.category}
+          <strong>Category:</strong> {productDetail.category}
         </p>
         <p className="font-base mb-[10px]">
-          <strong>description:</strong>
-          {productDetail.description}
+          <strong>Description:</strong> {productDetail.description}
         </p>
         <p className="font-base mb-[10px]">
-          <strong>price:$</strong>
+          <strong>Price: $</strong>
           {productDetail.price}
         </p>
         <p className="font-base mb-[10px]">
-          <strong>Discount:%</strong>
-          {productDetail.discountPersentage}
-        </p>
+          <strong>Discount: %</strong>
+          {productDetail.discountPercentage}
+        </p>{" "}
         <p className="font-base mb-[10px]">
-          <strong>Rating:</strong>
-          {productDetail.rating}
+          <strong>Rating:</strong> {productDetail.rating}
         </p>
       </div>
     </div>

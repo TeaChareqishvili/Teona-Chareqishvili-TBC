@@ -2,7 +2,6 @@
 
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
-// import { productData } from "../projectData";
 
 // debounce function which sets and clears timeout
 const debounce = (func, delay) => {

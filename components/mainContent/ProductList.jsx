@@ -1,23 +1,13 @@
 // "use client";
 // import { useState, useEffect } from "react";
 import { ProductItems } from "./ProductItems";
+import { Loading } from "../../components/Loading";
 
-const ProductList = ({ filteredProducts, productItems }) => {
+const ProductList = ({ filteredProducts, productItems, loaded }) => {
   const productsToRender =
     filteredProducts.length > 0 ? filteredProducts : productItems;
 
-  // const [productItems, setProductItems] = useState([]);
-
-  // useEffect(() => {
-  //   async function getItem() {
-  //     const res = await fetch("https://dummyjson.com/products");
-  //     const data = await res.json();
-  //     setProductItems(data.products);
-  //   }
-  //   getItem();
-  // }, []);
-
-  console.log(productItems);
+  if (loaded) return <Loading />;
 
   return (
     <>

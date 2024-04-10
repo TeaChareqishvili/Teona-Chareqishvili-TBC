@@ -5,18 +5,21 @@ import { ProductItemContainer } from "./ProductItemContainer";
 import { useState, useEffect } from "react";
 
 const MainContent = () => {
+  const [productItems, setProductItems] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [sorted, setSorted] = useState([...productItems]);
+  const [loaded, setLoaded] = useState(true);
+
+  // fetches all products and sets loader to false
   useEffect(() => {
     async function getItem() {
       const res = await fetch("https://dummyjson.com/products");
       const data = await res.json();
       setProductItems(data.products);
+      setLoaded(false);
     }
     getItem();
   }, []);
-
-  const [productItems, setProductItems] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [sorted, setSorted] = useState([...productItems]);
 
   return (
     <>
@@ -29,6 +32,7 @@ const MainContent = () => {
       <ProductItemContainer
         filteredProducts={filteredProducts}
         productItems={productItems}
+        loaded={loaded}
       />
     </>
   );
