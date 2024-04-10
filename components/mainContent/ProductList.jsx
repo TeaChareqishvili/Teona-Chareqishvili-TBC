@@ -9,11 +9,12 @@ const ProductList = ({ filteredProducts, sorted }) => {
   const [productItems, setProductItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((res) => {
-        setProductItems(res.products);
-      });
+    async function getItem() {
+      const res = await fetch("https://dummyjson.com/products");
+      const data = await res.json();
+      setProductItems(data.products);
+    }
+    getItem();
   }, []);
   console.log(productItems);
   return (
@@ -26,9 +27,10 @@ const ProductList = ({ filteredProducts, sorted }) => {
           category={item.category}
           discount={item.discountPercentage}
           price={item.price}
-          rating={item.raiting}
-          imgUrl={item.thumbnail}
+          rating={item.rating}
+          imgUrl={item.images[0]}
           stock={item.stock}
+          id={item.id}
         />
       ))}
     </>

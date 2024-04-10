@@ -6,9 +6,6 @@ const ProductItemContainer = ({ filteredProducts, sorted }) => {
       <div className="product-item-container">
         <ProductList filteredProducts={filteredProducts} sorted={sorted} />
       </div>
-      <div className="show-more">
-        <button>Show More</button>
-      </div>
     </div>
   );
 };
