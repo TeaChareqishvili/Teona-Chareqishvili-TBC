@@ -1,10 +1,13 @@
 import { ProductList } from "./ProductList";
 
-const ProductItemContainer = ({ filteredProducts, sorted }) => {
+const ProductItemContainer = ({ filteredProducts, productItems }) => {
   return (
     <div className="product-item-wrapper">
       <div className="product-item-container">
-        <ProductList filteredProducts={filteredProducts} sorted={sorted} />
+        <ProductList
+          filteredProducts={filteredProducts}
+          productItems={productItems}
+        />
       </div>
     </div>
   );

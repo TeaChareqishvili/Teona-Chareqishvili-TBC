@@ -2,12 +2,21 @@
 
 import { SearchForProduct } from "./SearchForProduct";
 import { ProductItemContainer } from "./ProductItemContainer";
-import { useState } from "react";
-import { productData } from "../projectData";
+import { useState, useEffect } from "react";
 
 const MainContent = () => {
+  useEffect(() => {
+    async function getItem() {
+      const res = await fetch("https://dummyjson.com/products");
+      const data = await res.json();
+      setProductItems(data.products);
+    }
+    getItem();
+  }, []);
+
+  const [productItems, setProductItems] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [sorted, setSorted] = useState([...productData]);
+  const [sorted, setSorted] = useState([...productItems]);
 
   return (
     <>
@@ -15,10 +24,11 @@ const MainContent = () => {
         filteredProducts={filteredProducts}
         setFilteredProducts={setFilteredProducts}
         setSorted={setSorted}
+        productItems={productItems}
       />
       <ProductItemContainer
         filteredProducts={filteredProducts}
-        sorted={sorted}
+        productItems={productItems}
       />
     </>
   );

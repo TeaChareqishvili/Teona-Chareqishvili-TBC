@@ -2,7 +2,7 @@
 
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
-import { productData } from "../projectData";
+// import { productData } from "../projectData";
 
 // debounce function which sets and clears timeout
 const debounce = (func, delay) => {
@@ -17,6 +17,7 @@ const SearchForProduct = ({
   filteredProducts,
   setFilteredProducts,
   setSorted,
+  productItems,
 }) => {
   const [search, setSearch] = useState("");
   const [isSorted, setIsSorted] = useState(false);
@@ -38,7 +39,7 @@ const SearchForProduct = ({
   // function to filter the data form productData
   const filterProducts = (value) => {
     if (value !== "") {
-      const filtered = productData.filter((product) =>
+      const filtered = productItems.filter((product) =>
         product.category.toLowerCase().includes(value.toLowerCase())
       );
       setFilteredProducts(filtered);
@@ -61,11 +62,11 @@ const SearchForProduct = ({
         setFilteredProducts(sortedProducts);
       }
     } else {
-      const sortedProducts = [...productData].sort(
+      const sortedProducts = [...productItems].sort(
         (a, b) => parseFloat(a.price) - parseFloat(b.price)
       );
       if (isSorted) {
-        setSorted(productData);
+        setSorted(productItems);
       } else {
         setSorted(sortedProducts);
       }
