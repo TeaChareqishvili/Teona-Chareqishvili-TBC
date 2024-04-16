@@ -1,66 +1,27 @@
-"use client";
+"use server";
+import { cookies } from "next/headers";
+import { UserLog } from "@/components/userLogIn/UserLog";
+import { AUTH_COOKIE_KEY } from "../contants";
+import { redirect } from "next/navigation";
+import { Userlogin } from "../actions";
 
-import { FaCircleUser } from "react-icons/fa6";
-import { useState } from "react";
-import { inputFields } from "../../components/projectData";
-import { ErrorPopUp } from "../../components/userLogIn/ErrorPopUp";
-import { SuccessPopUp } from "../../components/userLogIn/SuccessPopUp";
+export async function LogIn() {
+  const cookieStore = cookies();
+  const cookie = cookieStore.get(AUTH_COOKIE_KEY);
 
-const LogIn = () => {
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [value, setValue] = useState({
-    name: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  if (!cookie) {
+    redirect("/");
+  }
 
-  // function which updates input values
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setValue((prevState) => {
-      return { ...prevState, [name]: value };
-    });
+  const handleLogIn = async (username, password) => {
+    "use server";
+    await Userlogin(username, password);
   };
-
-  // function which checks password match and shows appropriate pop-up
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const passwordsMatch = value.password === value.confirmPassword;
-    setError(!passwordsMatch);
-    setSuccess(passwordsMatch);
-    console.log("input-value", value);
-  };
-
   return (
     <div className="log-in-wrapper">
-      <form className="log-in-form" onSubmit={handleSubmit}>
-        <FaCircleUser className="user-log" />
-        {inputFields.map((field, index) => (
-          <label key={index}>
-            <input
-              value={value[field.name]}
-              name={field.name}
-              onChange={handleChange}
-              className="log-in-input"
-              type={field.type}
-              placeholder={field.placeholder}
-              // pattern={field.pattern}
-              // title={field.title}
-              required={field.required}
-            />
-          </label>
-        ))}
-        {error && <ErrorPopUp setError={setError} />}
-        {success && <SuccessPopUp value={value.name} setSuccess={setSuccess} />}
-        <button className="log-in-btn" type="submit">
-          Save
-        </button>
-      </form>
+      <UserLog handleLogIn={handleLogIn} />
     </div>
   );
-};
+}
 
 export default LogIn;
