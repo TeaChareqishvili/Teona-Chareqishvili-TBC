@@ -6,7 +6,7 @@ const HeaderIcon = ({ alignItmes }) => {
     <div style={{ alignItems: alignItmes }} className="hidden lg:flex">
       {iconData.map((item) => (
         <div key={item.id} style={{ display: "flex", alignItems: "center" }}>
-          <Link href={item.title}>{item.icon}</Link>
+          <Link href="#">{item.icon}</Link>
         </div>
       ))}
     </div>

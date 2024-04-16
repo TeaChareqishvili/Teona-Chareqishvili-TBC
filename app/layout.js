@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import { Footer } from "../components/headerFooterContent/Footer";
-// import { Header } from "../components/headerFooterContent/Header";
+import { cookies } from "next/headers";
+import { AUTH_COOKIE_KEY } from "../app/contants";
+import { redirect } from "next/navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -10,6 +11,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const cookieStore = cookies();
+  const cookie = cookieStore.get(AUTH_COOKIE_KEY);
+
+  if (cookie) {
+    redirect("/logIn");
+  }
   return (
     <html lang="en">
       <body className={inter.className}>
