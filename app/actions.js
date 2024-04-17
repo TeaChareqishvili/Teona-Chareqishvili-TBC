@@ -12,10 +12,15 @@ export async function Userlogin(username, password) {
     }),
   });
 
-  const user = await response.json();
-  const token = user.token;
   const cookieStore = cookies();
+  const user = await response.json();
 
-  cookieStore.set(AUTH_COOKIE_KEY, token);
-  console.log(user, "res");
+  cookieStore.set(AUTH_COOKIE_KEY, JSON.stringify(user));
+  console.log(user, "resyy");
+}
+
+export async function logout() {
+  "use server";
+  const cookieStore = cookies();
+  cookieStore.delete(AUTH_COOKIE_KEY);
 }

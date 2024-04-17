@@ -19,6 +19,11 @@
   src: url(../public/assets/fonts/PPTelegraf-Ultralight\ copy.otf);
 }
 
+.delete {
+  background-color: #e5563b;
+  width: 100px;
+}
+
 * {
   padding: 0;
   margin: 0;
