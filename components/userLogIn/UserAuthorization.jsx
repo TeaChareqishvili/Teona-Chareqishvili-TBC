@@ -9,7 +9,9 @@ const UserAuthorization = ({ handleLogIn }) => {
 
   // preventind default submisison and setting input values
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (!userName.trim() || !password.trim()) {
+      alert("Both username and password are required.");
+    }
     handleLogIn(userName, password);
   };
 
