@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Loading } from "../../../components/Loading";
+import { Loading } from "../../../../components/Loading";
 
 const ProductDetails = ({ params: { id } }) => {
   const [productDetail, setProductDetail] = useState({});
@@ -24,7 +24,7 @@ const ProductDetails = ({ params: { id } }) => {
     getSingleItem();
   }, [id]);
 
-  // if there is no data loader is rendered
+  //if there is no data loader is rendered
   if (loading) return <Loading />;
 
   console.log(productDetail);
