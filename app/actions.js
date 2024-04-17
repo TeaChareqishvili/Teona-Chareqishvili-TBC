@@ -14,8 +14,8 @@ export async function Userlogin(username, password) {
 
   const cookieStore = cookies();
   const user = await response.json();
-
-  cookieStore.set(AUTH_COOKIE_KEY, JSON.stringify(user));
+  const token = user.token;
+  cookieStore.set(AUTH_COOKIE_KEY, JSON.stringify(token));
   console.log(user, "resyy");
 }
 
