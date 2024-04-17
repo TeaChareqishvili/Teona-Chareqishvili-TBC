@@ -9,9 +9,7 @@ const UserAuthorization = ({ handleLogIn }) => {
 
   // preventind default submisison and setting input values
   const handleSubmit = (e) => {
-    if (!userName.trim() || !password.trim()) {
-      alert("Both username and password are required.");
-    }
+    e.preventDefault();
     handleLogIn(userName, password);
   };
 
@@ -26,6 +24,7 @@ const UserAuthorization = ({ handleLogIn }) => {
             placeholder="User name..."
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            required
           ></input>
         </label>
         <label>
@@ -35,6 +34,7 @@ const UserAuthorization = ({ handleLogIn }) => {
             placeholder="Password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           ></input>
         </label>
         <button className="log-in-btn" type="submit">
