@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="px-10 py-8 sm:px-16 sm:py-12 flex-1 w-full mx-auto">
-          {children}
-        </main>
+        {/* <main className="w-full  sm:px-16 sm:py-12 flex-1 mx-auto"> */}
+        {children}
+        {/* </main> */}
       </body>
     </html>
   );

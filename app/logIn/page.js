@@ -12,14 +12,18 @@ export async function LogIn() {
   if (cookie?.value) {
     redirect("/");
   }
-  // console.log(cookie, "log");
+
+  // function to set user info
   const handleLogIn = async (username, password) => {
     "use server";
     await Userlogin(username, password);
   };
 
   return (
-    <div className="log-in-wrapper">
+    <div className="w-full h-full flex flex-col items-center justify-center py=[20px] px=[30px] mt-10 ">
+      <p className="animate-pulse text-lg mb-4">
+        Access restricted. Please log in to proceed
+      </p>
       <UserAuthorization handleLogIn={handleLogIn} />
     </div>
   );

@@ -1,17 +1,19 @@
 "use server";
-// import Image from "next/image";
+import Image from "next/image";
 // import { GiHamburgerMenu } from "react-icons/gi";
-// import { Navigation } from "../headerFooterContent/Navigation";
-// import logo from "../../public/assets/image/logo.webp";
+import { Navigation } from "../headerFooterContent/Navigation";
+import logo from "../../public/assets/image/logo.webp";
 // import { MobileMenu } from "../headerFooterContent/MobileMenu";
 // import { useState } from "react";
-// import { HeaderIcon } from "../headerFooterContent/HeaderIcon";
-// import Link from "next/link";
+import { HeaderIcon } from "../headerFooterContent/HeaderIcon";
+import Link from "next/link";
 import { logout } from "../../app/actions";
 import { LogOutButton } from "../logOutButton/LogOutButton";
 
 async function Header() {
   // const [open, setOpen] = useState(false);
+
+  // function for user log out
   const handleLogOut = async () => {
     "use server";
     await logout();
@@ -21,19 +23,18 @@ async function Header() {
     <header className="w-full bg-white py-4 px-0 border-b border-gray-700">
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
-        {/* <Link href="/">
+        <Link href="/">
           {" "}
           <Image src={logo} alt="logo" />
-        </Link> */}
+        </Link>
         {/* <GiHamburgerMenu
           className="w-7 h-7 text-red-600 cursor-pointer lg:hidden"
           onClick={() => setOpen(true)}
         /> */}
-        {/* <div className="hidden lg:block">
+        <div className="hidden lg:block">
           <Navigation marginLeft="30px" display="flex" />
-        </div> */}
-        {/* <LogOutButton handleLogOut={handleLogOut} /> */}
-        {/* <HeaderIcon marginRight="20px" alignItmes="center" /> */}
+        </div>
+        <HeaderIcon marginRight="20px" alignItmes="center" />
         <LogOutButton handleLogOut={handleLogOut} />
       </div>
       {/* {open && <MobileMenu setOpen={setOpen} />} */}

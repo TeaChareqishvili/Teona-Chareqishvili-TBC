@@ -20,8 +20,9 @@
 }
 
 .delete {
-  background-color: #e5563b;
-  width: 100px;
+  border: 1px solid grey;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 * {

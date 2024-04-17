@@ -6,8 +6,8 @@ import { useState } from "react";
 const UserAuthorization = ({ handleLogIn }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  console.log(password, userName);
 
+  // preventind default submisison and setting input values
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogIn(userName, password);

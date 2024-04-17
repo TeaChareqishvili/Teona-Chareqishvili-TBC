@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import blogImage from "../../../public/assets/image/blogImages/blog3.webp";
+import blogImage from "../../../../public/assets/image/blogImages/blog3.webp";
 import Image from "next/image";
-import { Loading } from "../../../components/Loading";
+import { Loading } from "../../../../components/Loading";
 
 const SingleBlog = ({ params }) => {
   const [singleBlog, setSingleBlog] = useState({});

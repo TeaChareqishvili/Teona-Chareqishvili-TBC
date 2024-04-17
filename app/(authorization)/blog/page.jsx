@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import blogImage from "../../public/assets/image/blogImages/blog3.webp";
+import blogImage from "../../../public/assets/image/blogImages/blog3.webp";
 import Link from "next/link";
-import { Loading } from "../../components/Loading";
+import { Loading } from "../../../components/Loading";
 const Blog = () => {
   const [blog, setBlog] = useState([]);
   const [loader, setLoader] = useState(true);

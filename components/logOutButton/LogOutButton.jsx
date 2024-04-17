@@ -1,8 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 const LogOutButton = ({ handleLogOut }) => {
-  // console.log("handleLogOut received in LogOutButton:", handleLogOut);
   const router = useRouter();
+
+  // function for redirecting user to log in page
   const handleClick = () => {
     handleLogOut();
     router.push("/logIn");
@@ -10,7 +11,10 @@ const LogOutButton = ({ handleLogOut }) => {
 
   return (
     <div>
-      <button className="delete" onClick={handleClick}>
+      <button
+        className=" border: 1px solid grey border-radius: 6px cursor: pointer;"
+        onClick={handleClick}
+      >
         Log Out
       </button>
     </div>
