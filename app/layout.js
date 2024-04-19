@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="w-full h-full bg-[#272B2B] flex item-center justify-center">
         {/* <main className="w-full  sm:px-16 sm:py-12 flex-1 mx-auto"> */}
         {children}
         {/* </main> */}

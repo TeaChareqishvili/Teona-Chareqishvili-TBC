@@ -15,9 +15,12 @@ const UserAuthorization = ({ handleLogIn }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="log-in-form">
-        <FaCircleUser className="user-log" />
-        <label>
+      <form
+        onSubmit={handleSubmit}
+        className="py-[40px] px-[20px] border-2 border-[#939898] bg-[#979f9f] bg-opacity-5 flex items-center flex-col rounded-md"
+      >
+        <FaCircleUser className="w-[60px] h-[60px] m-[15px] text-[#3AA2A2]" />
+        <label className="flex flex-col items-center">
           <input
             className="log-in-input"
             type="text"
@@ -27,7 +30,7 @@ const UserAuthorization = ({ handleLogIn }) => {
             required
           ></input>
         </label>
-        <label>
+        <label className="flex flex-col items-center">
           <input
             type="password"
             className="log-in-input"
@@ -37,7 +40,10 @@ const UserAuthorization = ({ handleLogIn }) => {
             required
           ></input>
         </label>
-        <button className="log-in-btn" type="submit">
+        <button
+          className="w-full h-[40px] p-[10px] text-[#393a3a] bg-[#3AA2A2] mt-[10px] rounded-md text-lg text-center cursor-pointer font-bold flex items-center justify-center"
+          type="submit"
+        >
           Log In
         </button>
       </form>

@@ -20,9 +20,9 @@ export async function LogIn() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center py=[20px] px=[30px] mt-10 ">
-      <p className="animate-pulse text-lg mb-4">
-        Access restricted. Please log in to proceed
+    <div className="w-full h-full flex flex-col items-center justify-center py-[20px] px-[30px] mt-8 ">
+      <p className="animate-pulse shadow-lg text-[20px] mb-4 font-semibold text-[#949E9E] tracking-wide">
+        Access restricted. Please log in to proceed !
       </p>
       <UserAuthorization handleLogIn={handleLogIn} />
     </div>
