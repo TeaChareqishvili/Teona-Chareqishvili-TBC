@@ -12,7 +12,7 @@ const LogOutButton = ({ handleLogOut }) => {
   return (
     <div>
       <button
-        className=" border: 1px solid grey border-radius: 6px cursor: pointer;"
+        className="border-double border border-[#70cbcb] rounded-md cursor: pointer bg-green font-lg text-[#70cbcb] py-[7px] px-[15px]"
         onClick={handleClick}
       >
         Log Out

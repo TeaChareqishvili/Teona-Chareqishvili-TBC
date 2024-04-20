@@ -22,7 +22,7 @@ const UserAuthorization = ({ handleLogIn }) => {
         <FaCircleUser className="w-[60px] h-[60px] m-[15px] text-[#3AA2A2]" />
         <label className="flex flex-col items-center">
           <input
-            className="log-in-input"
+            className=" w-[250px]  py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
             type="text"
             placeholder="User name..."
             value={userName}
@@ -33,7 +33,7 @@ const UserAuthorization = ({ handleLogIn }) => {
         <label className="flex flex-col items-center">
           <input
             type="password"
-            className="log-in-input"
+            className="w-[250px] py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
             placeholder="Password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}

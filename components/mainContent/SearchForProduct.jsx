@@ -83,18 +83,21 @@ const SearchForProduct = ({
         )}
       </div>
 
-      <div className="search">
-        <label className="search-label">
+      <div className="flex items-center">
+        <label className="flex items-center relative">
           <input
-            className="search-input"
+            className="w-[200px] p-[10px] outline-none text-[#3AA2A2] font-lg search-input rounded-tl-lg rounded-bl-lg"
             type="search"
             placeholder="Search Category"
             value={search}
             onChange={handleChange}
           />
-          <ImSearch className="search-icon" />
+          <ImSearch className="absolute top-4 right-2 text-[#3AA2A2]" />
         </label>
-        <button className="search-btn" onClick={handleSort}>
+        <button
+          className="bg-[#3AA2A2] h-[44px] w-[130px] p-[7px] cursor-pointer text-white font-lg rounded-tr-lg rounded-br-lg"
+          onClick={handleSort}
+        >
           {isSorted ? "Reset" : "Sort"}
         </button>
       </div>

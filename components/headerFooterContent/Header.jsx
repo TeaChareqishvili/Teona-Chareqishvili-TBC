@@ -2,7 +2,7 @@
 import Image from "next/image";
 // import { GiHamburgerMenu } from "react-icons/gi";
 import { Navigation } from "../headerFooterContent/Navigation";
-import logo from "../../public/assets/image/logo.webp";
+import logo from "../../public/assets/image/footerLogo.webp";
 // import { MobileMenu } from "../headerFooterContent/MobileMenu";
 // import { useState } from "react";
 import { HeaderIcon } from "../headerFooterContent/HeaderIcon";
@@ -20,7 +20,7 @@ async function Header() {
   };
 
   return (
-    <header className="w-full bg-white py-4 px-0 border-b border-gray-700">
+    <header className="w-full bg-[#111827] py-4 px-0 border-b border-[#939898]">
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
@@ -34,7 +34,7 @@ async function Header() {
         <div className="hidden lg:block">
           <Navigation marginLeft="30px" display="flex" />
         </div>
-        <HeaderIcon marginRight="20px" alignItmes="center" />
+        {/* <HeaderIcon marginRight="20px" alignItmes="center" /> */}
         <LogOutButton handleLogOut={handleLogOut} />
       </div>
       {/* {open && <MobileMenu setOpen={setOpen} />} */}

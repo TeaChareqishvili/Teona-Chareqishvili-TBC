@@ -1,16 +1,7 @@
 import { TiSocialFacebook } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTwitter } from "react-icons/fa";
-import bag from "../public/assets/image/productImg/bag.webp";
-import jeans2 from "../public/assets/image/productImg/jeans2.webp";
-import watch from "../public/assets/image/productImg/watch.webp";
-import watch2 from "../public/assets/image/productImg/watch2.webp";
-import bag2 from "../public/assets/image/productImg/bag2.webp";
-import bag3 from "../public/assets/image/productImg/bag3.webp";
-import shoes from "../public/assets/image/productImg/shoes.webp";
-import tShirt from "../public/assets/image/productImg/T-shirt.webp";
-import tShirt2 from "../public/assets/image/productImg/T-shirt2.webp";
-import jeans from "../public/assets/image/productImg/jeans.webp";
+
 import { CiSearch } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
@@ -54,14 +45,7 @@ const navList = [
     id: 1,
     title: "Home",
   },
-  {
-    id: 2,
-    title: "Men",
-  },
-  {
-    id: 3,
-    title: "Women",
-  },
+
   {
     id: 4,
     title: "Blog",
@@ -72,149 +56,26 @@ const navList = [
   },
 ];
 
-const productData = [
-  {
-    id: 1,
-    imgUrl: bag,
-    title: "Bag",
-    description: "Lorem ipsum dolor sit amet",
-    price: "79$",
-    type: "New",
-    category: "bag",
-  },
-  {
-    id: 2,
-    imgUrl: jeans2,
-    title: "Jeans",
-    description: "Lorem ipsum dolor sit amet",
-    price: "154$",
-    type: "Sale",
-    category: "jeans",
-  },
-  {
-    id: 3,
-    imgUrl: watch,
-    title: "Watch",
-    description: "Lorem ipsum dolor sit amet",
-    price: "454$",
-    type: "new",
-    category: "watch",
-  },
-  {
-    id: 4,
-    imgUrl: watch2,
-    title: "Watch",
-    description: "Lorem ipsum dolor sit amet",
-    price: "354$",
-    type: "New",
-    category: "watch",
-  },
-  {
-    id: 5,
-    imgUrl: bag2,
-    title: "Bag",
-    description: "Lorem ipsum dolor sit amet",
-    price: "65$",
-    type: "New",
-    category: "bag",
-  },
-  {
-    id: 6,
-    imgUrl: tShirt,
-    title: "Tshirt",
-    description: "Lorem ipsum dolor sit amet",
-    price: "57$",
-    type: "New",
-    category: "t-shirt",
-  },
-  {
-    id: 7,
-    imgUrl: bag3,
-    title: "Bag",
-    description: "Lorem ipsum dolor sit amet",
-    price: "80$",
-    type: "Sale",
-    category: "bag",
-  },
-  {
-    id: 8,
-    imgUrl: shoes,
-    title: "Shoes",
-    description: "Lorem ipsum dolor sit amet",
-    price: "134$",
-    type: "New",
-    category: "shoes",
-  },
-  {
-    id: 9,
-    imgUrl: jeans,
-    title: "Jeans",
-    description: "Lorem ipsum dolor sit amet",
-    price: "99$",
-    type: "Sale",
-    category: "jeans",
-  },
-  {
-    id: 10,
-    imgUrl: tShirt2,
-    title: "Tshirt",
-    description: "Lorem ipsum dolor sit amet",
-    price: "78$",
-    type: "Sale",
-    category: "t-shirt",
-  },
-  {
-    id: 11,
-    imgUrl: jeans,
-    title: "Jeans",
-    description: "Lorem ipsum dolor sit amet",
-    price: "104$",
-    type: "Sale",
-    category: "jeans",
-  },
-  {
-    id: 12,
-    imgUrl: shoes,
-    title: "Shoes",
-    description: "Lorem ipsum dolor sit amet",
-    price: "60$",
-    type: "New",
-    category: "shoes",
-  },
-  {
-    id: 13,
-    imgUrl: tShirt,
-    title: "Tshirt",
-    description: "Lorem ipsum dolor sit amet",
-    price: "95$",
-    type: "New",
-    category: "t-shirt",
-  },
-  {
-    id: 14,
-    imgUrl: bag3,
-    title: "Bag",
-    description: "Lorem ipsum dolor sit amet",
-    price: "147$",
-    type: "Sale",
-    category: "bag",
-  },
-];
-
 const iconData = [
   {
     id: 1,
-    icon: <CiSearch className="user-icon" />,
+    icon: (
+      <CiSearch className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#ff1f1f]" />
+    ),
     title: "search",
   },
   {
     id: 2,
-    icon: <BsPerson className="user-icon" />,
+    icon: (
+      <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#ff1f1f]" />
+    ),
     title: "logIn",
   },
   {
     id: 3,
-    icon: <IoCartOutline className="user-icon" />,
+    icon: (
+      <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#ff1f1f]" />
+    ),
     title: "cart",
   },
 ];
@@ -410,6 +271,6 @@ const inputFields = [
 export { inputFields };
 export { blogData };
 export { iconData };
-export { productData };
+
 export { socilaLinkData };
 export { navList };
