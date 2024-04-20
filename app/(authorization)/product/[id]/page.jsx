@@ -1,33 +1,28 @@
-"use client";
-import { useEffect, useState } from "react";
+"use server";
+
 import Image from "next/image";
-import { Loading } from "../../../../components/Loading";
 
-const ProductDetails = ({ params: { id } }) => {
-  const [productDetail, setProductDetail] = useState({});
-  const [loading, setLoading] = useState(true);
+// function to generate static product data
+export async function generateStaticParams() {
+  const response = await fetch("https://dummyjson.com/products");
+  const products = await response.json();
 
-  useEffect(() => {
-    // fetches single item from products
-    async function getSingleItem() {
-      try {
-        const res = await fetch(`https://dummyjson.com/products/${id}`);
-        const data = await res.json();
-        setProductDetail(data);
-      } catch (err) {
-        setError("Failed to fetch product details.");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    getSingleItem();
-  }, [id]);
+  const paths = products.products.map((post) => ({
+    params: { id: post.id },
+  }));
 
-  //if there is no data loader is rendered
-  if (loading) return <Loading />;
+  return paths;
+}
 
-  console.log(productDetail);
+// function to fetch single product data
+async function fetchProducts(id) {
+  const response = await fetch(`https://dummyjson.com/products/${id}`);
+  const productDetail = await response.json();
+  return productDetail;
+}
+
+export default async function ProductDetails({ params }) {
+  const productDetail = await fetchProducts(params.id);
 
   return (
     <div className="single-product-wrapper">
@@ -72,6 +67,4 @@ const ProductDetails = ({ params: { id } }) => {
       </div>
     </div>
   );
-};
-
-export default ProductDetails;
+}

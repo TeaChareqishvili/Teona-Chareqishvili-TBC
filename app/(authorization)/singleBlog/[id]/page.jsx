@@ -9,7 +9,7 @@ export async function generateStaticParams() {
   const blog = await response.json();
 
   const paths = blog.posts.map((post) => ({
-    params: { id: post.id.toString() },
+    params: { id: post.id },
   }));
 
   return paths;
