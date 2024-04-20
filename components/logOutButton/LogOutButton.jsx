@@ -6,6 +6,7 @@ const LogOutButton = ({ handleLogOut }) => {
   // function for redirecting user to log in page
   const handleClick = () => {
     handleLogOut();
+    localStorage.removeItem("theme");
     router.push("/logIn");
   };
 

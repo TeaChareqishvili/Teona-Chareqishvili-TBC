@@ -9,6 +9,7 @@ import { HeaderIcon } from "../headerFooterContent/HeaderIcon";
 import Link from "next/link";
 import { logout } from "../../app/actions";
 import { LogOutButton } from "../logOutButton/LogOutButton";
+import ThemeMode from "./ThemeMode";
 
 async function Header() {
   // const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ async function Header() {
   };
 
   return (
-    <header className="w-full bg-[#111827] py-4 px-0 border-b border-[#939898]">
+    <header className="w-full bg-[#111827] py-4 px-0 border-b border-[#939898] dark:bg-yellow-400">
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
@@ -36,7 +37,9 @@ async function Header() {
         </div>
         {/* <HeaderIcon marginRight="20px" alignItmes="center" /> */}
         <LogOutButton handleLogOut={handleLogOut} />
+        <ThemeMode />
       </div>
+
       {/* {open && <MobileMenu setOpen={setOpen} />} */}
     </header>
   );

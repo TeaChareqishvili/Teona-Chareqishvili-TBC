@@ -17,7 +17,7 @@ const UserAuthorization = ({ handleLogIn }) => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="py-[40px] px-[20px] border-2 border-[#939898] bg-[#979f9f] bg-opacity-5 flex items-center flex-col rounded-md"
+        className="py-[40px] px-[20px] border-2 border-[#0C1B31] dark:border-[#939898] bg-[#979f9f] bg-opacity-5 flex items-center flex-col rounded-md"
       >
         <FaCircleUser className="w-[60px] h-[60px] m-[15px] text-[#3AA2A2]" />
         <label className="flex flex-col items-center">
