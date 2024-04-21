@@ -2,8 +2,8 @@
 // import { cookies } from "next/headers";
 // import { AUTH_COOKIE_KEY } from "../contants";
 // import { redirect } from "next/navigation";
-import { UserAuthorization } from "../components/userLogIn/UserAuthorization";
-import { Userlogin } from "../../actions";
+import { UserAuthorization } from "../../components/userLogIn/UserAuthorization";
+import { Userlogin } from "../actions";
 
 export async function LogIn() {
   // const cookieStore = cookies();

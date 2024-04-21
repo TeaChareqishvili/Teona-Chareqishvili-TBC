@@ -10,7 +10,9 @@ const UserAuthorization = ({ handleLogIn }) => {
   // preventind default submisison and setting input values
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogIn(userName, password);
+    handleLogIn(userName, password).then(() => {
+      window.location.reload();
+    });
   };
 
   return (

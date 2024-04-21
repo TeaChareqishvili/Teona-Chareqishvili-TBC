@@ -1,7 +1,7 @@
 "use client";
 
 import { SocialLinks } from "./SocialLinks";
-import logo from "../../../../public/assets/image/footerLogo.webp";
+// import logo from "../../../../public/assets/image/footerLogo.webp";
 import { Navigation } from "./Navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -38,7 +38,7 @@ const Footer = () => {
         {" "}
         <Link href="/">
           {" "}
-          <Image className="md:mb-5 lg:mb-0" src={logo} alt="logo" />
+          {/* <Image className="md:mb-5 lg:mb-0" src={logo} alt="logo" /> */}
         </Link>
         <Navigation
           color="#FFFFFF"
