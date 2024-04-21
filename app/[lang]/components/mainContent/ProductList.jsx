@@ -1,7 +1,7 @@
 // "use client";
 // import { useState, useEffect } from "react";
 import { ProductItems } from "./ProductItems";
-import { Loading } from "../../components/Loading";
+import { Loading } from "../Loading";
 
 const ProductList = ({ filteredProducts, productItems, loaded }) => {
   const productsToRender =

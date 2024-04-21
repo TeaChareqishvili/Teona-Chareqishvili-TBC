@@ -1,8 +1,8 @@
 "use client";
 
-import { SocialLinks } from "../headerFooterContent/SocialLinks";
-import logo from "../../public/assets/image/footerLogo.webp";
-import { Navigation } from "../headerFooterContent/Navigation";
+import { SocialLinks } from "./SocialLinks";
+import logo from "../../../../public/assets/image/footerLogo.webp";
+import { Navigation } from "./Navigation";
 import Link from "next/link";
 import Image from "next/image";
 

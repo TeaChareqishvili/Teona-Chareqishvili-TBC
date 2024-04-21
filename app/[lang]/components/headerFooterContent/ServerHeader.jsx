@@ -1,6 +1,6 @@
 "use server";
-import { logout } from "../../app/actions";
-import { AUTH_COOKIE_KEY } from "../../app/contants";
+import { logout } from "../../../actions";
+import { AUTH_COOKIE_KEY } from "../../../contants";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
