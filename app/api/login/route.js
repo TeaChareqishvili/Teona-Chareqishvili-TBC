@@ -1,7 +1,8 @@
 import { AUTH_COOKIE_KEY } from "../../contants";
 import { cookies } from "next/headers";
 
-export async function Userlogin(username, password) {
+export async function POST(request) {
+  const { username, password } = await request.json();
   const response = await fetch("https://dummyjson.com/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -17,4 +18,6 @@ export async function Userlogin(username, password) {
   cookieStore.set(AUTH_COOKIE_KEY, JSON.stringify(user.token));
   console.log(user, "resyy");
   console.log(user.token);
+
+  return Response.json({ username, password });
 }

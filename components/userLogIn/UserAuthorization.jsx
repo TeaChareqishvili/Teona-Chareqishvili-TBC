@@ -2,16 +2,20 @@
 
 import { FaCircleUser } from "react-icons/fa6";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { handlerLoginUser } from "../../handler/userLogin";
 
-const UserAuthorization = ({ handleLogIn }) => {
+const UserAuthorization = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  // preventind default submisison and setting input values
+  const router = useRouter();
+
+  // prevent default submisison and setting input values redirecting into main page
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogIn(userName, password).then(() => {
-      window.location.reload();
+    handlerLoginUser(userName, password).then(() => {
+      router.push("/");
     });
   };
 

@@ -23,7 +23,7 @@ export async function LogIn() {
       <p className="animate-pulse  text-[20px] mb-4 font-semibold text-[#0C1B31] dark:text-[#949E9E]  tracking-wide">
         Access restricted. Please log in to proceed !
       </p>
-      <UserAuthorization handleLogIn={handleLogIn} />
+      <UserAuthorization />
     </div>
   );
 }
