@@ -1,11 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
-const LogOutButton = ({ handleLogOut }) => {
+const LogOutButton = () => {
   const router = useRouter();
 
   // function for redirecting user to log in page
   const handleClick = () => {
-    handleLogOut();
+    // handleLogOut();
     localStorage.removeItem("theme");
     router.push("/logIn");
   };

@@ -15,7 +15,6 @@ export function middleware(request) {
   if (cookie?.value && pathname.startsWith("/logIn")) {
     return NextResponse.redirect(new URL("/", request.url));
   }
-  // return NextResponse.next();
 }
 
 export const config = {

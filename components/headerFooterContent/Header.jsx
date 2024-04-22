@@ -7,7 +7,7 @@ import { Navigation } from "./Navigation";
 // import { useState } from "react";
 import { HeaderIcon } from "./HeaderIcon";
 import Link from "next/link";
-import { logout } from "../../app/actions";
+// import { logout } from "../../app/actions";
 import { LogOutButton } from "../logOutButton/LogOutButton";
 import ThemeMode from "./ThemeMode";
 
@@ -15,10 +15,10 @@ async function Header() {
   // const [open, setOpen] = useState(false);
 
   //function for user log out
-  const handleLogOut = async () => {
-    "use server";
-    await logout();
-  };
+  // const handleLogOut = async () => {
+  //   "use server";
+  //   await logout();
+  // };
 
   return (
     <header className="w-full bg-[#BECADA] py-4 px-0 border-b border-[#939898] dark:bg-[#111827]">
@@ -33,7 +33,7 @@ async function Header() {
           <Navigation marginLeft="30px" display="flex" />
         </div>
         {/* <HeaderIcon marginRight="20px" alignItmes="center" /> */}
-        <LogOutButton handleLogOut={handleLogOut} />
+        <LogOutButton />
         <ThemeMode />
       </div>
 
