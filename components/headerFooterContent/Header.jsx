@@ -1,10 +1,10 @@
-"use server";
+"use client";
 import Image from "next/image";
-// import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Navigation } from "./Navigation";
-// import logo from "../../../../public/assets/image/footerLogo.webp";
-// import { MobileMenu } from "../headerFooterContent/MobileMenu";
-// import { useState } from "react";
+import logo from "../../public/assets/image/next.webp";
+import { MobileMenu } from "../headerFooterContent/MobileMenu";
+import { useState } from "react";
 import { HeaderIcon } from "./HeaderIcon";
 import Link from "next/link";
 // import { logout } from "../../app/actions";
@@ -12,7 +12,7 @@ import { LogOutButton } from "../logOutButton/LogOutButton";
 import ThemeMode from "./ThemeMode";
 
 async function Header() {
-  // const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   //function for user log out
   // const handleLogOut = async () => {
@@ -21,23 +21,26 @@ async function Header() {
   // };
 
   return (
-    <header className="w-full bg-[#BECADA] py-4 px-0 border-b border-[#939898] dark:bg-[#111827]">
+    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#111827] dark:border-[#ffffff] transition-colors duration-300">
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
-        <Link href="/"> {/* <Image src={logo} alt="logo" /> */}</Link>
-        {/* <GiHamburgerMenu
+        <Link href="/">
+          {" "}
+          <Image className="w-[50px] h-[50px]" src={logo} alt="logo" />
+        </Link>
+        <GiHamburgerMenu
           className="w-7 h-7 text-red-600 cursor-pointer lg:hidden"
           onClick={() => setOpen(true)}
-        /> */}
+        />
         <div className="hidden lg:block">
           <Navigation marginLeft="30px" display="flex" />
         </div>
-        {/* <HeaderIcon marginRight="20px" alignItmes="center" /> */}
+        <HeaderIcon marginRight="20px" alignItmes="center" />
         <LogOutButton />
         <ThemeMode />
       </div>
 
-      {/* {open && <MobileMenu setOpen={setOpen} />} */}
+      {open && <MobileMenu setOpen={setOpen} />}
     </header>
   );
 }

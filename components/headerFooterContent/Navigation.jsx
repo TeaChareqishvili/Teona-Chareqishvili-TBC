@@ -23,7 +23,7 @@ const Navigation = ({
         >
           <Link
             href={item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`}
-            className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#939898] font-bold uppercase cursor-pointer transition duration-500 transform hover:text-[#70cbcb] hover:scale-105"
+            className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#70cbcb] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#70cbcb]"
             style={{
               marginBottom: marginBottom,
               marginLeft: marginLeft,
