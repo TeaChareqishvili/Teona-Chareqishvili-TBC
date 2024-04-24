@@ -7,21 +7,15 @@ import { MobileMenu } from "../headerFooterContent/MobileMenu";
 import { useState } from "react";
 import { HeaderIcon } from "./HeaderIcon";
 import Link from "next/link";
-// import { logout } from "../../app/actions";
 import { LogOutButton } from "../logOutButton/LogOutButton";
 import ThemeMode from "./ThemeMode";
+import { LangButton } from "./LangButton";
 
-async function Header() {
+export default function Header() {
   const [open, setOpen] = useState(false);
 
-  //function for user log out
-  // const handleLogOut = async () => {
-  //   "use server";
-  //   await logout();
-  // };
-
   return (
-    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#111827] dark:border-[#ffffff] transition-colors duration-300">
+    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#111827] dark:border-[#ffffff] transition-colors duration-300 fixed z-10">
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
@@ -37,6 +31,7 @@ async function Header() {
         </div>
         <HeaderIcon marginRight="20px" alignItmes="center" />
         <LogOutButton />
+        <LangButton />
         <ThemeMode />
       </div>
 
@@ -44,5 +39,3 @@ async function Header() {
     </header>
   );
 }
-
-export default Header;

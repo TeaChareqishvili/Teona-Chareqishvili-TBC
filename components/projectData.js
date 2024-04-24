@@ -24,22 +24,6 @@ const socilaLinkData = [
   },
 ];
 
-const navList = [
-  {
-    id: 1,
-    title: "Home",
-  },
-
-  {
-    id: 4,
-    title: "Blog",
-  },
-  {
-    id: 5,
-    title: "Contact",
-  },
-];
-
 const iconData = [
   {
     id: 1,
@@ -64,33 +48,6 @@ const iconData = [
   },
 ];
 
-const inputFields = [
-  { name: "name", type: "text", placeholder: "Name", required: true },
-  { name: "lastName", type: "text", placeholder: "Last Name", required: true },
-  { name: "email", type: "email", placeholder: "Email", required: true },
-  {
-    name: "password",
-    type: "password",
-    placeholder: "Write Password",
-    pattern: "(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
-    title:
-      "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
-    required: true,
-  },
-  {
-    name: "confirmPassword",
-    type: "password",
-    placeholder: "Confirm Password",
-    pattern: "(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
-    title:
-      "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters",
-    required: true,
-  },
-];
-
-export { inputFields };
-
 export { iconData };
 
 export { socilaLinkData };
-export { navList };

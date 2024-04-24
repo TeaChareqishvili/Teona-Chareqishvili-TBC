@@ -3,7 +3,9 @@
 import { FaCircleUser } from "react-icons/fa6";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { handlerLoginUser } from "../../handler/userLogin";
+import { handlerLoginUser } from "../../something/userLogin";
+import { LangButton } from "../headerFooterContent/LangButton";
+import { useTranslation } from "react-i18next";
 
 const UserAuthorization = () => {
   const [userName, setUserName] = useState("");
@@ -18,9 +20,14 @@ const UserAuthorization = () => {
       router.push("/");
     });
   };
+  const { t } = useTranslation();
 
   return (
     <>
+      <LangButton marginBottom="20px" />
+      <p className="animate-pulse  text-[20px] mb-4 font-semibold text-[#0C1B31] dark:text-[#949E9E]  tracking-wide ">
+        {t("access")}
+      </p>
       <form
         onSubmit={handleSubmit}
         className="py-[40px] px-[20px] border-2 border-[#0C1B31] dark:border-[#939898] bg-[#979f9f] bg-opacity-5 flex items-center flex-col rounded-md"
@@ -30,7 +37,7 @@ const UserAuthorization = () => {
           <input
             className=" w-[250px]  py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
             type="text"
-            placeholder="User name..."
+            placeholder={t("userName")}
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             required
@@ -40,7 +47,7 @@ const UserAuthorization = () => {
           <input
             type="password"
             className="w-[250px] py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
-            placeholder="Password..."
+            placeholder={t("password")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -50,7 +57,7 @@ const UserAuthorization = () => {
           className="w-full h-[40px] p-[10px] text-[#393a3a] bg-[#3AA2A2] mt-[10px] rounded-md text-lg text-center cursor-pointer font-bold flex items-center justify-center"
           type="submit"
         >
-          Log In
+          {t("logIn")}
         </button>
       </form>
     </>

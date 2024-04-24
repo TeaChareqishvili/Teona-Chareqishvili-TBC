@@ -2,6 +2,7 @@
 
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 // debounce function which sets and clears timeout
 const debounce = (func, delay) => {
@@ -20,6 +21,8 @@ const SearchForProduct = ({
 }) => {
   const [search, setSearch] = useState("");
   const [isSorted, setIsSorted] = useState(false);
+
+  const { t } = useTranslation();
 
   // function get input value and calls new function with the new value
   const handleChange = (event) => {
@@ -78,7 +81,7 @@ const SearchForProduct = ({
         {" "}
         {filteredProducts.length > 0 && (
           <span className="item-number">
-            {filteredProducts.length} items are available in store
+            {filteredProducts.length} {t("available")}
           </span>
         )}
       </div>
@@ -88,7 +91,7 @@ const SearchForProduct = ({
           <input
             className="w-[200px] p-[10px] outline-none text-[#3AA2A2] font-lg search-input rounded-tl-lg rounded-bl-lg"
             type="search"
-            placeholder="Search Category"
+            placeholder={t("Search Category")}
             value={search}
             onChange={handleChange}
           />
@@ -98,7 +101,7 @@ const SearchForProduct = ({
           className="bg-[#3AA2A2] h-[44px] w-[130px] p-[7px] cursor-pointer text-white font-lg rounded-tr-lg rounded-br-lg"
           onClick={handleSort}
         >
-          {isSorted ? "Reset" : "Sort"}
+          {isSorted ? t("reset") : t("sort")}
         </button>
       </div>
     </div>
