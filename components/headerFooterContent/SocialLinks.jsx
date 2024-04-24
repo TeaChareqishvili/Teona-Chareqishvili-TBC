@@ -1,14 +1,16 @@
 import { socilaLinkData } from "../projectData";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const SocialLinks = ({ justifyContent, marginRight = "10px" }) => {
+  const { t } = useTranslation();
   return (
     <div>
       <p
         className="text-base text-white mb-3"
         style={{ fontFamily: "tbc-helvetica-light" }}
       >
-        Find Us
+        {t("findUs")}
       </p>
       <div
         className="flex items-center"

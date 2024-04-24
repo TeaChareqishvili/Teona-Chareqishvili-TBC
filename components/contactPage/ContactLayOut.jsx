@@ -1,6 +1,6 @@
-import { ContactForm } from "../../components/contactPage/ContactForm";
-import { ContactInformation } from "../../components/contactPage/ContactInformation";
-import { ContactMap } from "../../components/contactPage/ContactMap";
+import { ContactForm } from "./ContactForm";
+import { ContactInformation } from "./ContactInformation";
+import { ContactMap } from "./ContactMap";
 
 const ContactLayout = () => {
   return (

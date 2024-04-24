@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
+import { Providers } from "./providers";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -10,11 +9,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {/* <main className="w-full  sm:px-16 sm:py-12 flex-1 mx-auto"> */}
-        {children}
-        {/* </main> */}
+    <html lang="en" suppressHydrationWarning>
+      <body className="w-full h-full bg-[#ffffff] dark:bg-[#0C1B31] flex item-center justify-center transition-colors duration-300">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
