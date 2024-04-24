@@ -8,7 +8,7 @@ export async function generateStaticParams() {
   const products = await response.json();
 
   const paths = products.products.map((post) => ({
-    params: { id: post.id },
+    params: { id: `${post.id}` },
   }));
 
   return paths;
