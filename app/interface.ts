@@ -41,3 +41,23 @@ export interface Props {
   filteredProducts: FilteredProducts;
   productItems: FetchedProducts;
 }
+
+export interface Blog {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+  tags: string[];
+  reactions: number;
+  params: { id: string };
+}
+
+export interface PaginatedResponse extends Blog {
+  total: number;
+  skip: number;
+  limit: number;
+}
+
+export interface FetchedBlog {
+  posts: PaginatedResponse[];
+}
