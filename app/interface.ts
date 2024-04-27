@@ -24,7 +24,9 @@ export interface ProductTypes {
   stock: number;
   thumbnail: string;
   title: string;
+  params: { id: string };
 }
+
 export interface ProductProps extends ProductTypes {
   imgUrl: string;
   discount: string;
