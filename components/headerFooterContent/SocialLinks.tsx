@@ -1,8 +1,12 @@
 import { socilaLinkData } from "../projectData";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { SocialLinksProps } from "@/app/interface";
 
-const SocialLinks = ({ justifyContent, marginRight = "10px" }) => {
+const SocialLinks = ({
+  justifyContent,
+  marginRight = "10px",
+}: SocialLinksProps) => {
   const { t } = useTranslation();
   return (
     <div>

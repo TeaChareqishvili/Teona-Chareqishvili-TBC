@@ -1,8 +1,9 @@
 import i18n from "../../app/i18n";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { NavigationProps } from "@/app/interface";
 
-const LangButton = ({ marginBottom }) => {
+const LangButton = ({ marginBottom }: NavigationProps) => {
   const { t, i18n: translation } = useTranslation();
   const currentLanguage = translation.language;
   const [lang, setLang] = useState(localStorage.getItem("language") || "en");
@@ -30,3 +31,5 @@ const LangButton = ({ marginBottom }) => {
 };
 
 export { LangButton };
+
+// TODO fix this shit too

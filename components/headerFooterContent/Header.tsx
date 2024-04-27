@@ -29,7 +29,7 @@ export default function Header() {
         <div className="hidden lg:block">
           <Navigation marginLeft="30px" display="flex" />
         </div>
-        <HeaderIcon marginRight="20px" alignItmes="center" />
+        <HeaderIcon marginRight="20px" alingItems="center" />
         <LogOutButton />
         <LangButton />
         <ThemeMode />
@@ -39,3 +39,5 @@ export default function Header() {
     </header>
   );
 }
+
+// TODO fix this shit too

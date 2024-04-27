@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import { NavigationProps } from "../../app/interface";
 
-const Navigation = ({
+const Navigation: React.FC<NavigationProps> = ({
   flexDirection,
   alingItems,
   marginBottom,
@@ -10,7 +11,7 @@ const Navigation = ({
   color,
   fontSize,
 }) => {
-  const { t, i18n: translation } = useTranslation();
+  const { t } = useTranslation();
   return (
     <nav style={{ display: display }}>
       <ul
@@ -74,3 +75,5 @@ const Navigation = ({
 };
 
 export { Navigation };
+
+// TODO fix this shit
