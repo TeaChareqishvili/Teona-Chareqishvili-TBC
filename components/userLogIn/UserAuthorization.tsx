@@ -3,7 +3,7 @@
 import { FaCircleUser } from "react-icons/fa6";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { handlerLoginUser } from "../../something/userLogin";
+import { handlerLoginUser } from "../../helper/userLogin";
 import { LangButton } from "../headerFooterContent/LangButton";
 import { useTranslation } from "react-i18next";
 
@@ -14,7 +14,7 @@ const UserAuthorization = () => {
   const router = useRouter();
 
   // prevent default submisison and setting input values redirecting into main page
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handlerLoginUser(userName, password).then(() => {
       router.push("/");

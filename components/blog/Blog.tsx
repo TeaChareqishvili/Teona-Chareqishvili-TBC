@@ -1,9 +1,8 @@
-import { blogData } from "../projectData";
-import Image from "next/image";
+// import Image from "next/image";
 const Blog = () => {
   return (
     <div className="flex items-center justify-center flex-col md:flex-row md:flex-wrap p-4">
-      {blogData.map((item) => (
+      {/* {blogData.map((item) => (
         <div
           key={item.id}
           className="mx-auto my-8 w-full self-center md:w-auto"
@@ -23,7 +22,7 @@ const Blog = () => {
             <button>Read More</button>
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

@@ -2,11 +2,12 @@
 import Image from "next/image";
 import blogImage from "../../../public/assets/image/blogImages/blog3.webp";
 import Link from "next/link";
+import { FetchedBlog } from "../../interface";
 
 // function to fetch blogs
 async function getBlog() {
   const response = await fetch("https://dummyjson.com/posts");
-  const blogs = await response.json();
+  const blogs: FetchedBlog = await response.json();
   return blogs.posts;
 }
 export default async function Blog() {
@@ -25,14 +26,12 @@ export default async function Blog() {
               className="w-full h-auto object-cover transition duration-400 transform hover:scale-125"
               src={blogImage}
               alt={item.title}
-              width="auto"
-              height="auto"
+              width="300"
+              height="300"
             />
           </div>
           <div className="blog-content">
             <h2>{item.title}</h2>
-            <p>{item.description}</p>
-            <span>{item.date}</span>
             <Link href={`/singleBlog/${item.id}`}>
               {" "}
               <button>Read More</button>

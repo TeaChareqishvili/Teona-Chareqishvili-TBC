@@ -1,14 +1,11 @@
-// "use client";
-// import { useState, useEffect } from "react";
 import { ProductItems } from "./ProductItems";
-import { Loading } from "../Loading";
+// import { Check } from "../../app/interface";
 
-const ProductList = ({ filteredProducts, productItems, loaded }) => {
-  const productsToRender =
-    filteredProducts.length > 0 ? filteredProducts : productItems;
-
-  if (loaded) return <Loading />;
-
+const ProductList = ({ filteredProducts, productItems }) => {
+  // const productsToRender =
+  //   filteredProducts.length > 0 ? filteredProducts : productItems;
+  const productsToRender = filteredProducts?.filteredProducts ?? productItems;
+  // console.log(productsToRender, "render");
   return (
     <>
       {productsToRender.map((item) => (
@@ -17,7 +14,7 @@ const ProductList = ({ filteredProducts, productItems, loaded }) => {
           title={item.title}
           brand={item.brand}
           category={item.category}
-          discount={item.discountPercentage}
+          discountPercentage={item.discountPercentage}
           price={item.price}
           rating={item.rating}
           imgUrl={item.images[0]}
@@ -30,3 +27,5 @@ const ProductList = ({ filteredProducts, productItems, loaded }) => {
 };
 
 export { ProductList };
+
+// TODO fix this shit

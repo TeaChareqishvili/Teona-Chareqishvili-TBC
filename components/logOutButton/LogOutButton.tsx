@@ -1,7 +1,7 @@
 "use client";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
-import { handleLogout } from "../../something/userLogOut";
+import { handleLogout } from "../../helper/userLogOut";
 
 const LogOutButton = () => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const LogOutButton = () => {
     router.push("/logIn");
   };
 
-  const { t, i18n: translation } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div>

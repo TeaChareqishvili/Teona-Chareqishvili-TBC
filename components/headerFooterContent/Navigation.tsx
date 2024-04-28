@@ -1,23 +1,24 @@
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import { NavigationProps } from "../../app/interface";
 
-const Navigation = ({
+const Navigation: React.FC<NavigationProps> = ({
   flexDirection,
-  alingItems,
+  alignItems,
   marginBottom,
   marginLeft,
   display,
   color,
   fontSize,
 }) => {
-  const { t, i18n: translation } = useTranslation();
+  const { t } = useTranslation();
   return (
     <nav style={{ display: display }}>
       <ul
         className="flex items-center"
         style={{
           flexDirection: flexDirection,
-          alignItems: alingItems,
+          alignItems: alignItems,
         }}
       >
         <Link

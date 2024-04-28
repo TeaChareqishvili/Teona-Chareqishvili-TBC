@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import { AUTH_COOKIE_KEY } from "./app/contants";
 import { cookies } from "next/headers";
+import { NextRequest } from "next/server";
 
-export function middleware(request) {
+export function middleware(request: NextRequest) {
   const cookieStore = cookies();
   const cookie = cookieStore.get(AUTH_COOKIE_KEY);
   const { pathname } = request.nextUrl;

@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+// import { ProductTypes } from "../../app/interface";
 
 const ProductItems = ({
   imgUrl,
   title,
   brand,
   category,
-  discount,
+  discountPercentage,
   price,
   rating,
   stock,
@@ -39,7 +40,7 @@ const ProductItems = ({
             {price}$
           </p>
           <p className="text-[#678E6C] text-base font-tbc-helvetica-bold">
-            {discount}%
+            {discountPercentage}%
           </p>
           <p className="product-description">{stock} left in stock</p>
           <Link href={`/product/${id}`}>view details</Link>

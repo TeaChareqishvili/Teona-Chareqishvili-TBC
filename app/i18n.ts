@@ -59,10 +59,10 @@ const resources = {
   },
 };
 
-const savedLanguage = localStorage.getItem("language") || "en";
+// const savedLanguage = localStorage.getItem("language") || "en";
 i18n.use(initReactI18next).init({
   resources,
-  lng: savedLanguage,
+  lng: "en",
   interpolation: {
     escapeValue: false,
   },
