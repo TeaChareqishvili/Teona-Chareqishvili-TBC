@@ -52,6 +52,11 @@ export interface ProductData {
   params: { id: string };
 }
 
+export interface Data {
+  productItems: ProductData[];
+  filteredProducts: ProductData[] | [];
+}
+
 export interface SearchForProductProps {
   filteredProducts: ProductData[];
   setFilteredProducts: Dispatch<SetStateAction<ProductTypes[]>>;
