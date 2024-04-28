@@ -58,31 +58,6 @@ export interface SearchForProductProps {
   setSorted: Dispatch<SetStateAction<boolean | ProductData[]>>;
   productItems: ProductTypes[];
 }
-// export interface ProductProps extends ProductTypes {
-//   imgUrl: string;
-//   discount: string;
-
-export interface FilteredProducts {
-  filteredProducts: ProductTypes[];
-}
-
-export interface Check {
-  productItems: ProductTypes[];
-  filteredProducts: FilteredProducts;
-}
-
-export interface FetchedProducts {
-  productItems: ProductTypes[];
-}
-
-// export interface FilteredProducts extends FetchedProducts {
-//   filteredProducts: [] | null;
-// }
-
-export interface Props {
-  filteredProducts: FilteredProducts[];
-  productItems: FetchedProducts[];
-}
 
 export interface Blog {
   id: number;

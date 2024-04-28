@@ -3,12 +3,11 @@
 import { SearchForProduct } from "./SearchForProduct";
 import { ProductItemContainer } from "./ProductItemContainer";
 import { useState, useEffect } from "react";
-// import { ProductTypes, FilteredProducts } from "@/app/interface";
 
 const MainContent = () => {
   const [productItems, setProductItems] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [sorted, setSorted] = useState([...productItems]);
+  const [filteredProducts, setFilteredProducts] = useState<any>([]);
+  const [sorted, setSorted] = useState<any>([...productItems]);
 
   // fetches all products and sets loader to false
   useEffect(() => {
