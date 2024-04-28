@@ -1,4 +1,4 @@
-export async function handlerLoginUser(username, password) {
+export async function handlerLoginUser(username: string, password: string) {
   try {
     const response = await fetch("http://localhost:3001/api/login", {
       method: "POST",

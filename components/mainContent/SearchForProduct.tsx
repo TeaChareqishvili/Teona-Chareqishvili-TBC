@@ -3,17 +3,24 @@
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { SearchForProductProps } from "../../app/interface";
 
 // debounce function which sets and clears timeout
-const debounce = (func, delay) => {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), delay);
+
+type FunctionType = (...args: any[]) => any;
+
+const debounce = (func: FunctionType, delay: number): FunctionType => {
+  let timeout: ReturnType<typeof setTimeout> | null = null;
+
+  return function (this: any, ...args: any[]) {
+    clearTimeout(timeout as ReturnType<typeof setTimeout>);
+    timeout = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
   };
 };
 
-const SearchForProduct = ({
+const SearchForProduct: React.FC<SearchForProductProps> = ({
   filteredProducts,
   setFilteredProducts,
   setSorted,
@@ -25,7 +32,7 @@ const SearchForProduct = ({
   const { t } = useTranslation();
 
   // function get input value and calls new function with the new value
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearch(value);
     debouncedFilterProducts(value);
@@ -39,10 +46,13 @@ const SearchForProduct = ({
   }, 300);
 
   // function to filter the data form productData
-  const filterProducts = (value) => {
+  const filterProducts = (value: string | number) => {
     if (value !== "") {
+      // Convert value to a string if it's not already one
+      const stringValue = value.toString().toLowerCase();
+
       const filtered = productItems.filter((product) =>
-        product.category.toLowerCase().includes(value.toLowerCase())
+        product.category.toLowerCase().includes(stringValue)
       );
       setFilteredProducts(filtered);
     } else {
@@ -55,7 +65,7 @@ const SearchForProduct = ({
     setIsSorted(!isSorted);
     if (filteredProducts.length > 0) {
       const sortedProducts = [...filteredProducts].sort(
-        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+        (a, b) => a.price - b.price
       );
       if (isSorted) {
         setFilteredProducts([]);
@@ -65,7 +75,7 @@ const SearchForProduct = ({
       }
     } else {
       const sortedProducts = [...productItems].sort(
-        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+        (a, b) => a.price - b.price
       );
       if (isSorted) {
         setSorted(productItems);
@@ -91,7 +101,7 @@ const SearchForProduct = ({
           <input
             className="w-[200px] p-[10px] outline-none text-[#3AA2A2] font-lg search-input rounded-tl-lg rounded-bl-lg"
             type="search"
-            placeholder={t("Search Category")}
+            placeholder={t("searchCategory")}
             value={search}
             onChange={handleChange}
           />
@@ -109,5 +119,3 @@ const SearchForProduct = ({
 };
 
 export { SearchForProduct };
-
-// TODO fix this shit

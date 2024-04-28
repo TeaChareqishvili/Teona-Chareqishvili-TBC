@@ -2,11 +2,11 @@ import { NavigationProps } from "@/app/interface";
 import { iconData } from "../projectData";
 import Link from "next/link";
 
-const HeaderIcon = ({ alingItems }: NavigationProps) => {
+const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
   return (
-    <div style={{ alignItems: alingItems }} className="hidden lg:flex">
+    <div style={{ alignItems: alignItems }} className="hidden lg:flex">
       {iconData.map((item) => (
-        <div key={item.id} style={{ display: "flex", alingItems: "center" }}>
+        <div key={item.id} style={{ display: "flex", alignItems: "center" }}>
           <Link href="#">{item.icon}</Link>
         </div>
       ))}
@@ -15,5 +15,3 @@ const HeaderIcon = ({ alingItems }: NavigationProps) => {
 };
 
 export { HeaderIcon };
-
-//TOD fix this shit

@@ -3,8 +3,9 @@
 import { ThemeProvider } from "next-themes";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
+import { RootLayoutProps } from "./interface";
 
-export function Providers({ children }) {
+const Providers: React.FC<RootLayoutProps> = ({ children }) => {
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -16,4 +17,5 @@ export function Providers({ children }) {
       {children}
     </ThemeProvider>
   );
-}
+};
+export default Providers;

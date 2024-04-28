@@ -1,7 +1,8 @@
 import { AUTH_COOKIE_KEY } from "../../contants";
 import { cookies } from "next/headers";
+import { NextRequest } from "next/server";
 
-export async function POST(request) {
+export async function POST(request: NextRequest) {
   const { username, password } = await request.json();
   const response = await fetch("https://dummyjson.com/auth/login", {
     method: "POST",
@@ -16,8 +17,6 @@ export async function POST(request) {
   const user = await response.json();
 
   cookieStore.set(AUTH_COOKIE_KEY, JSON.stringify(user.token));
-  console.log(user, "resyy");
-  console.log(user.token);
 
   return Response.json({ username, password });
 }

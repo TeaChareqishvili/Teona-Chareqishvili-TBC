@@ -1,12 +1,11 @@
 import { ProductItems } from "./ProductItems";
-import { Props } from "../../app/interface";
+// import { Check } from "../../app/interface";
 
-const ProductList = ({ filteredProducts, productItems }: Props) => {
-  const productsToRender =
-    filteredProducts.length > 0 ? filteredProducts : productItems;
-
-  console.log(filteredProducts, "3");
-  console.log(productsToRender, "4");
+const ProductList = ({ filteredProducts, productItems }) => {
+  // const productsToRender =
+  //   filteredProducts.length > 0 ? filteredProducts : productItems;
+  const productsToRender = filteredProducts?.filteredProducts ?? productItems;
+  // console.log(productsToRender, "render");
   return (
     <>
       {productsToRender.map((item) => (
@@ -15,7 +14,7 @@ const ProductList = ({ filteredProducts, productItems }: Props) => {
           title={item.title}
           brand={item.brand}
           category={item.category}
-          discount={item.discountPercentage}
+          discountPercentage={item.discountPercentage}
           price={item.price}
           rating={item.rating}
           imgUrl={item.images[0]}

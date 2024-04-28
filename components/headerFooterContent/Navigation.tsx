@@ -4,7 +4,7 @@ import { NavigationProps } from "../../app/interface";
 
 const Navigation: React.FC<NavigationProps> = ({
   flexDirection,
-  alingItems,
+  alignItems,
   marginBottom,
   marginLeft,
   display,
@@ -18,7 +18,7 @@ const Navigation: React.FC<NavigationProps> = ({
         className="flex items-center"
         style={{
           flexDirection: flexDirection,
-          alignItems: alingItems,
+          alignItems: alignItems,
         }}
       >
         <Link
@@ -75,5 +75,3 @@ const Navigation: React.FC<NavigationProps> = ({
 };
 
 export { Navigation };
-
-// TODO fix this shit

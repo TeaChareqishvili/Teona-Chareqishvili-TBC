@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ProductProps } from "../../app/interface";
+// import { ProductTypes } from "../../app/interface";
 
 const ProductItems = ({
   imgUrl,
   title,
   brand,
   category,
-  discount,
+  discountPercentage,
   price,
   rating,
   stock,
   id,
-}: ProductProps) => {
+}) => {
   return (
     <>
       <div className="item-wrapper flex flex-col items-center justify-center border border-gray-300 shadow transition-shadow  cursor-pointer  rounded p-2 mb-2 hover:shadow-lg">
@@ -40,7 +40,7 @@ const ProductItems = ({
             {price}$
           </p>
           <p className="text-[#678E6C] text-base font-tbc-helvetica-bold">
-            {discount}%
+            {discountPercentage}%
           </p>
           <p className="product-description">{stock} left in stock</p>
           <Link href={`/product/${id}`}>view details</Link>

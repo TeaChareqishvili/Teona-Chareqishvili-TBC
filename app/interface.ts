@@ -1,16 +1,19 @@
+import React, { Dispatch, SetStateAction } from "react";
+
 export interface SocialLinksProps {
   justifyContent?: string;
   marginRight?: string;
 }
 
 export interface NavigationProps {
-  flexDirection?: string;
-  alingItems?: string;
+  flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
+  alignItems?: string;
   marginBottom?: string;
   marginLeft?: string;
   display?: string;
   color?: string;
   fontSize?: string;
+  marginRight?: string;
 }
 export interface ProductTypes {
   brand: string;
@@ -25,23 +28,60 @@ export interface ProductTypes {
   thumbnail: string;
   title: string;
   params: { id: string };
-}
-
-export interface ProductProps extends ProductTypes {
   imgUrl: string;
   discount: string;
+  filteredProduct: ProductTypes[] | null;
+  length: number;
 }
-export interface FetchedProducts {
-  fetched: ProductProps[];
+export interface ProductData {
+  filteredProduct: ProductTypes[] | null;
+  length: number;
+  price: number;
+  brand: string;
+  category: string;
+  description: string;
+  discountPercentage: number;
+  id: number;
+  images: string[];
+  rating: number;
+  stock: number;
+  thumbnail: string;
+  title: string;
+  imgUrl: string;
+  discount: string;
+  params: { id: string };
 }
 
-export interface FilteredProducts extends FetchedProducts {
-  filteredProducts: [] | null;
+export interface SearchForProductProps {
+  filteredProducts: ProductData[];
+  setFilteredProducts: Dispatch<SetStateAction<ProductTypes[]>>;
+  setSorted: Dispatch<SetStateAction<boolean | ProductData[]>>;
+  productItems: ProductTypes[];
 }
+// export interface ProductProps extends ProductTypes {
+//   imgUrl: string;
+//   discount: string;
+
+export interface FilteredProducts {
+  filteredProducts: ProductTypes[];
+}
+
+export interface Check {
+  productItems: ProductTypes[];
+  filteredProducts: FilteredProducts;
+}
+
+export interface FetchedProducts {
+  productItems: ProductTypes[];
+}
+
+// export interface FilteredProducts extends FetchedProducts {
+//   filteredProducts: [] | null;
+// }
 
 export interface Props {
-  filteredProducts: FilteredProducts;
-  productItems: FetchedProducts;
+  filteredProducts: FilteredProducts[];
+  productItems: FetchedProducts[];
 }
 
 export interface Blog {
@@ -62,4 +102,8 @@ export interface PaginatedResponse extends Blog {
 
 export interface FetchedBlog {
   posts: PaginatedResponse[];
+}
+
+export interface RootLayoutProps {
+  children: React.ReactNode;
 }
