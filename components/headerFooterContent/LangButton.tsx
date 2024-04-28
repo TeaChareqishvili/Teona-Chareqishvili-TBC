@@ -21,7 +21,7 @@ const LangButton = ({ marginBottom }: NavigationProps) => {
       <div>
         <button
           style={{ marginBottom: marginBottom }}
-          className="w-[100px] border  border-[#70cbcb] cursor-pointer p-[5px] rounded-md"
+          className=" w-[100px] border-double border hover:scale-125 border-[#111827] text-[#111827] dark:border-[#70cbcb] rounded-md cursor: pointer bg-green font-lg dark:text-[#70cbcb] py-[6px] px-[12px] dark:hover:border-[#ffffff] dark:hover:text-[#ffffff] transition duration-700 "
           onClick={chooseLanguage}
         >
           {translation.language === "en" ? "ge" : "en"}{" "}

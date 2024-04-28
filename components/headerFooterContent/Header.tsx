@@ -15,7 +15,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#111827] dark:border-[#ffffff] transition-colors duration-300 fixed z-10">
+    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#111827] dark:border-[#ffffff] transition-colors duration-700 fixed z-10">
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
@@ -34,8 +34,6 @@ export default function Header() {
         <LangButton />
         <ThemeMode />
       </div>
-
-      {open && <MobileMenu setOpen={setOpen} />}
     </header>
   );
 }

@@ -17,7 +17,7 @@ const LogOutButton = () => {
   return (
     <div>
       <button
-        className="border-double border border-[#70cbcb] rounded-md cursor: pointer bg-green font-lg text-[#70cbcb] py-[7px] px-[15px]"
+        className=" w-[100px] border-double border hover:scale-125 border-[#111827] text-[#111827] dark:border-[#70cbcb] rounded-md cursor: pointer bg-green font-lg dark:text-[#70cbcb] py-[6px] px-[12px] dark:hover:border-[#ffffff] dark:hover:text-[#ffffff] transition duration-700"
         onClick={handleClick}
       >
         {t("logOut")}

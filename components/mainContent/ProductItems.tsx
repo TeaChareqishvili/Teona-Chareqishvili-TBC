@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-// import { ProductTypes } from "../../app/interface";
+import { ProductData } from "../../app/interface";
 
 const ProductItems = ({
   imgUrl,
@@ -12,7 +12,7 @@ const ProductItems = ({
   rating,
   stock,
   id,
-}) => {
+}: ProductData) => {
   return (
     <>
       <div className="item-wrapper flex flex-col items-center justify-center border border-gray-300 shadow transition-shadow  cursor-pointer  rounded p-2 mb-2 hover:shadow-lg">
