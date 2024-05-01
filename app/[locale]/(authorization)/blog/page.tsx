@@ -1,6 +1,6 @@
 "use server";
 import Image from "next/image";
-import blogImage from "../../../public/assets/image/blogImages/blog3.webp";
+import blogImage from "../../../../public/assets/image/blogImages/blog3.webp";
 import Link from "next/link";
 import { FetchedBlog } from "../../interface";
 

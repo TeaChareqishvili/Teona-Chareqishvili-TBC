@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "tbc-helvetica-light";
   src: url(../public/assets/fonts/HELVETICANEUELTGEO-45LIGHTS\ copy.ttf);
 }
@@ -17,7 +17,7 @@
 @font-face {
   font-family: "tbc-telegraf-light";
   src: url(../public/assets/fonts/PPTelegraf-Ultralight\ copy.otf);
-}
+} */
 
 * {
   padding: 0;

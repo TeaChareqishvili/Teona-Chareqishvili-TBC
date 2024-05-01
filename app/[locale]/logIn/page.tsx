@@ -1,4 +1,4 @@
-import { UserAuthorization } from "../../components/userLogIn/UserAuthorization";
+import { UserAuthorization } from "../../../components/userLogIn/UserAuthorization";
 
 export async function LogIn() {
   return (

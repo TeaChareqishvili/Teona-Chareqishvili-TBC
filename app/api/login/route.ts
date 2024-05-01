@@ -1,4 +1,4 @@
-import { AUTH_COOKIE_KEY } from "../../contants";
+import { AUTH_COOKIE_KEY } from "../../[locale]/contants";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
 

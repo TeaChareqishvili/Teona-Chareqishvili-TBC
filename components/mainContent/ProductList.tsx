@@ -1,4 +1,4 @@
-import { Data } from "@/app/interface";
+import { Data } from "@/app/[locale]/interface";
 import { ProductItems } from "./ProductItems";
 
 const ProductList = ({ filteredProducts, productItems }: Data) => {

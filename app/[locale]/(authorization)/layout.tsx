@@ -1,6 +1,6 @@
-import { Footer } from "../../components/headerFooterContent/Footer";
-import Header from "../../components/headerFooterContent/Header";
-import { RootLayoutProps } from "../../app/interface";
+import { Footer } from "../../../components/headerFooterContent/Footer";
+import Header from "../../../components/headerFooterContent/Header";
+import { RootLayoutProps } from "../interface";
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (

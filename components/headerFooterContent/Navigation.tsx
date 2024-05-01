@@ -1,6 +1,7 @@
-import { useTranslation } from "react-i18next";
+"use client";
+import { useScopedI18n } from "../../locales/client";
 import Link from "next/link";
-import { NavigationProps } from "../../app/interface";
+import { NavigationProps } from "../../app/[locale]/interface";
 
 const Navigation: React.FC<NavigationProps> = ({
   flexDirection,
@@ -11,7 +12,7 @@ const Navigation: React.FC<NavigationProps> = ({
   color,
   fontSize,
 }) => {
-  const { t } = useTranslation();
+  const scopedT = useScopedI18n("navigation");
   return (
     <nav style={{ display: display }}>
       <ul
@@ -34,7 +35,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            {t("home")}
+            {scopedT("home")}
           </li>
         </Link>{" "}
         <Link
@@ -50,7 +51,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            {t("blog")}
+            {scopedT("blog")}
           </li>
         </Link>
         <Link
@@ -66,7 +67,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            {t("contact")}
+            {scopedT("contact")}
           </li>
         </Link>
       </ul>

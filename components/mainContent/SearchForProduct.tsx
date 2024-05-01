@@ -2,8 +2,8 @@
 
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { SearchForProductProps } from "../../app/interface";
+import { useScopedI18n } from "../../locales/client";
+import { SearchForProductProps } from "../../app/[locale]/interface";
 
 // debounce function which sets and clears timeout
 
@@ -26,10 +26,9 @@ const SearchForProduct: React.FC<SearchForProductProps> = ({
   setSorted,
   productItems,
 }) => {
+  const scopedT = useScopedI18n("search");
   const [search, setSearch] = useState("");
   const [isSorted, setIsSorted] = useState(false);
-
-  const { t } = useTranslation();
 
   // function get input value and calls new function with the new value
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -91,7 +90,7 @@ const SearchForProduct: React.FC<SearchForProductProps> = ({
         {" "}
         {filteredProducts.length > 0 && (
           <span className="item-number">
-            {filteredProducts.length} {t("available")}
+            {filteredProducts.length} {scopedT("available")}
           </span>
         )}
       </div>
@@ -101,7 +100,7 @@ const SearchForProduct: React.FC<SearchForProductProps> = ({
           <input
             className="w-[200px] p-[10px] outline-none text-[#3AA2A2] font-lg search-input rounded-tl-lg rounded-bl-lg"
             type="search"
-            placeholder={t("searchCategory")}
+            placeholder={scopedT("searchCategory")}
             value={search}
             onChange={handleChange}
           />
@@ -111,7 +110,7 @@ const SearchForProduct: React.FC<SearchForProductProps> = ({
           className="bg-[#3AA2A2] h-[44px] w-[130px] p-[7px] cursor-pointer text-white font-lg rounded-tr-lg rounded-br-lg"
           onClick={handleSort}
         >
-          {isSorted ? t("reset") : t("sort")}
+          {isSorted ? scopedT("reset") : scopedT("sort")}
         </button>
       </div>
     </div>

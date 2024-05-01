@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { handlerLoginUser } from "../../helper/userLogin";
 import { LangButton } from "../headerFooterContent/LangButton";
-import { useTranslation } from "react-i18next";
+import { useScopedI18n } from "../../locales/client";
 
 const UserAuthorization = () => {
   const [userName, setUserName] = useState("");
@@ -20,13 +20,13 @@ const UserAuthorization = () => {
       router.push("/");
     });
   };
-  const { t } = useTranslation();
 
+  const scopedT = useScopedI18n("logIn");
   return (
     <>
       <LangButton marginBottom="20px" />
       <p className="animate-pulse  text-[20px] mb-4 font-semibold text-[#0C1B31] dark:text-[#949E9E]  tracking-wide ">
-        {t("access")}
+        {scopedT("access")}
       </p>
       <form
         onSubmit={handleSubmit}
@@ -37,7 +37,7 @@ const UserAuthorization = () => {
           <input
             className=" w-[250px]  py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
             type="text"
-            placeholder={t("userName")}
+            placeholder={scopedT("userName")}
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             required
@@ -47,7 +47,7 @@ const UserAuthorization = () => {
           <input
             type="password"
             className="w-[250px] py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
-            placeholder={t("password")}
+            placeholder={scopedT("password")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -57,7 +57,7 @@ const UserAuthorization = () => {
           className="w-full h-[40px] p-[10px] text-[#393a3a] bg-[#3AA2A2] mt-[10px] rounded-md text-lg text-center cursor-pointer font-bold flex items-center justify-center"
           type="submit"
         >
-          {t("logIn")}
+          {scopedT("logIn")}
         </button>
       </form>
     </>

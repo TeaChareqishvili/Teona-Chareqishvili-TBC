@@ -1,13 +1,11 @@
-import { NextResponse } from "next/server";
-import { AUTH_COOKIE_KEY } from "./app/contants";
-import { cookies } from "next/headers";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { createI18nMiddleware } from "next-international/middleware";
+import { AUTH_COOKIE_KEY } from "./app/[locale]/contants";
 
-export function middleware(request: NextRequest) {
-  const cookieStore = cookies();
+export default async function middleware(request: NextRequest) {
+  const cookieStore = request.cookies;
   const cookie = cookieStore.get(AUTH_COOKIE_KEY);
   const { pathname } = request.nextUrl;
-  console.log("tea");
 
   if (!cookie?.value && !pathname.startsWith("/logIn")) {
     return NextResponse.redirect(new URL("/logIn", request.url));
@@ -16,8 +14,20 @@ export function middleware(request: NextRequest) {
   if (cookie?.value && pathname.startsWith("/logIn")) {
     return NextResponse.redirect(new URL("/", request.url));
   }
+
+  const I18nMiddleware = createI18nMiddleware({
+    locales: ["en", "ge"],
+    defaultLocale: "en",
+    urlMappingStrategy: "rewrite",
+  });
+
+  const response = I18nMiddleware(request);
+
+  return response;
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|images|favicon.ico).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|images|favicon.ico|robots.txt).*)",
+  ],
 };

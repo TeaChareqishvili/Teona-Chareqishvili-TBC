@@ -1,4 +1,4 @@
-import { NavigationProps } from "@/app/interface";
+import { NavigationProps } from "@/app/[locale]/interface";
 import { iconData } from "../projectData";
 import Link from "next/link";
 

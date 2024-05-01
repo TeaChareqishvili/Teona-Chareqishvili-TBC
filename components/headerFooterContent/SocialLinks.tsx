@@ -1,20 +1,21 @@
+"use client";
 import { socilaLinkData } from "../projectData";
 import Link from "next/link";
-import { useTranslation } from "react-i18next";
-import { SocialLinksProps } from "@/app/interface";
+import { useScopedI18n } from "../../locales/client";
+import { SocialLinksProps } from "@/app/[locale]/interface";
 
 const SocialLinks = ({
   justifyContent,
   marginRight = "10px",
 }: SocialLinksProps) => {
-  const { t } = useTranslation();
+  const scopedT = useScopedI18n("socIcons");
   return (
     <div>
       <p
         className="text-base text-white mb-3"
         style={{ fontFamily: "tbc-helvetica-light" }}
       >
-        {t("findUs")}
+        {scopedT("find")}
       </p>
       <div
         className="flex items-center"

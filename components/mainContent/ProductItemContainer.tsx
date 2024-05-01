@@ -1,5 +1,5 @@
 import { ProductList } from "./ProductList";
-import { Data } from "../../app/interface";
+import { Data } from "../../app/[locale]/interface";
 import React from "react";
 
 const ProductItemContainer = ({ filteredProducts, productItems }: Data) => {
