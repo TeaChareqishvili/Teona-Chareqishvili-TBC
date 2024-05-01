@@ -34,6 +34,7 @@ export default function Header() {
         <LangButton />
         <ThemeMode />
       </div>
+      {open && <MobileMenu setOpen={setOpen} />}
     </header>
   );
 }

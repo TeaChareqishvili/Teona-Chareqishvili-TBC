@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { NavigationProps } from "../../app/interface";
 
@@ -11,7 +10,6 @@ const Navigation: React.FC<NavigationProps> = ({
   color,
   fontSize,
 }) => {
-  const { t } = useTranslation();
   return (
     <nav style={{ display: display }}>
       <ul
@@ -34,7 +32,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            {t("home")}
+            Home
           </li>
         </Link>{" "}
         <Link
@@ -50,7 +48,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            {t("blog")}
+            Blogs
           </li>
         </Link>
         <Link
@@ -66,7 +64,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            {t("contact")}
+            Contact
           </li>
         </Link>
       </ul>
