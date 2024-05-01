@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { AUTH_COOKIE_KEY } from "../../contants";
+import { AUTH_COOKIE_KEY } from "../../[locale]/contants";
 
 export async function POST() {
   cookies().delete(AUTH_COOKIE_KEY);

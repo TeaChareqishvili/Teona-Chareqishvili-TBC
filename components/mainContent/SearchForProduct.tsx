@@ -3,7 +3,7 @@
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 
-import { SearchForProductProps } from "../../app/interface";
+import { SearchForProductProps } from "../../app/[locale]/interface";
 
 // debounce function which sets and clears timeout
 

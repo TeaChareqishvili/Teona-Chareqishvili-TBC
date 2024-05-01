@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { AUTH_COOKIE_KEY } from "./app/contants";
+import { AUTH_COOKIE_KEY } from "./app/[locale]/contants";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
 

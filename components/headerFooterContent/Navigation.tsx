@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NavigationProps } from "../../app/interface";
+import { NavigationProps } from "../../app/[locale]/interface";
 
 const Navigation: React.FC<NavigationProps> = ({
   flexDirection,

@@ -1,7 +1,7 @@
 import { socilaLinkData } from "../projectData";
 import Link from "next/link";
 
-import { SocialLinksProps } from "@/app/interface";
+import { SocialLinksProps } from "@/app/[locale]/interface";
 
 const SocialLinks = ({
   justifyContent,

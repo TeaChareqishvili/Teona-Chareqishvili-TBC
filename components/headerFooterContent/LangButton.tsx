@@ -1,7 +1,7 @@
 // import i18n from "../../app/i18n";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 // import { useState } from "react";
-import { NavigationProps } from "@/app/interface";
+import { NavigationProps } from "@/app/[locale]/interface";
 
 const LangButton = ({ marginBottom }: NavigationProps) => {
   // const { t, i18n: translation } = useTranslation();
@@ -19,13 +19,13 @@ const LangButton = ({ marginBottom }: NavigationProps) => {
   return (
     <>
       <div>
-        {/* <button
+        <button
           style={{ marginBottom: marginBottom }}
           className=" w-[100px] border-double border hover:scale-125 border-[#111827] text-[#111827] dark:border-[#70cbcb] rounded-md cursor: pointer bg-green font-lg dark:text-[#70cbcb] py-[6px] px-[12px] dark:hover:border-[#ffffff] dark:hover:text-[#ffffff] transition duration-700 "
-          onClick={chooseLanguage}
+          // onClick={chooseLanguage}
         >
-          {translation.language === "en" ? "ge" : "en"}{" "}
-        </button> */}
+          {/* {translation.language === "en" ? "ge" : "en"}{" "} */}
+        </button>
       </div>
     </>
   );
