@@ -1,3 +1,5 @@
+"use client";
+import { useScopedI18n } from "../../locales/client";
 import Link from "next/link";
 import { NavigationProps } from "../../app/[locale]/interface";
 
@@ -10,6 +12,8 @@ const Navigation: React.FC<NavigationProps> = ({
   color,
   fontSize,
 }) => {
+  // const t = useI18n();
+  const scopedT = useScopedI18n("navigation");
   return (
     <nav style={{ display: display }}>
       <ul
@@ -32,7 +36,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            Home
+            {scopedT("home")}
           </li>
         </Link>{" "}
         <Link
@@ -48,7 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            Blogs
+            {scopedT("blog")}
           </li>
         </Link>
         <Link
@@ -64,7 +68,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className="font-tbc-helvetica-bold"
             style={{ fontSize: fontSize }}
           >
-            Contact
+            {scopedT("contact")}
           </li>
         </Link>
       </ul>

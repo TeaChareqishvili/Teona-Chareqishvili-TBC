@@ -1,5 +1,7 @@
 export default {
-  hello: "გამარჯობა",
-  "hello.world": "გამარჯობა მსოფლიო!",
-  welcome: "გამარჯობა {name}!",
+  navigation: {
+    home: "მთავარი",
+    blog: "ბლოგები",
+    contact: "კონტაქტი",
+  },
 } as const;
