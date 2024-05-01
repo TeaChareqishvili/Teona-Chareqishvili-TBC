@@ -12,7 +12,6 @@ const Navigation: React.FC<NavigationProps> = ({
   color,
   fontSize,
 }) => {
-  // const t = useI18n();
   const scopedT = useScopedI18n("navigation");
   return (
     <nav style={{ display: display }}>

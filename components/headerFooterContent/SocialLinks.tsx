@@ -1,19 +1,21 @@
+"use client";
 import { socilaLinkData } from "../projectData";
 import Link from "next/link";
-
+import { useScopedI18n } from "../../locales/client";
 import { SocialLinksProps } from "@/app/[locale]/interface";
 
 const SocialLinks = ({
   justifyContent,
   marginRight = "10px",
 }: SocialLinksProps) => {
+  const scopedT = useScopedI18n("socIcons");
   return (
     <div>
       <p
         className="text-base text-white mb-3"
         style={{ fontFamily: "tbc-helvetica-light" }}
       >
-        Find Us
+        {scopedT("find")}
       </p>
       <div
         className="flex items-center"
