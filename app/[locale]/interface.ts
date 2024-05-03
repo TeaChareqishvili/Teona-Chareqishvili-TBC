@@ -58,6 +58,7 @@ export interface ProductItemsData {
 export interface ProductData {
   productItems: ProductItemsData[];
   category: string;
+  price: number;
 }
 export interface ProductData2 {
   productItems: ProductItemsData[];

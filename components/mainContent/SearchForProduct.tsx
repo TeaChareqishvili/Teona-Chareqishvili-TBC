@@ -54,9 +54,12 @@ const SearchForProduct = ({
     }
   };
 
-  // function passed to button to call for filter
+  // function passed to button to sort for filtered products price low-high
   const handleFilter = () => {
-    filterByCategory(search);
+    const sortedProducts = [...filteredProducts].sort(
+      (a, b) => a.price - b.price
+    );
+    setFilteredProducts(sortedProducts);
   };
 
   return (
@@ -85,7 +88,7 @@ const SearchForProduct = ({
           className="bg-[#3AA2A2] h-[44px] w-[130px] p-[7px] cursor-pointer text-white font-lg rounded-tr-lg rounded-br-lg"
           onClick={handleFilter}
         >
-          Search
+          Sort
         </button>
       </div>
     </div>
