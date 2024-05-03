@@ -6,7 +6,6 @@ import { useScopedI18n } from "../../locales/client";
 import { SearchForProductProps } from "../../app/[locale]/interface";
 
 // debounce function which sets and clears timeout
-
 type FunctionType = (...args: any[]) => any;
 
 const debounce = (func: FunctionType, delay: number): FunctionType => {
@@ -20,15 +19,13 @@ const debounce = (func: FunctionType, delay: number): FunctionType => {
   };
 };
 
-const SearchForProduct: React.FC<SearchForProductProps> = ({
+const SearchForProduct = ({
+  productItems,
   filteredProducts,
   setFilteredProducts,
-  setSorted,
-  productItems,
-}) => {
+}: SearchForProductProps) => {
   const scopedT = useScopedI18n("search");
   const [search, setSearch] = useState("");
-  const [isSorted, setIsSorted] = useState(false);
 
   // function get input value and calls new function with the new value
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,15 +36,13 @@ const SearchForProduct: React.FC<SearchForProductProps> = ({
 
   /* calls debounce function which wraps final result for filtered items 
   and delays its execution for some ms */
-
   const debouncedFilterProducts = debounce((value) => {
-    filterProducts(value);
+    filterByCategory(value);
   }, 300);
 
-  // function to filter the data form productData
-  const filterProducts = (value: string | number) => {
+  //function to filter the data form productData according the category
+  const filterByCategory = (value: string | number) => {
     if (value !== "") {
-      // Convert value to a string if it's not already one
       const stringValue = value.toString().toLowerCase();
 
       const filtered = productItems.filter((product) =>
@@ -59,29 +54,9 @@ const SearchForProduct: React.FC<SearchForProductProps> = ({
     }
   };
 
-  // function to sort products according price
-  const handleSort = () => {
-    setIsSorted(!isSorted);
-    if (filteredProducts.length > 0) {
-      const sortedProducts = [...filteredProducts].sort(
-        (a, b) => a.price - b.price
-      );
-      if (isSorted) {
-        setFilteredProducts([]);
-        setSearch("");
-      } else {
-        setFilteredProducts(sortedProducts);
-      }
-    } else {
-      const sortedProducts = [...productItems].sort(
-        (a, b) => a.price - b.price
-      );
-      if (isSorted) {
-        setSorted(productItems);
-      } else {
-        setSorted(sortedProducts);
-      }
-    }
+  // function passed to button to call for filter
+  const handleFilter = () => {
+    filterByCategory(search);
   };
 
   return (
@@ -108,9 +83,9 @@ const SearchForProduct: React.FC<SearchForProductProps> = ({
         </label>
         <button
           className="bg-[#3AA2A2] h-[44px] w-[130px] p-[7px] cursor-pointer text-white font-lg rounded-tr-lg rounded-br-lg"
-          onClick={handleSort}
+          onClick={handleFilter}
         >
-          {isSorted ? scopedT("reset") : scopedT("sort")}
+          Search
         </button>
       </div>
     </div>

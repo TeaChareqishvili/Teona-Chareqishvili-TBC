@@ -1,14 +1,14 @@
-import { Data } from "@/app/[locale]/interface";
+// import { Data } from "@/app/[locale]/interface";
 import { ProductItems } from "./ProductItems";
 
-const ProductList = ({ filteredProducts, productItems }: Data) => {
+const ProductList = ({ productItems, filteredProducts }: any) => {
   const productsToRender =
     filteredProducts.length > 0 ? filteredProducts : productItems;
+  console.log(productsToRender);
 
-  // ProductItems  რატომ წერს რომ არ გადაეცემა პროპერთები როცა გადაეცემა ტიპში ვერ გავიგე
   return (
     <>
-      {productsToRender.map((item) => (
+      {productsToRender.map((item: any) => (
         <ProductItems
           key={item.id}
           title={item.title}

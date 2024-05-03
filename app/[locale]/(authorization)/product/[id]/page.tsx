@@ -1,17 +1,14 @@
 "use server";
 
 import Image from "next/image";
-import { ProductTypes } from "../../../interface";
+
 // function to generate static product data
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/products");
   const products = await response.json();
-
-  const paths = products.products.map((post: ProductTypes) => ({
-    id: `${post.id}`,
+  return products.products.map((product: { id: number }) => ({
+    id: `${product.id}`,
   }));
-
-  return paths;
 }
 
 // function to fetch single product data
@@ -21,7 +18,11 @@ async function fetchProducts(id: string) {
   return productDetail;
 }
 
-export default async function ProductDetails({ params }: ProductTypes) {
+export default async function ProductDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
   const productDetail = await fetchProducts(params.id);
 
   return (

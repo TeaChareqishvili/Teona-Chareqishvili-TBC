@@ -3,11 +3,11 @@
 import { SearchForProduct } from "./SearchForProduct";
 import { ProductItemContainer } from "./ProductItemContainer";
 import { useState, useEffect } from "react";
+import { ProductData } from "../../app/[locale]/interface";
 
-const MainContent = () => {
+const MainContent: React.FC = () => {
   const [productItems, setProductItems] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState<any>([]);
-  const [sorted, setSorted] = useState<any>([...productItems]);
+  const [filteredProducts, setFilteredProducts] = useState<ProductData[]>([]);
 
   // fetches all products and sets loader to false
   useEffect(() => {
@@ -19,12 +19,12 @@ const MainContent = () => {
     getItem();
   }, []);
 
+  console.log(filteredProducts, "filter");
   return (
     <>
       <SearchForProduct
         filteredProducts={filteredProducts}
         setFilteredProducts={setFilteredProducts}
-        setSorted={setSorted}
         productItems={productItems}
       />
       <ProductItemContainer

@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch } from "react";
 
 export interface SocialLinksProps {
   justifyContent?: string;
@@ -14,54 +14,6 @@ export interface NavigationProps {
   color?: string;
   fontSize?: string;
   marginRight?: string;
-}
-export interface ProductTypes {
-  brand: string;
-  category: string;
-  description: string;
-  discountPercentage: number;
-  id: number;
-  images: string[];
-  price: number;
-  rating: number;
-  stock: number;
-  thumbnail: string;
-  title: string;
-  params: { id: string };
-  imgUrl: string;
-  discount: string;
-  filteredProduct: ProductTypes[] | null;
-  length: number;
-}
-export interface ProductData {
-  filteredProduct: ProductTypes[] | null;
-  length: number;
-  price: number;
-  brand: string;
-  category: string;
-  description: string;
-  discountPercentage: number;
-  id: number;
-  images: string[];
-  rating: number;
-  stock: number;
-  thumbnail: string;
-  title: string;
-  imgUrl: string;
-  discount: string;
-  params: { id: string };
-}
-
-export interface Data {
-  productItems: ProductData[];
-  filteredProducts: ProductData[] | [];
-}
-
-export interface SearchForProductProps {
-  filteredProducts: ProductData[];
-  setFilteredProducts: Dispatch<SetStateAction<ProductTypes[]>>;
-  setSorted: Dispatch<SetStateAction<boolean | ProductData[]>>;
-  productItems: ProductTypes[];
 }
 
 export interface Blog {
@@ -86,4 +38,49 @@ export interface FetchedBlog {
 
 export interface RootLayoutProps {
   children: React.ReactNode;
+}
+
+// product types
+
+export interface ProductItemsData {
+  brand: string;
+  category: string;
+  description: string;
+  discountPercentage: number;
+  id: number;
+  images: string[];
+  price: number;
+  rating: number;
+  stock: number;
+  thumbnail: string;
+  title: string;
+}
+export interface ProductData {
+  productItems: ProductItemsData[];
+  category: string;
+}
+export interface ProductData2 {
+  productItems: ProductItemsData[];
+}
+export interface ProductListData {
+  productItems: ProductData2;
+  filteredProducts: [] | ProductData2;
+}
+
+export interface SearchForProductProps {
+  filteredProducts: ProductData[];
+  setFilteredProducts: Dispatch<ProductData[]>;
+  productItems: ProductData[];
+}
+
+export interface ProductCard {
+  imgUrl: string;
+  title: string;
+  brand: string;
+  category: string;
+  discountPercentage: number;
+  price: number;
+  rating: number;
+  stock: number;
+  id: number;
 }

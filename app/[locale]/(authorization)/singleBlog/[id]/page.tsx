@@ -1,6 +1,6 @@
 "use server";
 
-import blogImage from "../../../../public/assets/image/blogImages/blog3.webp";
+import blogImage from "../../../../../public/assets/image/blogImages/blog3.webp";
 import Image from "next/image";
 import { FetchedBlog, Blog } from "../../../interface";
 
@@ -9,11 +9,7 @@ export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/posts");
   const blog: FetchedBlog = await response.json();
 
-  const paths = blog.posts.map((post) => ({
-    id: `${post.id}`,
-  }));
-
-  return paths;
+  return blog.posts.map((item) => ({ id: `${item.id}` }));
 }
 
 // function to fetch single blog id
@@ -23,7 +19,11 @@ async function getBlog(id: string) {
   return blog;
 }
 
-export default async function SingleBlog({ params }: Blog) {
+export default async function SingleBlog({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { id } = params;
   const blog: Blog = await getBlog(id);
 
