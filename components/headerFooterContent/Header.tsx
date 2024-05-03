@@ -7,9 +7,9 @@ import { MobileMenu } from "../headerFooterContent/MobileMenu";
 import { useState } from "react";
 import { HeaderIcon } from "./HeaderIcon";
 import Link from "next/link";
-import { LogOutButton } from "../logOutButton/LogOutButton";
+// import { LogOutButton } from "../logOutButton/LogOutButton";
 import ThemeMode from "./ThemeMode";
-import { LangButton } from "../languageChange/LangButton";
+// import { LangButton } from "../languageChange/LangButton";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -30,8 +30,8 @@ export default function Header() {
           <Navigation marginLeft="30px" display="flex" />
         </div>
         <HeaderIcon marginRight="20px" alignItems="center" />
-        <LogOutButton />
-        <LangButton />
+        {/* <LogOutButton />
+        <LangButton /> */}
         <ThemeMode />
       </div>
       {open && <MobileMenu setOpen={setOpen} />}
