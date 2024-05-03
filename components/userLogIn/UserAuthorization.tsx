@@ -4,7 +4,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { handlerLoginUser } from "../../helper/userLogin";
-import { LangButton } from "../headerFooterContent/LangButton";
+
 import { useScopedI18n } from "../../locales/client";
 
 const UserAuthorization = () => {
@@ -24,7 +24,6 @@ const UserAuthorization = () => {
   const scopedT = useScopedI18n("logIn");
   return (
     <>
-      <LangButton marginBottom="20px" />
       <p className="animate-pulse  text-[20px] mb-4 font-semibold text-[#0C1B31] dark:text-[#949E9E]  tracking-wide ">
         {scopedT("access")}
       </p>
