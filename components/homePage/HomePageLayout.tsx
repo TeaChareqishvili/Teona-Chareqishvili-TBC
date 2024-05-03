@@ -1,5 +1,11 @@
+import { MainVideo } from "./MainVideo";
+
 const HomePageLayout = () => {
-  return <div>cnkncjksncksjncksncj</div>;
+  return (
+    <>
+      <MainVideo />
+    </>
+  );
 };
 
 export { HomePageLayout };

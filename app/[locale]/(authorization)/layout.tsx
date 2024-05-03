@@ -5,11 +5,9 @@ import { RootLayoutProps } from "../interface";
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
-      <div>
-        <Header />
-        {children}
-        <Footer />
-      </div>
+      <Header />
+      {children}
+      <Footer />
     </>
   );
 };

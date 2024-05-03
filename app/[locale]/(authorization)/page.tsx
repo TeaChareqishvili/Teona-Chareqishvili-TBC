@@ -5,7 +5,7 @@ import { HomePageLayout } from "@/components/homePage/HomePageLayout";
 export default function Home() {
   return (
     <>
-      <main className="flex-1 w-full h-screen">
+      <main className=" h-screen h-sm:px-16 sm:py-12 flex-1 w-full mx-auto mt-[60px]">
         {/* <MainContent /> */}
         <HomePageLayout />
       </main>
