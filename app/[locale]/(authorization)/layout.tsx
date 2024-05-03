@@ -5,7 +5,7 @@ import { RootLayoutProps } from "../interface";
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
-      <div className="h-screen">
+      <div>
         <Header />
         {children}
         <Footer />

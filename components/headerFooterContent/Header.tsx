@@ -9,13 +9,13 @@ import { HeaderIcon } from "./HeaderIcon";
 import Link from "next/link";
 import { LogOutButton } from "../logOutButton/LogOutButton";
 import ThemeMode from "./ThemeMode";
-import { LangButton } from "./LangButton";
+import { LangButton } from "../languageChange/LangButton";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#111827] dark:border-[#ffffff] transition-colors duration-700 fixed z-10">
+    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#111827] dark:border-[#ffffff]  fixed z-10">
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
