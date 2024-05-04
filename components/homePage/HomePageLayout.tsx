@@ -1,11 +1,14 @@
-// import { AboutUs } from "./AboutUs";
+import { AboutUs } from "./AboutUs";
 import { MainVideo } from "./MainVideo";
 
 const HomePageLayout = () => {
   return (
     <>
-      <MainVideo />
-      {/* <AboutUs /> */}
+      <div className="flex flex-col">
+        {" "}
+        <MainVideo />
+        <AboutUs />
+      </div>
     </>
   );
 };

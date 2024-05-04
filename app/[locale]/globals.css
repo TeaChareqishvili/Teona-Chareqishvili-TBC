@@ -26,20 +26,20 @@
   list-style: none;
   text-decoration: none;
 }
-main {
+/* main {
   padding: 30px 10px;
   flex: 1;
   width: 100%;
   margin: auto;
-}
+} */
 
-body {
+/* body {
   background-color: #ffffff;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
+} */
 
 /* .user-icon {
   width: 28px !important;

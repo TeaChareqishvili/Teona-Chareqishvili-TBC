@@ -1,10 +1,9 @@
 import { LangButton } from "../languageChange/LangButton";
 import { LogOutButton } from "../logOutButton/LogOutButton";
-// import { AboutUs } from "./AboutUs";
 
 const MainVideo = () => {
   return (
-    <div className="w-full h-[550px] relative ">
+    <div className="w-full ">
       <div>
         {" "}
         <video
@@ -14,9 +13,8 @@ const MainVideo = () => {
           loop
         />
       </div>
-
       <div className="absolute top-[30%] left-[35%]">
-        <h1 className="text-[28px] tracking-widest">
+        <h1 className="text-[28px] tracking-widest ">
           Buy it once, use it forever...
         </h1>
         <div className="flex items-start justify-around mt-[10px]">

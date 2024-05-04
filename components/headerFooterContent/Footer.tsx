@@ -10,7 +10,7 @@ import { useScopedI18n } from "../../locales/client";
 const Footer = () => {
   const scopedT = useScopedI18n("footer");
   return (
-    <footer className="w-full bg-gray-900 py-8 px-5 mt-5 flex items-center justify-center flex-col border-t-2 border-gray-700 z-10">
+    <footer className="w-full bg-gray-900 py-8 px-5 mt-5 flex items-center justify-center flex-col border-t-2 border-gray-700 z-[1]">
       <div className="md:w-full md:flex md:items-center md:justify-center md:flex-col lg:w-4/5 lg:mx-auto lg:flex-row lg:justify-between sm:justify-center sm:items-center sm:m-auto">
         <div>
           {" "}

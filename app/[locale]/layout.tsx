@@ -22,7 +22,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({
 }: RootLayoutProps) => {
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="w-full h-full bg-[#ffffff] dark:bg-[#0C1B31] flex item-center justify-center transition-colors duration-700">
+      <body className="w-full min-h-screen bg-[#ffffff] dark:bg-[#0C1B31] flex  flex-col item-center justify-center transition-colors duration-700">
         <I18nProviderClient locale={locale}>
           <Providers>{children}</Providers>
         </I18nProviderClient>
