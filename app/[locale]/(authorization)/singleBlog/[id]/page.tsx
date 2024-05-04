@@ -3,6 +3,7 @@
 import blogImage from "../../../../../public/assets/image/blogImages/blog3.webp";
 import Image from "next/image";
 import { FetchedBlog, Blog } from "../../../interface";
+import { setStaticParamsLocale } from "next-international/server";
 
 // function to generate static blog id
 export async function generateStaticParams() {
@@ -20,11 +21,12 @@ async function getBlog(id: string) {
 }
 
 export default async function SingleBlog({
-  params,
+  params: { id, locale },
 }: {
-  params: { id: string };
+  params: { id: string; locale: string };
 }) {
-  const { id } = params;
+  setStaticParamsLocale(locale);
+  // const { id } = params;
   const blog: Blog = await getBlog(id);
 
   return (

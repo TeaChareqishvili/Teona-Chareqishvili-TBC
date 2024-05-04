@@ -1,6 +1,5 @@
-"use server";
-
 import Image from "next/image";
+import { setStaticParamsLocale } from "next-international/server";
 
 // function to generate static product data
 export async function generateStaticParams() {
@@ -19,11 +18,12 @@ async function fetchProducts(id: string) {
 }
 
 export default async function ProductDetails({
-  params,
+  params: { id, locale },
 }: {
-  params: { id: string };
+  params: { id: string; locale: string };
 }) {
-  const productDetail = await fetchProducts(params.id);
+  setStaticParamsLocale(locale);
+  const productDetail = await fetchProducts(id);
 
   return (
     <div className="single-product-wrapper">

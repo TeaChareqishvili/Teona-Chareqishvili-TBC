@@ -1,9 +1,10 @@
 import { LangButton } from "../languageChange/LangButton";
 import { LogOutButton } from "../logOutButton/LogOutButton";
+// import { AboutUs } from "./AboutUs";
 
 const MainVideo = () => {
   return (
-    <div className="w-full h-[500px] relative z-[0]">
+    <div className="w-full h-[550px] relative ">
       <div>
         {" "}
         <video
@@ -14,7 +15,7 @@ const MainVideo = () => {
         />
       </div>
 
-      <div className="absolute top-[30%] left-[35%]  ">
+      <div className="absolute top-[30%] left-[35%]">
         <h1 className="text-[28px] tracking-widest">
           Buy it once, use it forever...
         </h1>
