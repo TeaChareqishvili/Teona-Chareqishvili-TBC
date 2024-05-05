@@ -24,17 +24,17 @@ const UserAuthorization = () => {
   const scopedT = useScopedI18n("logIn");
   return (
     <>
-      <p className="animate-pulse  text-[20px] mb-4 font-semibold text-[#0C1B31] dark:text-[#949E9E]  tracking-wide ">
+      <p className="animate-pulse  text-[20px] mb-4 font-semibold text-[#0C1B31] dark:text-[#ffffff]  tracking-wide ">
         {scopedT("access")}
       </p>
       <form
         onSubmit={handleSubmit}
         className="py-[40px] px-[20px] border-2 border-[#0C1B31] dark:border-[#939898] bg-[#979f9f] bg-opacity-5 flex items-center flex-col rounded-md"
       >
-        <FaCircleUser className="w-[60px] h-[60px] m-[15px] text-[#3AA2A2]" />
+        <FaCircleUser className="w-[60px] h-[60px] m-[15px] text-[#e1e6e1]" />
         <label className="flex flex-col items-center">
           <input
-            className=" w-[250px]  py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
+            className=" w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px] mb-[15px]"
             type="text"
             placeholder={scopedT("userName")}
             value={userName}
@@ -45,7 +45,7 @@ const UserAuthorization = () => {
         <label className="flex flex-col items-center">
           <input
             type="password"
-            className="w-[250px] py-[15px] px-[10px] rounded-md text-[#3AA2A2] font-lg mb-[10px] outline-none"
+            className="w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
             placeholder={scopedT("password")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -53,7 +53,7 @@ const UserAuthorization = () => {
           ></input>
         </label>
         <button
-          className="w-full h-[40px] p-[10px] text-[#393a3a] bg-[#3AA2A2] mt-[10px] rounded-md text-lg text-center cursor-pointer font-bold flex items-center justify-center"
+          className="w-full h-[40px] p-[10px] text-[#393a3a] bg-[#e1e6e1] mt-[10px] rounded-md text-lg text-center cursor-pointer font-bold flex items-center justify-center"
           type="submit"
         >
           {scopedT("logIn")}
