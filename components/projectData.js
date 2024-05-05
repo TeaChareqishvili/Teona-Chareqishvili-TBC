@@ -28,21 +28,21 @@ const iconData = [
   {
     id: 1,
     icon: (
-      <CiSearch className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#70cbcb] dark:text-[#ffffff] dark:hover:text-[#70cbcb]" />
+      <CiSearch className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
     ),
     title: "search",
   },
   {
     id: 2,
     icon: (
-      <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[##70cbcb] dark:text-[#ffffff] dark:hover:text-[#70cbcb]" />
+      <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
     ),
     title: "logIn",
   },
   {
     id: 3,
     icon: (
-      <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#70cbcb] dark:text-[#ffffff] dark:hover:text-[#70cbcb]" />
+      <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
     ),
     title: "cart",
   },

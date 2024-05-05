@@ -24,7 +24,7 @@ const Navigation: React.FC<NavigationProps> = ({
       >
         <Link
           href="/"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#70cbcb] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#70cbcb]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -39,8 +39,24 @@ const Navigation: React.FC<NavigationProps> = ({
           </li>
         </Link>{" "}
         <Link
+          href="#"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          style={{
+            marginBottom: marginBottom,
+            marginLeft: marginLeft,
+            color: color,
+          }}
+        >
+          <li
+            className="font-tbc-helvetica-bold"
+            style={{ fontSize: fontSize }}
+          >
+            {scopedT("product")}
+          </li>
+        </Link>
+        <Link
           href="/blog"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#70cbcb] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#70cbcb]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -56,7 +72,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/contact"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#70cbcb] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#70cbcb]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,

@@ -27,7 +27,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "dark") {
     return (
       <FiSun
-        className="cursor-pointer hover:text-[#70cbcb] transition duration-700 hover:scale-125"
+        className="cursor-pointer hover:text-[#70cbcb] transition duration-200 hover:scale-125"
         onClick={() => setTheme("light")}
       />
     );
@@ -36,7 +36,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "light") {
     return (
       <FiMoon
-        className="cursor-pointer hover:text-[#70cbcb] transition duration-700 hover:scale-125"
+        className="cursor-pointer hover:text-[#70cbcb] transition duration-200 hover:scale-125"
         onClick={() => setTheme("dark")}
       />
     );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { handleLogout } from "../../helper/userLogOut";
+import { handleLogout } from "@/helper/userLogOut";
 import { useScopedI18n } from "../../locales/client";
 
 const LogOutButton = () => {
@@ -17,7 +17,7 @@ const LogOutButton = () => {
   return (
     <div>
       <button
-        className=" w-[100px] border-double border hover:scale-125 border-[#111827] text-[#111827] dark:border-[#70cbcb] rounded-md cursor: pointer bg-green font-lg dark:text-[#70cbcb] py-[6px] px-[12px] dark:hover:border-[#ffffff] dark:hover:text-[#ffffff] transition duration-700"
+        className=" w-[100px] hover:border-double hover:border hover:scale-125 border-[#111827] text-[#111827] dark:border-[#728a85] rounded-md cursor: pointer bg-green font-lg dark:text-[#ffffff] py-[6px] px-[12px] dark:hover:border-[#ffffff] dark:hover:text-[#ffffff] transition duration-200"
         onClick={handleClick}
       >
         {scopedT("logOut")}

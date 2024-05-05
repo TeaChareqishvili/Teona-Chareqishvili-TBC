@@ -1,5 +1,5 @@
-import { LangButton } from "../languageChange/LangButton";
-import { LogOutButton } from "../logOutButton/LogOutButton";
+// import { LangButton } from "../languageChange/LangButton";
+// import { LogOutButton } from "../logOutButton/LogOutButton";
 
 const MainVideo = () => {
   return (
@@ -7,19 +7,19 @@ const MainVideo = () => {
       <div>
         {" "}
         <video
-          src={require("../../public/assets/video/mainVideo.mp4")}
+          src={require("../../public/assets/video/girlPlant.mp4")}
           autoPlay
           muted
           loop
         />
       </div>
-      <div className="absolute top-[30%] left-[35%]">
+      <div className="absolute top-[30%] left-[25%]">
         <h1 className="text-[28px] tracking-widest ">
-          Buy it once, use it forever...
+          "To plant a garden is to believe in tomorrow." — Audrey Hepburn
         </h1>
         <div className="flex items-start justify-around mt-[10px]">
-          <LogOutButton />
-          <LangButton />
+          {/* <LogOutButton />
+          <LangButton /> */}
         </div>
       </div>
     </div>
