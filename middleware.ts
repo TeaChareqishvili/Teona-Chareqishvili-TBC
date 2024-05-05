@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createI18nMiddleware } from "next-international/middleware";
-import { AUTH_COOKIE_KEY } from "./app/[locale]/contants";
+import { AUTH_COOKIE_KEY } from "./app/contants";
 
 export default async function middleware(request: NextRequest) {
   const cookieStore = request.cookies;
@@ -14,6 +14,7 @@ export default async function middleware(request: NextRequest) {
   if (cookie?.value && pathname.startsWith("/logIn")) {
     return NextResponse.redirect(new URL("/", request.url));
   }
+  // console.log("tea", cookie);
 
   const I18nMiddleware = createI18nMiddleware({
     locales: ["en", "ge"],

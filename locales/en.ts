@@ -3,6 +3,7 @@ export default {
     home: "Home",
     blog: "Blogs",
     contact: "Contact",
+    product: "Products",
   },
   footer: {
     subscribe: "Subscribe Newsletter",

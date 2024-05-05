@@ -3,6 +3,7 @@ export default {
     home: "მთავარი",
     blog: "ბლოგები",
     contact: "კონტაქტი",
+    product: "პროდუქტები",
   },
   footer: {
     subscribe: "გამოგვიწერეთ",

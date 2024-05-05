@@ -1,39 +1,37 @@
-import { SocialLinks } from "../headerFooterContent/SocialLinks";
+import { MdPhoneIphone } from "react-icons/md";
+import { ImLocation } from "react-icons/im";
+import { WiTime3 } from "react-icons/wi";
+import { MdEmail } from "react-icons/md";
 
 const ContactInformation = () => {
   return (
-    <div className="flex items-start justify-start flex-col grid-area-contact">
-      <h2 className="font-tbc-helvetica-bold text-lg text-[#303132] mb-2">
-        Contact Us
-      </h2>
-      <p className="flex flex-center text-[ #303132] font-tbc-helvetica-light text-base mb-2">
-        Number:{" "}
-        <a
-          href="tel:+53345795332453"
-          className="text-gray-600 font-bold no-underline ml-6 font-tbc-helvetica-bold text-base transition duration-400 ease-in-out hover:text-red-600"
-        >
-          +53 345 7953 32453
-        </a>
-      </p>
-      <p className="flex flex-center text-[ #303132] font-tbc-helvetica-light text-base mb-2">
-        Address:{" "}
-        <a
-          href="https://maps.google.com?q=1481%20Creekside%20Lane%20Avila%20Beach,%20CA%20931"
-          className="text-gray-600 font-bold no-underline ml-6 font-tbc-helvetica-bold text-base transition duration-400 ease-in-out hover:text-red-600"
-        >
-          1481 Creekside Lane Avila Beach, CA 931
-        </a>
-      </p>
-      <p className="flex flex-center text-[ #303132] font-tbc-helvetica-light text-base mb-2">
-        Email:{" "}
-        <a
-          href="mailto:yourmail@gmail.com"
-          className="text-gray-600 font-bold no-underline ml-6 font-tbc-helvetica-bold text-base transition duration-400 ease-in-out hover:text-red-600"
-        >
-          yourmail@gmail.com
-        </a>
-      </p>
-      <SocialLinks />
+    <div className=" w-4/5 flex items-center justify-between py-[50px] mx-auto mb-[50px]">
+      <div className="flex flex-col items-center justify-center">
+        <MdPhoneIphone className="contact-icon" />
+        <p className="text-[24px] text-[#4c514c]">Phone</p>
+        <span className="text-[20px] text-[#4c514c] ">+01-3-8888-6868</span>
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <ImLocation className="contact-icon" />
+        <p className="text-[24px] text-[#4c514c]">Address</p>
+        <span className="text-[20px] text-[#4c514c] ">
+          Iris Watson, 283 Fusce Rd,NY
+        </span>
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <WiTime3 className="contact-icon" />
+        <p className="text-[24px] text-[#4c514c]">Open Time</p>
+        <span className="text-[20px] text-[#4c514c] ">
+          10:00 am to 23:00 pm
+        </span>
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <MdEmail className="contact-icon" />
+        <p className="text-[24px] text-[#4c514c]">Email</p>
+        <span className="text-[20px] text-[#4c514c] ">
+          info.colorlib@gmail.com
+        </span>
+      </div>
     </div>
   );
 };

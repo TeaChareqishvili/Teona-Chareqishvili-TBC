@@ -1,7 +1,21 @@
 import { cookies } from "next/headers";
-import { AUTH_COOKIE_KEY } from "../../[locale]/contants";
+import { AUTH_COOKIE_KEY } from "../../contants";
+
+// export async function POST() {
+//   cookies().delete(AUTH_COOKIE_KEY);
+//   return Response.json({ message: "success" });
+// }
+// /app/api/logout/route.ts
 
 export async function POST() {
   cookies().delete(AUTH_COOKIE_KEY);
-  return Response.json({ message: "success" });
+
+  return new Response(JSON.stringify({ message: "Logged out successfully" }), {
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST",
+    },
+    status: 200,
+  });
 }

@@ -1,15 +1,13 @@
-import { Footer } from "../../../components/headerFooterContent/Footer";
 import Header from "../../../components/headerFooterContent/Header";
 import { RootLayoutProps } from "../interface";
+import { Footer } from "@/components/headerFooterContent/Footer";
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
-      <div>
-        <Header />
-        {children}
-        <Footer />
-      </div>
+      <Header />
+      {children}
+      <Footer />
     </>
   );
 };
