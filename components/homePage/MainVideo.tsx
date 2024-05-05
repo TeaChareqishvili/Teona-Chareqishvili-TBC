@@ -1,9 +1,6 @@
-// import { LangButton } from "../languageChange/LangButton";
-// import { LogOutButton } from "../logOutButton/LogOutButton";
-
 const MainVideo = () => {
   return (
-    <div className="w-full ">
+    <div className="w-full  mb-[40px]">
       <div>
         {" "}
         <video
@@ -13,14 +10,11 @@ const MainVideo = () => {
           loop
         />
       </div>
-      <div className="absolute top-[30%] left-[25%]">
-        <h1 className="text-[28px] tracking-widest ">
-          "To plant a garden is to believe in tomorrow." — Audrey Hepburn
+      <div className="absolute top-[40%] left-[5%] flex flex-col">
+        <h1 className="text-[28px] tracking-widest text-[#ffffff]">
+          "To plant a garden is to believe in tomorrow."{" "}
         </h1>
-        <div className="flex items-start justify-around mt-[10px]">
-          {/* <LogOutButton />
-          <LangButton /> */}
-        </div>
+        <span className="text-[18px] text-[#ffffff]">— Audrey Hepburn</span>
       </div>
     </div>
   );

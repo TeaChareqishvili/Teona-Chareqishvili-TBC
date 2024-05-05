@@ -1,7 +1,6 @@
 import { TiSocialFacebook } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTwitter } from "react-icons/fa";
-
 import { CiSearch } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";

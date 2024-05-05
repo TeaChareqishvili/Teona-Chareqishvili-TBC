@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     "components/mainContent/ProductItems.jsx",
-    "components/projectData.js",
+    "components/projectData.ts",
     "app/layout.js",
     "components/headerFooterContent/LangButton.jsx"
   ],
