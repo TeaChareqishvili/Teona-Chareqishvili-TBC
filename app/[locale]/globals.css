@@ -177,7 +177,7 @@
   width: 35px;
   height: 35px;
   background-color: #ffffff;
-  color: #25262b;
+  color: #4f6966;
   border-radius: 50%;
   border: 0.5px solid #424344;
   padding: 4px;
@@ -187,7 +187,7 @@
 
 .link:hover {
   transform: scale(1.3) rotate(30deg);
-  background-color: #5d2d34;
+  background-color: #4f6966;
   color: #ffffff;
 }
 
