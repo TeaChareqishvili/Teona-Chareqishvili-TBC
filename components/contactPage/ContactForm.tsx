@@ -29,8 +29,11 @@ const ContactForm = () => {
             placeholder="Write your message"
           />
         </label>
+        <button className="uppercase text-[20px] text-[#40443f] mt-[30px] cursor-pointer py-[7px] px-[15px] border border-[#40443f] ">
+          Post Comment
+        </button>
       </form>
-      <SocialLinks />
+      <SocialLinks marginTop="20px" />
     </div>
   );
 };

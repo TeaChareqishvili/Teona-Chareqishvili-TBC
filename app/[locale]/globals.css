@@ -40,6 +40,11 @@
   height: 50px;
   color: #516d6c;
   margin-bottom: 7px;
+  transition: all 500ms;
+  cursor: pointer;
+}
+.contact-icon:hover {
+  color: goldenrod;
 }
 /* search section sttyle */
 .search-wrapper {

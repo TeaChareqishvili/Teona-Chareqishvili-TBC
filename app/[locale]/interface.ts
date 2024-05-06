@@ -3,6 +3,7 @@ import React, { Dispatch } from "react";
 export interface SocialLinksProps {
   justifyContent?: string;
   marginRight?: string;
+  marginTop?: string;
 }
 
 export interface NavigationProps {
