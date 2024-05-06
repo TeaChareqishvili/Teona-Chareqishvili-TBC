@@ -1,11 +1,11 @@
 "use client";
 
-import { SearchForProduct } from "./SearchForProduct";
-import { ProductItemContainer } from "./ProductItemContainer";
+import { SearchForProduct } from "../../../../components/productContent/SearchForProduct";
+import { ProductItemContainer } from "../../../../components/productContent/ProductItemContainer";
 import { useState, useEffect } from "react";
-import { ProductData } from "../../app/[locale]/interface";
+import { ProductData } from "../../interface";
 
-const MainContent: React.FC = () => {
+const ProductContent: React.FC = () => {
   const [productItems, setProductItems] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState<ProductData[]>([]);
 
@@ -19,9 +19,8 @@ const MainContent: React.FC = () => {
     getItem();
   }, []);
 
-  console.log(filteredProducts, "filter");
   return (
-    <>
+    <div className="w-full mt-[150px]">
       <SearchForProduct
         filteredProducts={filteredProducts}
         setFilteredProducts={setFilteredProducts}
@@ -31,8 +30,8 @@ const MainContent: React.FC = () => {
         filteredProducts={filteredProducts}
         productItems={productItems}
       />
-    </>
+    </div>
   );
 };
 
-export { MainContent };
+export default ProductContent;

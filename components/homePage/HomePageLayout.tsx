@@ -1,6 +1,7 @@
 import { AboutUs } from "./AboutUs";
 import { Articles } from "./Articles";
 import { MainVideo } from "./MainVideo";
+import { Slider } from "./Slider";
 
 const HomePageLayout = () => {
   return (
@@ -10,6 +11,7 @@ const HomePageLayout = () => {
         <MainVideo />
         <Articles />
         <AboutUs />
+        <Slider />
       </div>
     </>
   );

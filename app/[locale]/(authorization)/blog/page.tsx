@@ -13,7 +13,6 @@ async function getBlog() {
 export default async function Blog() {
   const blogs = await getBlog();
 
-  console.log(blogs, "blogs");
   return (
     <div className="flex items-center justify-center flex-col md:flex-row md:flex-wrap p-4 mt-[80px]">
       {blogs.map((item) => (

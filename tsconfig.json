@@ -32,7 +32,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/mainContent/ProductItems.jsx",
+    "components/productContent/ProductItems.jsx",
     "components/projectData.ts",
     "app/layout.js",
     "components/headerFooterContent/LangButton.jsx"
