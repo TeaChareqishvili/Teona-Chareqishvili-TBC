@@ -1,6 +1,5 @@
 import { ContactForm } from "../../../../components/contactPage/ContactForm";
 import { ContactInformation } from "../../../../components/contactPage/ContactInformation";
-// import { ContactMap } from "../../../../components/contactPage/ContactMap";
 
 const ContactLayout = () => {
   return (
@@ -8,7 +7,6 @@ const ContactLayout = () => {
       {" "}
       <ContactInformation />
       <ContactForm />
-      {/* <ContactMap /> */}
     </div>
   );
 };

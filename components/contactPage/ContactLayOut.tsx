@@ -1,6 +1,5 @@
 import { ContactForm } from "./ContactForm";
 import { ContactInformation } from "./ContactInformation";
-import { ContactMap } from "./ContactMap";
 
 const ContactLayout = () => {
   return (
@@ -8,7 +7,6 @@ const ContactLayout = () => {
       {" "}
       <ContactInformation />
       <ContactForm />
-      <ContactMap />
     </div>
   );
 };

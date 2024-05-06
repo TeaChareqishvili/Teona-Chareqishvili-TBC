@@ -26,24 +26,35 @@ export default async function SingleBlog({
   params: { id: string; locale: string };
 }) {
   setStaticParamsLocale(locale);
-  // const { id } = params;
+
   const blog: Blog = await getBlog(id);
 
   return (
-    <div className="w-4/5 flex items-center flex-col justify-center my-[20px] mx-auto">
+    <div className="w-4/5 flex items-center flex-col justify-center my-[20px] mx-auto mt-[130px]">
       <div className="my-[15px]">
         {" "}
         {blog.tags.map((tag, index) => (
-          <span key={index}> # {tag} </span>
+          <span className="text-[16px] text-[#4f544f] uppercase" key={index}>
+            {" "}
+            # {tag}{" "}
+          </span>
         ))}
       </div>
 
       <div className="mr-[20px] my-[10px]">
-        <Image src={blogImage} alt="blog" width="300" height="300" />
+        <Image
+          className="rounded-md"
+          src={blogImage}
+          alt="blog"
+          width="300"
+          height="300"
+        />
       </div>
-      <div>
-        <p className="text-lg text-gray-700 font-bold">{blog.title}....</p>
-        <p>{blog.body}</p>
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-[20px] text-[#4c514c] font-bold mb-[15px]">
+          {blog.title}....
+        </p>
+        <p className="text-[#4c514c] tracking-wide text-[16px]">{blog.body}</p>
       </div>
       <span className="text-lg text-gray-700 font-bold">
         {" "}
