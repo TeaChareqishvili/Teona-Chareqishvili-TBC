@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Navigation } from "./Navigation";
-import logo from "../../public/assets/image/logo.webp";
+
 import { MobileMenu } from "../headerFooterContent/MobileMenu";
 import { useState } from "react";
 import { HeaderIcon } from "./HeaderIcon";
