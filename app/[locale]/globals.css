@@ -116,6 +116,15 @@
   opacity: 1;
 }
 
+.user-icon {
+  width: 30px;
+  height: 30px;
+  color: #4f6966;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 /* search section sttyle */
 .search-wrapper {
   width: 100%;
