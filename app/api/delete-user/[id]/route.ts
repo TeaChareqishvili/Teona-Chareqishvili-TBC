@@ -1,15 +1,18 @@
 import { sql } from "@vercel/postgres";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function DELETE(request: Request) {
-  const { id } = await request.json();
+export async function DELETE(request: NextRequest) {
+  const id = request.nextUrl.pathname.replace("/api/delete-user/", "");
+  console.log(id, "id");
   try {
-    if (!id) throw new Error("id is requered");
+    if (!id) throw new Error("ID is required");
 
-    await sql` DELETE FROM users WHERE id = ${Number(id)}`;
+    await sql`DELETE FROM users WHERE id = ${Number(id)};`;
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
-  const users = await sql`SELECT * FROM users`;
+
+  const users = await sql`SELECT * FROM users;`;
+
   return NextResponse.json({ users }, { status: 200 });
 }
