@@ -3,7 +3,7 @@ import Banner from "../../../../public/assets/image/userBanner.webp";
 import { UserIcons } from "@/components/userIcons/UserIcons";
 
 export default async function Users() {
-  const response = await fetch("http://localhost:3001/api/get-user");
+  const response = await fetch("http://localhost:3002/api/get-user");
   const { users } = await response.json();
 
   interface Users {
