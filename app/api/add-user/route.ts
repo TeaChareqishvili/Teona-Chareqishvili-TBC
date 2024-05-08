@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   try {
     if (!name || !email || !age)
       throw new Error(" names, email and age is required");
-    await sql`INSERT INTO users (name, email, age) VALUES (${name}, ${email}, ${age});`;
+    await sql`INSERT INTO users (name, email,age) VALUES (${name}, ${email}, ${age});`;
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }

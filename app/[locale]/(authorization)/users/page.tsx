@@ -13,7 +13,7 @@ export default async function Users() {
     age: number;
   }
   return (
-    <div className="w-full mt-[50px]  flex flex-col items-center justify-center">
+    <div className="w-full mt-[50px]  flex flex-col items-center justify-center mb-[60px]">
       <Image className="w-full h-[500px] mb-[20px]" src={Banner} alt="banner" />
       <h3 className="text-[#4b504b] text-[24px] underline tracking-wider mb-[20px]">
         Our Users
