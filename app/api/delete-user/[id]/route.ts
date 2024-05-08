@@ -6,7 +6,7 @@ export async function DELETE(request: Request) {
   try {
     if (!id) throw new Error("id is requered");
 
-    await sql` DELETE FROM users WHERE id = ${id}`;
+    await sql` DELETE FROM users WHERE id = ${Number(id)}`;
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }

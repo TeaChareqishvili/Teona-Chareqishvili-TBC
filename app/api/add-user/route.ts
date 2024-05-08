@@ -1,5 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -15,5 +16,6 @@ export async function GET(request: Request) {
   }
 
   const users = await sql`SELECT * FROM users;`;
+  revalidatePath("/users");
   return NextResponse.json({ users }, { status: 200 });
 }
