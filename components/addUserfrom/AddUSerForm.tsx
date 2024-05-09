@@ -13,10 +13,8 @@ export default async function AddUserForm({
       method: "POST",
       body: JSON.stringify({ name, email, age }),
     });
-    console.log(`response `, { response });
 
     const result = await response.json();
-    console.log(`response:`, { response });
 
     if (result) {
       handleModalClose();

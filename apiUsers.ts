@@ -22,3 +22,15 @@ export async function getUsers() {
 //   });
 //   console.log(`response `, { response });
 // }
+
+export async function deleteUser(id: number) {
+  const response = await fetch(`${Host}/delete-user/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete user");
+  }
+
+  return response.json();
+}

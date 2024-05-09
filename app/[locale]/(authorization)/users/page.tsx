@@ -35,7 +35,7 @@ export default async function Users() {
                 {user.age}
               </td>
               <td className=" py-[15px] flex items-center justify-center gap-4">
-                <UserIcons />
+                <UserIcons id={user.id} />
               </td>
             </tr>
           ))}
