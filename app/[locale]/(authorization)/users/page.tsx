@@ -1,17 +1,12 @@
 import Image from "next/image";
 import Banner from "../../../../public/assets/image/userBanner.webp";
 import { UserIcons } from "@/components/userIcons/UserIcons";
+import { Users, getUsers } from "../../../../apiUsers";
+import { UserAddButton } from "@/components/addUserfrom/UserAddButton";
 
 export default async function Users() {
-  const response = await fetch("http://localhost:3002/api/get-user");
-  const { users } = await response.json();
+  const users = await getUsers();
 
-  interface Users {
-    id: number;
-    name: string;
-    email: string;
-    age: number;
-  }
   return (
     <div className="w-full mt-[50px]  flex flex-col items-center justify-center mb-[60px]">
       <Image className="w-full h-[500px] mb-[20px]" src={Banner} alt="banner" />
@@ -28,7 +23,7 @@ export default async function Users() {
           </tr>
         </thead>
         <tbody>
-          {users.rows.map((user: Users) => (
+          {users.map((user: Users) => (
             <tr key={user.id} className="border-b border-[#e2e6e1]">
               <td className="pl-[70px] py-[15px] text-[18px] text-[#3b4039]">
                 {user.name}
@@ -46,6 +41,7 @@ export default async function Users() {
           ))}
         </tbody>
       </table>
+      <UserAddButton />
     </div>
   );
 }
