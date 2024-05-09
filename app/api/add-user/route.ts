@@ -3,10 +3,6 @@ import { NextResponse } from "next/server";
 // import { revalidatePath } from "next/cache";
 
 export async function POST(request: Request) {
-  //   const { searchParams } = new URL(request.url);
-  //   const name = searchParams.get("name");
-  //   const email = searchParams.get("email");
-  //   const age = searchParams.get("age");
   const { name, email, age } = await request.json();
   try {
     if (!name || !email || !age)
