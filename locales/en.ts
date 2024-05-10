@@ -4,6 +4,7 @@ export default {
     blog: "Blogs",
     contact: "Contact",
     product: "Products",
+    users: "Users",
   },
   footer: {
     subscribe: "Subscribe Newsletter",

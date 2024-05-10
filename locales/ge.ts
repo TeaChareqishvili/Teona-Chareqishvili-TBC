@@ -4,6 +4,7 @@ export default {
     blog: "ბლოგები",
     contact: "კონტაქტი",
     product: "პროდუქტები",
+    users: "მომხმარებელი",
   },
   footer: {
     subscribe: "გამოგვიწერეთ",
