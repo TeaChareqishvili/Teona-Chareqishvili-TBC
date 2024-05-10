@@ -36,6 +36,6 @@ import { UserData } from "@/components/userIcons/UserIcons";
 
 export async function updateUserAction(id: number, userData: UserData) {
   const { name, email, age } = userData;
-  revalidatePath("/admin");
+  revalidatePath("/users");
   getUserById(id, name, email, age);
 }

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Banner from "../../../../public/assets/image/userBanner.webp";
 import { UserIcons } from "@/components/userIcons/UserIcons";
-import { Users, getUsers } from "../../../../apiUsers";
+import { getUsers } from "../../../../apiUsers";
 import { UserAddButton } from "@/components/addUserfrom/UserAddButton";
+import type { Users } from "../../../../apiUsers";
 
 export default async function Users() {
   const users = await getUsers();
@@ -35,7 +36,7 @@ export default async function Users() {
                 {user.age}
               </td>
               <td className=" py-[15px] flex items-center justify-center gap-4">
-                <UserIcons users={users} id={user.id} />
+                <UserIcons users={user} id={user.id} />
               </td>
             </tr>
           ))}
