@@ -5,7 +5,7 @@ import { FaUserEdit } from "react-icons/fa";
 import { deleteUser } from "@/apiUsers";
 import { useState } from "react";
 import EditModal from "../modalEdit/EditModal";
-import { EditUserForm } from "../modalEdit/EditUserForm";
+
 import { updateUserAction } from "../../app/[locale]/actions";
 import { useRouter } from "next/navigation";
 
@@ -28,6 +28,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
   const [user, setUser] = useState<UserData>(users);
   const router = useRouter();
 
+  console.log(user, "user");
   const handleModalEditOpen = () => {
     setModalEditOpen(true);
   };
@@ -60,7 +61,10 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
       <TiUserDelete className="user-icon" onClick={handleDelete} />
       <FaUserEdit className="user-icon" onClick={handleModalEditOpen} />
       <EditModal isOpen={isModalEditOpen} onClose={handleModalEditClose}>
-        <form className="flex flex-col items-center justify-center py-[20px] px-[30px]">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col items-center justify-center py-[20px] px-[30px]"
+        >
           <input
             className=" rounded-md mt-[20px] mx-[20px] w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
             id="name"
@@ -82,7 +86,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
             id="age"
             type="number"
             placeholder="Age"
-            value={user.age.toString()}
+            value={user?.age?.toString() || ""}
             onChange={(e) => handleChange("age", parseInt(e.target.value))}
           />
           <button

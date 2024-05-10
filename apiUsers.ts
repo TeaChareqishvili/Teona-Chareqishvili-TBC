@@ -1,11 +1,11 @@
 export const Host = "http://localhost:3000/api";
 
-export interface Users {
+export type Users = {
   id: number;
   name: string;
   email: string;
   age: number;
-}
+};
 
 export async function getUsers() {
   const response = await fetch(Host + "/get-user");
@@ -42,7 +42,7 @@ export async function getUserById(
   age: number
 ) {
   try {
-    const response = await fetch(`${Host}/update-user/${id}`, {
+    const response = await fetch(`${Host}/edit-user/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
