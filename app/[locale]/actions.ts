@@ -1,6 +1,6 @@
 // import { cookies } from "next/headers";
 // import { AUTH_COOKIE_KEY } from "./contants";
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 import { getUserById } from "@/apiUsers";
 import { UserData } from "@/components/userIcons/UserIcons";
 // export async function Userlogin(username, password) {
@@ -36,6 +36,6 @@ import { UserData } from "@/components/userIcons/UserIcons";
 
 export async function updateUserAction(id: number, userData: UserData) {
   const { name, email, age } = userData;
-  revalidatePath("/users");
+  //   revalidatePath("/users");
   getUserById(id, name, email, age);
 }
