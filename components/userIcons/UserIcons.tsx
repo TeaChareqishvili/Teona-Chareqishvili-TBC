@@ -4,7 +4,7 @@ import { TiUserDelete } from "react-icons/ti";
 import { FaUserEdit } from "react-icons/fa";
 import { deleteUser } from "@/apiUsers";
 import { useState } from "react";
-import EditModal from "../modalEdit/EditModal";
+import EditModal from "../modal/EditModal";
 
 import { updateUserAction } from "../../app/[locale]/actions";
 import { useRouter } from "next/navigation";
