@@ -2,10 +2,10 @@
 
 import { TiUserDelete } from "react-icons/ti";
 import { FaUserEdit } from "react-icons/fa";
-import { deleteUser } from "@/apiUsers";
+// import { deleteUser } from "@/apiUsers";
+import { deleteUserId } from "../../app/[locale]/actions";
 import { useState } from "react";
 import EditModal from "../modal/EditModal";
-
 import { updateUserAction } from "../../app/[locale]/actions";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +18,7 @@ export interface UserData {
 const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
   const handleDelete = async () => {
     try {
-      await deleteUser(id);
+      deleteUserId(id);
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -28,7 +28,6 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
   const [user, setUser] = useState<UserData>(users);
   const router = useRouter();
 
-  console.log(user, "user");
   const handleModalEditOpen = () => {
     setModalEditOpen(true);
   };

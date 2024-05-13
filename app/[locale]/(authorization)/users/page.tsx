@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Banner from "../../../../public/assets/image/userBanner.webp";
-// import { UserIcons } from "@/components/userIcons/UserIcons";
-// import { getUsers } from "../../../../apiUsers";
+import { UserIcons } from "@/components/userIcons/UserIcons";
+import { getUsers } from "../../../../apiUsers";
 import { UserAddButton } from "@/components/addUserform/UserAddButton";
 import type { Users } from "../../../../apiUsers";
-import { UserData } from "@/components/userData/UserData";
+// import { UserData } from "@/components/userData/UserData";
 
 export default async function Users() {
-  //   const users: Users = await getUsers();
+  const users = await getUsers();
 
   return (
     <div className="w-full mt-[50px]  flex flex-col items-center justify-center mb-[60px]">
@@ -15,7 +15,7 @@ export default async function Users() {
       <h3 className="text-[#4b504b] text-[24px] underline tracking-wider mb-[20px]">
         Our Users
       </h3>
-      {/* <table className="w-4/5 border-2 border-[#e2e6e1] rounded-lg mt-[30px] mb-[30px]">
+      <table className="w-4/5 border-2 border-[#e2e6e1] rounded-lg mt-[30px] mb-[30px]">
         <thead>
           <tr className="bg-[#e2e6e1] rounded-md">
             <th className=" py-[15px] text-[18px] text-[#3b4039]">Name</th>
@@ -25,7 +25,7 @@ export default async function Users() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user: Users) => (
+          {users?.map((user: Users) => (
             <tr key={user.id} className="border-b border-[#e2e6e1]">
               <td className="pl-[70px] py-[15px] text-[18px] text-[#3b4039]">
                 {user.name}
@@ -42,8 +42,8 @@ export default async function Users() {
             </tr>
           ))}
         </tbody>
-      </table> */}
-      <UserData />
+      </table>
+      {/* <UserData /> */}
       <UserAddButton />
     </div>
   );

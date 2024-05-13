@@ -1,20 +1,20 @@
 "use client";
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import { UserIcons } from "../userIcons/UserIcons";
 import type { Users } from "@/apiUsers";
-import { getUsers } from "@/apiUsers";
+// import { getUsers } from "@/apiUsers";
 
 const UserData = () => {
-  const [retrieveUser, setRetrieveUser] = useState([]);
+  // const [retrieveUser, setRetrieveUser] = useState([]);
 
-  useEffect(() => {
-    const intervalId = setInterval(async () => {
-      const fetchedUsers = await getUsers();
-      setRetrieveUser(fetchedUsers);
-    }, 0);
+  // useEffect(() => {
+  //   const intervalId = setInterval(async () => {
+  //     const fetchedUsers = await getUsers();
+  //     setRetrieveUser(fetchedUsers);
+  //   }, 0);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  //   return () => clearInterval(intervalId);
+  // }, []);
   return (
     <>
       <table className="w-4/5 border-2 border-[#e2e6e1] rounded-lg mt-[30px] mb-[30px]">
@@ -27,7 +27,7 @@ const UserData = () => {
           </tr>
         </thead>
         <tbody>
-          {retrieveUser.map((user: Users) => (
+          {/* {retrieveUser.map((user: Users) => (
             <tr key={user.id} className="border-b border-[#e2e6e1]">
               <td className="pl-[70px] py-[15px] text-[18px] text-[#3b4039]">
                 {user.name}
@@ -42,7 +42,7 @@ const UserData = () => {
                 <UserIcons users={user} id={user.id} />
               </td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
     </>

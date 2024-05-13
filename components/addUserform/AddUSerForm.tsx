@@ -4,22 +4,37 @@ interface AddUserFormProps {
   handleModalClose: () => void;
 }
 
+export async function addUserInfo(formData: FormData) {
+  const { name, email, age } = Object.fromEntries(formData);
+  const response = await fetch(Host + "/add-user", {
+    method: "POST",
+    body: JSON.stringify({ name, email, age }),
+  });
+
+  const result = await response.json();
+
+  if (result) {
+    // handleModalClose();
+    console.log("result");
+  }
+}
+
 export default async function AddUserForm({
   handleModalClose,
 }: AddUserFormProps) {
-  async function addUserInfo(formData: FormData) {
-    const { name, email, age } = Object.fromEntries(formData);
-    const response = await fetch(Host + "/add-user", {
-      method: "POST",
-      body: JSON.stringify({ name, email, age }),
-    });
+  // async function addUserInfo(formData: FormData) {
+  //   const { name, email, age } = Object.fromEntries(formData);
+  //   const response = await fetch(Host + "/add-user", {
+  //     method: "POST",
+  //     body: JSON.stringify({ name, email, age }),
+  //   });
 
-    const result = await response.json();
+  //   const result = await response.json();
 
-    if (result) {
-      handleModalClose();
-    }
-  }
+  //   // if (result) {
+  //   //   handleModalClose();
+  //   // }
+  // }
 
   return (
     <>
@@ -47,6 +62,7 @@ export default async function AddUserForm({
           name="age"
         />
         <button
+          onClick={handleModalClose}
           type="submit"
           className="border border-[#5a5f5a] text-[20px] text-[#5a5f5a] tracking-widest uppercase rounded-md mt-[15px] py-[10px] px-[5px] w-[150px] cursor-pointer"
         >
