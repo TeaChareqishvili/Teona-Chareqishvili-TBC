@@ -21,30 +21,23 @@ export async function getUsers() {
     throw error;
   }
 }
-// export async function getUsers(name: string, email: string, age: number) {
-//   return await fetch(Host + "/api/get-user", {
-//     method: "POST",
-//     body: JSON.stringify({ name, email, age }),
-//   });
-// }
 
-// export async function addUserInfo(formData: FormData) {
-//   "use server";
-//   const { name, email, age } = Object.fromEntries(formData);
-//   const response = await fetch(Host + "/add-user", {
-//     method: "POST",
-//     body: JSON.stringify({ name, email, age }),
-//   });
-//   console.log(`response `, { response });
-// }
+export async function createUser(name: string, email: string, age: number) {
+  return await fetch(Host + "/api/add-user", {
+    method: "POST",
+    body: JSON.stringify({ name, email, age }),
+  });
+}
 
 export async function deleteUser(id: number) {
   const response = await fetch(`${Host}/delete-user/${id}`, {
     method: "DELETE",
   });
+
   if (!response.ok) {
     throw new Error("Failed to delete user");
   }
+
   return response.json();
 }
 

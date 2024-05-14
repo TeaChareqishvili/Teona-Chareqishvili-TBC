@@ -1,59 +1,11 @@
 "use client";
-// import { useSaveProducts } from "@/hook";
+// import useSaveProducts from "@/hook";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductCard } from "../../app/[locale]/interface";
-import { useReducer } from "react";
+import { useEffect } from "react";
+import { json } from "stream/consumers";
 
-interface SelectedProduct {
-  id: number;
-  count: number;
-}
-
-type Action =
-  | { type: "INCREMENT"; payload: number }
-  | { type: "DECREMENT"; payload: number }
-  | { type: "RESET" };
-
-const reducer = (state: SelectedProduct[], action: Action) => {
-  switch (action.type) {
-    case "INCREMENT": {
-      const selectedProductIdx = state.findIndex(
-        (p) => p.id === action.payload
-      );
-      if (selectedProductIdx === -1)
-        return [...state, { id: action.payload, count: 1 }];
-      const clone = [...state];
-      const selectedProduct = clone[selectedProductIdx];
-      const updatedSelectedProduct = {
-        ...selectedProduct,
-        count: selectedProduct.count + 1,
-      };
-      clone[selectedProductIdx] = updatedSelectedProduct;
-      return clone;
-    }
-
-    case "DECREMENT": {
-      const selectedProductIdx = state.findIndex(
-        (p) => p.id === action.payload
-      );
-      if (selectedProductIdx === -1)
-        return [...state, { id: action.payload, count: 1 }];
-      const clone = [...state];
-      const selectedProduct = clone[selectedProductIdx];
-      const updatedSelectedProduct = {
-        ...selectedProduct,
-        count: selectedProduct.count - 1,
-      };
-      clone[selectedProductIdx] = updatedSelectedProduct;
-      return clone;
-    }
-    case "RESET":
-      return initialState;
-  }
-};
-
-const initialState: SelectedProduct[] = [];
 const ProductItems = ({
   imgUrl,
   title,
@@ -65,17 +17,61 @@ const ProductItems = ({
   stock,
   id,
 }: ProductCard) => {
-  const [selectedProducts, dispatch] = useReducer(reducer, initialState);
+  // const selectedProducts = {
+  //   imgUrl,
+  //   title,
+  //   brand,
+  //   category,
+  //   discountPercentage,
+  //   price,
+  //   rating,
+  //   stock,
+  //   id,
+  // };
 
-  const handleAddProduct = (id: number) => {
-    dispatch({ type: "INCREMENT", payload: id });
-  };
-  console.log(selectedProducts, "selected");
+  // const { cartProducts, addProductToCart } = useSaveProducts();
+
+  // const handleAddProduct = (newProduct: ProductCard) => {
+  //   addProductToCart(newProduct);
+  // };
+
+  // console.log(cartProducts, "jandaba");
+  useEffect(() => {
+    const cart = window.localStorage.getItem("cart");
+
+    if (cart === null || cart === undefined) {
+      console.log("nothing");
+      window.localStorage.setItem("cart", JSON.stringify([]));
+    }
+  }, []);
+
+  function addToCart() {
+    const cart = window.localStorage.getItem("cart");
+    const parsedCart = JSON.parse(cart);
+
+    let productExists = false;
+
+    for (let item of parsedCart) {
+      if (item.id === id) {
+        item.quantity += 1;
+        productExists = true;
+        break;
+      }
+    }
+
+    if (!productExists) {
+      parsedCart.push({ id, title, price, quantity: 1 });
+    }
+
+    parsedCart.sort((a, b) => a.id - b.id);
+
+    window.localStorage.setItem("cart", JSON.stringify(parsedCart));
+
+    console.log(JSON.parse(window.localStorage.getItem("cart")));
+  }
+
   return (
     <>
-      <div>
-        <span className="text-black">{selectedProducts.length}num</span>
-      </div>
       <div className="item-wrapper flex flex-col items-center justify-center border border-gray-300 shadow transition-shadow  cursor-pointer  rounded p-2 mb-2 hover:shadow-lg">
         <div className="product-img">
           <Image
@@ -86,7 +82,7 @@ const ProductItems = ({
             height={100}
           />
           <div className="add-cart">
-            <button onClick={() => handleAddProduct(id)}>ADD TO CART</button>
+            <button onClick={addToCart}>ADD TO CART</button>
           </div>
           <span>Rating-{rating}</span>
         </div>

@@ -2,7 +2,6 @@
 
 import { TiUserDelete } from "react-icons/ti";
 import { FaUserEdit } from "react-icons/fa";
-// import { deleteUser } from "@/apiUsers";
 import { deleteUserId } from "../../app/[locale]/actions";
 import { useState } from "react";
 import EditModal from "../modal/EditModal";
@@ -55,6 +54,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
       [field]: value,
     }));
   };
+
   return (
     <div className="flex items-center justify-center">
       <TiUserDelete className="user-icon" onClick={handleDelete} />
