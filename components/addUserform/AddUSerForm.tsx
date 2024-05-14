@@ -1,4 +1,4 @@
-import { Host } from "@/apiUsers";
+import { addUserInfo } from "../../app/[locale]/actions";
 
 interface AddUserFormProps {
   handleModalClose: () => void;
@@ -7,25 +7,14 @@ interface AddUserFormProps {
 export default async function AddUserForm({
   handleModalClose,
 }: AddUserFormProps) {
-  async function addUserInfo(formData: FormData) {
-    const { name, email, age } = Object.fromEntries(formData);
-    const response = await fetch(Host + "/add-user", {
-      method: "POST",
-      body: JSON.stringify({ name, email, age }),
-    });
-
-    const result = await response.json();
-
-    if (result) {
-      handleModalClose();
-    }
-  }
+  const handleModal = () => {
+    setTimeout(handleModalClose, 0);
+  };
 
   return (
     <>
       <form
         action={addUserInfo}
-        method="post"
         className="flex flex-col items-center justify-center py-[20px] px-[30px]"
       >
         <input
@@ -47,6 +36,7 @@ export default async function AddUserForm({
           name="age"
         />
         <button
+          onClick={handleModal}
           type="submit"
           className="border border-[#5a5f5a] text-[20px] text-[#5a5f5a] tracking-widest uppercase rounded-md mt-[15px] py-[10px] px-[5px] w-[150px] cursor-pointer"
         >
