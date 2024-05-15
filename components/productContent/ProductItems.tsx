@@ -19,6 +19,8 @@ const ProductItems = ({
   const { addProductsToCart } = useProductCart();
   const [product] = useState({
     id,
+    imgUrl,
+    brand,
     title,
     price,
     quantity: 1,

@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 
+interface Card {
+  id: number;
+  price: number;
+  title: string;
+  imgUrl: string;
+  quantity: number;
+  brand: string;
+}
+
 const useProductCart = () => {
-  const [items, setItems] = useState([]);
-  const [totalProductCount, setTotalProductCount] = useState(0);
+  const [items, setItems] = useState<Card[]>([]);
+  const [totalProductCount, setTotalProductCount] = useState<number | null>(
+    null
+  );
 
   useEffect(() => {
     const products = window.localStorage.getItem("product");
@@ -11,7 +22,7 @@ const useProductCart = () => {
       console.log("nothing");
       window.localStorage.setItem("product", JSON.stringify([]));
     } else {
-      const parsedProducts = JSON.parse(products);
+      const parsedProducts: Card[] = JSON.parse(products);
       setItems(parsedProducts);
       setTotalProductCount(
         parsedProducts.reduce((total, product) => total + product.quantity, 0)
@@ -19,12 +30,24 @@ const useProductCart = () => {
     }
   }, []);
 
-  const addProductsToCart = (product) => {
+  const updateLocalStorage = (products: Card[]) => {
+    try {
+      window.localStorage.setItem("product", JSON.stringify(products));
+      setItems(products);
+      setTotalProductCount(
+        products.reduce((total, product) => total + product.quantity, 0)
+      );
+    } catch (error) {
+      console.error("Error saving to localStorage", error);
+    }
+  };
+
+  const addProductsToCart = (product: Card) => {
     const productItem = window.localStorage.getItem("product");
-    let parsedProduct = [];
+    let parsedProduct: Card[] = [];
 
     if (productItem) {
-      parsedProduct = JSON.parse(productItem);
+      parsedProduct = JSON.parse(productItem) as Card[];
     }
 
     let productExists = false;
@@ -42,23 +65,36 @@ const useProductCart = () => {
     }
 
     parsedProduct.sort((a, b) => a.id - b.id);
-
-    try {
-      window.localStorage.setItem("product", JSON.stringify(parsedProduct));
-      setItems(parsedProduct);
-      setTotalProductCount(
-        parsedProduct.reduce((total, product) => total + product.quantity, 0)
-      ); // Update the total product count
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
+    updateLocalStorage(parsedProduct);
 
     console.log(parsedProduct, "cart");
   };
 
-  console.log(totalProductCount, "num");
+  const incrementProductQuantity = (productId: number) => {
+    const updatedItems = items.map((item) =>
+      item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    updateLocalStorage(updatedItems);
+  };
 
-  return { addProductsToCart, items, totalProductCount };
+  const decrementProductQuantity = (productId: number) => {
+    const updatedItems = items
+      .map((item) =>
+        item.id === productId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter((item) => item.quantity > 0);
+    updateLocalStorage(updatedItems);
+  };
+
+  return {
+    addProductsToCart,
+    items,
+    totalProductCount,
+    incrementProductQuantity,
+    decrementProductQuantity,
+  };
 };
 
 export default useProductCart;
