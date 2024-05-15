@@ -1,12 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useProductCart = () => {
+  const [items, setItems] = useState([]);
+  const [totalProductCount, setTotalProductCount] = useState(0);
+
   useEffect(() => {
     const products = window.localStorage.getItem("product");
 
     if (products === null || products === undefined) {
       console.log("nothing");
       window.localStorage.setItem("product", JSON.stringify([]));
+    } else {
+      const parsedProducts = JSON.parse(products);
+      setItems(parsedProducts);
+      setTotalProductCount(
+        parsedProducts.reduce((total, product) => total + product.quantity, 0)
+      );
     }
   }, []);
 
@@ -36,15 +45,20 @@ const useProductCart = () => {
 
     try {
       window.localStorage.setItem("product", JSON.stringify(parsedProduct));
+      setItems(parsedProduct);
+      setTotalProductCount(
+        parsedProduct.reduce((total, product) => total + product.quantity, 0)
+      ); // Update the total product count
     } catch (error) {
       console.error("Error saving to localStorage", error);
     }
 
-    const items = JSON.parse(window.localStorage.getItem("product"));
-    console.log(items, "cart");
+    console.log(parsedProduct, "cart");
   };
 
-  return { addProductsToCart };
+  console.log(totalProductCount, "num");
+
+  return { addProductsToCart, items, totalProductCount };
 };
 
 export default useProductCart;

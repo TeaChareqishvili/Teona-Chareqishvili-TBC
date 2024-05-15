@@ -4,20 +4,10 @@ import { CiSearch } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
 import Link from "next/link";
-// import {useSaveProducts} from "@/hook";
-// import { useState, useEffect } from "react";
+import useProductCart from "@/hook";
 
 const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
-  // const [cartCount, setCartCount] = useState(0);
-
-  // avoids mismatches because the initial render is the same on both the server and client
-  // useEffect(() => {
-  //   const cartProducts = JSON.parse(
-  //     localStorage.getItem("cartProducts") || "[]"
-  //   );
-  //   setCartCount(cartProducts.length);
-  // }, []);
-
+  const { totalProductCount } = useProductCart();
   return (
     <div style={{ alignItems: alignItems }} className="hidden lg:flex">
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -28,10 +18,14 @@ const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
           <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
         </Link>
         <Link href="/cartProducts">
-          <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
+          <div className="relative">
+            {" "}
+            <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />{" "}
+            <span className="absolute top-[-9px] left-[19px] text-[red]">
+              {totalProductCount}
+            </span>
+          </div>
         </Link>
-
-        {/* <span>{cartCount}num</span> */}
       </div>
     </div>
   );
