@@ -1,7 +1,7 @@
 "use client";
 // import React, { useState, useEffect } from "react";
-import { UserIcons } from "../userIcons/UserIcons";
-import type { Users } from "@/apiUsers";
+// import { UserIcons } from "../userIcons/UserIcons";
+// import type { Users } from "@/apiUsers";
 // import { getUsers } from "@/apiUsers";
 
 const UserData = () => {

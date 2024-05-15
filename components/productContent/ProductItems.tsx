@@ -1,10 +1,9 @@
 "use client";
-// import useSaveProducts from "@/hook";
+import useProductCart from "@/hook";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductCard } from "../../app/[locale]/interface";
-import { useEffect } from "react";
-import { json } from "stream/consumers";
+import { useState } from "react";
 
 const ProductItems = ({
   imgUrl,
@@ -17,58 +16,51 @@ const ProductItems = ({
   stock,
   id,
 }: ProductCard) => {
-  // const selectedProducts = {
-  //   imgUrl,
-  //   title,
-  //   brand,
-  //   category,
-  //   discountPercentage,
-  //   price,
-  //   rating,
-  //   stock,
-  //   id,
-  // };
+  const { addProductsToCart } = useProductCart();
+  const [product] = useState({
+    id,
+    title,
+    price,
+    quantity: 1,
+  });
 
-  // const { cartProducts, addProductToCart } = useSaveProducts();
+  const handleAddToCart = () => {
+    addProductsToCart(product);
+  };
+  // useEffect(() => {
+  //   const products = window.localStorage.getItem("product");
 
-  // const handleAddProduct = (newProduct: ProductCard) => {
-  //   addProductToCart(newProduct);
-  // };
+  //   if (products === null || products === undefined) {
+  //     console.log("nothing");
+  //     window.localStorage.setItem("product", JSON.stringify([]));
+  //   }
+  // }, []);
 
-  // console.log(cartProducts, "jandaba");
-  useEffect(() => {
-    const cart = window.localStorage.getItem("cart");
+  // function addProductsToCart() {
+  //   const productItem = window.localStorage.getItem("product");
+  //   const parsedProduct = JSON.parse(productItem);
 
-    if (cart === null || cart === undefined) {
-      console.log("nothing");
-      window.localStorage.setItem("cart", JSON.stringify([]));
-    }
-  }, []);
+  //   let productExists = false;
 
-  function addToCart() {
-    const cart = window.localStorage.getItem("cart");
-    const parsedCart = JSON.parse(cart);
+  //   for (let item of parsedProduct) {
+  //     if (item.id === id) {
+  //       item.quantity += 1;
+  //       productExists = true;
+  //       break;
+  //     }
+  //   }
 
-    let productExists = false;
+  //   if (!productExists) {
+  //     parsedProduct.push({ id, title, price, quantity: 1 });
+  //   }
 
-    for (let item of parsedCart) {
-      if (item.id === id) {
-        item.quantity += 1;
-        productExists = true;
-        break;
-      }
-    }
+  //   parsedProduct.sort((a, b) => a.id - b.id);
 
-    if (!productExists) {
-      parsedCart.push({ id, title, price, quantity: 1 });
-    }
+  //   window.localStorage.setItem("product", JSON.stringify(parsedProduct));
 
-    parsedCart.sort((a, b) => a.id - b.id);
-
-    window.localStorage.setItem("cart", JSON.stringify(parsedCart));
-
-    console.log(JSON.parse(window.localStorage.getItem("cart")));
-  }
+  //   const items = JSON.parse(window.localStorage.getItem("product"));
+  //   console.log(items, "cart");
+  // }
 
   return (
     <>
@@ -82,7 +74,7 @@ const ProductItems = ({
             height={100}
           />
           <div className="add-cart">
-            <button onClick={addToCart}>ADD TO CART</button>
+            <button onClick={handleAddToCart}>ADD TO CART</button>
           </div>
           <span>Rating-{rating}</span>
         </div>

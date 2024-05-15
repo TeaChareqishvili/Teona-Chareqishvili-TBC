@@ -3,7 +3,7 @@
 
 const CartProducts = () => {
   //   const { cartProducts } = useCart();
-  console.log(cartProducts, "page");
+  //   console.log(cartProducts, "page");
   return (
     <div className="mt-[130px] text-black">
       {/* {cartProducts?.map((item, index) => (
