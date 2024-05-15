@@ -11,6 +11,7 @@ import { Card } from "@/hook";
 const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
   const { totalProductCount } = useProductCart();
   const [count, setCount] = useState(totalProductCount);
+  const [num, setNum] = useState(true);
 
   useEffect(() => {
     const updateCartCount = () => {
@@ -22,6 +23,14 @@ const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
           0
         );
         setCount(total);
+        // Set num based on the new count
+        if (total === 0) {
+          setNum(false);
+        } else {
+          setNum(true); // Ensure to set true when count is greater than 0
+        }
+      } else {
+        setNum(false); // Ensure to handle the case where products are not found
       }
     };
 
@@ -53,9 +62,11 @@ const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
           <div className="relative">
             {" "}
             <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />{" "}
-            <span className=" absolute top-[-9px] left-[19px] text-[#780000] font-bold text-[15px]">
-              {count}
-            </span>
+            {num && (
+              <span className=" absolute top-[-9px] left-[19px] text-[#780000] font-bold text-[15px]">
+                {count}
+              </span>
+            )}
           </div>
         </Link>
       </div>
