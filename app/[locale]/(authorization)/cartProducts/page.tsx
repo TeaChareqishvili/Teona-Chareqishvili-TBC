@@ -3,6 +3,7 @@ import useProductCart from "@/hook";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 const CartProducts = () => {
   const {
@@ -10,6 +11,7 @@ const CartProducts = () => {
     incrementProductQuantity,
     decrementProductQuantity,
     clearCart,
+    removeProduct,
   } = useProductCart();
 
   return (
@@ -35,6 +37,10 @@ const CartProducts = () => {
             <FaMinus
               className="cursor-pointer mb-[10px]"
               onClick={() => decrementProductQuantity(item.id)}
+            />
+            <MdDeleteForever
+              className="cursor-pointer mb-[10px]"
+              onClick={() => removeProduct(item.id)}
             />
           </div>
         </div>
