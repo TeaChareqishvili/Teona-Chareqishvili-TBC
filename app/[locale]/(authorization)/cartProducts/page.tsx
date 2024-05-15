@@ -1,16 +1,18 @@
 "use client";
-// import useCart from "@/hook";
+import useProductCart from "@/hook";
 
 const CartProducts = () => {
-  //   const { cartProducts } = useCart();
+  const { items } = useProductCart();
   //   console.log(cartProducts, "page");
   return (
     <div className="mt-[130px] text-black">
-      {/* {cartProducts?.map((item, index) => (
+      {items?.map((item, index) => (
         <div key={index}>
           <p>{item.title}</p>
+          <p>{item.price}</p>
+          <p>{item.quantity}</p>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };
