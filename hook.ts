@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface Card {
+export interface Card {
   id: number;
   price: number;
   title: string;
@@ -28,7 +28,28 @@ const useProductCart = () => {
         parsedProducts.reduce((total, product) => total + product.quantity, 0)
       );
     }
+
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "product") {
+        const parsedProducts: Card[] = JSON.parse(e.newValue || "[]");
+        setItems(parsedProducts);
+        setTotalProductCount(
+          parsedProducts.reduce((total, product) => total + product.quantity, 0)
+        );
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
+
+  const dispatchCartEvent = () => {
+    const event = new Event("cartUpdated");
+    window.dispatchEvent(event);
+  };
 
   const updateLocalStorage = (products: Card[]) => {
     try {
@@ -37,6 +58,7 @@ const useProductCart = () => {
       setTotalProductCount(
         products.reduce((total, product) => total + product.quantity, 0)
       );
+      dispatchCartEvent();
     } catch (error) {
       console.error("Error saving to localStorage", error);
     }
@@ -88,12 +110,20 @@ const useProductCart = () => {
     updateLocalStorage(updatedItems);
   };
 
+  const clearCart = () => {
+    window.localStorage.removeItem("product");
+    setItems([]);
+    setTotalProductCount(0);
+    dispatchCartEvent();
+  };
+
   return {
     addProductsToCart,
     items,
     totalProductCount,
     incrementProductQuantity,
     decrementProductQuantity,
+    clearCart,
   };
 };
 
