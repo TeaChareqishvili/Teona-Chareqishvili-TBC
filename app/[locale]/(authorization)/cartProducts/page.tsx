@@ -5,8 +5,12 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 
 const CartProducts = () => {
-  const { items, incrementProductQuantity, decrementProductQuantity } =
-    useProductCart();
+  const {
+    items,
+    incrementProductQuantity,
+    decrementProductQuantity,
+    clearCart,
+  } = useProductCart();
 
   return (
     <div className="mt-[130px] w-[4/5] mx-auto text-[black]">
@@ -35,6 +39,9 @@ const CartProducts = () => {
           </div>
         </div>
       ))}
+      <button className="bg-[red] text-[white]" onClick={clearCart}>
+        Clear all
+      </button>
     </div>
   );
 };
