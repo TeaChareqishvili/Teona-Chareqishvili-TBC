@@ -32,4 +32,36 @@ export default {
   socIcons: {
     find: "Find Us",
   },
+  contact: {
+    leaveMessage: " Leave Message",
+    stuff: " Our staff will call back later and answer your questions.",
+    comment: "  Post Comment",
+  },
+  contactInformation: {
+    phone: "Phone",
+    address: "Address",
+    time: "Open Time",
+    email: "Email",
+  },
+  aboutUs: {
+    about: "About Us",
+    lorem: `Since 1993 we have roamed is a blog from the earliest years. Lorem
+    ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+    ea commodo consequat. Duis aute irure dolor in reprehenderit in
+    voluptate velit esse cillum dolore eu fugiat.`,
+  },
+
+  addUser: {
+    name: "Name",
+    email: "Email",
+    age: "Age",
+    save: "Save",
+    newUser: "Add New User",
+  },
+
+  editUser: {
+    close: "Close",
+  },
 } as const;

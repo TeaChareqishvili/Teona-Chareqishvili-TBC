@@ -7,6 +7,7 @@ import { useState } from "react";
 import EditModal from "../modal/EditModal";
 import { updateUserAction } from "../../app/[locale]/actions";
 import { useRouter } from "next/navigation";
+import { useScopedI18n } from "../../locales/client";
 
 export interface UserData {
   name: string;
@@ -14,6 +15,7 @@ export interface UserData {
   age: number;
 }
 
+const scopedT = useScopedI18n("addUser");
 const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
   const handleDelete = async () => {
     try {
@@ -68,7 +70,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
             className=" rounded-md mt-[20px] mx-[20px] w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
             id="name"
             type="text"
-            placeholder="Name"
+            placeholder={scopedT("name")}
             value={user.name}
             onChange={(e) => handleChange("name", e.target.value)}
           />
@@ -76,7 +78,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
             className=" rounded-md mt-[20px] mx-[20px] w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
             id="email"
             type="text"
-            placeholder="Email"
+            placeholder={scopedT("email")}
             value={user.email}
             onChange={(e) => handleChange("email", e.target.value)}
           />
@@ -84,7 +86,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
             className=" rounded-md mt-[20px] mx-[20px] w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
             id="age"
             type="number"
-            placeholder="Age"
+            placeholder={scopedT("age")}
             value={user?.age?.toString() || ""}
             onChange={(e) => handleChange("age", parseInt(e.target.value))}
           />
@@ -92,7 +94,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
             type="submit"
             className="border border-[#5a5f5a] text-[20px] text-[#5a5f5a] tracking-widest uppercase rounded-md mt-[15px] py-[10px] px-[5px] w-[150px] cursor-pointer"
           >
-            Save
+            {scopedT("save")}
           </button>
         </form>
       </EditModal>

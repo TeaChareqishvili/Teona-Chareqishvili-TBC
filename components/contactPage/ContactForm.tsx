@@ -1,13 +1,15 @@
+"use client";
 import { SocialLinks } from "../headerFooterContent/SocialLinks";
-
+import { useScopedI18n } from "../../locales/client";
 const ContactForm = () => {
+  const scopedT = useScopedI18n("contact");
   return (
     <div className="w-full bg-[#e1e6e0] py-[50px] px-[30px] mb-[30px] flex flex-col items-center justify-center">
       <h3 className="text-[32px] text-[#40443f] uppercase tracking-wider mb-[15px]">
-        Leave Message
+        {scopedT("leaveMessage")}
       </h3>
       <p className="text-[20px] text-[#40443f] mb-[15px] tracking-widest">
-        Our staff will call back later and answer your questions.
+        {scopedT("stuff")}
       </p>
       <form className="w-full flex flex-col items-center justify-center">
         <label className="flex items-center justify-center">
@@ -30,7 +32,7 @@ const ContactForm = () => {
           />
         </label>
         <button className="uppercase text-[20px] text-[#40443f] mt-[30px] cursor-pointer py-[7px] px-[15px] border border-[#40443f] ">
-          Post Comment
+          {scopedT("comment")}
         </button>
       </form>
       <SocialLinks marginTop="20px" />

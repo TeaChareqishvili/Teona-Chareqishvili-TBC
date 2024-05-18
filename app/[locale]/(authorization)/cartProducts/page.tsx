@@ -6,7 +6,7 @@ import { FaMinus } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { useState, useEffect } from "react";
 
-const CartProducts = () => {
+const cartProducts = () => {
   const [buttonRender, setButtonRender] = useState(true);
   const {
     items,
@@ -76,4 +76,4 @@ const CartProducts = () => {
   );
 };
 
-export default CartProducts;
+export default cartProducts;
