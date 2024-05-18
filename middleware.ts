@@ -14,7 +14,6 @@ export default async function middleware(request: NextRequest) {
   if (cookie?.value && pathname.startsWith("/logIn")) {
     return NextResponse.redirect(new URL("/", request.url));
   }
-  // console.log("tea", cookie);
 
   const I18nMiddleware = createI18nMiddleware({
     locales: ["en", "ge"],

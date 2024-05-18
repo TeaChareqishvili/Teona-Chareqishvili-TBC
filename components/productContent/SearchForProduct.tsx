@@ -76,16 +76,16 @@ const SearchForProduct = ({
       <div className="flex items-center">
         <label className="flex items-center relative">
           <input
-            className="w-[200px] p-[10px] outline-none text-[#3AA2A2] font-lg search-input rounded-tl-lg rounded-bl-lg"
+            className=" w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[47px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px] rounded-tl-[6px] rounded-bl-[6px] "
             type="search"
             placeholder={scopedT("searchCategory")}
             value={search}
             onChange={handleChange}
           />
-          <ImSearch className="absolute top-4 right-2 text-[#3AA2A2]" />
+          <ImSearch className="absolute top-4 right-2 text-[#546e6d]" />
         </label>
         <button
-          className="bg-[#3AA2A2] h-[44px] w-[130px] p-[7px] cursor-pointer text-white font-lg rounded-tr-lg rounded-br-lg"
+          className="bg-[#546e6d] h-[45px] w-[130px] p-[7px] cursor-pointer text-white font-lg rounded-tr-lg rounded-br-lg"
           onClick={handleFilter}
         >
           Sort
