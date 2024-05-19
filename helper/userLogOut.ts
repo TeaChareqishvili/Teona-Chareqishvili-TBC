@@ -1,4 +1,4 @@
-import { Host } from "@/apiUsers";
+import { Host } from "../apiUsers";
 
 export const handleLogout = async () => {
   try {

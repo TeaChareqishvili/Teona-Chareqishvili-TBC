@@ -1,4 +1,4 @@
-import { Host } from "@/apiUsers";
+import { Host } from "../apiUsers";
 
 export async function handlerLoginUser(username: string, password: string) {
   try {
