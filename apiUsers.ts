@@ -1,6 +1,6 @@
 export const Host =
-  process.env.NEXT_PUBLIC_VERCEL_URL === " development"
-    ? "http://localhost:3000/"
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
     : "teona-chareqishvili-tbc.vercel.app";
 
 export type Users = {
