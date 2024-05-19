@@ -1,4 +1,7 @@
-export const Host = "http://localhost:3000/api";
+export const Host =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "teona-chareqishvili-tbc.vercel.app";
 
 export type Users = {
   id: number;
@@ -9,7 +12,7 @@ export type Users = {
 
 export async function getUsers() {
   try {
-    const response = await fetch(Host + "/get-user");
+    const response = await fetch(Host + "/api/get-user");
     if (!response.ok) {
       throw new Error(`HTTP status ${response.status}`);
     }
@@ -30,7 +33,7 @@ export async function createUser(name: string, email: string, age: number) {
 }
 
 export async function deleteUser(id: number) {
-  const response = await fetch(`${Host}/delete-user/${id}`, {
+  const response = await fetch(`${Host}/api/delete-user/${id}`, {
     method: "DELETE",
   });
 
@@ -48,7 +51,7 @@ export async function getUserById(
   age: number
 ) {
   try {
-    const response = await fetch(`${Host}/edit-user/${id}`, {
+    const response = await fetch(`${Host}/api/edit-user/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

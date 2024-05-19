@@ -1,6 +1,8 @@
+import { Host } from "@/apiUsers";
+
 export async function handlerLoginUser(username: string, password: string) {
   try {
-    const response = await fetch("http://localhost:3000/api/login", {
+    const response = await fetch(Host + "/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

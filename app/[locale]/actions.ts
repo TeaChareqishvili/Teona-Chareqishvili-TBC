@@ -26,7 +26,7 @@ export const deleteUserId: (id: number) => Promise<void> = async (
 
 export async function addUserInfo(formData: FormData) {
   const { name, email, age } = Object.fromEntries(formData);
-  const response = await fetch(Host + "/add-user", {
+  const response = await fetch(Host + "/api/add-user", {
     method: "POST",
     body: JSON.stringify({ name, email, age }),
   });
