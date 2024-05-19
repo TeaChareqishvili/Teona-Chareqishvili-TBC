@@ -1,11 +1,10 @@
+import { Host } from "@/apiUsers";
+
 export const handleLogout = async () => {
   try {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_VERCEL_URL + "/api/logout",
-      {
-        method: "POST",
-      }
-    );
+    const res = await fetch(Host + "/logout", {
+      method: "POST",
+    });
 
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);

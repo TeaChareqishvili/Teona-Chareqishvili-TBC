@@ -1,16 +1,15 @@
+import { Host } from "@/apiUsers";
+
 export async function handlerLoginUser(username: string, password: string) {
   try {
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_VERCEL_URL + "/api/login",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      }
-    );
+    const response = await fetch(Host + "/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
