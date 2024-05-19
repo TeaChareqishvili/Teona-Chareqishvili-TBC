@@ -15,7 +15,6 @@ export interface UserData {
   age: number;
 }
 
-const scopedT = useScopedI18n("addUser");
 const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
   const handleDelete = async () => {
     try {
@@ -25,6 +24,7 @@ const UserIcons = ({ id, users }: { id: number; users: UserData }) => {
     }
   };
 
+  const scopedT = useScopedI18n("addUser");
   const [isModalEditOpen, setModalEditOpen] = useState(false);
   const [user, setUser] = useState<UserData>(users);
   const router = useRouter();

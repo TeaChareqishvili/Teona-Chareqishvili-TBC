@@ -1,4 +1,7 @@
-export const Host = "http://localhost:3000/api";
+export const Host =
+  process.env.NEXT_PUBLIC_VERCEL_URL === " development"
+    ? "http://localhost:3000/api"
+    : "teona-chareqishvili-tbc.vercel.app";
 
 export type Users = {
   id: number;
@@ -23,14 +26,14 @@ export async function getUsers() {
 }
 
 export async function createUser(name: string, email: string, age: number) {
-  return await fetch(Host + "/api/add-user", {
+  return await fetch(Host + "/add-user", {
     method: "POST",
     body: JSON.stringify({ name, email, age }),
   });
 }
 
 export async function deleteUser(id: number) {
-  const response = await fetch(`${Host}/delete-user/${id}`, {
+  const response = await fetch(`${Host}//delete-user/${id}`, {
     method: "DELETE",
   });
 
