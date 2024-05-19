@@ -1,7 +1,7 @@
 export const Host =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "teona-chareqishvili-tbc.vercel.app";
+    : "https://teona-chareqishvili-tbc.vercel.app";
 
 export type Users = {
   id: number;
