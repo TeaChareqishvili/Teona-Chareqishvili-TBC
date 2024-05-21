@@ -86,3 +86,12 @@ export interface ProductCard {
   stock: number;
   id: number;
 }
+
+// vercel
+export interface VercelProduct {
+  id: number;
+  title: string;
+  price: string;
+  stock: number;
+  category: string;
+}

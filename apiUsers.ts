@@ -10,6 +10,7 @@ export type Users = {
   age: number;
 };
 
+import { VercelProduct } from "././app/[locale]/interface";
 export async function getUsers() {
   try {
     const response = await fetch(Host + "/api/get-user");
@@ -71,6 +72,8 @@ export async function getUserById(
   }
 }
 
+// products - carts
+
 export async function getProducts() {
   try {
     const response = await fetch(Host + "/api/get-product");
@@ -78,14 +81,21 @@ export async function getProducts() {
       throw new Error(`HTTP status ${response.status}`);
     }
     const data = await response.json();
-    console.log("API Response:", data);
+    // console.log("API Response:", data);
     const { users } = data;
-    console.log("Users:", users);
+    // console.log("Users:", users);
     return users?.rows;
   } catch (error) {
     console.error("Failed to fetch products:", error);
     throw error;
   }
+}
+
+export async function getProductDetail(id: string) {
+  const response = await fetch(`${Host}/api/get-product/${id}`);
+  const data = await response.json();
+  const product = data.products?.rows ? data.products.rows[0] : null;
+  return product;
 }
 
 export async function getUserCart(userId: number) {
