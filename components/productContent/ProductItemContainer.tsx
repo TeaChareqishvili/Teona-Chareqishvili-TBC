@@ -1,4 +1,5 @@
 import { ProductList } from "./ProductList";
+
 import React from "react";
 
 const ProductItemContainer = ({ productItems, filteredProducts }: any) => {

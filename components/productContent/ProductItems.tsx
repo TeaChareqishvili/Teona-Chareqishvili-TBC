@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProductCard } from "../../app/[locale]/interface";
 import { useState } from "react";
+// import { getProducts } from "../../apiUsers";
 
-const ProductItems = ({
+export default async function ProductItems({
   imgUrl,
   title,
   brand,
@@ -15,7 +16,7 @@ const ProductItems = ({
   rating,
   stock,
   id,
-}: ProductCard) => {
+}: ProductCard) {
   const { addProductsToCart } = useProductCart();
   const [product] = useState({
     id,
@@ -29,43 +30,19 @@ const ProductItems = ({
   const handleAddToCart = () => {
     addProductsToCart(product);
   };
-  // useEffect(() => {
-  //   const products = window.localStorage.getItem("product");
 
-  //   if (products === null || products === undefined) {
-  //     console.log("nothing");
-  //     window.localStorage.setItem("product", JSON.stringify([]));
-  //   }
-  // }, []);
+  // const ProductVercel = await getProducts();
 
-  // function addProductsToCart() {
-  //   const productItem = window.localStorage.getItem("product");
-  //   const parsedProduct = JSON.parse(productItem);
-
-  //   let productExists = false;
-
-  //   for (let item of parsedProduct) {
-  //     if (item.id === id) {
-  //       item.quantity += 1;
-  //       productExists = true;
-  //       break;
-  //     }
-  //   }
-
-  //   if (!productExists) {
-  //     parsedProduct.push({ id, title, price, quantity: 1 });
-  //   }
-
-  //   parsedProduct.sort((a, b) => a.id - b.id);
-
-  //   window.localStorage.setItem("product", JSON.stringify(parsedProduct));
-
-  //   const items = JSON.parse(window.localStorage.getItem("product"));
-  //   console.log(items, "cart");
-  // }
-
+  // console.log(ProductVercel);
   return (
     <>
+      {/* <div>
+        {ProductVercel?.map((product: any) => (
+          <div key={product.id}>
+            <p>{product.title}</p>
+          </div>
+        ))}
+      </div> */}
       <div className="item-wrapper flex flex-col items-center justify-center border border-gray-300 shadow transition-shadow  cursor-pointer  rounded p-2 mb-2 hover:shadow-lg">
         <div className="product-img">
           <Image
@@ -99,6 +76,4 @@ const ProductItems = ({
       </div>
     </>
   );
-};
-
-export { ProductItems };
+}
