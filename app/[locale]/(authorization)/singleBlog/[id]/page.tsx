@@ -2,16 +2,16 @@
 
 import blogImage from "../../../../../public/assets/image/blogImages/blog3.webp";
 import Image from "next/image";
-import { FetchedBlog, Blog } from "../../../interface";
-import { setStaticParamsLocale } from "next-international/server";
+import { Blog } from "../../../interface";
+// import { setStaticParamsLocale } from "next-international/server";
 
 // function to generate static blog id
-export async function generateStaticParams() {
-  const response = await fetch("https://dummyjson.com/posts");
-  const blog: FetchedBlog = await response.json();
+// export async function generateStaticParams() {
+//   const response = await fetch("https://dummyjson.com/posts");
+//   const blog: FetchedBlog = await response.json();
 
-  return blog.posts.map((item) => ({ id: `${item.id}` }));
-}
+//   return blog.posts.map((item) => ({ id: `${item.id}` }));
+// }
 
 // function to fetch single blog id
 async function getBlog(id: string) {
@@ -21,11 +21,11 @@ async function getBlog(id: string) {
 }
 
 export default async function SingleBlog({
-  params: { id, locale },
+  params: { id },
 }: {
-  params: { id: string; locale: string };
+  params: { id: string };
 }) {
-  setStaticParamsLocale(locale);
+  // setStaticParamsLocale(locale);
 
   const blog: Blog = await getBlog(id);
 

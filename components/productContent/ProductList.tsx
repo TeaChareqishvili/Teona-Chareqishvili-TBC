@@ -1,5 +1,5 @@
 // import { Data } from "@/app/[locale]/interface";
-import { ProductItems } from "./ProductItems";
+import ProductItems from "./ProductItems";
 
 const ProductList = ({ productItems, filteredProducts }: any) => {
   const productsToRender =
