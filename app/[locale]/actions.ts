@@ -41,7 +41,7 @@ export async function addUserInfo(formData: FormData) {
 export const handleAddToCart = async (productId: string) => {
   "use server";
   try {
-    const response = await fetch("http://localhost:3000/api/add-product-cart", {
+    const response = await fetch(Host + "/api/add-product-cart", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -64,20 +64,17 @@ export const handleAddToCart = async (productId: string) => {
 export const handleDecrementCart = async (productId: string) => {
   "use server";
   try {
-    const response = await fetch(
-      "http://localhost:3000/api/decrement-product",
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: 46,
-          productId: productId,
-          quantity: 1,
-        }),
-      }
-    );
+    const response = await fetch(Host + "/api/decrement-product", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: 46,
+        productId: productId,
+        quantity: 1,
+      }),
+    });
     revalidatePath("/ProductVercel");
     if (!response.ok) {
       throw new Error("Failed to add item to cart");

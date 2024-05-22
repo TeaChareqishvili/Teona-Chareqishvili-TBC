@@ -10,7 +10,6 @@ export type Users = {
   age: number;
 };
 
-import { VercelProduct } from "././app/[locale]/interface";
 export async function getUsers() {
   try {
     const response = await fetch(Host + "/api/get-user");

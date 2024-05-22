@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 import { getUserCart } from "@/apiUsers";
-import { Cart } from "@/app/[locale]/interface";
+import type { Cart } from "@/app/[locale]/interface";
 
 export default async function Cart() {
   const cart: Cart = await getUserCart(46);
