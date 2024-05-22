@@ -5,6 +5,7 @@ import { VercelProduct } from "../../app/[locale]/interface";
 import { handleAddToCart } from "../../app/[locale]/actions";
 import productImg from "../../public/assets/image/blogImages/blog3.webp";
 import Image from "next/image";
+
 export default function NewProduct({ product }: any) {
   return (
     <>

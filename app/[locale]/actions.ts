@@ -86,3 +86,51 @@ export const handleDecrementCart = async (productId: string) => {
     console.error("Error adding item to cart:", error);
   }
 };
+
+export const handleClearCart = async () => {
+  "use server";
+  try {
+    const response = await fetch(`${Host}/api/delete-all-product`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: 46,
+      }),
+    });
+
+    // Ensure the cache is invalidated so the page shows the latest cart state
+    revalidatePath("/ProductVercel");
+
+    if (!response.ok) {
+      throw new Error("Failed to clear cart");
+    }
+  } catch (error) {
+    console.error("Error clearing cart:", error);
+  }
+};
+
+export const handleRemoveProductFromCart = async (productId: string) => {
+  "use server";
+  try {
+    const response = await fetch(`${Host}/api/delete-product`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: 46,
+        productId: productId,
+      }),
+    });
+
+    revalidatePath("/ProductVercel");
+
+    if (!response.ok) {
+      throw new Error("Failed to remove item from cart");
+    }
+  } catch (error) {
+    console.error("Error removing item from cart:", error);
+  }
+};

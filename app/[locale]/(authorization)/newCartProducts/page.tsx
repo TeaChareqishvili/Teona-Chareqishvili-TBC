@@ -1,4 +1,5 @@
 import { getProducts, getUserCart } from "@/apiUsers";
+import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButton } from "@/components/productButtons/SingleProductButtons";
 export default async function NewCartProducts() {
   const cart = await getUserCart(46);
@@ -18,7 +19,7 @@ export default async function NewCartProducts() {
       ...product,
       quantity: cartProductMap.get(product.id.toString()),
     }));
-  console.log(filteredProducts, "filteredproducts");
+  //   console.log(filteredProducts, "filteredproducts");
   return (
     <div className="mt-[130px] flex items-center justify-center flex-col m-auto">
       <h1 className="text-black">NewCartProducts</h1>
@@ -35,6 +36,7 @@ export default async function NewCartProducts() {
           <SingleProductButton id={product.id} />
         </div>
       ))}
+      <DeleteAll />
     </div>
   );
 }

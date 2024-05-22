@@ -3,13 +3,13 @@ import { IoCartOutline } from "react-icons/io5";
 import { getUserCart } from "@/apiUsers";
 export default async function Cart() {
   const cart = await getUserCart(46);
-  //   const cartProducts = Object.entries(cart.products);
+
   const num = Object.values(cart.products);
   const finalNum = num.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
     0
   );
-  console.log(finalNum, "cart");
+
   return (
     <>
       <Link href="/newCartProducts">

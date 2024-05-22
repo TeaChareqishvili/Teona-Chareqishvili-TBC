@@ -4,8 +4,8 @@ import { NextResponse } from "next/server";
 export const revalidate = 0;
 
 export async function GET(
-  request: Request,
-  { params }: { params: { userId: string } }
+  _request: Request,
+  { params }: { params: { id: string } }
 ) {
   try {
     const { id } = params;
@@ -13,8 +13,6 @@ export async function GET(
     if (!id) {
       throw new Error("User ID is required");
     }
-
-    console.log("userId:", id);
 
     const carts = await sql`SELECT * FROM carts WHERE user_id = ${Number(id)}`;
 
