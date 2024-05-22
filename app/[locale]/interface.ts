@@ -95,3 +95,28 @@ export interface VercelProduct {
   stock: number;
   category: string;
 }
+export interface NewProductProps {
+  product: VercelProduct[];
+}
+
+export interface AddToCartButtonProps {
+  productId: number;
+  handleAddToCart: (productId: any) => void;
+}
+
+interface ProductCart {
+  [key: string]: number;
+}
+
+export interface Cart {
+  products: ProductCart;
+}
+
+export interface SelectedProduct {
+  id: number;
+  title: string;
+  price: string;
+  stock: number;
+  category: string;
+  quantity: number;
+}

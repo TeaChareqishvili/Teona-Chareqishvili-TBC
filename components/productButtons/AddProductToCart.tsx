@@ -1,9 +1,6 @@
 "use client";
 import React from "react";
-interface AddToCartButtonProps {
-  productId: number;
-  handleAddToCart: (productId: number) => void;
-}
+import { AddToCartButtonProps } from "../../app/[locale]/interface";
 const AddProductToCart: React.FC<AddToCartButtonProps> = ({
   productId,
   handleAddToCart,

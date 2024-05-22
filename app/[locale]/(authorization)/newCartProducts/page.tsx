@@ -1,6 +1,8 @@
 import { getProducts, getUserCart } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButton } from "@/components/productButtons/SingleProductButtons";
+import { SelectedProduct } from "../../interface";
+
 export default async function NewCartProducts() {
   const cart = await getUserCart(46);
   const cartProductsArray = Object.entries(cart.products);
@@ -14,8 +16,10 @@ export default async function NewCartProducts() {
 
   // Filter and map the products to include the quantity
   const filteredProducts = cartProducts
-    .filter((product) => cartProductMap.has(product.id.toString()))
-    .map((product) => ({
+    .filter((product: SelectedProduct) =>
+      cartProductMap.has(product.id.toString())
+    )
+    .map((product: SelectedProduct) => ({
       ...product,
       quantity: cartProductMap.get(product.id.toString()),
     }));
@@ -23,7 +27,7 @@ export default async function NewCartProducts() {
   return (
     <div className="mt-[130px] flex items-center justify-center flex-col m-auto">
       <h1 className="text-black">NewCartProducts</h1>
-      {filteredProducts.map((product) => (
+      {filteredProducts.map((product: SelectedProduct) => (
         <div
           key={product.id}
           className="product-item text-[black] border border-black w-[200px] flex flex-col items-center mb-[15px]"

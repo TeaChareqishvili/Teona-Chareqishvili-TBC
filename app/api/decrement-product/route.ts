@@ -9,7 +9,7 @@ export async function PUT(req: NextRequest) {
   try {
     const { userId, productId, quantity } = await req.json();
 
-    // Fetch existing cart data from the database
+    // Fetch existing cart data from the server
     const result = await sql`
       SELECT products FROM carts
       WHERE user_id = ${Number(userId)}

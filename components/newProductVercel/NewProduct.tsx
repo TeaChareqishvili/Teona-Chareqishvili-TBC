@@ -1,12 +1,11 @@
-// import Image from "next/image";
 import Link from "next/link";
 import { AddProductToCart } from "../productButtons/AddProductToCart";
-import { VercelProduct } from "../../app/[locale]/interface";
+import { VercelProduct, NewProductProps } from "../../app/[locale]/interface";
 import { handleAddToCart } from "../../app/[locale]/actions";
 import productImg from "../../public/assets/image/blogImages/blog3.webp";
 import Image from "next/image";
 
-export default function NewProduct({ product }: any) {
+export default function NewProduct({ product }: NewProductProps) {
   return (
     <>
       {product?.map((product: VercelProduct) => (

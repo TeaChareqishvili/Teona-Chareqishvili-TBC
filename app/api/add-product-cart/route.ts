@@ -9,7 +9,7 @@ export async function PUT(req: NextRequest) {
   try {
     const { userId, productId, quantity } = await req.json();
 
-    // Fetch existing cart data from the database
+    // Fetch existing cart  from the vercel
     const result = await sql`
       SELECT products FROM carts
       WHERE user_id = ${Number(userId)}
@@ -21,7 +21,6 @@ export async function PUT(req: NextRequest) {
       products = result.rows[0].products || {};
     }
 
-    // Ensure products is a proper object
     if (typeof products === "string") {
       products = JSON.parse(products);
     }
@@ -34,7 +33,7 @@ export async function PUT(req: NextRequest) {
       products[productId] = quantity;
     }
 
-    // Update the cart in the database
+    // Update the cart on  vercel
     const updatedCart = await sql`
       UPDATE carts
       SET products = ${JSON.stringify(products)}::jsonb

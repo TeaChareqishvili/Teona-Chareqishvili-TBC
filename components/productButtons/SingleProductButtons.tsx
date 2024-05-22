@@ -3,7 +3,7 @@ import { handleAddToCart } from "@/app/[locale]/actions";
 import { handleDecrementCart } from "@/app/[locale]/actions";
 import { handleRemoveProductFromCart } from "../../app/[locale]/actions";
 
-const SingleProductButton = ({ id }: number) => {
+const SingleProductButton = ({ id }: any) => {
   return (
     <>
       <button onClick={() => handleAddToCart(id)}>+</button>

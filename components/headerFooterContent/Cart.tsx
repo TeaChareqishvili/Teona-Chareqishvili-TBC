@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 import { getUserCart } from "@/apiUsers";
-export default async function Cart() {
-  const cart = await getUserCart(46);
+import { Cart } from "@/app/[locale]/interface";
 
+export default async function Cart() {
+  const cart: Cart = await getUserCart(46);
   const num = Object.values(cart.products);
-  const finalNum = num.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  );
+  const finalNum = num.reduce((a, b) => a + b, 0);
 
   return (
     <>
