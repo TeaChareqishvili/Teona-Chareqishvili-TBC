@@ -6,7 +6,7 @@ const DeleteAll = () => {
     <>
       <button
         onClick={() => handleClearCart()}
-        className="w-[100px] text-[black]"
+        className="w-[100px] px-[10px] py-[7px] border border-[#ffffff] mb-[40px]"
       >
         Delete All{" "}
       </button>
