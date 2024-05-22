@@ -11,18 +11,26 @@ export default function NewProduct({ product }: NewProductProps) {
       {product?.map((product: VercelProduct) => (
         <div
           key={product.id}
-          className="border border-black w-[300px]  mx-[15px] my-[20px] p-[15px] flex items-center flex-col"
+          className="bg-[#eeede9] border border-[#3d5a4b] w-[300px] mx-[15px] my-[20px] p-[15px] flex items-center flex-col rounded-lg shadow-md hover:shadow-lg   hover:scale-110 transition-scale transition-transform duration-300 cursor-pointer"
         >
-          <Image width={200} height={200} src={productImg} alt="bag" />
-          <p className="text-[black]">{product.title}</p>
-          <p>{product.category}</p>
-          <p>${product.price}</p>
-          <p>In Stock: {product.stock}</p>
+          <Image
+            width={200}
+            height={200}
+            src={productImg}
+            alt="bag"
+            className="rounded-t-lg"
+          />
+          <p className="text-[#3d5a4b] text-lg font-semibold">
+            {product.title}
+          </p>
+          <p className="text-[#3d5a4b]">{product.category}</p>
+          <p className="text-[#3d5a4b]">${product.price}</p>
+          <p className="text-[#3d5a4b]">In Stock: {product.stock}</p>
           <Link
-            className="border border-black text-[black] mt-[10px] px-[10px] py-[7px]"
+            className="border border-[#b5b4b0] text-white mt-[10px] px-[10px] py-[7px] bg-[#4f7760] rounded-md hover:bg-[#5f8973] transition-colors duration-300"
             href={`/singleProductVercel/${product.id}`}
           >
-            view details
+            View Details
           </Link>
 
           <AddProductToCart
