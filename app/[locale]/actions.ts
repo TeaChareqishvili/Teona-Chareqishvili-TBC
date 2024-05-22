@@ -5,7 +5,6 @@ import { getUserById, deleteUser } from "../../apiUsers";
 import { createUser } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
-import { addCart } from "../../apiUsers";
 
 export async function updateUserAction(id: number, userData: UserData) {
   const { name, email, age } = userData;
@@ -53,7 +52,33 @@ export const handleAddToCart = async (productId: string) => {
         quantity: 1,
       }),
     });
+    revalidatePath("/ProductVercel");
+    if (!response.ok) {
+      throw new Error("Failed to add item to cart");
+    }
+  } catch (error) {
+    console.error("Error adding item to cart:", error);
+  }
+};
 
+export const handleDecrementCart = async (productId: string) => {
+  "use server";
+  try {
+    const response = await fetch(
+      "http://localhost:3000/api/decrement-product",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: 46,
+          productId: productId,
+          quantity: 1,
+        }),
+      }
+    );
+    revalidatePath("/ProductVercel");
     if (!response.ok) {
       throw new Error("Failed to add item to cart");
     }

@@ -2,11 +2,12 @@
 import { NavigationProps } from "@/app/[locale]/interface";
 import { CiSearch } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
-import { IoCartOutline } from "react-icons/io5";
+// import { IoCartOutline } from "react-icons/io5";
 import Link from "next/link";
+import Cart from "./Cart";
 // import useProductCart from "@/hook";
 // import { useState, useEffect } from "react";
-import { Card } from "@/hook";
+// import { Card } from "@/hook";
 
 const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
   // const { totalProductCount } = useProductCart();
@@ -58,13 +59,7 @@ const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
         <Link href="#">
           <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
         </Link>
-        <Link href="/newCartProducts">
-          <div className="relative">
-            {" "}
-            <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />{" "}
-            <span className=" absolute top-[-9px] left-[19px] text-[#780000] font-bold text-[15px]"></span>
-          </div>
-        </Link>
+        <Cart />
       </div>
     </div>
   );

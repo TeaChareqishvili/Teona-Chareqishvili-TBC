@@ -1,14 +1,19 @@
 import NewProduct from "@/components/newProductVercel/NewProduct";
 import { getProducts } from "../../../../apiUsers";
 
-import { getUserCart } from "../../../../apiUsers";
+// import { getUserCart } from "../../../../apiUsers";
 
 export default async function ProductVercel() {
   const Product = await getProducts();
 
-  const cart = await getUserCart(46);
-  const cartProducts = Object.entries(cart.products);
-  console.log(cartProducts, "cart");
+  //   const cart = await getUserCart(46);
+  //   const cartProducts = Object.entries(cart.products);
+  //   const num = Object.values(cart.products);
+  //   const finalNum = num.reduce(
+  //     (accumulator, currentValue) => accumulator + currentValue,
+  //     0
+  //   );
+  //   console.log(finalNum, "cart");
 
   return (
     <div className=" mt-[130px] text-[black] flex flex-col ml-[20px]">
@@ -21,12 +26,12 @@ export default async function ProductVercel() {
       </div>
 
       <div>
-        {cartProducts.map(([id, count]) => (
+        {/* {cartProducts.map(([id, count]) => (
           <div key={`prod-cart-count-${id}`}>
             <span className="text-[black]">{id}</span>
             <span className="text-black">{count}</span>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
