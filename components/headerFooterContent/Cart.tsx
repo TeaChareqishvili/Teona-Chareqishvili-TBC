@@ -10,7 +10,7 @@ export default async function Cart() {
 
   return (
     <>
-      <Link href="/newCartProducts">
+      <Link href="/checkOut">
         <div className="relative">
           {" "}
           <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />{" "}

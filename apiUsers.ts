@@ -105,7 +105,7 @@ export async function getUserCart(userId: number) {
   });
   const carts = await response.json();
 
-  const [cart] = carts?.carts?.rows;
+  const [cart] = carts.carts.rows;
 
   return cart;
 }
