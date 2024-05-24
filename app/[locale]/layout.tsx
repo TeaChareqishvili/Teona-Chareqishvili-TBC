@@ -1,6 +1,5 @@
 import Providers from "./providers";
 import "./globals.css";
-// import { RootLayoutProps } from "./interface";
 import React, { ReactElement } from "react";
 import { I18nProviderClient } from "../../locales/client";
 

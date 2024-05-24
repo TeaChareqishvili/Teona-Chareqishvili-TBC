@@ -6,17 +6,20 @@ import { createUser } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
 
+// function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
   const { name, email, age } = userData;
   getUserById(id, name, email, age);
   revalidatePath("/users");
 }
+//function to create new user
 export async function createNewUser(userData: UserData) {
   const { name, email, age } = userData;
   revalidatePath("/users");
   createUser(name, email, age);
 }
 
+// function to delete user
 export const deleteUserId: (id: number) => Promise<void> = async (
   id: number
 ) => {
@@ -37,6 +40,8 @@ export async function addUserInfo(formData: FormData) {
     revalidatePath("/users");
   }
 }
+
+// function to add product to cart
 
 export const handleAddToCart = async (productId: string) => {
   "use server";
@@ -61,6 +66,7 @@ export const handleAddToCart = async (productId: string) => {
   }
 };
 
+// function to decrement product from cart
 export const handleDecrementCart = async (productId: string) => {
   "use server";
   try {
@@ -84,6 +90,7 @@ export const handleDecrementCart = async (productId: string) => {
   }
 };
 
+// function to clear cart
 export const handleClearCart = async () => {
   "use server";
   try {
@@ -108,6 +115,7 @@ export const handleClearCart = async () => {
   }
 };
 
+// function to remove item from cart
 export const handleRemoveProductFromCart = async (productId: string) => {
   "use server";
   try {

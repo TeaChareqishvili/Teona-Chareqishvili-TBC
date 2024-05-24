@@ -29,11 +29,11 @@ const articles = [
 
 const Articles = () => {
   return (
-    <div className="w-full bg-[#f4f6f3] flex flex-col items-center py-[40px] px-[30px]">
-      <h3 className="text-[#5b5d59] text-[28px] underline underline-offset-2 tracking-widest mb-[40px]">
+    <div className="w-full bg-[#f4f6f3] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#264653]">
+      <h3 className="text-[#5b5d59] text-[28px] underline underline-offset-2 tracking-widest mb-[40px] dark:text-[#ffffff]">
         Latest Articles
       </h3>
-      <div className=" w-4/5 flex flex-wrap justify-between gap-4 p-4">
+      <div className=" w-full flex flex-wrap items-center justify-center gap-4 p-4 lg:justify-between lg:w-4/5">
         {articles.map((item) => (
           <div
             key={item.id}

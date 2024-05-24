@@ -73,6 +73,7 @@ export async function getUserById(
 
 // products - carts
 
+// get products from database
 export async function getProducts() {
   try {
     const response = await fetch(Host + "/api/get-product");
@@ -90,6 +91,7 @@ export async function getProducts() {
   }
 }
 
+// function to get product detail
 export async function getProductDetail(id: string) {
   const response = await fetch(`${Host}/api/get-product/${id}`);
   const data = await response.json();
@@ -103,7 +105,7 @@ export async function getUserCart(userId: number) {
   });
   const carts = await response.json();
 
-  const [cart] = carts?.carts?.rows;
+  const [cart] = carts.carts.rows;
 
   return cart;
 }

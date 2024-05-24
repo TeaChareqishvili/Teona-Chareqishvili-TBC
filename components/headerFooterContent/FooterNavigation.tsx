@@ -8,8 +8,8 @@ const FooterNavigation = () => {
   const scopedT = useScopedI18n("footer");
   return (
     <div className="bg-[#ffffff] w-full flex flex-col items-center justify-center py-[50px] px-[30px] ">
-      <div className="bg-[#ffffff] w-full flex items-center justify-between py-[20px] px-[30px] ">
-        <div>
+      <div className="bg-[#ffffff] w-full flex-col flex items-center justify-center py-[20px] px-[30px] md:flex-row ">
+        <div className="mb-[20px] ml-[35px] md:mb-0 md:ml-0">
           <SocialLinks />
         </div>
         <div>
@@ -18,6 +18,7 @@ const FooterNavigation = () => {
             marginBottom="7px"
             display="flex"
             marginLeft="30px"
+            flexDirection="column"
           />
         </div>
       </div>

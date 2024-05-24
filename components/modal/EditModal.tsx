@@ -18,7 +18,7 @@ const EditModal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         className="bg-white p-4 rounded shadow-lg mt-[50px]"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="text-red-600 mb-4" onClick={onClose}>
+        <button className="text-[#264653] mb-4" onClick={onClose}>
           {scopedT("close")}
         </button>
         {children}

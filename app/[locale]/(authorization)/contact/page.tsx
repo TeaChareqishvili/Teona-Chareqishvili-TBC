@@ -3,7 +3,7 @@ import { ContactInformation } from "../../../../components/contactPage/ContactIn
 
 const ContactLayout = () => {
   return (
-    <div className="w-full flex flex-col mt-[130px]">
+    <div className="w-full flex flex-col mt-[60px] ">
       {" "}
       <ContactInformation />
       <ContactForm />

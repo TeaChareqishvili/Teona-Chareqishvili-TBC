@@ -2,7 +2,6 @@
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Navigation } from "./Navigation";
-
 import { MobileMenu } from "../headerFooterContent/MobileMenu";
 import { useState } from "react";
 import { HeaderIcon } from "./HeaderIcon";
@@ -14,27 +13,28 @@ import { LangButton } from "../languageChange/LangButton";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  const handleCheck = () => {
+    setOpen(true);
+  };
   return (
-    <header className="w-full bg-[#ffffff] py-4 px-0 border-b border-[#111827] dark:bg-[#dbe0da] dark:border-[#ffffff] fixed top-0 left-0 z-10 ">
-      <div className="w-full  p-[15px] flex items-center justify-center">
+    <header className="w-full bg-[#dbe0da] py-4 px-0 border-b border-[#111827] dark:bg-[#264653] dark:border-[#ffffff] fixed top-0 left-0 z-10 ">
+      <div className="w-full  p-[15px] flex items-center justify-center mobile">
         <LogOutButton />
         <LangButton />
         <ThemeMode />
       </div>
+
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
           {" "}
-          {/* <Image
-            className="w-[70px] h-[70px] rounded-md"
-            src={logo}
-            alt="logo"
-          /> */}
-          <h1>Logo</h1>
+          <h1 className="font-bold text-[24px] text-[#264653]  dark:text-[#ffffff] italic">
+            Logo
+          </h1>
         </Link>
         <GiHamburgerMenu
-          className="w-7 h-7 text-red-600 cursor-pointer lg:hidden"
-          onClick={() => setOpen(true)}
+          className="w-7 h-7 text-[#264653] cursor-pointer lg:hidden"
+          onClick={handleCheck}
         />
         <div className="hidden lg:block">
           <Navigation marginLeft="30px" display="flex" />

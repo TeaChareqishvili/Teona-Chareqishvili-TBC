@@ -1,6 +1,5 @@
-"use client";
 import { addUserInfo } from "../../app/[locale]/actions";
-import { useScopedI18n } from "../../locales/client";
+
 interface AddUserFormProps {
   handleModalClose: () => void;
 }
@@ -12,8 +11,6 @@ export default async function AddUserForm({
     setTimeout(handleModalClose, 0);
   };
 
-  const scopedT = useScopedI18n("addUser");
-
   return (
     <>
       <form
@@ -23,19 +20,19 @@ export default async function AddUserForm({
         <input
           className=" rounded-md mt-[20px] mx-[20px] w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
           type="text"
-          placeholder={scopedT("name")}
+          placeholder="Name"
           name="name"
         />
         <input
           className=" rounded-md mt-[20px] mx-[20px] w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
           type="email"
-          placeholder={scopedT("email")}
+          placeholder="Email"
           name="email"
         />
         <input
           className=" rounded-md mt-[20px] mx-[20px] w-[350px] py-[7px] px-[10px] bg-[#f1f4f0] h-[50px] outline-none border border-[#ffffff] text-[#8a8d8a] text-[18px]"
           type="number"
-          placeholder={scopedT("age")}
+          placeholder="Age"
           name="age"
         />
         <button
@@ -43,7 +40,7 @@ export default async function AddUserForm({
           type="submit"
           className="border border-[#5a5f5a] text-[20px] text-[#5a5f5a] tracking-widest uppercase rounded-md mt-[15px] py-[10px] px-[5px] w-[150px] cursor-pointer"
         >
-          {scopedT("save")}
+          Save
         </button>
       </form>
     </>
