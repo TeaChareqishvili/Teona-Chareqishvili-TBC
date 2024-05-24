@@ -102,6 +102,22 @@ const Navigation: React.FC<NavigationProps> = ({
             {scopedT("users")}
           </li>
         </Link>
+        <Link
+          href="/upload"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          style={{
+            marginBottom: marginBottom,
+            marginLeft: marginLeft,
+            color: color,
+          }}
+        >
+          <li
+            className="font-tbc-helvetica-bold"
+            style={{ fontSize: fontSize }}
+          >
+            {scopedT("upload")}
+          </li>
+        </Link>
       </ul>
     </nav>
   );
