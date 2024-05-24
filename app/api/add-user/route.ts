@@ -1,6 +1,5 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
-// import { revalidatePath } from "next/cache";
 
 export async function POST(request: Request) {
   const { name, email, age } = await request.json();
@@ -13,6 +12,6 @@ export async function POST(request: Request) {
   }
 
   const users = await sql`SELECT * FROM users;`;
-  //   revalidatePath("/users");
+
   return NextResponse.json({ users }, { status: 200 });
 }

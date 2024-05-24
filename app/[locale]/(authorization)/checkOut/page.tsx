@@ -77,8 +77,14 @@ export default async function NewCartProducts() {
         <p className="text-[#ffffff] font-extrabold text-[16px] text-left underline mb-[15px]">
           {filteredProducts
             .reduce(
-              (acc, product) =>
-                acc + (product.quantity || 0) * parseFloat(product.price),
+              (
+                acc: number,
+                product: { quantity: string | number; price: string | number }
+              ) => {
+                const quantity = parseFloat(product.quantity as string) || 0;
+                const price = parseFloat(product.price as string) || 0;
+                return acc + quantity * price;
+              },
               0
             )
             .toFixed(2)}

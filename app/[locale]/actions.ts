@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getUserById, deleteUser } from "../../apiUsers";
-import { createUser } from "../../apiUsers";
+// import { createUser } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
 

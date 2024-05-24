@@ -1,5 +1,5 @@
 import { addUserInfo } from "../../app/[locale]/actions";
-// import { useScopedI18n } from "../../locales/client";
+
 interface AddUserFormProps {
   handleModalClose: () => void;
 }
@@ -10,8 +10,6 @@ export default async function AddUserForm({
   const handleModal = () => {
     setTimeout(handleModalClose, 0);
   };
-
-  // const scopedT = useScopedI18n("addUser");
 
   return (
     <>

@@ -28,34 +28,9 @@ export default function Header() {
         {" "}
         <Link href="/">
           {" "}
-          {/* <svg
-            width="150"
-            height="50"
-            viewBox="0 0 600 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <style>
-              {`
-        .text {
-          font-family: 'Great Vibes', cursive;
-          font-size: 120px;
-          fill: white;
-          font-weight: bold;
-        }
-      `}
-            </style>
-            <rect width="100%" height="100%" fill="none" />
-            <text
-              x="50%"
-              y="50%"
-              className="text"
-              dominant-baseline="middle"
-              text-anchor="middle"
-            >
-              LOGO
-            </text>
-          </svg> */}
-          <h1>Logo</h1>
+          <h1 className="font-bold text-[24px] text-[#264653]  dark:text-[#ffffff] italic">
+            Logo
+          </h1>
         </Link>
         <GiHamburgerMenu
           className="w-7 h-7 text-[#264653] cursor-pointer lg:hidden"
