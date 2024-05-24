@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { handleLogout } from "@/helper/userLogOut";
-import { useScopedI18n } from "../../locales/client";
 
+import { HiOutlineLogout } from "react-icons/hi";
 const LogOutButton = () => {
   const router = useRouter();
 
@@ -12,16 +12,13 @@ const LogOutButton = () => {
     localStorage.removeItem("theme");
     router.push("/logIn");
   };
-  const scopedT = useScopedI18n("logOutbtn");
 
   return (
     <div>
-      <button
-        className=" w-[100px] hover:border-double hover:border hover:scale-125 border-[#111827] text-[#111827] dark:border-[#728a85] rounded-md cursor: pointer bg-green font-lg dark:text-[#ffffff] py-[6px] px-[12px] dark:hover:border-[#ffffff] dark:hover:text-[#ffffff] transition duration-200"
+      <HiOutlineLogout
         onClick={handleClick}
-      >
-        {scopedT("logOut")}
-      </button>
+        className="w-[20px] h-[20px] text-[#264653] cursor-pointer dark:text-[#ffffff] "
+      />
     </div>
   );
 };

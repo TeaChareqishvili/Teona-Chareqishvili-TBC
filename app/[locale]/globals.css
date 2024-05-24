@@ -79,6 +79,12 @@
   transition: all 2s;
 }
 
+@media (max-width: 1024px) {
+  .mobile {
+    display: none;
+  }
+}
+
 /* slider */
 /* .footer-slider {
   display: flex;

@@ -4,7 +4,6 @@ import { ContactInformation } from "./ContactInformation";
 const ContactLayout = () => {
   return (
     <div className="contact-container">
-      {" "}
       <ContactInformation />
       <ContactForm />
     </div>

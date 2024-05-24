@@ -24,7 +24,7 @@ const Navigation: React.FC<NavigationProps> = ({
       >
         <Link
           href="/"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -40,7 +40,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>{" "}
         <Link
           href="/ProductVercel"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -56,7 +56,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/blog"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -72,7 +72,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/contact"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -88,7 +88,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/users"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#111827] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,

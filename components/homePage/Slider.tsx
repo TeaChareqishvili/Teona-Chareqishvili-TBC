@@ -50,8 +50,8 @@ const slider = [
 ];
 const Slider = () => {
   return (
-    <div className="w-full bg-[#e0e6e1] pt-[70px]">
-      <h3 className="text-center mt-[30px] mb-[30px] text-[24px] text-[#434843] underline">
+    <div className="w-full bg-[#e0e6e1] pt-[70px] dark:bg-[#264653]">
+      <h3 className="text-center mt-[30px] mb-[30px] text-[24px] text-[#434843] underline dark:text-[#ffffff]">
         Our Products
       </h3>
       <Swiper

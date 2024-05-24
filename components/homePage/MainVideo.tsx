@@ -10,11 +10,13 @@ const MainVideo = () => {
           loop
         />
       </div>
-      <div className="absolute top-[40%] left-[5%] flex flex-col">
-        <h1 className="text-[28px] tracking-widest text-[#ffffff]">
+      <div className="absolute top-[200px] left-[5%] flex flex-col">
+        <h1 className="text-[15px] tracking-widest text-[#ffffff] md:text-[20px] lg:text-[28px]">
           "To plant a garden is to believe in tomorrow."{" "}
         </h1>
-        <span className="text-[18px] text-[#ffffff]">— Audrey Hepburn</span>
+        <span className="text-[16px] text-[#ffffff] md:text-[22px] lg:text-[30px]">
+          — Audrey Hepburn
+        </span>
       </div>
     </div>
   );
