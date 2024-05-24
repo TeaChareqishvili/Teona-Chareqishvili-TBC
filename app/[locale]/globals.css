@@ -106,10 +106,13 @@
   margin-right: 5px;
   cursor: pointer;
 } */
+.img-hover:hover .cover {
+  opacity: 1;
+}
 
 .cover {
   opacity: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   transition: all 0s ease 0s, all 0.3s ease 0s;
 }
 

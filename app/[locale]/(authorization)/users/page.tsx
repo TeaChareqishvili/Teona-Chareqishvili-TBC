@@ -4,7 +4,6 @@ import { UserIcons } from "@/components/userIcons/UserIcons";
 import { getUsers } from "../../../../apiUsers";
 import { UserAddButton } from "@/components/addUserform/UserAddButton";
 import type { Users } from "../../../../apiUsers";
-// import { UserData } from "@/components/userData/UserData";
 
 export default async function Users() {
   const users = await getUsers();
@@ -17,11 +16,19 @@ export default async function Users() {
       </h3>
       <table className="w-4/5 border-2 border-[#e2e6e1] rounded-lg mt-[30px] mb-[30px]">
         <thead>
-          <tr className="bg-[#e2e6e1] rounded-md">
-            <th className=" py-[15px] text-[18px] text-[#3b4039]">Name</th>
-            <th className=" py-[15px] text-[18px] text-[#3b4039]">Email</th>
-            <th className=" py-[15px] text-[18px] text-[#3b4039]">Age</th>
-            <th className=" py-[15px] text-[18px] text-[#3b4039]">Actions</th>
+          <tr className="bg-[#e2e6e1] rounded-md dark:bg-[#264653]">
+            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
+              Name
+            </th>
+            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
+              Email
+            </th>
+            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
+              Age
+            </th>
+            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +50,6 @@ export default async function Users() {
           ))}
         </tbody>
       </table>
-      {/* <UserData /> */}
       <UserAddButton />
     </div>
   );
