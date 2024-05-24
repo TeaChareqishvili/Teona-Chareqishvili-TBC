@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getUserById, deleteUser } from "../../apiUsers";
-// import { createUser } from "../../apiUsers";
+import { createUser } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
 
@@ -13,11 +13,11 @@ export async function updateUserAction(id: number, userData: UserData) {
   revalidatePath("/users");
 }
 //function to create new user
-// export async function createNewUser(userData: UserData) {
-//   const { name, email, age } = userData;
-//   revalidatePath("/users");
-//   createUser(name, email, age);
-// }
+export async function createNewUser(userData: UserData) {
+  const { name, email, age } = userData;
+  revalidatePath("/users");
+  createUser(name, email, age);
+}
 
 // function to delete user
 export const deleteUserId: (id: number) => Promise<void> = async (
