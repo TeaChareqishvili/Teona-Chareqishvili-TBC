@@ -26,7 +26,7 @@ export default async function UserProfile() {
             <h2 className="mt-4 text-xl font-semibold text-gray-800">User Information</h2>
             <div className="mt-4 text-center">
                 <h3 className="text-lg font-medium text-gray-700">Name and Surname:</h3>
-                <p className="text-gray-600">{name} {surname}</p>
+                {user.given_name && user.family_name ? <p className="text-gray-600">{name} {surname}</p> : <p className="text-gray-600">{user.nickname}</p>}
             </div>
             <div className="mt-2 text-center">
                 <h3 className="text-lg font-medium text-gray-700">Email:</h3>

@@ -22,14 +22,16 @@ const RootLayout: React.FC<RootLayoutProps> = ({
 }: RootLayoutProps) => {
   return (
     <html lang={locale} suppressHydrationWarning>
-      <UserProvider>
-        {" "}
-        <body className="w-full min-h-screen bg-[#ffffff]  flex  flex-col item-center justify-center transition-colors duration-700">
+      {" "}
+      <body className="w-full min-h-screen bg-[#ffffff]  flex  flex-col item-center justify-center transition-colors duration-700">
+        <UserProvider>
           <I18nProviderClient locale={locale}>
-            <Providers>{children}</Providers>
+            <Providers>
+              {children}
+            </Providers>
           </I18nProviderClient>
-        </body>
-      </UserProvider>
+        </UserProvider>
+      </body>
     </html>
   );
 };
