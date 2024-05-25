@@ -5,7 +5,7 @@ export default {
     contact: "Contact",
     product: "Products",
     users: "Users",
-    upload: "Profile",
+    profile: "Profile",
   },
   footer: {
     subscribe: "Subscribe Newsletter",

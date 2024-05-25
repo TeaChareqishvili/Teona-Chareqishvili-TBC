@@ -56,7 +56,7 @@ const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
         <Link href="#">
           <CiSearch className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
         </Link>
-        <Link href="#">
+        <Link href="/profile">
           <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
         </Link>
         <Cart />
