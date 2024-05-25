@@ -9,6 +9,8 @@ import Link from "next/link";
 import { LogOutButton } from "../logOutButton/LogOutButton";
 import ThemeMode from "./ThemeMode";
 import { LangButton } from "../languageChange/LangButton";
+import Image from "next/image";
+import LogoImage from "../../public/assets/image/LogoImage.png";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -23,16 +25,16 @@ export default function Header() {
         <LangButton />
         <ThemeMode />
       </div>
-
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
-          {" "}
-          <h1 className="font-bold text-[24px] text-[#264653]  dark:text-[#ffffff] italic">
-            Logo
-          </h1>
+          <Image
+            src={LogoImage}
+            alt="Logo"
+            width={60}
+            height={5}
+          />
         </Link>
-        <a href="/api/auth/login">Login</a>
         <GiHamburgerMenu
           className="w-7 h-7 text-[#264653] cursor-pointer lg:hidden"
           onClick={handleCheck}

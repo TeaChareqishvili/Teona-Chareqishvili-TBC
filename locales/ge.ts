@@ -5,7 +5,7 @@ export default {
     contact: "კონტაქტი",
     product: "პროდუქტები",
     users: "მომხმარებელი",
-    upload: "პროფილი",
+    profile: "პროფილი",
   },
   footer: {
     subscribe: "გამოგვიწერეთ",
