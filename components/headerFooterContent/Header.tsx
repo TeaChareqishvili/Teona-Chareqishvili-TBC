@@ -32,6 +32,7 @@ export default function Header() {
             Logo
           </h1>
         </Link>
+        <a href="/api/auth/login">Login</a>
         <GiHamburgerMenu
           className="w-7 h-7 text-[#264653] cursor-pointer lg:hidden"
           onClick={handleCheck}
