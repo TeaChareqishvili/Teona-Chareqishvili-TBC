@@ -9,7 +9,6 @@ const LangButton = ({ marginBottom }: NavigationProps) => {
   const handleChangeLang = async () => {
     const newLocale = locale === "en" ? "ge" : "en";
     changeLocale(newLocale);
-    console.log("lang");
   };
   return (
     <>
