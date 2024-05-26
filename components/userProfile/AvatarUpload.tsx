@@ -2,15 +2,17 @@
 import { handleUpdateImg } from "../../app/[locale]/actions";
 import type { PutBlobResult } from "@vercel/blob";
 import { useState, useRef } from "react";
+import { useScopedI18n } from "@/locales/client";
 
 export default function AvatarUpload() {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
+  const t = useScopedI18n("profile");
 
   return (
     <div className="w-full min-h-[100px] bg-[#cfe1d8] flex flex-col items-center mt-4 p-4 rounded-md dark:bg-[#527361]">
       <h1 className="text-black text-xl font-semibold dark:text-white">
-        Change Profile Picture
+        {t("picture")}
       </h1>
       <form
         className="flex flex-col items-center mt-4"
@@ -38,7 +40,7 @@ export default function AvatarUpload() {
           {" "}
           <label className="mr-[15px] w-[100px] relative bg-[#76a58b]  h-[40px] text-[#ffffff] flex items-center justify-center  rounded hover:bg-[#748f80] transition duration-300">
             {" "}
-            Choose file
+            {t("chooseFile")}
             <input
               name="file"
               ref={inputFileRef}
@@ -53,9 +55,9 @@ export default function AvatarUpload() {
           </label>
           <button
             type="submit"
-            className=" w-[100px] bg-[#76a58b] text-white px-4 py-2 rounded hover:bg-[#748f80] transition duration-300"
+            className=" w-[120px] bg-[#76a58b] flex items-center justify-center text-white px-4 py-2 rounded hover:bg-[#748f80] transition duration-300"
           >
-            Upload
+            {t("upload")}
           </button>
         </div>
 

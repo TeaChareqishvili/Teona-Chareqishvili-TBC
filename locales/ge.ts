@@ -63,4 +63,12 @@ export default {
   editUser: {
     close: "დახურვა",
   },
+  profile: {
+    userInfo: "მომხმარებლის ინფორმაცია",
+    name: "სახელი და გვარი:",
+    email: "ელ.ფოსტა:",
+    picture: "შეცვალე ფოტო",
+    chooseFile: "არჩევა",
+    upload: "ატვირთვა",
+  }
 } as const;

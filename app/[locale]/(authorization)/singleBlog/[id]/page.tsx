@@ -57,8 +57,8 @@ export default async function SingleBlog({
         <p className="text-[#4c514c] tracking-wide text-[16px]">{blog.body}</p>
       </div>
       <span className="text-lg text-gray-700 font-bold">
-        {" "}
-        Reactions:{blog.reactions}
+        {/* {" "}
+        Reactions:{blog.reactions.likes} */}
       </span>
     </div>
   );
