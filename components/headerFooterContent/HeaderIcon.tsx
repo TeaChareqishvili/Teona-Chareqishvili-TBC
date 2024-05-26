@@ -1,4 +1,4 @@
-"use client";
+
 import { NavigationProps } from "@/app/[locale]/interface";
 import { CiSearch } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
