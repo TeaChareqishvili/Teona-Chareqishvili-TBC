@@ -4,7 +4,6 @@ import ProductItems from "./ProductItems";
 const ProductList = ({ productItems, filteredProducts }: any) => {
   const productsToRender =
     filteredProducts.length > 0 ? filteredProducts : productItems;
-  console.log(productsToRender);
 
   return (
     <>

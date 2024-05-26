@@ -81,9 +81,9 @@ export async function getProducts() {
       throw new Error(`HTTP status ${response.status}`);
     }
     const data = await response.json();
-    // console.log("API Response:", data);
+
     const { users } = data;
-    // console.log("Users:", users);
+
     return users?.rows;
   } catch (error) {
     console.error("Failed to fetch products:", error);

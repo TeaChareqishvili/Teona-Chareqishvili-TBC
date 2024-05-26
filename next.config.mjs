@@ -30,7 +30,11 @@ export default nextVideos({
       {
         protocol: "https",
         hostname: "s.gravatar.com",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "rdawkbs6qlsqqeww.public.blob.vercel-storage.com",
+      },
     ],
   },
   compiler: {
