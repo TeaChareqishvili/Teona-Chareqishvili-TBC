@@ -19,7 +19,6 @@ const ProductContent: React.FC = () => {
     getItem();
   }, []);
 
-  console.log(filteredProducts, "filter");
   return (
     <>
       <SearchForProduct

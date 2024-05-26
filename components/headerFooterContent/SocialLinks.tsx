@@ -1,6 +1,7 @@
 "use client";
 import { socilaLinkData } from "../projectData";
 import Link from "next/link";
+import { BsPerson } from "react-icons/bs";
 
 import { SocialLinksProps } from "@/app/[locale]/interface";
 
@@ -29,6 +30,11 @@ const SocialLinks = ({
             </Link>
           </div>
         ))}
+        <Link href="/profile">
+          <BsPerson
+            style={{ marginRight: marginRight, marginTop: marginTop }}
+            className="link w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:hover:text-[#728a85]" />
+        </Link>
       </div>
     </div>
   );

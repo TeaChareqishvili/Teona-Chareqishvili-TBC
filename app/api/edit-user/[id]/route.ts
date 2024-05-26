@@ -16,15 +16,14 @@ export async function PUT(request: NextRequest) {
   }
 
   try {
-    console.log("Updating user...");
     await sql`
       UPDATE users
       SET name = ${name}, email = ${email}, age = ${Number(age)}
       WHERE id = ${Number(id)};
     `;
-    console.log("User updated, fetching all users...");
+
     const users = await sql`SELECT * FROM users;`;
-    console.log("Users fetched: ", users);
+
     return NextResponse.json({ users }, { status: 200 });
   } catch (error) {
     console.error("Error updating user:", error);

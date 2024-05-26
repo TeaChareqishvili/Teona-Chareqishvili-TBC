@@ -5,6 +5,7 @@ import { getUserById, deleteUser } from "../../apiUsers";
 import { createUser } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
+import { getSession } from "@auth0/nextjs-auth0";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -137,5 +138,29 @@ export const handleRemoveProductFromCart = async (productId: string) => {
     }
   } catch (error) {
     console.error("Error removing item from cart:", error);
+  }
+};
+
+// function to  update image
+export const handleUpdateImg = async (blob: any) => {
+  "use server";
+
+  const session = await getSession();
+  try {
+    const response = await fetch(`${Host}/api/update-image`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url: blob.url, session }),
+    });
+
+    revalidatePath("/Profile");
+
+    if (!response.ok) {
+      throw new Error("Failed to update image");
+    }
+  } catch (error) {
+    console.error("Error :", error);
   }
 };

@@ -2,6 +2,7 @@ import Providers from "./providers";
 import "./globals.css";
 import React, { ReactElement } from "react";
 import { I18nProviderClient } from "../../locales/client";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export const metadata = {
   title: "Create Next App",
@@ -21,10 +22,15 @@ const RootLayout: React.FC<RootLayoutProps> = ({
 }: RootLayoutProps) => {
   return (
     <html lang={locale} suppressHydrationWarning>
+      {" "}
       <body className="w-full min-h-screen bg-[#ffffff]  flex  flex-col item-center justify-center transition-colors duration-700">
-        <I18nProviderClient locale={locale}>
-          <Providers>{children}</Providers>
-        </I18nProviderClient>
+        <UserProvider>
+          <I18nProviderClient locale={locale}>
+            <Providers>
+              {children}
+            </Providers>
+          </I18nProviderClient>
+        </UserProvider>
       </body>
     </html>
   );

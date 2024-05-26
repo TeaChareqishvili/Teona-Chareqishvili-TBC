@@ -1,15 +1,16 @@
-"use client";
+
 import { NavigationProps } from "@/app/[locale]/interface";
 import { CiSearch } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
 // import { IoCartOutline } from "react-icons/io5";
 import Link from "next/link";
 import Cart from "./Cart";
+import { getSession } from "@auth0/nextjs-auth0";
 // import useProductCart from "@/hook";
 // import { useState, useEffect } from "react";
 // import { Card } from "@/hook";
 
-const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
+const HeaderIcon: React.FC<NavigationProps> = async ({ alignItems }) => {
   // const { totalProductCount } = useProductCart();
   // const [count, setCount] = useState(totalProductCount);
   // const [num, setNum] = useState(true);
@@ -50,15 +51,18 @@ const HeaderIcon: React.FC<NavigationProps> = ({ alignItems }) => {
   //     window.removeEventListener("storage", handleCartUpdate);
   //   };
   // }, []);
+
+  const session = await getSession();
+
   return (
     <div style={{ alignItems: alignItems }} className="hidden lg:flex">
       <div style={{ display: "flex", alignItems: "center" }}>
         <Link href="#">
           <CiSearch className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
         </Link>
-        <Link href="#">
+        {session?.user && <Link href="/profile">
           <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
-        </Link>
+        </Link>}
         <Cart />
       </div>
     </div>

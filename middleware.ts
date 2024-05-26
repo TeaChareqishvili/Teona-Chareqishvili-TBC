@@ -1,19 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createI18nMiddleware } from "next-international/middleware";
-import { AUTH_COOKIE_KEY } from "./app/contants";
+import { getSession } from "@auth0/nextjs-auth0/edge";
+
+function isPathProtected(pathName: string) {
+  const protectedRoutes = ["/profile", "/users", "/checkOut"]
+
+  for (const route of protectedRoutes) {
+    if (pathName.startsWith(route)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 export default async function middleware(request: NextRequest) {
-  const cookieStore = request.cookies;
-  const cookie = cookieStore.get(AUTH_COOKIE_KEY);
-  const { pathname } = request.nextUrl;
+  const response = NextResponse.next();
+  const session = await getSession(request, response);
 
-  if (!cookie?.value && !pathname.startsWith("/logIn")) {
-    return NextResponse.redirect(new URL("/logIn", request.url));
-  }
+  const pathName = request.nextUrl.pathname;
 
-  if (cookie?.value && pathname.startsWith("/logIn")) {
-    return NextResponse.redirect(new URL("/", request.url));
-  }
+  if (!session?.user && isPathProtected(pathName)) return NextResponse.redirect(new URL('/api/auth/login', request.nextUrl));
 
   const I18nMiddleware = createI18nMiddleware({
     locales: ["en", "ge"],
@@ -21,9 +27,7 @@ export default async function middleware(request: NextRequest) {
     urlMappingStrategy: "rewrite",
   });
 
-  const response = I18nMiddleware(request);
-
-  return response;
+  return I18nMiddleware(request);
 }
 
 export const config = {
