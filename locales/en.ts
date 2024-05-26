@@ -65,4 +65,12 @@ export default {
   editUser: {
     close: "Close",
   },
+  profile: {
+    userInfo: "User Information",
+    name: "Name and Surname:",
+    email: "Email:",
+    picture: "Change Profile Picture",
+    chooseFile: "Choose file",
+    upload: "Upload",
+  }
 } as const;
