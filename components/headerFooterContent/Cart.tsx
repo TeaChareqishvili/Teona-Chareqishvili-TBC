@@ -14,9 +14,13 @@ export default async function Cart() {
         <div className="relative">
           {" "}
           <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />{" "}
-          <span className=" absolute top-[-9px] left-[19px]  font-bold text-[12px] text-white  w-[22px] h-[22px] rounded-full bg-[#780000] flex items-center justify-center">
-            {finalNum}
-          </span>
+          {finalNum <= 0 ? (
+            " "
+          ) : (
+            <span className=" absolute top-[-9px] left-[19px]  font-bold text-[12px] text-white  w-[22px] h-[22px] rounded-full bg-[#780000] flex items-center justify-center">
+              {finalNum}
+            </span>
+          )}
         </div>
       </Link>
     </>

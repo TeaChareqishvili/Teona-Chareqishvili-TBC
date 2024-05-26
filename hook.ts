@@ -20,7 +20,6 @@ const useProductCart = () => {
     const products = window.localStorage.getItem("product");
     // If 'product' does not exist in localStorage, initialize it as an empty array
     if (products === null || products === undefined) {
-      console.log("nothing");
       window.localStorage.setItem("product", JSON.stringify([]));
     } else {
       // If 'product' exists, parse the JSON string into an array of products
@@ -93,8 +92,6 @@ const useProductCart = () => {
 
     parsedProduct.sort((a, b) => a.id - b.id);
     updateLocalStorage(parsedProduct);
-
-    console.log(parsedProduct, "cart");
   };
   //function to increment products in cart
   const incrementProductQuantity = (productId: number) => {

@@ -33,7 +33,6 @@ export default async function ProductItems({
 
   // const ProductVercel = await getProducts();
 
-  // console.log(ProductVercel);
   return (
     <>
       {/* <div>

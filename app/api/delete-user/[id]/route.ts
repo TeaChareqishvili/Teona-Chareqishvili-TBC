@@ -6,8 +6,6 @@ export async function DELETE(request: NextRequest) {
   const idStr = request.nextUrl.pathname.replace("/api/delete-user/", "");
   const id = parseInt(idStr, 10); // Ensure it's converted to an integer
 
-  console.log(`ID extracted: ${id}`);
-
   try {
     // Validate if the ID is a number and greater than zero
     if (isNaN(id) || id <= 0) throw new Error("Valid ID is required");
