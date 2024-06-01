@@ -109,3 +109,21 @@ export async function getUserCart(userId: number) {
 
   return cart;
 }
+
+// function to get all blogs
+export async function getBlogs() {
+  try {
+    const response = await fetch(Host + "/api/get-all-blogs");
+    if (!response.ok) {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+    const data = await response.json();
+
+    const { blogs } = data;
+
+    return blogs;
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+    throw error;
+  }
+}

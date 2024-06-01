@@ -35,6 +35,10 @@ export default nextVideos({
         protocol: "https",
         hostname: "rdawkbs6qlsqqeww.public.blob.vercel-storage.com",
       },
+      {
+        protocol: "https",
+        hostname: "rdawkbs6qlsqqewww.public.blob.vercel-storage.com",
+      },
     ],
   },
   compiler: {
