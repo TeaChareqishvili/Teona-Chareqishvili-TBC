@@ -70,5 +70,15 @@ export default {
     picture: "შეცვალე ფოტო",
     chooseFile: "არჩევა",
     upload: "ატვირთვა",
-  }
+  },
+  offers: {
+    pool: "აკვა აერობიკა",
+    trainer: "პერსონალური ტრენერი",
+    group: "ჯგუფური ვარჯიშები",
+    yoga: "იოგა",
+    spa: "სპა",
+    cafe: "ჯანსაღი კვება",
+    muscle: "კუნთოვანი მასის მომატება",
+    weight: "წონაში კლება",
+  },
 } as const;

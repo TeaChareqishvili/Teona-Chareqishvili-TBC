@@ -62,6 +62,9 @@
   width: 100%;
   background-repeat: no-repeat;
 }
+.offers:hover .cover {
+  opacity: 1;
+}
 /* styles */
 
 .hover:hover {
