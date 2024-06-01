@@ -120,3 +120,11 @@ export interface SelectedProduct {
   category: string;
   quantity: number;
 }
+
+export interface Blogs {
+  id: number;
+  title: string;
+  date: string;
+  category: string;
+  image_url: string;
+}

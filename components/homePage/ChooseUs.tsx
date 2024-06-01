@@ -6,7 +6,7 @@ import { PiHeartbeatFill } from "react-icons/pi";
 export default function ChooseUs() {
   return (
     <div className=" w-full  py-[30px] img flex flex-col items-center">
-      <h2 className="text-center text-[34px] uppercase text-[#ffffff] my-[25px] ">
+      <h2 className="text-center text-[34px] uppercase text-[#ffffff] my-[25px] underline">
         Why Choose us?{" "}
       </h2>
       <div className="w-[95%] m-auto flex items-center justify-between  ">
