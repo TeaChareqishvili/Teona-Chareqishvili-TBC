@@ -27,6 +27,43 @@
   text-decoration: none;
 }
 
+/* new main page */
+.title {
+  animation: fadeIn 3s ease-out infinite;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.offer-icon {
+  width: 40px;
+  height: 40px;
+  color: #264653;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.offer-icon:hover {
+  color: #9b2226;
+}
+.img {
+  background-image: url(../../public/assets/image/home/chooseus.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 700px;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+/* styles */
+
 .hover:hover {
   transform: scale(1.6);
   transition: all 2s;
@@ -158,27 +195,6 @@
   }
 }
 
-/* slider */
-/* .footer-slider {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
-
- ;
-} */
-
-/* .slide {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  overflow: hidden;
-  max-width: 240px;
-  width: 100%;
-  margin-right: 5px;
-  cursor: pointer;
-} */
 .img-hover:hover .cover {
   opacity: 1;
 }
