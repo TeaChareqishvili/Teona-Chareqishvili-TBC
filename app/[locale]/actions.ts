@@ -141,10 +141,13 @@ export const handleRemoveProductFromCart = async (productId: string) => {
   }
 };
 
-// function to  update image
-export const handleUpdateImg = async (blob: any) => {
-  "use server";
+interface PutBlobResult {
+  url: string;
+}
 
+// function to  update image
+export const handleUpdateImg = async (blob: PutBlobResult): Promise<void> => {
+  "use server";
   const session = await getSession();
   try {
     const response = await fetch(`${Host}/api/update-image`, {

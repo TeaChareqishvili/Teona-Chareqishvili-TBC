@@ -8,7 +8,7 @@ export default function AvatarUpload() {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
   const t = useScopedI18n("profile");
-
+  console.log(blob, "blob");
   return (
     <div className="w-full min-h-[100px] bg-[#cfe1d8] flex flex-col items-center mt-4 p-4 rounded-md dark:bg-[#527361]">
       <h1 className="text-black text-xl font-semibold dark:text-white">
@@ -38,7 +38,7 @@ export default function AvatarUpload() {
       >
         <div className="flex items-center justify-between ">
           {" "}
-          <label className="mr-[15px] w-[100px] relative bg-[#76a58b]  h-[40px] text-[#ffffff] flex items-center justify-center  rounded hover:bg-[#748f80] transition duration-300">
+          <label className="mr-[15px] w-[120px] relative bg-[#76a58b]  h-[40px] text-[#ffffff] flex items-center justify-center  rounded hover:bg-[#748f80] transition duration-300">
             {" "}
             {t("chooseFile")}
             <input
@@ -61,7 +61,12 @@ export default function AvatarUpload() {
           </button>
         </div>
 
-        {blob && <></>}
+        {/* {blob && (
+          <div>
+            <h1 className="text-[black]">video</h1>
+            <video src={blob.url} autoPlay muted loop />
+          </div>
+        )} */}
       </form>
     </div>
   );

@@ -1,5 +1,3 @@
-
-
 import { Navigation } from "./Navigation";
 import { HeaderIcon } from "./HeaderIcon";
 import Link from "next/link";
@@ -20,7 +18,7 @@ export default function Header({ session }: { session: Claims | undefined }) {
 
   return (
     <header className="w-full bg-[#dbe0da] py-4 px-0 border-b border-[#111827] dark:bg-[#264653] dark:border-[#ffffff] fixed top-0 left-0 z-10 ">
-      <div className="w-full  p-[15px] flex items-center justify-center mobile">
+      <div className="w-full p-[15px] flex items-center justify-center absolute bottom-[10px] lg:static ">
         <LogOutButton session={session} />
         <LangButton />
         <ThemeMode />
@@ -28,12 +26,7 @@ export default function Header({ session }: { session: Claims | undefined }) {
       <div className="w-4/5 flex items-center justify-between mx-auto">
         {" "}
         <Link href="/">
-          <Image
-            src={LogoImage}
-            alt="Logo"
-            width={60}
-            height={5}
-          />
+          <Image src={LogoImage} alt="Logo" width={60} height={5} />
         </Link>
         <div className="hidden lg:block">
           <Navigation marginLeft="30px" display="flex" />
