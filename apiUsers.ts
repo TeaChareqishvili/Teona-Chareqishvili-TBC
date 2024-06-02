@@ -127,3 +127,17 @@ export async function getBlogs() {
     throw error;
   }
 }
+
+// create contact
+
+export async function createContact(
+  name: string,
+  email: string,
+  phone: number,
+  message: any
+) {
+  return await fetch(Host + "/api/add-contact", {
+    method: "POST",
+    body: JSON.stringify({ name, email, phone, message }),
+  });
+}

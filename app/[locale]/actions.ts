@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getUserById, deleteUser } from "../../apiUsers";
-import { createUser } from "../../apiUsers";
+import { createUser, createContact } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
 import { getSession } from "@auth0/nextjs-auth0";
@@ -167,3 +167,16 @@ export const handleUpdateImg = async (blob: PutBlobResult): Promise<void> => {
     console.error("Error :", error);
   }
 };
+
+interface contactData {
+  name: string;
+  email: string;
+  phone: number;
+  message: any;
+}
+// create contact
+export async function createNewContact(formData: contactData) {
+  const { name, email, phone, message } = formData;
+  console.log(formData, "kk");
+  createContact(name, email, phone, message);
+}
