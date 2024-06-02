@@ -6,6 +6,7 @@ import { createUser, createContact } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
 import { getSession } from "@auth0/nextjs-auth0";
+import { contactData } from "./interface";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -168,12 +169,6 @@ export const handleUpdateImg = async (blob: PutBlobResult): Promise<void> => {
   }
 };
 
-interface contactData {
-  name: string;
-  email: string;
-  phone: number;
-  message: any;
-}
 // create contact database
 export async function createNewContact(formData: contactData) {
   const { name, email, phone, message } = formData;

@@ -1,19 +1,21 @@
 "use client";
 import React, { useState } from "react";
 import { createNewContact } from "../../app/[locale]/actions";
-import SendContactPopUp from "./SendContactPopUp";
+import ContactModal from "../modal/ContactModal";
+import { MdLocalPostOffice } from "react-icons/md";
+import { contactData } from "@/app/[locale]/interface";
 
 export default function ContactForm() {
-  const [message, setMessage] = useState(false);
-  const [formData, setFormData] = useState({
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const [formData, setFormData] = useState<contactData>({
     name: "",
     email: "",
     phone: "",
     message: "",
   });
-  console.log(formData);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -21,19 +23,23 @@ export default function ContactForm() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await createNewContact(formData);
-      setMessage(true); // Set message to true on successful contact creation
+      setModalOpen(true);
     } catch (error) {
       console.error(error);
-      setMessage(false); // Optionally set message to false on error
     }
+    window.location.reload();
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
   };
 
   return (
-    <div className="z-10 flex flex-col items-center justify-center relative">
+    <div className=" flex flex-col items-center justify-center relative">
       <h2 className="text-[28px] text-[#ffffff] mb-[20px]">Leave Message</h2>
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <label>
@@ -87,7 +93,16 @@ export default function ContactForm() {
           Submit
         </button>
       </form>
-      {message && <SendContactPopUp />}
+
+      <ContactModal isOpen={isModalOpen} onClose={handleModalClose}>
+        <div className="flex flex-col items-center p-[30px]">
+          {" "}
+          <MdLocalPostOffice className="text-[#2f3e46] w-[50px] h-[50px] mb-[10px]" />
+          <p className="text-[15px] text-[#2f3e46] tracking-wider font-bold">
+            We received your message!
+          </p>
+        </div>
+      </ContactModal>
     </div>
   );
 }

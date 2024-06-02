@@ -133,7 +133,7 @@ export async function getBlogs() {
 export async function createContact(
   name: string,
   email: string,
-  phone: number,
+  phone: string,
   message: any
 ) {
   return await fetch(Host + "/api/add-contact", {

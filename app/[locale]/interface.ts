@@ -128,3 +128,10 @@ export interface Blogs {
   category: string;
   image_url: string;
 }
+
+export interface contactData {
+  name: string;
+  email: string;
+  phone: string;
+  message: any;
+}
