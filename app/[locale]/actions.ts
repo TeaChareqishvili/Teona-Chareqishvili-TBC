@@ -174,9 +174,8 @@ interface contactData {
   phone: number;
   message: any;
 }
-// create contact
+// create contact database
 export async function createNewContact(formData: contactData) {
   const { name, email, phone, message } = formData;
-  console.log(formData, "kk");
   createContact(name, email, phone, message);
 }
