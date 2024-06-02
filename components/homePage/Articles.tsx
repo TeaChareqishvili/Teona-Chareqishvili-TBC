@@ -5,7 +5,7 @@ import { Blogs } from "@/app/[locale]/interface";
 import Link from "next/link";
 export default async function Articles() {
   const homeBlog = await getBlogs();
-  const selectedBlogs = homeBlog.rows.slice(4, 7);
+  const selectedBlogs = homeBlog.rows.slice(2, 5);
 
   return (
     <div className="w-full bg-[#f4f6f3] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#264653]">
@@ -27,8 +27,8 @@ export default async function Articles() {
             >
               {" "}
               <Image
-                width={330}
-                height={330}
+                width={300}
+                height={300}
                 src={item.image_url}
                 alt={`Article ${item.id}`}
                 className=" hover mb-[30px] cursor-pointer"
