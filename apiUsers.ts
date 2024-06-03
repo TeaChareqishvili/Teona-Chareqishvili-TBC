@@ -82,9 +82,9 @@ export async function getProducts() {
     }
     const data = await response.json();
 
-    const { users } = data;
+    const { products } = data;
 
-    return users?.rows;
+    return products?.rows;
   } catch (error) {
     console.error("Failed to fetch products:", error);
     throw error;

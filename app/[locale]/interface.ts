@@ -94,6 +94,7 @@ export interface VercelProduct {
   price: string;
   stock: number;
   category: string;
+  imageurl: string;
 }
 export interface NewProductProps {
   product: VercelProduct[];
