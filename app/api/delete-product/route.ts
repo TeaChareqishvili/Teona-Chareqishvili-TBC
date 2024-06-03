@@ -7,24 +7,24 @@ export async function DELETE(req: NextRequest) {
 
     // Fetch existing cart data from the database
     const result = await sql`
-      SELECT products FROM carts
+      SELECT shop FROM carts
       WHERE user_id = ${Number(userId)}
     `;
 
     // Ensure products is a proper object
-    if (typeof result.rows[0].products === "string") {
-      result.rows[0].products = JSON.parse(result.rows[0].products);
+    if (typeof result.rows[0].shop === "string") {
+      result.rows[0].shop = JSON.parse(result.rows[0].shop);
     }
 
     // Remove the product from the cart
-    if (result.rows[0].products[productId]) {
-      delete result.rows[0].products[productId];
+    if (result.rows[0].shop[productId]) {
+      delete result.rows[0].shop[productId];
     }
 
     // Update the cart in the database
     const updatedCart = await sql`
       UPDATE carts
-      SET products = ${JSON.stringify(result.rows[0].products)}::jsonb
+      SET shop = ${JSON.stringify(result.rows[0].shop)}::jsonb
       WHERE user_id = ${Number(userId)}
       RETURNING *
     `;

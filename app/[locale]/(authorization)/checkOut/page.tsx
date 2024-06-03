@@ -3,18 +3,18 @@ import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
 import Image from "next/image";
-import productImg from "../../../../public/assets/image/blogImages/blog3.webp";
 
 export default async function NewCartProducts() {
   const cart = await getUserCart(46);
-  const cartProductsArray = Object.entries(cart.products);
+  console.log(cart, "checkout");
+  const cartProductsArray = Object.entries(cart.shop);
 
   const cartProducts = await getProducts();
 
-  // Create a map of cart product IDs and their quantities
+  //Create a map of cart product IDs and their quantities
   const cartProductMap = new Map(cartProductsArray);
 
-  // Filter and map the products to include the quantity
+  //Filter and map the products to include the quantity
   const filteredProducts = cartProducts
     .filter((product: SelectedProduct) =>
       cartProductMap.has(product.id.toString())
@@ -42,7 +42,7 @@ export default async function NewCartProducts() {
               <Image
                 width={300}
                 height={300}
-                src={productImg}
+                src={product.imageurl}
                 alt="bag"
                 className="mb-[20px] lg:mb-[0]"
               />

@@ -110,7 +110,7 @@ interface ProductCart {
 }
 
 export interface Cart {
-  products: ProductCart;
+  shop: ProductCart;
 }
 
 export interface SelectedProduct {
@@ -120,6 +120,7 @@ export interface SelectedProduct {
   stock: number;
   category: string;
   quantity: number;
+  imageurl: string;
 }
 
 export interface Blogs {

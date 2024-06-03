@@ -5,7 +5,8 @@ import type { Cart } from "@/app/[locale]/interface";
 
 export default async function Cart() {
   const cart: Cart = await getUserCart(46);
-  const num = Object.values(cart.products);
+  console.log(cart, "cart");
+  const num = Object.values(cart.shop);
   const finalNum = num.reduce((a, b) => a + b, 0);
 
   return (

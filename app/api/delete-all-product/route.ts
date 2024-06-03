@@ -8,7 +8,7 @@ export async function DELETE(req: NextRequest) {
     // Clear the cart
     const updatedCart = await sql`
       UPDATE carts
-      SET products = '{}'::jsonb
+      SET shop = '{}'::jsonb
       WHERE user_id = ${Number(userId)}
       RETURNING *
     `;

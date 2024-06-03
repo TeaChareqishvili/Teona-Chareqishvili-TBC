@@ -11,14 +11,14 @@ export async function PUT(req: NextRequest) {
 
     // Fetch existing cart  from the vercel
     const result = await sql`
-      SELECT products FROM carts
+      SELECT shop FROM carts
       WHERE user_id = ${Number(userId)}
     `;
 
     let products: Products = {};
 
     if (result.rowCount > 0) {
-      products = result.rows[0].products || {};
+      products = result.rows[0].shop || {};
     }
 
     if (typeof products === "string") {
@@ -36,7 +36,7 @@ export async function PUT(req: NextRequest) {
     // Update the cart on  vercel
     const updatedCart = await sql`
       UPDATE carts
-      SET products = ${JSON.stringify(products)}::jsonb
+      SET shop = ${JSON.stringify(products)}::jsonb
       WHERE user_id = ${Number(userId)}
       RETURNING *
     `;
