@@ -8,6 +8,7 @@ import { Host } from "../../apiUsers";
 import { getSession } from "@auth0/nextjs-auth0";
 import { contactData } from "./interface";
 import { getUserId } from "../../apiUsers";
+import { CreateBlogData } from "./interface";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -178,4 +179,11 @@ export const handleUpdateImg = async (blob: PutBlobResult): Promise<void> => {
 export async function createNewContact(formData: contactData) {
   const { name, email, phone, message } = formData;
   createContact(name, email, phone, message);
+}
+
+// create new blog
+
+export async function createNewBlog(formData: CreateBlogData) {
+  const { title, description, image_url, category } = formData;
+  createContact(title, description, image_url, category);
 }

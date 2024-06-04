@@ -126,3 +126,10 @@ export interface SingleBlogData {
   category: string;
   image_url: string;
 }
+
+export interface CreateBlogData {
+  title: string;
+  description: string;
+  image_url: string;
+  category: string;
+}

@@ -101,6 +101,7 @@ export async function getProductDetail(id: string) {
   return product;
 }
 
+// function to get blog details
 export async function getBlogDetail(id: string) {
   const response = await fetch(`${Host}/api/get-all-blogs/${id}`);
   console.log(response, "response");
@@ -109,6 +110,7 @@ export async function getBlogDetail(id: string) {
   return blog;
 }
 
+// function to get users cart
 export async function getUserCart() {
   const userSubId = await getUserId();
 
@@ -134,7 +136,7 @@ export async function getUserCart() {
   }
 }
 
-// get logged in user's id
+// function  get logged in user's id
 export async function getUserId() {
   const session = await getSession();
   // console.log(session, "sesion ");
@@ -194,5 +196,19 @@ export async function createContact(
   return await fetch(Host + "/api/add-contact", {
     method: "POST",
     body: JSON.stringify({ name, email, phone, message }),
+  });
+}
+
+// function to add new blog
+
+export async function addNewBlog(
+  title: string,
+  description: string,
+  image_url: number,
+  category: string
+) {
+  return await fetch(Host + "/api/add-new-blog", {
+    method: "POST",
+    body: JSON.stringify({ title, description, image_url, category }),
   });
 }
