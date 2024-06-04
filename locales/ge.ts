@@ -6,6 +6,7 @@ export default {
     product: "პროდუქტები",
     users: "მომხმარებელი",
     profile: "პროფილი",
+    admin: "ადმინი",
   },
   footer: {
     subscribe: "გამოგვიწერეთ",

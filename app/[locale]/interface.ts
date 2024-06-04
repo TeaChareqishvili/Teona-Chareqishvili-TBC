@@ -17,26 +17,6 @@ export interface NavigationProps {
   marginRight?: string;
 }
 
-export interface Blog {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-  tags: string[];
-  reactions: number;
-  params: { id: string };
-}
-
-export interface PaginatedResponse extends Blog {
-  total: number;
-  skip: number;
-  limit: number;
-}
-
-export interface FetchedBlog {
-  posts: PaginatedResponse[];
-}
-
 export interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -136,4 +116,13 @@ export interface contactData {
   email: string;
   phone: string;
   message: any;
+}
+
+export interface SingleBlogData {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  image_url: string;
 }

@@ -101,6 +101,14 @@ export async function getProductDetail(id: string) {
   return product;
 }
 
+export async function getBlogDetail(id: string) {
+  const response = await fetch(`${Host}/api/get-all-blogs/${id}`);
+  console.log(response, "response");
+  const data = await response.json();
+  const blog = data.blogs?.rows ? data.blogs.rows[0] : null;
+  return blog;
+}
+
 export async function getUserCart() {
   const userSubId = await getUserId();
 
@@ -129,7 +137,7 @@ export async function getUserCart() {
 // get logged in user's id
 export async function getUserId() {
   const session = await getSession();
-
+  // console.log(session, "sesion ");
   const user = session ? session.user : null;
   const id = user ? user.sub : null;
 
