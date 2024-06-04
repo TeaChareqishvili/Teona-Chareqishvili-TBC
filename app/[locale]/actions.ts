@@ -2,10 +2,12 @@
 
 import { revalidatePath } from "next/cache";
 import { getUserById, deleteUser } from "../../apiUsers";
-import { createUser } from "../../apiUsers";
+import { createUser, createContact } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
 import { getSession } from "@auth0/nextjs-auth0";
+import { contactData } from "./interface";
+import { getUserId } from "../../apiUsers";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -46,6 +48,7 @@ export async function addUserInfo(formData: FormData) {
 
 export const handleAddToCart = async (productId: string) => {
   "use server";
+  const userId = await getUserId();
   try {
     const response = await fetch(Host + "/api/add-product-cart", {
       method: "PUT",
@@ -53,7 +56,7 @@ export const handleAddToCart = async (productId: string) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId: 46,
+        userId: userId,
         productId: productId,
         quantity: 1,
       }),
@@ -70,6 +73,7 @@ export const handleAddToCart = async (productId: string) => {
 // function to decrement product from cart
 export const handleDecrementCart = async (productId: string) => {
   "use server";
+  const userId = await getUserId();
   try {
     const response = await fetch(Host + "/api/decrement-product", {
       method: "PUT",
@@ -77,7 +81,7 @@ export const handleDecrementCart = async (productId: string) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId: 46,
+        userId: userId,
         productId: productId,
         quantity: 1,
       }),
@@ -94,6 +98,7 @@ export const handleDecrementCart = async (productId: string) => {
 // function to clear cart
 export const handleClearCart = async () => {
   "use server";
+  const userId = await getUserId();
   try {
     const response = await fetch(`${Host}/api/delete-all-product`, {
       method: "DELETE",
@@ -101,7 +106,7 @@ export const handleClearCart = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId: 46,
+        userId: userId,
       }),
     });
 
@@ -119,6 +124,7 @@ export const handleClearCart = async () => {
 // function to remove item from cart
 export const handleRemoveProductFromCart = async (productId: string) => {
   "use server";
+  const userId = await getUserId();
   try {
     const response = await fetch(`${Host}/api/delete-product`, {
       method: "DELETE",
@@ -126,7 +132,7 @@ export const handleRemoveProductFromCart = async (productId: string) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId: 46,
+        userId: userId,
         productId: productId,
       }),
     });
@@ -167,3 +173,9 @@ export const handleUpdateImg = async (blob: PutBlobResult): Promise<void> => {
     console.error("Error :", error);
   }
 };
+
+// create contact database
+export async function createNewContact(formData: contactData) {
+  const { name, email, phone, message } = formData;
+  createContact(name, email, phone, message);
+}

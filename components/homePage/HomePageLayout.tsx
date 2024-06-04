@@ -1,7 +1,9 @@
-import { AboutUs } from "./AboutUs";
-import { Articles } from "./Articles";
+import Articles from "./Articles";
+import ChooseUs from "./ChooseUs";
 import { MainVideo } from "./MainVideo";
-import { Slider } from "./Slider";
+import Offer from "./Offer";
+import Stuff from "./Stuff";
+// import { Slider } from "./Slider";
 
 const HomePageLayout = () => {
   return (
@@ -9,9 +11,11 @@ const HomePageLayout = () => {
       <div className="flex flex-col">
         {" "}
         <MainVideo />
+        <ChooseUs />
+        <Offer />
         <Articles />
-        <AboutUs />
-        <Slider />
+        <Stuff />
+        {/* <Slider /> */}
       </div>
     </>
   );

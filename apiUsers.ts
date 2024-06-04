@@ -1,3 +1,5 @@
+import { getSession } from "@auth0/nextjs-auth0";
+
 export const Host =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
@@ -82,9 +84,9 @@ export async function getProducts() {
     }
     const data = await response.json();
 
-    const { users } = data;
+    const { products } = data;
 
-    return users?.rows;
+    return products?.rows;
   } catch (error) {
     console.error("Failed to fetch products:", error);
     throw error;
@@ -99,13 +101,90 @@ export async function getProductDetail(id: string) {
   return product;
 }
 
-export async function getUserCart(userId: number) {
-  const response = await fetch(Host + `/api/get-cart/${userId}`, {
-    cache: "no-store",
+export async function getUserCart() {
+  const userSubId = await getUserId();
+
+  if (!userSubId) {
+    return null;
+  }
+  try {
+    const response = await fetch(Host + `/api/get-cart/${userSubId}`, {
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const carts = await response.json();
+
+    const [cart] = carts.carts.rows;
+
+    return cart;
+  } catch (error) {
+    console.error("Failed to fetch user ID:", error);
+    return null;
+  }
+}
+
+// get logged in user's id
+export async function getUserId() {
+  const session = await getSession();
+
+  const user = session ? session.user : null;
+  const id = user ? user.sub : null;
+
+  if (!id) {
+    return null;
+  }
+
+  try {
+    const userSubId = await fetch(Host + `/api/get-user-sub/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!userSubId.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const userSerialId = await userSubId.json();
+
+    const userId = userSerialId.usersId;
+
+    return userId;
+  } catch (error) {
+    console.error("Failed to fetch user ID:", error);
+    return null;
+  }
+}
+
+// function to get all blogs
+export async function getBlogs() {
+  try {
+    const response = await fetch(Host + "/api/get-all-blogs");
+    if (!response.ok) {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+    const data = await response.json();
+
+    const { blogs } = data;
+
+    return blogs;
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+    throw error;
+  }
+}
+
+// create contact
+
+export async function createContact(
+  name: string,
+  email: string,
+  phone: string,
+  message: any
+) {
+  return await fetch(Host + "/api/add-contact", {
+    method: "POST",
+    body: JSON.stringify({ name, email, phone, message }),
   });
-  const carts = await response.json();
-
-  const [cart] = carts.carts.rows;
-
-  return cart;
 }

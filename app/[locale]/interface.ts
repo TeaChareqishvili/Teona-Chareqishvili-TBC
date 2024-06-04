@@ -94,6 +94,7 @@ export interface VercelProduct {
   price: string;
   stock: number;
   category: string;
+  imageurl: string;
 }
 export interface NewProductProps {
   product: VercelProduct[];
@@ -109,7 +110,7 @@ interface ProductCart {
 }
 
 export interface Cart {
-  products: ProductCart;
+  shop: ProductCart;
 }
 
 export interface SelectedProduct {
@@ -119,4 +120,20 @@ export interface SelectedProduct {
   stock: number;
   category: string;
   quantity: number;
+  imageurl: string;
+}
+
+export interface Blogs {
+  id: number;
+  title: string;
+  date: string;
+  category: string;
+  image_url: string;
+}
+
+export interface contactData {
+  name: string;
+  email: string;
+  phone: string;
+  message: any;
 }

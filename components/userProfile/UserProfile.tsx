@@ -27,6 +27,7 @@ export default async function UserProfile() {
   }
 
   const { user } = session;
+  console.log(user, "session");
   const [name, surname] = user.name.split(" ");
 
   return (

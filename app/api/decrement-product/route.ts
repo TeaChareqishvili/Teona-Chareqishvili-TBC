@@ -11,14 +11,14 @@ export async function PUT(req: NextRequest) {
 
     // Fetch existing cart data from the server
     const result = await sql`
-      SELECT products FROM carts
+      SELECT shop FROM cart
       WHERE user_id = ${Number(userId)}
     `;
 
     let products: Products = {};
 
     if (result.rowCount > 0) {
-      products = result.rows[0].products || {};
+      products = result.rows[0].shop || {};
     }
 
     // Decrement the quantity if the product already exists in the cart
@@ -33,8 +33,8 @@ export async function PUT(req: NextRequest) {
 
     // Update the cart in the database
     const updatedCart = await sql`
-      UPDATE carts
-      SET products = ${JSON.stringify(products)}::jsonb
+      UPDATE cart
+      SET shop = ${JSON.stringify(products)}::jsonb
       WHERE user_id = ${Number(userId)}
       RETURNING *
     `;

@@ -72,5 +72,15 @@ export default {
     picture: "Change Profile Picture",
     chooseFile: "Choose file",
     upload: "Upload",
-  }
+  },
+  offers: {
+    pool: "Water Aerobics",
+    trainer: "Personal Trainer",
+    group: "Group Exercise",
+    yoga: "Yoga Session",
+    spa: "Spa",
+    cafe: "Healthy Food",
+    muscle: "Muscle Gain",
+    weight: "weight Loose",
+  },
 } as const;

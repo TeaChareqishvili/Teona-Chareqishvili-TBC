@@ -1,11 +1,9 @@
-import { ContactForm } from "../../../../components/contactPage/ContactForm";
-import { ContactInformation } from "../../../../components/contactPage/ContactInformation";
+import ContactForm from "@/components/contactPage/ContactForm";
 
 const ContactLayout = () => {
   return (
-    <div className="w-full flex flex-col lg:mt-[150px] mt-[90px] ">
-      {" "}
-      <ContactInformation />
+    <div className="contact-layout flex items-center justify-center relative">
+      <div className="contact-cover"></div>
       <ContactForm />
     </div>
   );

@@ -4,8 +4,10 @@ import { getUserCart } from "@/apiUsers";
 import type { Cart } from "@/app/[locale]/interface";
 
 export default async function Cart() {
-  const cart: Cart = await getUserCart(46);
-  const num = Object.values(cart.products);
+  const cart: Cart = await getUserCart();
+
+  const num = cart ? Object.values(cart.shop) : [];
+
   const finalNum = num.reduce((a, b) => a + b, 0);
 
   return (
