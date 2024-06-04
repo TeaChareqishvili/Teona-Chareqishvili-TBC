@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default async function NewCartProducts() {
   const cart = await getUserCart();
-  console.log(cart, "cart?");
+
   const cartProductsArray = Object.entries(cart.shop);
 
   const cartProducts = await getProducts();

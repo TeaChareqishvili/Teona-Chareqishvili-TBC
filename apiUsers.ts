@@ -116,10 +116,9 @@ export async function getUserCart() {
     }
 
     const carts = await response.json();
-    console.log(carts, "cartunia");
+
     const [cart] = carts.carts.rows;
 
-    console.log(cart, "cartunia");
     return cart;
   } catch (error) {
     console.error("Failed to fetch user ID:", error);
