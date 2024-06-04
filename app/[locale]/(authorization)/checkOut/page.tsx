@@ -5,24 +5,24 @@ import { SelectedProduct } from "../../interface";
 import Image from "next/image";
 
 export default async function NewCartProducts() {
-  const cart = await getUserCart(46);
-  console.log(cart, "checkout");
-  const cartProductsArray = Object.entries(cart.shop);
+  const cart = await getUserCart();
+  // console.log(cart, "cart?");
+  // const cartProductsArray = Object.entries(cart.shop);
 
   const cartProducts = await getProducts();
 
-  //Create a map of cart product IDs and their quantities
-  const cartProductMap = new Map(cartProductsArray);
+  // //Create a map of cart product IDs and their quantities
+  // const cartProductMap = new Map(cartProductsArray);
 
   //Filter and map the products to include the quantity
-  const filteredProducts = cartProducts
-    .filter((product: SelectedProduct) =>
-      cartProductMap.has(product.id.toString())
-    )
-    .map((product: SelectedProduct) => ({
-      ...product,
-      quantity: cartProductMap.get(product.id.toString()),
-    }));
+  // const filteredProducts = cartProducts
+  //   .filter((product: SelectedProduct) =>
+  //     cartProductMap.has(product.id.toString())
+  //   )
+  //   .map((product: SelectedProduct) => ({
+  //     ...product,
+  //     quantity: cartProductMap.get(product.id.toString()),
+  //   }));
 
   return (
     <div className=" flex flex-col items-center justify-center  w-full bg-[#dad7cd] px-[20px] py-[20px] lg:justify-between lg:flex-row lg:items-start lg:px-[30px]">

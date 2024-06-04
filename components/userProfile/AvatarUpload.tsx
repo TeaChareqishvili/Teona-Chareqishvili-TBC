@@ -8,7 +8,7 @@ export default function AvatarUpload() {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
   const t = useScopedI18n("profile");
-  console.log(blob, "blob");
+
   return (
     <div className="w-full min-h-[100px] bg-[#cfe1d8] flex flex-col items-center mt-4 p-4 rounded-md dark:bg-[#527361]">
       <h1 className="text-black text-xl font-semibold dark:text-white">

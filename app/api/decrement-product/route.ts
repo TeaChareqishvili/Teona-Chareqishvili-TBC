@@ -11,7 +11,7 @@ export async function PUT(req: NextRequest) {
 
     // Fetch existing cart data from the server
     const result = await sql`
-      SELECT shop FROM carts
+      SELECT shop FROM cart
       WHERE user_id = ${Number(userId)}
     `;
 
@@ -33,7 +33,7 @@ export async function PUT(req: NextRequest) {
 
     // Update the cart in the database
     const updatedCart = await sql`
-      UPDATE carts
+      UPDATE cart
       SET shop = ${JSON.stringify(products)}::jsonb
       WHERE user_id = ${Number(userId)}
       RETURNING *

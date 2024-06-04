@@ -1,3 +1,5 @@
+import { getSession } from "@auth0/nextjs-auth0";
+
 export const Host =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
@@ -99,8 +101,13 @@ export async function getProductDetail(id: string) {
   return product;
 }
 
-export async function getUserCart(userId: number) {
-  const response = await fetch(Host + `/api/get-cart/${userId}`, {
+export async function getUserCart() {
+  const userSubId = await getUserId();
+  console.log(userSubId, "getusercart");
+  if (!userSubId) {
+    return null;
+  }
+  const response = await fetch(Host + `/api/get-cart/${userSubId}`, {
     cache: "no-store",
   });
   const carts = await response.json();
@@ -110,6 +117,27 @@ export async function getUserCart(userId: number) {
   return cart;
 }
 
+// get logged in user's id
+export async function getUserId() {
+  const session = await getSession();
+  // console.log(session, "session");
+  const user = session ? session.user : null;
+  // console.log(user, "user");
+  const id = user ? user.sub : null;
+
+  // console.log(id, "aidii");
+  // akamde modis
+  const userSubId = await fetch(Host + `/api/get-user-sub/${id}`, {
+    cache: "no-store",
+  });
+
+  console.log(userSubId, "sibid");
+  const userSerialId = await userSubId.json();
+  // console.log(userSerialId, "serial id");
+  const userId = userSerialId.usersId;
+  // console.log(userId, "userid");
+  return userId;
+}
 // function to get all blogs
 export async function getBlogs() {
   try {

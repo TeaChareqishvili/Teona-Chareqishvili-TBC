@@ -5,7 +5,6 @@ import { Blogs } from "../../interface";
 export default async function Blog() {
   const blog = await getBlogs();
 
-  console.log(blog, "bloguna");
   return (
     <div className="flex items-center justify-center flex-col md:flex-row md:flex-wrap p-4 mt-[120px]">
       {blog.rows.map((blog: Blogs) => (
