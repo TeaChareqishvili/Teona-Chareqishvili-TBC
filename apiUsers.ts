@@ -103,41 +103,61 @@ export async function getProductDetail(id: string) {
 
 export async function getUserCart() {
   const userSubId = await getUserId();
-  console.log(userSubId, "getusercart");
+
   if (!userSubId) {
     return null;
   }
-  const response = await fetch(Host + `/api/get-cart/${userSubId}`, {
-    cache: "no-store",
-  });
-  const carts = await response.json();
+  try {
+    const response = await fetch(Host + `/api/get-cart/${userSubId}`, {
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
 
-  const [cart] = carts.carts.rows;
+    const carts = await response.json();
+    console.log(carts, "cartunia");
+    const [cart] = carts.carts.rows;
 
-  return cart;
+    console.log(cart, "cartunia");
+    return cart;
+  } catch (error) {
+    console.error("Failed to fetch user ID:", error);
+    return null;
+  }
 }
 
 // get logged in user's id
 export async function getUserId() {
   const session = await getSession();
-  // console.log(session, "session");
+
   const user = session ? session.user : null;
-  // console.log(user, "user");
   const id = user ? user.sub : null;
 
-  // console.log(id, "aidii");
-  // akamde modis
-  const userSubId = await fetch(Host + `/api/get-user-sub/${id}`, {
-    cache: "no-store",
-  });
+  if (!id) {
+    return null;
+  }
 
-  console.log(userSubId, "sibid");
-  const userSerialId = await userSubId.json();
-  // console.log(userSerialId, "serial id");
-  const userId = userSerialId.usersId;
-  // console.log(userId, "userid");
-  return userId;
+  try {
+    const userSubId = await fetch(Host + `/api/get-user-sub/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!userSubId.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const userSerialId = await userSubId.json();
+
+    const userId = userSerialId.usersId;
+
+    return userId;
+  } catch (error) {
+    console.error("Failed to fetch user ID:", error);
+    return null;
+  }
 }
+
 // function to get all blogs
 export async function getBlogs() {
   try {

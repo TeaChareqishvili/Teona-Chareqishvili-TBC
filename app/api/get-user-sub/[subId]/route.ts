@@ -8,12 +8,11 @@ export async function GET(
   _: NextRequest,
   { params: { subId } }: { params: { subId: string } }
 ) {
-  // console.log(subId, "ID");
   try {
     const users =
       await sql`SELECT serial_id FROM authousers WHERE id = ${subId}`;
-    // console.log(users, "kkkk");
-    const usersId = users.rows[0].id;
+
+    const usersId = users.rows.length > 0 ? users.rows[0].serial_id : null;
 
     return NextResponse.json({ usersId }, { status: 200 });
   } catch (error) {
