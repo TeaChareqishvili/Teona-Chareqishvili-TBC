@@ -61,12 +61,7 @@ export default function AvatarUpload() {
           </button>
         </div>
 
-        {/* {blob && (
-          <div>
-            <h1 className="text-[black]">video</h1>
-            <video src={blob.url} autoPlay muted loop />
-          </div>
-        )} */}
+        {blob && ""}
       </form>
     </div>
   );
