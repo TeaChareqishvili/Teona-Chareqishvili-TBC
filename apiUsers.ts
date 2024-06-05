@@ -204,7 +204,7 @@ export async function createContact(
 export async function addNewBlog(
   title: string,
   description: string,
-  image_url: number,
+  image_url: string,
   category: string
 ) {
   return await fetch(Host + "/api/add-new-blog", {

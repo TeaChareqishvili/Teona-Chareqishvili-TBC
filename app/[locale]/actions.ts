@@ -9,6 +9,7 @@ import { getSession } from "@auth0/nextjs-auth0";
 import { contactData } from "./interface";
 import { getUserId } from "../../apiUsers";
 import { CreateBlogData } from "./interface";
+import { addNewBlog } from "../../apiUsers";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -185,5 +186,5 @@ export async function createNewContact(formData: contactData) {
 
 export async function createNewBlog(formData: CreateBlogData) {
   const { title, description, image_url, category } = formData;
-  createContact(title, description, image_url, category);
+  addNewBlog(title, description, image_url, category);
 }
