@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { deleteBlogId } from "../../app/[locale]/actions";
-export default function BlogEditDeleteBtn({ id }: { id: number }) {
+export default function BlogDeleteBtn({ id }: { id: number }) {
   const handleDelete = async () => {
     try {
       deleteBlogId(id);
@@ -13,10 +12,7 @@ export default function BlogEditDeleteBtn({ id }: { id: number }) {
   return (
     <>
       <div className="flex flex-col ">
-        <Link href="#"> EDIT </Link>{" "}
-        <Link onClick={handleDelete} href="#">
-          DELETE BLOG
-        </Link>
+        <button onClick={handleDelete}>DELETE BLOG</button>
       </div>
     </>
   );

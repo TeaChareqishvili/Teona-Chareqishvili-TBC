@@ -1,63 +1,13 @@
-"use client";
-
-import type { PutBlobResult } from "@vercel/blob";
-import { useState, useRef } from "react";
-import { createNewBlog } from "../../app/[locale]/actions";
+import { CreateBlogData } from "@/app/[locale]/interface";
 import Image from "next/image";
+import { useState, useRef } from "react";
+import type { PutBlobResult } from "@vercel/blob";
 
-export default function BlogAddForm() {
-  const inputFileRef = useRef<HTMLInputElement>(null);
+export default function BlogEditForm({ blog }: { blog: CreateBlogData }) {
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [image_url, setImage_url] = useState("");
-
-  const formData = {
-    title,
-    category,
-    description,
-    image_url,
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      await createNewBlog(formData);
-    } catch (error) {
-      console.error(error);
-    }
-    // window.location.reload();
-  };
-
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) {
-      throw new Error("No file selected");
-    }
-
-    const file = e.target.files[0];
-
-    try {
-      const response = await fetch(`/api/upload?filename=${file.name}`, {
-        method: "POST",
-        body: file,
-      });
-
-      const newBlob = await response.json();
-      console.log("File uploaded successfully:", newBlob);
-
-      setBlob(newBlob);
-      console.log(newBlob.url);
-      setImage_url(newBlob.url);
-    } catch (error) {
-      console.error("Error uploading file:", error);
-    }
-  };
-
   return (
-    <div className="w-full min-h-[100px] bg-[#cfe1d8] flex flex-col items-center mt-4 p-4 rounded-md dark:bg-[#527361]">
-      <h1 className="text-black text-xl font-semibold dark:text-white">hi</h1>
-      <form className="flex flex-col items-center mt-4" onSubmit={handleSubmit}>
+    <div>
+      <form className="flex flex-col items-center mt-4">
         <div className="flex items-center justify-between">
           <div className="flex flex-col items-center">
             <label>
@@ -65,8 +15,8 @@ export default function BlogAddForm() {
                 type="text"
                 name="title"
                 placeholder="Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={blog.title}
+                // onChange={(e) => setTitle(e.target.value)}
                 required
               />
             </label>
@@ -75,8 +25,8 @@ export default function BlogAddForm() {
                 type="text"
                 name="category"
                 placeholder="Category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                value={blog.category}
+                // onChange={(e) => setCategory(e.target.value)}
                 required
               />
             </label>
@@ -85,8 +35,8 @@ export default function BlogAddForm() {
                 type="text"
                 name="description"
                 placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={blog.description}
+                // onChange={(e) => setDescription(e.target.value)}
                 required
               />
             </label>
@@ -94,8 +44,8 @@ export default function BlogAddForm() {
               <input
                 type="file"
                 name="image_url"
-                ref={inputFileRef}
-                onChange={handleFileChange}
+                // ref={inputFileRef}
+                // onChange={handleFileChange}
                 required
               />
             </label>

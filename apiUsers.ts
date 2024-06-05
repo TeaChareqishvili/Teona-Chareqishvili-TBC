@@ -226,3 +226,32 @@ export async function deleteBlog(id: number) {
 
   return response.json();
 }
+
+// fucntion call edit blog end-point
+export async function getblogById(
+  id: number,
+  title: string,
+  description: string,
+  category: string,
+  image_url: string
+) {
+  try {
+    const response = await fetch(`${Host}/api/edit-blog/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, description, category, image_url }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+}

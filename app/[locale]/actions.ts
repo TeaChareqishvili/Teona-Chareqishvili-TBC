@@ -11,6 +11,7 @@ import { getUserId } from "../../apiUsers";
 import { CreateBlogData } from "./interface";
 import { addNewBlog } from "../../apiUsers";
 import { deleteBlog } from "../../apiUsers";
+import { getblogById } from "../../apiUsers";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -197,3 +198,10 @@ export const deleteBlogId: (id: number) => Promise<void> = async (
   await deleteBlog(id);
   revalidatePath("/blog");
 };
+
+//function tu edit single blog
+export async function editBlog(id: number, userData: UserData) {
+  const { title, description, category, image_url } = userData;
+  getblogById(id, title, description, category, image_url);
+  revalidatePath("/blog");
+}

@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import BlogAddModal from "../modal/BlogAddModal";
-import BlogAddForm from "../../components/blogs/BlogAddForm";
-
-const AddNewBlog = () => {
+import EditBlogModal from "../modal/EditBlogModal";
+import BlogEditForm from "./BlogEditForm";
+import { CreateBlogData } from "../../app/[locale]/interface";
+const EditBlog = ({ blog }: { blog: CreateBlogData }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleModal = () => {
     setModalOpen(true);
@@ -18,12 +18,12 @@ const AddNewBlog = () => {
         className="border border-[#5a5f5a] text-[20px] text-[#5a5f5a] tracking-widest uppercase rounded-md mt-[15px] py-[10px] px-[5px] w-[200px] cursor-pointer  dark:bg-[#264653] dark:text-[#ffffff]"
         onClick={handleModal}
       >
-        add new blog
+        EDIT BLOG
       </button>
-      <BlogAddModal isOpen={isModalOpen} onClose={handleModalClose}>
-        <BlogAddForm />
-      </BlogAddModal>
+      <EditBlogModal isOpen={isModalOpen} onClose={handleModalClose}>
+        <BlogEditForm blog={blog} />
+      </EditBlogModal>
     </>
   );
 };
-export { AddNewBlog };
+export { EditBlog };
