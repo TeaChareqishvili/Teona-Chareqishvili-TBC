@@ -10,6 +10,7 @@ import { contactData } from "./interface";
 import { getUserId } from "../../apiUsers";
 import { CreateBlogData } from "./interface";
 import { addNewBlog } from "../../apiUsers";
+import { deleteBlog } from "../../apiUsers";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -188,3 +189,11 @@ export async function createNewBlog(formData: CreateBlogData) {
   const { title, description, image_url, category } = formData;
   addNewBlog(title, description, image_url, category);
 }
+
+// delete single blog
+export const deleteBlogId: (id: number) => Promise<void> = async (
+  id: number
+) => {
+  await deleteBlog(id);
+  revalidatePath("/blog");
+};

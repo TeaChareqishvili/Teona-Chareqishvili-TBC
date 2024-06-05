@@ -34,6 +34,7 @@ export async function createUser(name: string, email: string, age: number) {
   });
 }
 
+// function to delete user
 export async function deleteUser(id: number) {
   const response = await fetch(`${Host}/api/delete-user/${id}`, {
     method: "DELETE",
@@ -211,4 +212,17 @@ export async function addNewBlog(
     method: "POST",
     body: JSON.stringify({ title, description, image_url, category }),
   });
+}
+
+// function to delete blog
+export async function deleteBlog(id: number) {
+  const response = await fetch(`${Host}/api/delete-blog/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete user");
+  }
+
+  return response.json();
 }

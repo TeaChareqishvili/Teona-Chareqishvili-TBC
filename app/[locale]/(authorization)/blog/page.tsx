@@ -5,6 +5,7 @@ import { Blogs } from "../../interface";
 import Link from "next/link";
 import { getSession } from "@auth0/nextjs-auth0";
 import { AddNewBlog } from "../../../../components/blogs/AddNewBlog";
+import BlogEditDeleteBtn from "@/components/blogs/BlogEditDeleteBtn";
 export default async function Blog() {
   const blog = await getBlogs();
 
@@ -32,6 +33,7 @@ export default async function Blog() {
             <p>{blog.category}</p>
             <span>{blog.date}</span>
             <Link href={`/singleBlog/${blog.id}`}>Read more</Link>
+            {isAdmin && <BlogEditDeleteBtn id={blog.id} />}
           </div>
         ))}
       </div>
