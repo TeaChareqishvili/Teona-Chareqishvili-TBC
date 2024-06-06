@@ -3,7 +3,7 @@ import { useState } from "react";
 import EditBlogModal from "../modal/EditBlogModal";
 import BlogEditForm from "./BlogEditForm";
 import { CreateBlogData } from "../../app/[locale]/interface";
-const EditBlog = ({ blog }: { blog: CreateBlogData }) => {
+const EditBlog = ({ blog, id }: { id: number; blog: CreateBlogData }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleModal = () => {
     setModalOpen(true);
@@ -21,7 +21,7 @@ const EditBlog = ({ blog }: { blog: CreateBlogData }) => {
         EDIT BLOG
       </button>
       <EditBlogModal isOpen={isModalOpen} onClose={handleModalClose}>
-        <BlogEditForm blog={blog} />
+        <BlogEditForm id={id} blog={blog} />
       </EditBlogModal>
     </>
   );

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SingleBlogData } from "../../app/[locale]/interface";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { EditBlog } from "./EditBlog";
 export default function SingleBlogDetails({
   singleBlog,
 }: {
@@ -28,6 +29,7 @@ export default function SingleBlogDetails({
         {isAdmin && (
           <div className="flex flex-col ">
             <Link href="#"> EDIT </Link> <Link href="#">DELETE BLOG</Link>
+            <EditBlog id={singleBlog.id} blog={singleBlog} />
           </div>
         )}
       </div>

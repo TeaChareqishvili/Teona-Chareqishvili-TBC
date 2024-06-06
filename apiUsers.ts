@@ -244,6 +244,7 @@ export async function getblogById(
       body: JSON.stringify({ title, description, category, image_url }),
     });
 
+    console.log(response, "resp");
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.error);
