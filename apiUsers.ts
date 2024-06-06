@@ -256,3 +256,28 @@ export async function getblogById(
     throw error;
   }
 }
+
+// create new product
+
+export async function addNewProduct(
+  title: string,
+  description: string,
+  stock: number,
+  price: string,
+  sale: string,
+  imageurl: string,
+  category: string
+) {
+  return await fetch(Host + "/api/add-new-product", {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      description,
+      stock,
+      price,
+      sale,
+      imageurl,
+      category,
+    }),
+  });
+}

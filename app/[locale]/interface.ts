@@ -80,6 +80,15 @@ export interface NewProductProps {
   product: VercelProduct[];
 }
 
+export interface DetailProductData {
+  title: string;
+  description: string;
+  price: string;
+  stock: number;
+  category: string;
+  imageurl: string;
+  sale: string;
+}
 export interface AddToCartButtonProps {
   productId: number;
   handleAddToCart: (productId: any) => void;

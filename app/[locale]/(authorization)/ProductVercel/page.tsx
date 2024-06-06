@@ -1,8 +1,13 @@
 import NewProduct from "@/components/newProductVercel/NewProduct";
 import { getProducts } from "../../../../apiUsers";
-
+import { getSession } from "@auth0/nextjs-auth0";
+import AddNewProduct from "../../../../components/productButtons/AddNewProduct";
 export default async function ProductVercel() {
   const Product = await getProducts();
+  const session = await getSession();
+
+  const isAdmin =
+    Array.isArray(session?.user?.role) && session.user.role.includes("admin");
 
   return (
     <div className=" mt-[40px] lg:mt-[120px] w-full  bg-[#dad7cd]">
@@ -10,6 +15,7 @@ export default async function ProductVercel() {
         {" "}
         <NewProduct product={Product} />
       </div>
+      {isAdmin && <AddNewProduct />}
     </div>
   );
 }

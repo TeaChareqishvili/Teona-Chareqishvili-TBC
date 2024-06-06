@@ -6,7 +6,7 @@ export default async function SingeleProductVercel({
   params: { id: string };
 }) {
   const prodDetail = await getProductDetail(id);
-
+  console.log(prodDetail, "pro");
   return (
     <div className="mt-[140px]">
       <h1 className="text-[black]">{prodDetail.title}</h1>
