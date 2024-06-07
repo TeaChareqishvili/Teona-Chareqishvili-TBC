@@ -14,6 +14,7 @@ import { deleteBlog } from "../../apiUsers";
 import { getblogById } from "../../apiUsers";
 import { DetailProductData } from "./interface";
 import { addNewProduct } from "../../apiUsers";
+import { getProductById } from "../../apiUsers";
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
   const { name, email, age } = userData;
@@ -214,4 +215,21 @@ export async function createNewProduct(formData: DetailProductData) {
   const { title, description, stock, sale, price, imageurl, category } =
     formData;
   addNewProduct(title, description, stock, sale, price, imageurl, category);
+}
+
+export async function editProduct(id: number, formData: DetailProductData) {
+  const { title, description, stock, sale, price, imageurl, category } =
+    formData;
+  console.log(formData, "hhh");
+  getProductById(
+    id,
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category
+  );
+  revalidatePath("/singleProductVercel");
 }

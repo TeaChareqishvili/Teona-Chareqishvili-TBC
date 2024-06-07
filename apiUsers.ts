@@ -281,3 +281,44 @@ export async function addNewProduct(
     }),
   });
 }
+
+// edit product call
+export async function getProductById(
+  id: number,
+  title: string,
+  description: string,
+  stock: number,
+  price: string,
+  sale: string,
+  imageurl: string,
+  category: string
+) {
+  try {
+    const response = await fetch(`${Host}/api/edit-product/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        stock,
+        price,
+        sale,
+        imageurl,
+        category,
+      }),
+    });
+
+    console.log(response, "resp");
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+}
