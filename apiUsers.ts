@@ -322,3 +322,17 @@ export async function getProductById(
     throw error;
   }
 }
+
+// function delete product function for admin
+
+export async function deleteProductForAdmin(id: number) {
+  const response = await fetch(`${Host}/api/delete-product-admin/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete user");
+  }
+
+  return response.json();
+}

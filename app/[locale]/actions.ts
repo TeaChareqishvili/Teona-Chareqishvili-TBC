@@ -15,6 +15,7 @@ import { getblogById } from "../../apiUsers";
 import { DetailProductData } from "./interface";
 import { addNewProduct } from "../../apiUsers";
 import { getProductById } from "../../apiUsers";
+import { deleteProductForAdmin } from "../../apiUsers";
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
   const { name, email, age } = userData;
@@ -233,3 +234,10 @@ export async function editProduct(id: number, formData: DetailProductData) {
   );
   revalidatePath("/singleProductVercel");
 }
+
+export const deleteProductAdminId: (id: number) => Promise<void> = async (
+  id: number
+) => {
+  await deleteProductForAdmin(id);
+  revalidatePath("/ProductVercel");
+};
