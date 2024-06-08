@@ -326,12 +326,12 @@ export async function getProductById(
 // function delete product function for admin
 
 export async function deleteProductForAdmin(id: number) {
-  const response = await fetch(`${Host}/api/delete-product-admin/${id}`, {
+  const response = await fetch(`/api/delete-product-admin/${id}`, {
     method: "DELETE",
   });
 
   if (!response.ok) {
-    throw new Error("Failed to delete user");
+    throw new Error("Failed to delete product");
   }
 
   return response.json();
