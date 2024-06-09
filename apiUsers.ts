@@ -1,6 +1,4 @@
 import { getSession } from "@auth0/nextjs-auth0";
-// import { SelectedProduct } from "./app/[locale]/interface";
-// import { redirect } from "next/navigation";
 
 export const Host =
   process.env.NODE_ENV === "development"
@@ -342,54 +340,3 @@ export async function deleteProductForAdmin(id: number) {
     throw error;
   }
 }
-
-// stripe
-// export const checkout = async () => {
-//   "use server";
-//   const cart = await getUserCart();
-
-//   const cartProductsArray = Object.entries(cart.shop);
-
-//   const cartProducts = await getProducts();
-
-//   // //Create a map of cart product IDs and their quantities
-//   const cartProductMap = new Map(cartProductsArray);
-
-//   //Filter and map the products to include the quantity
-//   const filteredProducts = cartProducts
-//     .filter((product: SelectedProduct) =>
-//       cartProductMap.has(product.id.toString())
-//     )
-//     .map((product: SelectedProduct) => ({
-//       ...product,
-//       quantity: cartProductMap.get(product.id.toString()),
-//     }));
-
-//   try {
-//     const response = await fetch(Host + "/api/checkOut", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ products: filteredProducts }),
-//     });
-
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! status: ${response.status}`);
-//     }
-
-//     try {
-//       const responseData = await response.json();
-
-//       if (responseData.url) {
-//         redirect(responseData.url);
-//       } else {
-//         console.error("URL not found in response data.");
-//       }
-//     } catch (error) {
-//       console.error("Error parsing response data:", error);
-//     }
-//   } catch (error) {
-//     console.error("Error during checkout process:", error);
-//   }
-// };

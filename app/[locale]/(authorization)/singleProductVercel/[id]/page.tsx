@@ -1,6 +1,6 @@
 import { getProductDetail } from "@/apiUsers";
 import EditProductButton from "@/components/productButtons/EditProductButton";
-import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial";
+// import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial";
 // import Image from "next/image";
 
 export default async function SingeleProductVercel({
@@ -10,7 +10,7 @@ export default async function SingeleProductVercel({
 }) {
   const productDetail = await getProductDetail(id);
   // const img = productDetail.image_gallery;
-  console.log(productDetail);
+
   // console.log(img);
 
   return (
@@ -25,7 +25,7 @@ export default async function SingeleProductVercel({
           alt={`Product image ${index + 1}`}
         />
       ))} */}
-      <ShareSocial products={productDetail} />
+      {/* <ShareSocial products={productDetail} /> */}
       <EditProductButton id={productDetail.id} productDetail={productDetail} />
     </div>
   );

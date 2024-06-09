@@ -1,5 +1,6 @@
 "use client";
 import { DetailProductData } from "../../app/[locale]/interface";
+import { Host } from "../../apiUsers";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -13,15 +14,25 @@ export default function ShareSocial({
 }: {
   products: DetailProductData;
 }) {
+  console.log(products, "share");
   return (
     <>
-      <FacebookShareButton url={products.imageurl} title={products.title}>
+      <FacebookShareButton
+        url={`${Host}/singleProductVercel/${products.id}`}
+        title={products.title}
+      >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
-      <TwitterShareButton url={products.imageurl} title={products.title}>
+      <TwitterShareButton
+        url={`${Host}/singleProductVercel/${products.id}`}
+        title={products.title}
+      >
         <TwitterIcon size={32} round />
       </TwitterShareButton>
-      <LinkedinShareButton url={products.imageurl} title={products.title}>
+      <LinkedinShareButton
+        url={`${Host}/singleProductVercel/${products.id}`}
+        title={products.title}
+      >
         <LinkedinIcon size={32} round />
       </LinkedinShareButton>
     </>
