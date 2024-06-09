@@ -1,31 +1,71 @@
-import { getProducts } from "@/apiUsers";
-import { getUserCart } from "@/apiUsers";
+import { SelectedProduct } from "../../../app/[locale]/interface";
 import { NextResponse } from "next/server";
+import { Host } from "../../../apiUsers";
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
-import { SelectedProduct } from "../../[locale]/interface";
 
-export const POST = async (_request: any) => {
-  const cart = await getUserCart();
+const getActiveProducts = async () => {
+  const checkProducts = await stripe.products.list();
+  const availableProducts = checkProducts.data.filter(
+    (product: any) => product.active === true
+  );
+  return availableProducts;
+};
 
-  const cartProductsArray = Object.entries(cart.shop);
+export const POST = async (request: any) => {
+  const { products } = await request.json();
 
-  const cartProducts = await getProducts();
+  const data: SelectedProduct[] = products;
 
-  // //Create a map of cart product IDs and their quantities
-  const cartProductMap = new Map(cartProductsArray);
+  let activeProducts = await getActiveProducts();
+  try {
+    for (const product of data) {
+      const stripeProduct = activeProducts.find(
+        (stripeProduct: any) =>
+          stripeProduct?.name?.toLowerCase() == product?.title?.toLowerCase()
+      );
+      if (stripeProduct == undefined) {
+        await stripe.products.create({
+          name: product.title,
+          default_price_data: {
+            unit_amount: Number(product.price) * 100,
+            currency: "usd",
+          },
+        });
+      }
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  activeProducts = await getActiveProducts();
+  let stripeItems: any = [];
 
-  //Filter and map the products to include the quantity
-  const filteredProducts = cartProducts
-    .filter((product: SelectedProduct) =>
-      cartProductMap.has(product.id.toString())
-    )
-    .map((product: SelectedProduct) => ({
-      ...product,
-      quantity: cartProductMap.get(product.id.toString()),
-    }));
+  console.log(data, "data");
+  console.log(activeProducts, "active");
+  for (const product of data) {
+    console.log(product, "jjj");
+    const stripeProduct = activeProducts?.find(
+      (prod: any) => prod?.name?.toLowerCase() == product?.title?.toLowerCase()
+    );
 
-  const prods = await stripe.filteredProducts.list();
-  console.log(prods, "prods");
+    console.log(stripeProduct, "stripeproduct");
+    if (stripeProduct) {
+      stripeItems.push({
+        price: stripeProduct?.default_price,
+        quantity: product?.quantity,
+      });
+    }
+  }
+  if (stripeItems.length === 0) {
+    throw new Error("No valid items to purchase");
+  }
+  const session = await stripe.checkout.sessions.create({
+    line_items: stripeItems,
+    mode: "payment",
+    success_url: `${Host}/success`,
+    cancel_url: `${Host}/cancel`,
+  });
 
-  return NextResponse.json({ url: "" });
+  console.log("Stripe Session:", session);
+
+  return NextResponse.json({ url: session.url });
 };

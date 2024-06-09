@@ -16,6 +16,7 @@ import { DetailProductData } from "./interface";
 import { addNewProduct } from "../../apiUsers";
 import { getProductById } from "../../apiUsers";
 import { deleteProductForAdmin } from "../../apiUsers";
+
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
   const { name, email, age } = userData;

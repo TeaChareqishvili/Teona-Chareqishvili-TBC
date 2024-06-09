@@ -1,9 +1,12 @@
+"use server";
 import { getProducts, getUserCart } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
-// import CheckOutBtn from "../../../../components/checkoutbtn/CheckOutBtn";
+import CheckOutBtn from "../../../../components/checkoutbtn/CheckOutBtn";
 import Image from "next/image";
+import { Host } from "../../../../apiUsers";
+import { redirect } from "next/navigation";
 
 export default async function NewCartProducts() {
   const cart = await getUserCart();
@@ -24,6 +27,37 @@ export default async function NewCartProducts() {
       ...product,
       quantity: cartProductMap.get(product.id.toString()),
     }));
+
+  const checkoutCart = async () => {
+    "use server";
+    try {
+      const response = await fetch(Host + "/api/checkOut", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ products: filteredProducts }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      try {
+        const responseData = await response.json();
+
+        if (responseData.url) {
+          redirect(responseData.url);
+        } else {
+          console.error("URL not found in response data.");
+        }
+      } catch (error) {
+        console.error("Error parsing response data:", error);
+      }
+    } catch (error) {
+      console.error("Error during checkout process:", error);
+    }
+  };
 
   return (
     <div className=" flex flex-col items-center justify-center  w-full bg-[#dad7cd] px-[20px] py-[20px] lg:justify-between lg:flex-row lg:items-start lg:px-[30px]">
@@ -106,7 +140,7 @@ export default async function NewCartProducts() {
           </button>
         </div>
 
-        {/* <CheckOutBtn /> */}
+        <CheckOutBtn checkout={checkoutCart} />
       </div>
     </div>
   );

@@ -105,7 +105,7 @@ export interface Cart {
 export interface SelectedProduct {
   id: number;
   title: string;
-  price: string;
+  price: any;
   stock: number;
   category: string;
   quantity: number;

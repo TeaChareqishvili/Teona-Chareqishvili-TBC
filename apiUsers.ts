@@ -1,5 +1,6 @@
 import { getSession } from "@auth0/nextjs-auth0";
-import { SelectedProduct } from "./app/[locale]/interface";
+// import { SelectedProduct } from "./app/[locale]/interface";
+// import { redirect } from "next/navigation";
 
 export const Host =
   process.env.NODE_ENV === "development"
@@ -343,54 +344,52 @@ export async function deleteProductForAdmin(id: number) {
 }
 
 // stripe
-export async function checkout() {
-  console.log("api");
+// export const checkout = async () => {
+//   "use server";
+//   const cart = await getUserCart();
 
-  try {
-    const cart = await getUserCart();
-    console.log("User cart:", cart);
+//   const cartProductsArray = Object.entries(cart.shop);
 
-    const cartProductsArray = Object.entries(cart.shop);
-    console.log("Cart products array:", cartProductsArray);
+//   const cartProducts = await getProducts();
 
-    const cartProducts = await getProducts();
-    console.log("Cart products:", cartProducts);
+//   // //Create a map of cart product IDs and their quantities
+//   const cartProductMap = new Map(cartProductsArray);
 
-    // Create a map of cart product IDs and their quantities
-    const cartProductMap = new Map(cartProductsArray);
-    console.log("Cart product map:", cartProductMap);
+//   //Filter and map the products to include the quantity
+//   const filteredProducts = cartProducts
+//     .filter((product: SelectedProduct) =>
+//       cartProductMap.has(product.id.toString())
+//     )
+//     .map((product: SelectedProduct) => ({
+//       ...product,
+//       quantity: cartProductMap.get(product.id.toString()),
+//     }));
 
-    // Filter and map the products to include the quantity
-    const filteredProducts = cartProducts
-      .filter((product: SelectedProduct) =>
-        cartProductMap.has(product.id.toString())
-      )
-      .map((product: SelectedProduct) => ({
-        ...product,
-        quantity: cartProductMap.get(product.id.toString()),
-      }));
-    console.log("Filtered products:", filteredProducts);
+//   try {
+//     const response = await fetch(Host + "/api/checkOut", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ products: filteredProducts }),
+//     });
 
-    const response = await fetch(`${Host}/api/checkout`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ products: filteredProducts }), // Fixed key name
-    });
-    console.log("Response:", response);
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
 
-    if (response.url) {
-      console.log("good!!");
-    }
+//     try {
+//       const responseData = await response.json();
 
-    if (!response.ok) {
-      throw new Error("Failed to create checkout session");
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error in checkout function:", error);
-    throw error;
-  }
-}
+//       if (responseData.url) {
+//         redirect(responseData.url);
+//       } else {
+//         console.error("URL not found in response data.");
+//       }
+//     } catch (error) {
+//       console.error("Error parsing response data:", error);
+//     }
+//   } catch (error) {
+//     console.error("Error during checkout process:", error);
+//   }
+// };

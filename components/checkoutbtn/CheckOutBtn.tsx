@@ -1,6 +1,6 @@
 "use client";
-import { checkout } from "../../apiUsers";
-export default function CheckOutBtn() {
+
+export default function CheckOutBtn({ checkout }: any) {
   const handleCheckout = async () => {
     console.log("Checkout button clicked");
     try {
