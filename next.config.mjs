@@ -49,6 +49,11 @@ export default nextVideos({
         hostname: "www.proteini.si",
         pathname: "/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+        pathname: "/images/I/**",
+      },
     ],
   },
   compiler: {

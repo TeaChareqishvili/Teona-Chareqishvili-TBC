@@ -1,4 +1,5 @@
 import { getSession } from "@auth0/nextjs-auth0";
+import { SelectedProduct } from "./app/[locale]/interface";
 
 export const Host =
   process.env.NODE_ENV === "development"
@@ -324,15 +325,72 @@ export async function getProductById(
 }
 
 // function delete product function for admin
-
 export async function deleteProductForAdmin(id: number) {
-  const response = await fetch(`/api/delete-product-admin/${id}`, {
-    method: "DELETE",
-  });
+  try {
+    const response = await fetch(`${Host}/api/delete-product-admin/${id}`, {
+      method: "DELETE",
+    });
 
-  if (!response.ok) {
-    throw new Error("Failed to delete product");
+    if (!response.ok) {
+      throw new Error("Failed to delete product");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    throw error;
   }
+}
 
-  return response.json();
+// stripe
+export async function checkout() {
+  console.log("api");
+
+  try {
+    const cart = await getUserCart();
+    console.log("User cart:", cart);
+
+    const cartProductsArray = Object.entries(cart.shop);
+    console.log("Cart products array:", cartProductsArray);
+
+    const cartProducts = await getProducts();
+    console.log("Cart products:", cartProducts);
+
+    // Create a map of cart product IDs and their quantities
+    const cartProductMap = new Map(cartProductsArray);
+    console.log("Cart product map:", cartProductMap);
+
+    // Filter and map the products to include the quantity
+    const filteredProducts = cartProducts
+      .filter((product: SelectedProduct) =>
+        cartProductMap.has(product.id.toString())
+      )
+      .map((product: SelectedProduct) => ({
+        ...product,
+        quantity: cartProductMap.get(product.id.toString()),
+      }));
+    console.log("Filtered products:", filteredProducts);
+
+    const response = await fetch(`${Host}/api/checkout`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ products: filteredProducts }), // Fixed key name
+    });
+    console.log("Response:", response);
+
+    if (response.url) {
+      console.log("good!!");
+    }
+
+    if (!response.ok) {
+      throw new Error("Failed to create checkout session");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error in checkout function:", error);
+    throw error;
+  }
 }

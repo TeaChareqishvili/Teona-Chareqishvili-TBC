@@ -2,7 +2,7 @@ import { getProducts, getUserCart } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
-import CheckoutBtn from "@/components/checkoutbtn/CheckOutbtn";
+// import CheckOutBtn from "../../../../components/checkoutbtn/CheckOutBtn";
 import Image from "next/image";
 
 export default async function NewCartProducts() {
@@ -106,7 +106,7 @@ export default async function NewCartProducts() {
           </button>
         </div>
 
-        <CheckoutBtn />
+        {/* <CheckOutBtn /> */}
       </div>
     </div>
   );
