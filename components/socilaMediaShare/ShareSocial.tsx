@@ -15,22 +15,23 @@ export default function ShareSocial({
   products: DetailProductData;
 }) {
   console.log(products, "share");
+  const share = "https://teona-chareqishvili-tbc.vercel.app";
   return (
     <>
       <FacebookShareButton
-        url={`${Host}/singleProductVercel/${products.id}`}
+        url={`${share}/singleProductVercel/${products.id}`}
         title={products.title}
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
       <TwitterShareButton
-        url={`${Host}/singleProductVercel/${products.id}`}
+        url={`${share}/singleProductVercel/${products.id}`}
         title={products.title}
       >
         <TwitterIcon size={32} round />
       </TwitterShareButton>
       <LinkedinShareButton
-        url={`${Host}/singleProductVercel/${products.id}`}
+        url={`${share}/singleProductVercel/${products.id}`}
         title={products.title}
       >
         <LinkedinIcon size={32} round />

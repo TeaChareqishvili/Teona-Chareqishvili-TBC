@@ -7,10 +7,11 @@ export default function BmiInput() {
   const [height, setHeight] = useState("");
   const [bmi, setBmi] = useState(null);
   const [bmiCategory, setBmiCategory] = useState("");
+  const [suggestion, setSuggestion] = useState("");
 
   const calculateBmi = () => {
     const weightNum = parseFloat(weight);
-    const heightNum = parseFloat(height) / 100; // Convert height to meters
+    const heightNum = parseFloat(height) / 100;
 
     if (isNaN(weightNum) || isNaN(heightNum) || heightNum <= 0) {
       setBmi(null);
@@ -22,17 +23,27 @@ export default function BmiInput() {
     setBmi(bmiValue.toFixed(2));
 
     let category = "";
+    let suggestion = "";
     if (bmiValue < 18.5) {
       category = "Underweight";
+      suggestion =
+        "Consider increasing your calorie intake with nutrient-dense foods and consult a healthcare provider for personalized advice.";
     } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
       category = "Normal weight";
+      suggestion =
+        "Maintain your healthy lifestyle with a balanced diet and regular physical activity.";
     } else if (bmiValue >= 25 && bmiValue <= 29.9) {
       category = "Overweight";
+      suggestion =
+        "Incorporate regular exercise and monitor your diet to achieve a healthier weight. Consulting a nutritionist may help.";
     } else if (bmiValue >= 30) {
       category = "Obesity";
+      suggestion =
+        "It's advisable to seek guidance from healthcare professionals to create a weight loss plan that includes a balanced diet and regular physical activity.";
     }
 
     setBmiCategory(category);
+    setSuggestion(suggestion);
   };
 
   return (
@@ -61,6 +72,7 @@ export default function BmiInput() {
         <div className="mt-4 text-white">
           <p>BMI: {bmi}</p>
           <p>Category: {bmiCategory}</p>
+          <p>Suggestion{suggestion}</p>
         </div>
       )}
     </div>
