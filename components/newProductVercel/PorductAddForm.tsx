@@ -17,6 +17,7 @@ export default function ProductAddForm() {
   const [imageurl, setImageurl] = useState("");
   const [image_gallery, setImage_gallery] = useState<string[]>([]);
 
+  console.log(setBlob);
   const formData = {
     title,
     price,

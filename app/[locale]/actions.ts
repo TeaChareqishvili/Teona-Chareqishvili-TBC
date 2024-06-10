@@ -206,7 +206,7 @@ export const deleteBlogId: (id: number) => Promise<void> = async (
 //function tu edit single blog
 export async function editBlog(id: number, formData: CreateBlogData) {
   const { title, description, category, image_url } = formData;
-  console.log(formData, "hhh");
+
   getblogById(id, title, description, category, image_url);
   revalidatePath("/blog");
 }

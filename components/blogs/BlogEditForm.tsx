@@ -19,7 +19,6 @@ export default function BlogEditForm({
   const [category, setCategory] = useState(blog.category || "");
   const [image_url, setImage_url] = useState(blog.image_url || "");
 
-  console.log(blog, "hih");
   const formData = {
     title,
     category,

@@ -9,15 +9,12 @@ export default async function SingeleProductVercel({
   params: { id: string };
 }) {
   const productDetail = await getProductDetail(id);
-  const img = productDetail.image_gallery;
-  console.log(productDetail, "id");
-
-  // console.log(img);
+  const img: string[] = productDetail.image_gallery;
 
   return (
     <div className="mt-[140px]">
       <h1 className="text-[black]">{productDetail.title}</h1>
-      {img.map((item, index) => (
+      {img?.map((item, index) => (
         <Image
           width={200}
           height={200}

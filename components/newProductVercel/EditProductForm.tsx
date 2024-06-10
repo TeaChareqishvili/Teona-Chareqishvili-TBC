@@ -25,6 +25,7 @@ export default function EditProductForm({
     productDetail.image_gallery || []
   );
 
+  console.log(setImageurl);
   // Create refs for each image input
   const inputFileRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -108,7 +109,9 @@ export default function EditProductForm({
                 />
                 <input
                   type="file"
-                  ref={(el) => (inputFileRefs.current[index] = el)}
+                  ref={(el: HTMLInputElement | null): void => {
+                    inputFileRefs.current[index] = el;
+                  }}
                   onChange={(e) => handleFileChange(e, index)}
                   style={{ display: "none" }}
                 />
@@ -158,7 +161,7 @@ export default function EditProductForm({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-
+            {/* 
             <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
               <input
                 type="file"
@@ -166,7 +169,7 @@ export default function EditProductForm({
                 ref={(el) => (inputFileRefs.current[0] = el)} // ref for the main image upload
                 onChange={(e) => handleFileChange(e, 0)} // Update the main image URL
               />
-            </label>
+            </label> */}
           </div>
           <button
             type="submit"
