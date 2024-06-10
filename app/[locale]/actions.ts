@@ -8,6 +8,14 @@ import { Host } from "../../apiUsers";
 import { getSession } from "@auth0/nextjs-auth0";
 import { contactData } from "./interface";
 import { getUserId } from "../../apiUsers";
+import { CreateBlogData } from "./interface";
+import { addNewBlog } from "../../apiUsers";
+import { deleteBlog } from "../../apiUsers";
+import { getblogById } from "../../apiUsers";
+import { DetailProductData } from "./interface";
+import { addNewProduct } from "../../apiUsers";
+import { getProductById } from "../../apiUsers";
+import { deleteProductForAdmin } from "../../apiUsers";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -179,3 +187,84 @@ export async function createNewContact(formData: contactData) {
   const { name, email, phone, message } = formData;
   createContact(name, email, phone, message);
 }
+
+// create new blog
+
+export async function createNewBlog(formData: CreateBlogData) {
+  const { title, description, image_url, category } = formData;
+  addNewBlog(title, description, image_url, category);
+}
+
+// delete single blog
+export const deleteBlogId: (id: number) => Promise<void> = async (
+  id: number
+) => {
+  await deleteBlog(id);
+  revalidatePath("/blog");
+};
+
+//function tu edit single blog
+export async function editBlog(id: number, formData: CreateBlogData) {
+  const { title, description, category, image_url } = formData;
+
+  getblogById(id, title, description, category, image_url);
+  revalidatePath("/blog");
+}
+
+// create new product
+
+export async function createNewProduct(formData: DetailProductData) {
+  const {
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category,
+    image_gallery,
+  } = formData;
+  addNewProduct(
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category,
+    image_gallery
+  );
+}
+
+export async function editProduct(id: number, formData: DetailProductData) {
+  const {
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category,
+    image_gallery,
+  } = formData;
+  console.log(formData, "hhh");
+  getProductById(
+    id,
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category,
+    image_gallery
+  );
+  revalidatePath("/singleProductVercel");
+}
+
+export const deleteProductAdminId: (id: number) => Promise<void> = async (
+  id: number
+) => {
+  await deleteProductForAdmin(id);
+  revalidatePath("/ProductVercel");
+};

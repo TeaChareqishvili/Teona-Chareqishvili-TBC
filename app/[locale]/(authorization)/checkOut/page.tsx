@@ -1,7 +1,9 @@
+"use server";
 import { getProducts, getUserCart } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
+import CheckOutBtn from "../../../../components/checkoutbtn/CheckOutBtn";
 import Image from "next/image";
 
 export default async function NewCartProducts() {
@@ -105,9 +107,7 @@ export default async function NewCartProducts() {
           </button>
         </div>
 
-        <button className="bg-[#9b2226] text-[#ffffff] py-2 px-4 rounded-md w-[150px] mt-[15px] cursor-pointer hover:bg-[#f5ebe0] hover:text-[#264653] transition-all duration-200">
-          Buy Now
-        </button>
+        <CheckOutBtn filteredProducts={filteredProducts} />
       </div>
     </div>
   );

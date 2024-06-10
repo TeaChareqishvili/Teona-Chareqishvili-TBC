@@ -14,6 +14,9 @@ const Navigation: React.FC<NavigationProps> = ({
   fontSize,
 }) => {
   const { user } = useUser();
+
+  const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
+
   const scopedT = useScopedI18n("navigation");
   return (
     <nav style={{ display: display }}>
@@ -107,6 +110,24 @@ const Navigation: React.FC<NavigationProps> = ({
           </Link>
         ) : (
           ""
+        )}
+        {isAdmin && (
+          <Link
+            href="/admin"
+            className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+            style={{
+              marginBottom: marginBottom,
+              marginLeft: marginLeft,
+              color: color,
+            }}
+          >
+            <li
+              className="font-tbc-helvetica-bold"
+              style={{ fontSize: fontSize }}
+            >
+              {scopedT("admin")}
+            </li>
+          </Link>
         )}
       </ul>
     </nav>

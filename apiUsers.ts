@@ -34,6 +34,7 @@ export async function createUser(name: string, email: string, age: number) {
   });
 }
 
+// function to delete user
 export async function deleteUser(id: number) {
   const response = await fetch(`${Host}/api/delete-user/${id}`, {
     method: "DELETE",
@@ -101,6 +102,16 @@ export async function getProductDetail(id: string) {
   return product;
 }
 
+// function to get blog details
+export async function getBlogDetail(id: string) {
+  const response = await fetch(`${Host}/api/get-all-blogs/${id}`);
+  console.log(response, "response");
+  const data = await response.json();
+  const blog = data.blogs?.rows ? data.blogs.rows[0] : null;
+  return blog;
+}
+
+// function to get users cart
 export async function getUserCart() {
   const userSubId = await getUserId();
 
@@ -126,10 +137,10 @@ export async function getUserCart() {
   }
 }
 
-// get logged in user's id
+// function  get logged in user's id
 export async function getUserId() {
   const session = await getSession();
-
+  // console.log(session, "sesion ");
   const user = session ? session.user : null;
   const id = user ? user.sub : null;
 
@@ -187,4 +198,149 @@ export async function createContact(
     method: "POST",
     body: JSON.stringify({ name, email, phone, message }),
   });
+}
+
+// function to add new blog
+
+export async function addNewBlog(
+  title: string,
+  description: string,
+  image_url: string,
+  category: string
+) {
+  return await fetch(Host + "/api/add-new-blog", {
+    method: "POST",
+    body: JSON.stringify({ title, description, image_url, category }),
+  });
+}
+
+// function to delete blog
+export async function deleteBlog(id: number) {
+  const response = await fetch(`${Host}/api/delete-blog/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete user");
+  }
+
+  return response.json();
+}
+
+// fucntion call edit blog end-point
+export async function getblogById(
+  id: number,
+  title: string,
+  description: string,
+  category: string,
+  image_url: string
+) {
+  try {
+    const response = await fetch(`${Host}/api/edit-blog/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, description, category, image_url }),
+    });
+
+    console.log(response, "resp");
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+}
+
+// create new product
+
+export async function addNewProduct(
+  title: string,
+  description: string,
+  stock: number,
+  price: string,
+  sale: string,
+  imageurl: string,
+  category: string,
+  image_gallery: string[]
+) {
+  return await fetch(Host + "/api/add-new-product", {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      description,
+      stock,
+      price,
+      sale,
+      imageurl,
+      category,
+      image_gallery,
+    }),
+  });
+}
+
+// edit product call
+export async function getProductById(
+  id: number,
+  title: string,
+  description: string,
+  stock: number,
+  price: string,
+  sale: string,
+  imageurl: string,
+  category: string,
+  image_gallery: string[]
+) {
+  try {
+    const response = await fetch(`${Host}/api/edit-product/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        stock,
+        price,
+        sale,
+        imageurl,
+        category,
+        image_gallery,
+      }),
+    });
+
+    console.log(response, "resp");
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+}
+
+// function delete product function for admin
+export async function deleteProductForAdmin(id: number) {
+  try {
+    const response = await fetch(`${Host}/api/delete-product-admin/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete product");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    throw error;
+  }
 }

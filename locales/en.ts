@@ -6,6 +6,7 @@ export default {
     product: "Products",
     users: "Users",
     profile: "Profile",
+    admin: "Admin",
   },
   footer: {
     subscribe: "Subscribe Newsletter",

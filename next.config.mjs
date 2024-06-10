@@ -39,6 +39,21 @@ export default nextVideos({
         protocol: "https",
         hostname: "rdawkbs6qlsqqewww.public.blob.vercel-storage.com",
       },
+      {
+        protocol: "https",
+        hostname: "media.post.rvohealth.io",
+        pathname: "/wp-content/uploads/sites/3/2020/02/325353_2200-732x549.jpg",
+      },
+      {
+        protocol: "https",
+        hostname: "www.proteini.si",
+        pathname: "/images/**",
+      },
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+        pathname: "/images/I/**",
+      },
     ],
   },
   compiler: {

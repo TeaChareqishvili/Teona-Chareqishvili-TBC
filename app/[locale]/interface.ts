@@ -17,26 +17,6 @@ export interface NavigationProps {
   marginRight?: string;
 }
 
-export interface Blog {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-  tags: string[];
-  reactions: number;
-  params: { id: string };
-}
-
-export interface PaginatedResponse extends Blog {
-  total: number;
-  skip: number;
-  limit: number;
-}
-
-export interface FetchedBlog {
-  posts: PaginatedResponse[];
-}
-
 export interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -100,6 +80,17 @@ export interface NewProductProps {
   product: VercelProduct[];
 }
 
+export interface DetailProductData {
+  id?: number;
+  title: string;
+  description: string;
+  price: string;
+  stock: number;
+  category: string;
+  imageurl: string;
+  sale: string;
+  image_gallery: string[];
+}
 export interface AddToCartButtonProps {
   productId: number;
   handleAddToCart: (productId: any) => void;
@@ -116,7 +107,7 @@ export interface Cart {
 export interface SelectedProduct {
   id: number;
   title: string;
-  price: string;
+  price: any;
   stock: number;
   category: string;
   quantity: number;
@@ -136,4 +127,20 @@ export interface contactData {
   email: string;
   phone: string;
   message: any;
+}
+
+export interface SingleBlogData {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  image_url: string;
+}
+
+export interface CreateBlogData {
+  title: string;
+  description: string;
+  image_url: string;
+  category: string;
 }

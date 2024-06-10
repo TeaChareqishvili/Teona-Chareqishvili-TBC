@@ -1,11 +1,16 @@
+"use client";
 import Link from "next/link";
 import { AddProductToCart } from "../productButtons/AddProductToCart";
 import { VercelProduct, NewProductProps } from "../../app/[locale]/interface";
 import { handleAddToCart } from "../../app/[locale]/actions";
-
+import { useUser } from "@auth0/nextjs-auth0/client";
 import Image from "next/image";
+import ProductDeleteAdmin from "../../components/productButtons/ProductDeleteAdmin";
 
 export default function NewProduct({ product }: NewProductProps) {
+  const { user } = useUser();
+
+  const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
   return (
     <>
       {product?.map((product: VercelProduct) => (
@@ -49,6 +54,7 @@ export default function NewProduct({ product }: NewProductProps) {
             productId={product.id}
             handleAddToCart={handleAddToCart}
           />
+          {isAdmin && <ProductDeleteAdmin id={product.id} />}
         </div>
       ))}
     </>
