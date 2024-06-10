@@ -3,11 +3,16 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { title, description, stock, price, sale, imageurl, category } =
-      await request.json();
-
-    // Log the received data to verify the request payload
-    console.log({ title, description, stock, price, sale, imageurl, category });
+    const {
+      title,
+      description,
+      stock,
+      price,
+      sale,
+      imageurl,
+      category,
+      image_gallery,
+    } = await request.json();
 
     if (
       !title ||
@@ -16,29 +21,27 @@ export async function POST(request: Request) {
       !price ||
       !sale ||
       !imageurl ||
-      !category
+      !category ||
+      !image_gallery
     ) {
       throw new Error(
-        "Title, description, image_url, and category are required"
+        "Title, description, stock, price, sale, imageurl, category, and image_gallery are required"
       );
     }
 
-    // Log before inserting into the database
-    console.log("Inserting into the database...");
-    await sql`
-      INSERT INTO shop (title, description, stock, price, sale, imageurl, category)
-      VALUES (${title}, ${description}, ${stock}, ${price}, ${sale}, ${imageurl}, ${category})
-    `;
-    console.log("Insertion successful");
+    // Serialize the image_gallery array to JSON string
+    const image_gallery_json = JSON.stringify(image_gallery);
 
-    // Log before selecting from the database
-    console.log("Fetching all products...");
+    await sql`
+      INSERT INTO shop (title, description, stock, price, sale, imageurl, category, image_gallery)
+      VALUES (${title}, ${description}, ${stock}, ${price}, ${sale}, ${imageurl}, ${category}, ${image_gallery_json})
+    `;
+
     const products = await sql`SELECT * FROM shop`;
-    console.log("Fetch successful", products);
 
     return NextResponse.json({ products }, { status: 200 });
   } catch (error) {
-    console.error("Error occurred during database operation:", error); // Log the detailed error message
-    return NextResponse.json({ error: "error.message" }, { status: 500 });
+    console.error("Error occurred during database operation:", error);
+    return NextResponse.json({ error: "error.message " }, { status: 500 });
   }
 }

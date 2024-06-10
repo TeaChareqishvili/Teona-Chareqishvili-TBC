@@ -214,9 +214,26 @@ export async function editBlog(id: number, formData: CreateBlogData) {
 // create new product
 
 export async function createNewProduct(formData: DetailProductData) {
-  const { title, description, stock, sale, price, imageurl, category } =
-    formData;
-  addNewProduct(title, description, stock, sale, price, imageurl, category);
+  const {
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category,
+    image_gallery,
+  } = formData;
+  addNewProduct(
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category,
+    image_gallery
+  );
 }
 
 export async function editProduct(id: number, formData: DetailProductData) {

@@ -266,7 +266,8 @@ export async function addNewProduct(
   price: string,
   sale: string,
   imageurl: string,
-  category: string
+  category: string,
+  image_gallery: string[]
 ) {
   return await fetch(Host + "/api/add-new-product", {
     method: "POST",
@@ -278,6 +279,7 @@ export async function addNewProduct(
       sale,
       imageurl,
       category,
+      image_gallery,
     }),
   });
 }

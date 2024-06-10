@@ -15,6 +15,7 @@ export default function ProductAddForm() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
+  const [image_gallery, setImage_gallery] = useState<string[]>([]);
 
   const formData = {
     title,
@@ -24,8 +25,9 @@ export default function ProductAddForm() {
     description,
     category,
     imageurl,
+    image_gallery,
   };
-
+  console.log(formData, "formdata");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -41,29 +43,38 @@ export default function ProductAddForm() {
       throw new Error("No file selected");
     }
 
-    const file = e.target.files[0];
+    const files = e.target.files;
+    const newImageUrls: any = [];
 
-    try {
-      const response = await fetch(`/api/upload?filename=${file.name}`, {
-        method: "POST",
-        body: file,
-      });
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
 
-      const newBlob = await response.json();
-      console.log("File uploaded successfully:", newBlob);
+      try {
+        const response = await fetch(`/api/upload?filename=${file.name}`, {
+          method: "POST",
+          body: file,
+        });
 
-      setBlob(newBlob);
-      console.log(newBlob.url);
-      setImageurl(newBlob.url);
-    } catch (error) {
-      console.error("Error uploading file:", error);
+        const newBlob = await response.json();
+        console.log("File uploaded successfully:", newBlob);
+
+        newImageUrls.push(newBlob.url);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
     }
+
+    setImageurl(newImageUrls[0]); // Set the first image as the main image URL
+    setImage_gallery((prev) => [...prev, ...newImageUrls]);
   };
 
   return (
     <div className="w-full min-h-[100px] bg-[#cfe1d8] flex flex-col items-center mt-4 p-4 rounded-md dark:bg-[#527361]">
       <h1 className="text-black text-xl font-semibold dark:text-white">hi</h1>
-      <form className="flex flex-col items-center mt-4" onSubmit={handleSubmit}>
+      <form
+        className=" w-[50%] flex flex-col items-center mt-4"
+        onSubmit={handleSubmit}
+      >
         <div className="flex items-center justify-between">
           <div className="flex flex-col items-center">
             <input
@@ -124,6 +135,16 @@ export default function ProductAddForm() {
                 ref={inputFileRef}
                 onChange={handleFileChange}
                 required
+              />
+            </label>
+            <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
+              <input
+                type="file"
+                name="image_gallery"
+                ref={inputFileRef}
+                onChange={handleFileChange}
+                required
+                multiple
               />
             </label>
           </div>
