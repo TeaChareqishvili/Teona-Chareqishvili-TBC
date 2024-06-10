@@ -237,8 +237,16 @@ export async function createNewProduct(formData: DetailProductData) {
 }
 
 export async function editProduct(id: number, formData: DetailProductData) {
-  const { title, description, stock, sale, price, imageurl, category } =
-    formData;
+  const {
+    title,
+    description,
+    stock,
+    sale,
+    price,
+    imageurl,
+    category,
+    image_gallery,
+  } = formData;
   console.log(formData, "hhh");
   getProductById(
     id,
@@ -248,7 +256,8 @@ export async function editProduct(id: number, formData: DetailProductData) {
     sale,
     price,
     imageurl,
-    category
+    category,
+    image_gallery
   );
   revalidatePath("/singleProductVercel");
 }

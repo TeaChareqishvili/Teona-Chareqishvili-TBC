@@ -293,7 +293,8 @@ export async function getProductById(
   price: string,
   sale: string,
   imageurl: string,
-  category: string
+  category: string,
+  image_gallery: string[]
 ) {
   try {
     const response = await fetch(`${Host}/api/edit-product/${id}`, {
@@ -309,6 +310,7 @@ export async function getProductById(
         sale,
         imageurl,
         category,
+        image_gallery,
       }),
     });
 

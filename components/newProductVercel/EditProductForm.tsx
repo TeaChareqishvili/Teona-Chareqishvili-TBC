@@ -11,7 +11,6 @@ export default function EditProductForm({
   id: number;
   productDetail: DetailProductData;
 }) {
-  const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
   const [title, setTitle] = useState(productDetail.title || "");
   const [description, setDescription] = useState(
@@ -22,8 +21,13 @@ export default function EditProductForm({
   const [stock, setStock] = useState(productDetail.stock || 0);
   const [price, setPrice] = useState(productDetail.price || "");
   const [sale, setSale] = useState(productDetail.sale || "");
+  const [image_gallery, setImage_gallery] = useState(
+    productDetail.image_gallery || []
+  );
 
-  console.log(productDetail, "hih");
+  // Create refs for each image input
+  const inputFileRefs = useRef<(HTMLInputElement | null)[]>([]);
+
   const formData = {
     title,
     category,
@@ -32,8 +36,9 @@ export default function EditProductForm({
     stock,
     price,
     sale,
+    image_gallery,
   };
-
+  console.log(formData, "formdataedit");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -44,7 +49,10 @@ export default function EditProductForm({
     // window.location.reload();
   };
 
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     if (!e.target.files) {
       throw new Error("No file selected");
     }
@@ -62,11 +70,24 @@ export default function EditProductForm({
 
       setBlob(newBlob);
       console.log(newBlob.url);
-      setImageurl(newBlob.url);
+
+      // Update image_gallery with the new image URL
+      setImage_gallery((prev) => {
+        const updatedGallery = [...prev];
+        updatedGallery[index] = newBlob.url;
+        return updatedGallery;
+      });
     } catch (error) {
       console.error("Error uploading file:", error);
     }
   };
+
+  const handleImageClick = (index: number) => {
+    if (inputFileRefs.current[index]) {
+      inputFileRefs.current[index]?.click();
+    }
+  };
+
   return (
     <div>
       <form
@@ -75,13 +96,30 @@ export default function EditProductForm({
       >
         <div className="flex items-center justify-between">
           <div className="flex flex-col items-center">
+            {image_gallery.map((item, index) => (
+              <div key={index}>
+                <Image
+                  width={100}
+                  height={100}
+                  src={item}
+                  alt={`Product image ${index + 1}`}
+                  onClick={() => handleImageClick(index)}
+                  className="cursor-pointer"
+                />
+                <input
+                  type="file"
+                  ref={(el) => (inputFileRefs.current[index] = el)}
+                  onChange={(e) => handleFileChange(e, index)}
+                  style={{ display: "none" }}
+                />
+              </div>
+            ))}
             <input
               type="text"
               name="title"
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              required
             />
             <input
               type="number"
@@ -89,7 +127,6 @@ export default function EditProductForm({
               placeholder="Price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              required
             />
             <input
               type="number"
@@ -97,7 +134,6 @@ export default function EditProductForm({
               placeholder="Sale"
               value={sale}
               onChange={(e) => setSale(e.target.value)}
-              required
             />
             <input
               type="number"
@@ -105,7 +141,6 @@ export default function EditProductForm({
               placeholder="Stock"
               value={stock}
               onChange={(e) => setStock(Number(e.target.value))}
-              required
             />
 
             <input
@@ -114,7 +149,6 @@ export default function EditProductForm({
               placeholder="Category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              required
             />
 
             <input
@@ -123,29 +157,17 @@ export default function EditProductForm({
               placeholder="Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              required
             />
 
             <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
               <input
                 type="file"
                 name="image_url"
-                ref={inputFileRef}
-                onChange={handleFileChange}
-                required
+                ref={(el) => (inputFileRefs.current[0] = el)} // ref for the main image upload
+                onChange={(e) => handleFileChange(e, 0)} // Update the main image URL
               />
             </label>
           </div>
-          {/* <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
-            choose image
-            <input
-              name="file"
-              ref={inputFileRef}
-              type="file"
-              required
-              className="absolute w-full h-full top-0 left-0 mb-4 p-2 border border-white rounded file:mr-5 file:py-1 file:px-3 file:border-[1px] file:text-xs file:font-small file:bg-stone-50 file:text-stone-700 hover:file:cursor-pointer hover:file:bg-blue-50 hover:file:text-[#748f80] opacity-0"
-            />
-          </label> */}
           <button
             type="submit"
             className="w-[120px] bg-[#76a58b] flex items-center justify-center text-white px-4 py-2 rounded hover:bg-[#748f80] transition duration-300"

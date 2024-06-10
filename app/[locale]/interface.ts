@@ -89,7 +89,7 @@ export interface DetailProductData {
   category: string;
   imageurl: string;
   sale: string;
-  image_gallery?: string[];
+  image_gallery: string[];
 }
 export interface AddToCartButtonProps {
   productId: number;
