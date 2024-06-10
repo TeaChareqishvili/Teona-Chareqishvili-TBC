@@ -39,7 +39,7 @@ export default function EditProductForm({
     sale,
     image_gallery,
   };
-  console.log(formData, "formdataedit");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {

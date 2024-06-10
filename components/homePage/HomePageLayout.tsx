@@ -3,6 +3,7 @@ import ChooseUs from "./ChooseUs";
 import { MainVideo } from "./MainVideo";
 import Offer from "./Offer";
 import Stuff from "./Stuff";
+import BmiCalculator from "./BmiCalculator";
 // import { Slider } from "./Slider";
 
 const HomePageLayout = () => {
@@ -14,6 +15,7 @@ const HomePageLayout = () => {
         <ChooseUs />
         <Offer />
         <Articles />
+        <BmiCalculator />
         <Stuff />
         {/* <Slider /> */}
       </div>

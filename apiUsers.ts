@@ -344,3 +344,20 @@ export async function deleteProductForAdmin(id: number) {
     throw error;
   }
 }
+
+// create review
+
+export async function createReview({
+  id,
+  review,
+}: {
+  id: number;
+  review: string;
+}) {
+  return await fetch(`${Host}/api/add-review/${id}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      review,
+    }),
+  });
+}

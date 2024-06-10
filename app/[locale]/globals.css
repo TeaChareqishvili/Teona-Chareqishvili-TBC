@@ -33,6 +33,13 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+.bmi {
+  background-image: url(../../public/assets/image/home/bmi.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

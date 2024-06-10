@@ -75,6 +75,7 @@ export interface VercelProduct {
   stock: number;
   category: string;
   imageurl: string;
+  reviews: string[] | null;
 }
 export interface NewProductProps {
   product: VercelProduct[];
@@ -90,6 +91,7 @@ export interface DetailProductData {
   imageurl: string;
   sale: string;
   image_gallery: string[];
+  reviews?: string[];
 }
 export interface AddToCartButtonProps {
   productId: number;
@@ -143,4 +145,8 @@ export interface CreateBlogData {
   description: string;
   image_url: string;
   category: string;
+}
+
+export interface ReviewData {
+  review: string;
 }

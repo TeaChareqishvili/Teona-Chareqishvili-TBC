@@ -1,4 +1,5 @@
 import { getProductDetail } from "@/apiUsers";
+import Reviews from "@/components/newProductVercel/Reviews";
 import EditProductButton from "@/components/productButtons/EditProductButton";
 // import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial";
 import Image from "next/image";
@@ -23,6 +24,7 @@ export default async function SingeleProductVercel({
           alt={`Product image ${index + 1}`}
         />
       ))}
+      <Reviews productDetail={productDetail} id={productDetail.id} />
       {/* <ShareSocial products={productDetail} /> */}
       <EditProductButton id={productDetail.id} productDetail={productDetail} />
     </div>

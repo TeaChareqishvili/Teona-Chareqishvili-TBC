@@ -16,6 +16,8 @@ import { DetailProductData } from "./interface";
 import { addNewProduct } from "../../apiUsers";
 import { getProductById } from "../../apiUsers";
 import { deleteProductForAdmin } from "../../apiUsers";
+import { ReviewData } from "./interface";
+import { createReview } from "../../apiUsers";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -235,7 +237,7 @@ export async function createNewProduct(formData: DetailProductData) {
     image_gallery
   );
 }
-
+// function to edit product info
 export async function editProduct(id: number, formData: DetailProductData) {
   const {
     title,
@@ -247,7 +249,7 @@ export async function editProduct(id: number, formData: DetailProductData) {
     category,
     image_gallery,
   } = formData;
-  console.log(formData, "hhh");
+
   getProductById(
     id,
     title,
@@ -262,9 +264,25 @@ export async function editProduct(id: number, formData: DetailProductData) {
   revalidatePath("/singleProductVercel");
 }
 
+// function to delete product by admin
 export const deleteProductAdminId: (id: number) => Promise<void> = async (
   id: number
 ) => {
   await deleteProductForAdmin(id);
   revalidatePath("/ProductVercel");
 };
+
+// fucntion to add review
+
+export async function addReview({
+  formData,
+  id,
+}: {
+  formData: ReviewData;
+  id: number;
+}) {
+  const { review } = formData;
+
+  await createReview({ id, review });
+  revalidatePath("/singleProductVercel");
+}
