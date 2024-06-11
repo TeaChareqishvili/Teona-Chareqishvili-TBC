@@ -12,7 +12,7 @@ const getActiveProducts = async () => {
 };
 
 export const POST = async (request: any) => {
-  const { products } = await request.json();
+  const { products, user } = await request.json();
 
   const data: SelectedProduct[] = products;
 
@@ -61,6 +61,7 @@ export const POST = async (request: any) => {
   const session = await stripe.checkout.sessions.create({
     line_items: stripeItems,
     mode: "payment",
+    customer_email: user.email,
     success_url: `${Host}/success`,
     cancel_url: `${Host}/cancel`,
   });

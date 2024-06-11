@@ -286,3 +286,25 @@ export async function addReview({
   await createReview({ id, review });
   revalidatePath("/singleProductVercel");
 }
+
+// get orders fucntion
+
+export const fetchPayments = async (email: string): Promise<any[]> => {
+  try {
+    const response = await fetch(`${Host}/api/orders?email=${email}`);
+    const text = await response.text(); // Read the response as text
+    console.log("Response Text:", text); // Log the response text
+
+    const data = JSON.parse(text); // Parse the response text as JSON
+
+    if (!response.ok) {
+      console.error("Error fetching payments:", data.error);
+      return [];
+    }
+
+    return data.payments || [];
+  } catch (error) {
+    console.error("Error fetching payments", error);
+    return [];
+  }
+};
