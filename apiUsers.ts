@@ -98,8 +98,10 @@ export async function getProducts() {
 export async function getProductDetail(id: string) {
   const response = await fetch(`${Host}/api/get-product/${id}`);
   const data = await response.json();
-  const product = data.products?.rows ? data.products.rows[0] : null;
-  return product;
+  console.log(data, "data");
+  const reviews = data.reviews ? data.reviews : null;
+  const product = data.products ? data.products : null;
+  return { product, reviews };
 }
 
 // function to get blog details
@@ -354,3 +356,20 @@ export const getOrders = async () => {
   const orders = await res.json();
   return orders;
 };
+
+// get reviews
+
+export async function getReviews(id: number) {
+  try {
+    const response = await fetch(`${Host}/api/get-product-review/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+    const data = await response.json();
+    const { reviews } = data;
+    return reviews?.rows;
+  } catch (error) {
+    console.error("Failed to fetch reviews:", error);
+    throw error;
+  }
+}

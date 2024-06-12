@@ -305,7 +305,7 @@ export async function createRefund(charge: string) {
   });
 }
 
-// for reviews
+// add fro products reviews
 
 export async function addProductComment(formData: any) {
   try {

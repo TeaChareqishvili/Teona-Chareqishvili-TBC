@@ -2,8 +2,10 @@ import NewProduct from "@/components/newProductVercel/NewProduct";
 import { getProducts } from "../../../../apiUsers";
 import { getSession } from "@auth0/nextjs-auth0";
 import AddNewProduct from "../../../../components/productButtons/AddNewProduct";
+
 export default async function ProductVercel() {
   const Product = await getProducts();
+
   const session = await getSession();
 
   const isAdmin =
