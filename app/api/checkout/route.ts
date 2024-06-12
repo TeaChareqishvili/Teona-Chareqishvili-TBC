@@ -59,11 +59,19 @@ export const POST = async (request: any) => {
     throw new Error("No valid items to purchase");
   }
   const session = await stripe.checkout.sessions.create({
-    line_items: stripeItems,
+    line_items: stripeItems, // Ensure stripeItems is correctly defined and populated
     mode: "payment",
-    customer_email: user.email,
-    success_url: `${Host}/success`,
-    cancel_url: `${Host}/cancel`,
+    customer_email: user.email, // Ensure user.email is correctly defined
+    payment_intent_data: {
+      metadata: {
+        id: user.sub, // Ensure user.sub is correctly defined
+        phone: user.phone, // Ensure user.phone is correctly defined
+        city: user.city, // Ensure user.city is correctly defined
+        address: user.address, // Ensure user.address is correctly defined
+      },
+    },
+    success_url: `${Host}/success`, // Ensure Host is correctly defined
+    cancel_url: `${Host}/cancel`, // Ensure Host is correctly defined
   });
 
   console.log("Stripe Session:", session);

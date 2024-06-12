@@ -16,8 +16,6 @@ import { DetailProductData } from "./interface";
 import { addNewProduct } from "../../apiUsers";
 import { getProductById } from "../../apiUsers";
 import { deleteProductForAdmin } from "../../apiUsers";
-import { ReviewData } from "./interface";
-import { createReview } from "../../apiUsers";
 
 // function to update user info
 export async function updateUserAction(id: number, userData: UserData) {
@@ -272,21 +270,6 @@ export const deleteProductAdminId: (id: number) => Promise<void> = async (
   revalidatePath("/ProductVercel");
 };
 
-// fucntion to add review
-
-export async function addReview({
-  formData,
-  id,
-}: {
-  formData: ReviewData;
-  id: number;
-}) {
-  const { review } = formData;
-
-  await createReview({ id, review });
-  revalidatePath("/singleProductVercel");
-}
-
 // get orders fucntion
 
 export const fetchPayments = async (email: string): Promise<any[]> => {
@@ -308,3 +291,38 @@ export const fetchPayments = async (email: string): Promise<any[]> => {
     return [];
   }
 };
+
+// refund
+
+export async function createRefund(charge: string) {
+  revalidatePath("/orders");
+  await fetch(Host + "/api/create-refund", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ charge }),
+  });
+}
+
+// for reviews
+
+export async function addProductComment(formData: any) {
+  try {
+    const response = await fetch(Host + "/api/add-product-comment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      revalidatePath("/singleProductVercel");
+      return await response.json();
+    } else {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    throw new Error("Submission failed");
+  }
+}

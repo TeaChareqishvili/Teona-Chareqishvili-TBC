@@ -345,19 +345,12 @@ export async function deleteProductForAdmin(id: number) {
   }
 }
 
-// create review
+// get orders
 
-export async function createReview({
-  id,
-  review,
-}: {
-  id: number;
-  review: string;
-}) {
-  return await fetch(`${Host}/api/add-review/${id}`, {
-    method: "PUT",
-    body: JSON.stringify({
-      review,
-    }),
+export const getOrders = async () => {
+  const res = await fetch(`${Host}/api/orders`, {
+    cache: "no-store",
   });
-}
+  const orders = await res.json();
+  return orders;
+};

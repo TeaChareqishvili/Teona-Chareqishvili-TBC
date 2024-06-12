@@ -43,11 +43,6 @@ export default function NewProduct({ product }: NewProductProps) {
           <p className="text-[#3d5a4b]">{product.category}</p>
           <p className="text-[#3d5a4b]">${product.price}</p>
           <p className="text-[#3d5a4b]">In Stock: {product.stock}</p>
-          {product.reviews && product.reviews.length > 0 ? (
-            <p>Reviews: {product.reviews.length}</p>
-          ) : (
-            <p>No reviews</p>
-          )}
 
           <Link
             className="border border-[#b5b4b0] text-center w-[150px] text-white mt-[10px] px-[10px] py-[7px] bg-[#4f7760] rounded-md hover:bg-[#5f8973] transition-colors duration-300"

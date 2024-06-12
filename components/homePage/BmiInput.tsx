@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function BmiInput() {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-  const [bmi, setBmi] = useState(null);
-  const [bmiCategory, setBmiCategory] = useState("");
+  const [bmi, setBmi] = useState<number | null>(null);
+  const [bmiCategory, setBmiCategory] = useState<string>("");
   const [suggestion, setSuggestion] = useState("");
 
   const calculateBmi = () => {
@@ -20,23 +20,24 @@ export default function BmiInput() {
     }
 
     const bmiValue = weightNum / (heightNum * heightNum);
-    setBmi(bmiValue.toFixed(2));
+    const bmiValueFixed = parseFloat(bmiValue.toFixed(2));
+    setBmi(bmiValueFixed);
 
     let category = "";
     let suggestion = "";
-    if (bmiValue < 18.5) {
+    if (bmiValueFixed < 18.5) {
       category = "Underweight";
       suggestion =
         "Consider increasing your calorie intake with nutrient-dense foods and consult a healthcare provider for personalized advice.";
-    } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
+    } else if (bmiValueFixed >= 18.5 && bmiValueFixed <= 24.9) {
       category = "Normal weight";
       suggestion =
         "Maintain your healthy lifestyle with a balanced diet and regular physical activity.";
-    } else if (bmiValue >= 25 && bmiValue <= 29.9) {
+    } else if (bmiValueFixed >= 25 && bmiValueFixed <= 29.9) {
       category = "Overweight";
       suggestion =
         "Incorporate regular exercise and monitor your diet to achieve a healthier weight. Consulting a nutritionist may help.";
-    } else if (bmiValue >= 30) {
+    } else if (bmiValueFixed >= 30) {
       category = "Obesity";
       suggestion =
         "It's advisable to seek guidance from healthcare professionals to create a weight loss plan that includes a balanced diet and regular physical activity.";
