@@ -8,7 +8,12 @@ import trainer6 from "../../public/assets/image/stuff/trainer6.webp";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// import "swiper/swiper-bundle.min.css";
+import { Autoplay, Mousewheel, Keyboard } from "swiper/modules";
 
+// SwiperCore.use([Autoplay, Mousewheel, Keyboard]);
 const trainers = [
   {
     id: 1,
@@ -59,13 +64,20 @@ const trainers = [
 
 export default function Stuff() {
   return (
-    <div className="bg-[#f4f6f3] py-[20px]">
-      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline">
+    <div className="bg-[#f4f6f3] py-[20px] dark:bg-[#356375]">
+      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline dark:text-[white]">
         Meet Our Stuff
       </h2>
       <Swiper
         slidesPerView="auto"
         className=" flex items-center justify-between overflow-hidden realtive"
+        keyboard={true}
+        pagination={true}
+        modules={[Mousewheel, Keyboard, Autoplay]}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+        }}
       >
         {trainers.map((item) => (
           <SwiperSlide

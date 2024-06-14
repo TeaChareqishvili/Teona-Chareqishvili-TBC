@@ -28,7 +28,7 @@ const Navigation: React.FC<NavigationProps> = ({
         }}
       >
         <Link
-          href="/"
+          href="/homePageLayout"
           className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
           style={{
             marginBottom: marginBottom,
@@ -91,7 +91,7 @@ const Navigation: React.FC<NavigationProps> = ({
             {scopedT("contact")}
           </li>
         </Link>
-        {user ? (
+        {/* {user ? (
           <Link
             href="/users"
             className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
@@ -110,7 +110,7 @@ const Navigation: React.FC<NavigationProps> = ({
           </Link>
         ) : (
           ""
-        )}
+        )} */}
         {isAdmin && (
           <Link
             href="/admin"

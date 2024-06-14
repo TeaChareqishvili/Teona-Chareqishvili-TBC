@@ -5,7 +5,7 @@ export default function BmiCalculator() {
     <div className="w-full  h-[600px] bmi flex items-center justify-center">
       <Link
         href="/bmiCalculate"
-        className="border border-white px-[10px] py-[7px] text-white cursor-pointer tracking-widest h-[40px]"
+        className="bmi-btn border-2 border-white color-white text-[18px] py-[20px] px-[30px] relative tracking-widest font-bold"
       >
         BMI Calculator
       </Link>

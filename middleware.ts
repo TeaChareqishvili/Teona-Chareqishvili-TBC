@@ -3,7 +3,13 @@ import { createI18nMiddleware } from "next-international/middleware";
 import { getSession } from "@auth0/nextjs-auth0/edge";
 
 function isPathProtected(pathName: string) {
-  const protectedRoutes = ["/profile", "/users", "/checkOut"]
+  const protectedRoutes = [
+    "/profile",
+    "/users",
+    "/checkOut",
+    "/bmiCalculate",
+    "/admin",
+  ];
 
   for (const route of protectedRoutes) {
     if (pathName.startsWith(route)) {
@@ -19,7 +25,8 @@ export default async function middleware(request: NextRequest) {
 
   const pathName = request.nextUrl.pathname;
 
-  if (!session?.user && isPathProtected(pathName)) return NextResponse.redirect(new URL('/api/auth/login', request.nextUrl));
+  if (!session?.user && isPathProtected(pathName))
+    return NextResponse.redirect(new URL("/api/auth/login", request.nextUrl));
 
   const I18nMiddleware = createI18nMiddleware({
     locales: ["en", "ge"],

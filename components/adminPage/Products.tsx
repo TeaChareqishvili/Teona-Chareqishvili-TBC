@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
-import { AddProductToCart } from "../productButtons/AddProductToCart";
+
 import { VercelProduct, NewProductProps } from "../../app/[locale]/interface";
-import { handleAddToCart } from "../../app/[locale]/actions";
 
 import Image from "next/image";
+import ProductDeleteAdmin from "../../components/productButtons/ProductDeleteAdmin";
 
-export default function NewProduct({ product }: NewProductProps) {
+export default function Products({ product }: NewProductProps) {
   return (
     <>
       {product?.map((product: VercelProduct) => (
@@ -47,10 +47,7 @@ export default function NewProduct({ product }: NewProductProps) {
             View Details
           </Link>
 
-          <AddProductToCart
-            productId={product.id}
-            handleAddToCart={handleAddToCart}
-          />
+          <ProductDeleteAdmin id={product.id} />
         </div>
       ))}
     </>

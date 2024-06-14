@@ -48,9 +48,9 @@ export default function BmiInput() {
   };
 
   return (
-    <div className="mt-[130px] bg-[black] h-[500px] flex items-center flex-col justify-center">
+    <div className="mt-[70px] bg-[#f4f6f3]  dark:bg-[#356375] h-[500px] flex items-center flex-col justify-center">
       <input
-        className="border border-white text-[black] h-[40px]"
+        className="border border-white text-[black] h-[40px] w-[250px] "
         type="number"
         placeholder="Weight (kg)"
         value={weight}

@@ -8,10 +8,10 @@ export default async function Articles() {
   const selectedBlogs = homeBlog.rows.slice(2, 5);
 
   return (
-    <div className="w-full bg-[#f4f6f3] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#264653]">
+    <div className="w-full bg-[#f4f6f3] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#356375]">
       <Link
         href="/blog"
-        className="text-center text-[34px] uppercase text-[#264653] my-[25px] underline cursor-pointer "
+        className="text-center text-[34px] uppercase dark:text-[white] text-[#264653] my-[25px] underline cursor-pointer "
       >
         Latest Blogs
       </Link>

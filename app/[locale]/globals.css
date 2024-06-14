@@ -27,6 +27,117 @@
   text-decoration: none;
 }
 
+.footer-background {
+  background-image: url("../../public/assets/image/contact.webp");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170%;
+  height: 205%;
+  background-color: #2d3436;
+  opacity: 0.8;
+  transition: all 0.25s;
+  transform: translate(550px, 300px) rotate(45deg);
+}
+.caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  text-transform: uppercase;
+}
+.blog-category {
+  background-color: rgba(37, 150, 190, 0.8);
+  transform: translate(200px, -200px);
+  transform: all 0.25s;
+}
+.card-container:hover .blog-category {
+  transform: translate(0, 0);
+  transition-delay: 0.3s;
+}
+
+.card-container:hover:before {
+  transform: translate(-50px, -150px) rotate(45deg);
+}
+.card-container:hover .blog-title {
+  transform: translate(0, 0);
+  transition-delay: 0.4s;
+}
+.blog-title {
+  text-align: center;
+  width: 80%;
+  transition: all 0.25s;
+  transform: translate(-250px, 200px);
+}
+
+.blog-butons {
+  transition: all 0.25s;
+  transform: translateY(100px);
+}
+.card-container:hover .blog-butons {
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.bmi-btn {
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.bmi-btn:before {
+  content: "BMI Calculator";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #264653;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(5);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.bmi-btn:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+/* INTRO */
+
+.intro {
+  font-size: 16px;
+  color: white;
+  animation: scaleUp 0.5s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.1);
+    text-shadow: none;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
 /* new main page */
 .title {
   animation: fadeIn 3s ease-out infinite;
@@ -73,6 +184,10 @@
   opacity: 1;
 }
 
+.admin-icon {
+  width: 40px;
+  height: 40px;
+}
 /* contact */
 .contact-layout {
   background-image: url(../../public/assets/image/contact.webp);
@@ -80,7 +195,7 @@
   background-position: top;
   height: 800px;
   background-repeat: no-repeat;
-  margin-top: 92px;
+  margin-top: 70px;
 }
 
 .contact-cover {

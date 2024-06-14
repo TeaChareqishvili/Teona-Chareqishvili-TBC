@@ -12,8 +12,8 @@ const HomePageLayout = () => {
       <div className="flex flex-col">
         {" "}
         <MainVideo />
-        <ChooseUs />
         <Offer />
+        <ChooseUs />
         <Articles />
         <BmiCalculator />
         <Stuff />
