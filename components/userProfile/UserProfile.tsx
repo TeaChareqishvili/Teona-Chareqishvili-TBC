@@ -2,12 +2,14 @@ import { getSession } from "@auth0/nextjs-auth0";
 import Image from "next/image";
 import AvatarUpload from "./AvatarUpload";
 import { Host } from "@/apiUsers";
-import { getScopedI18n } from "@/locales/server";
+// import { getScopedI18n } from "@/locales/server";
+import UserInfo from "./UserInfo";
+import { getUserInfo } from "../../apiUsers";
 
 export default async function UserProfile() {
   const session = await getSession();
-  const t = await getScopedI18n("profile");
-
+  // const t = await getScopedI18n("profile");
+  console.log(session, "sesion");
   const response = await fetch(`${Host}/api/get-updated-info`, {
     method: "POST",
     headers: {
@@ -26,9 +28,12 @@ export default async function UserProfile() {
     );
   }
 
+  const currentUser = await getUserInfo();
   const { user } = session;
   console.log(user, "session");
-  const [name, surname] = user.name.split(" ");
+
+  console.log(currentUser, "currentuser");
+  // const [name, surname] = user.name.split(" ");
 
   return (
     <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg max-w-sm mx-auto">
@@ -42,7 +47,7 @@ export default async function UserProfile() {
         />
       </div>
 
-      <h2 className="mt-4 text-xl font-semibold text-gray-800">
+      {/* <h2 className="mt-4 text-xl font-semibold text-gray-800">
         {t("userInfo")}
       </h2>
       <div className="mt-4 text-center">
@@ -58,7 +63,8 @@ export default async function UserProfile() {
       <div className="mt-2 text-center">
         <h3 className="text-lg font-medium text-gray-700">{t("email")}</h3>
         <p className="text-gray-600">{user.email}</p>
-      </div>
+      </div> */}
+      <UserInfo user={currentUser} id={currentUser.serial_id} />
       <AvatarUpload />
     </div>
   );

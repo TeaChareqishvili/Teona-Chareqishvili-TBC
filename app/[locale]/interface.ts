@@ -148,3 +148,11 @@ export interface CreateBlogData {
 export interface ReviewData {
   review: string;
 }
+
+export interface UserMessage {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  created_at: string;
+}

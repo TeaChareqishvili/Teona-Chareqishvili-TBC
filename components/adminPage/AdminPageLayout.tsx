@@ -26,7 +26,7 @@ const panel: AdminPanel[] = [
   {
     id: 5,
     title: "User's Messages",
-    path: "/messages",
+    path: "/userMessages",
   },
 ];
 

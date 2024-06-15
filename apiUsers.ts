@@ -6,10 +6,12 @@ export const Host =
     : "https://teona-chareqishvili-tbc.vercel.app";
 
 export type Users = {
-  id: number;
+  id: string;
   name: string;
   email: string;
   age: number;
+  img: string | null;
+  serial_id: number;
 };
 
 export async function getUsers() {
@@ -35,7 +37,8 @@ export async function createUser(name: string, email: string, age: number) {
 }
 
 // function to delete user
-export async function deleteUser(id: number) {
+export async function deleteUser(id: string) {
+  // Changed type to string
   const response = await fetch(`${Host}/api/delete-user/${id}`, {
     method: "DELETE",
   });
@@ -47,19 +50,14 @@ export async function deleteUser(id: number) {
   return response.json();
 }
 
-export async function getUserById(
-  id: number,
-  name: string,
-  email: string,
-  age: number
-) {
+export async function getUserById(id: string, name: string) {
   try {
     const response = await fetch(`${Host}/api/edit-user/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, age }),
+      body: JSON.stringify({ name }),
     });
 
     if (!response.ok) {
@@ -370,6 +368,81 @@ export async function getReviews(id: number) {
     return reviews?.rows;
   } catch (error) {
     console.error("Failed to fetch reviews:", error);
+    throw error;
+  }
+}
+
+// get user messages from database
+
+export async function getMessages() {
+  try {
+    const response = await fetch(Host + "/api/get-contact");
+    if (!response.ok) {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+    const { users } = await response.json();
+
+    return users.rows;
+  } catch (error) {
+    console.error("Failed to fetch users:", error);
+
+    throw error;
+  }
+}
+
+// get user by id for profile page
+
+export async function getUserInfo() {
+  try {
+    const id = await getUserId();
+
+    const response = await fetch(`${Host}/api/get-user/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch user info: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    if (data.error || !data.user) {
+      throw new Error(data.error || "User data is missing or malformed");
+    }
+
+    return data.user;
+  } catch (error) {
+    console.error("Error in getUserInfo:", error);
+    throw error;
+  }
+}
+
+// edit user by id hos profile info
+
+export async function getProfileInfoEdit(
+  id: number,
+  nickname: string,
+  phoneNumber: string,
+  address: string
+) {
+  console.log(id, "api");
+  try {
+    const response = await fetch(`${Host}/api/edit-profile-info/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id, nickname, phoneNumber, address }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating user:", error);
     throw error;
   }
 }

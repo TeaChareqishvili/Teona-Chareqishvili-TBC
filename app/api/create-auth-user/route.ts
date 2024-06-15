@@ -8,12 +8,12 @@ export async function GET(_: NextRequest) {
     const session = await getSession();
 
     if (session?.user) {
-      const { email, sub, picture } = session.user;
+      const { email, sub, picture, nickname } = session.user;
 
       const user = await sql`SELECT * FROM authousers WHERE id = ${sub}`;
 
       if (!user.rows.length)
-        await sql`INSERT INTO authousers (id, email, img) VALUES (${sub}, ${email}, ${picture});`;
+        await sql`INSERT INTO authousers (id, email, img, name) VALUES (${sub}, ${email}, ${picture}, ${nickname});`;
 
       // console.log(user, "user");
       // const userId = user.rows[0].id;

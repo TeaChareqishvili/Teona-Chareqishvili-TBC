@@ -7,6 +7,7 @@ import type { Users } from "../../../../apiUsers";
 
 export default async function Users() {
   const users = await getUsers();
+  console.log(users, "users");
 
   return (
     <div className="w-full mt-[50px]  flex flex-col items-center justify-center mb-[60px]">
@@ -41,7 +42,12 @@ export default async function Users() {
                 {user.email}
               </td>
               <td className=" py-[15px] text-[18px] text-[#3b4039]">
-                {user.age}
+                <Image
+                  width={50}
+                  height={50}
+                  src={user.img ? user.img : ""}
+                  alt="avatar"
+                />
               </td>
               <td className=" py-[15px] flex items-center justify-center gap-4">
                 <UserIcons users={user} id={user.id} />

@@ -2,31 +2,29 @@ import { NextRequest, NextResponse } from "next/server";
 import { sql } from "@vercel/postgres";
 
 export async function PUT(request: NextRequest) {
-  const id = request.nextUrl.pathname.replace("/api/edit-user/", "");
+  const { id, nickname, phoneNumber, address } = await request.json();
 
-  if (!id) {
-    return NextResponse.json({ error: "Invalid user ID" }, { status: 400 });
-  }
-
-  const { name } = await request.json();
-
-  if (!name) {
+  console.log(id, "routeprofile");
+  console.log(nickname, "routeprofile");
+  console.log(phoneNumber, "routeprofile");
+  if (!id || !nickname || !phoneNumber || !address) {
     return NextResponse.json({ error: "Invalid input data" }, { status: 400 });
   }
 
   try {
     const result = await sql`
       UPDATE authousers
-      SET name = ${name}
-      WHERE id = ${id};
+      SET name = ${nickname}, phone_number = ${phoneNumber}, address = ${address}
+      WHERE serial_id = ${id};
     `;
 
     if (result.rowCount === 0) {
       throw new Error("No rows updated");
     }
 
-    const users = await sql`SELECT * FROM authousers`;
-    return NextResponse.json({ users }, { status: 200 });
+    const updatedUser =
+      await sql`SELECT * FROM authousers WHERE serial_id = ${id}`;
+    return NextResponse.json({ user: updatedUser.rows[0] }, { status: 200 });
   } catch (error) {
     console.error("Error updating user:", error);
     return NextResponse.json(

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Blogs } from "../../interface";
 import Link from "next/link";
 
+import { AddNewBlog } from "../../../../components/blogs/AddNewBlog";
+import BlogDeleteBtn from "@/components/blogs/BlogDeleteBtn";
 // import BlogCategoryList from "@/components/blogs/blogSearchContent/BlogCategoryList";
 
 export default async function Blog() {
@@ -18,7 +20,9 @@ export default async function Blog() {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+  console.log(blog, "blogsmain");
   const firtsBlog = blog.rows[7];
+  console.log(firtsBlog, "first");
 
   // const category = blog.rows.map((blog) => blog.category);
 
@@ -90,6 +94,7 @@ export default async function Blog() {
                   >
                     Read more
                   </Link>
+                  <BlogDeleteBtn id={blog.id} />
                 </div>
               </div>
             </div>
@@ -97,6 +102,7 @@ export default async function Blog() {
         ))}
       </div>
 
+      <AddNewBlog />
       {/* <BlogCategoryList category={category} /> */}
     </div>
   );

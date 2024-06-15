@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { getUserById, deleteUser } from "../../apiUsers";
+import { getUserById, deleteUser, getProfileInfoEdit } from "../../apiUsers";
 import { createUser, createContact } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
@@ -18,9 +18,9 @@ import { getProductById } from "../../apiUsers";
 import { deleteProductForAdmin } from "../../apiUsers";
 
 // function to update user info
-export async function updateUserAction(id: number, userData: UserData) {
-  const { name, email, age } = userData;
-  getUserById(id, name, email, age);
+export async function updateUserAction(id: string, userData: UserData) {
+  const { name } = userData;
+  getUserById(id, name);
   revalidatePath("/users");
 }
 //function to create new user
@@ -31,8 +31,8 @@ export async function createNewUser(userData: UserData) {
 }
 
 // function to delete user
-export const deleteUserId: (id: number) => Promise<void> = async (
-  id: number
+export const deleteUserId: (id: string) => Promise<void> = async (
+  id: string
 ) => {
   await deleteUser(id);
   revalidatePath("/users");
@@ -325,4 +325,18 @@ export async function addProductComment(formData: any) {
     console.error("Error submitting form:", error);
     throw new Error("Submission failed");
   }
+}
+
+// edit user porfile page
+
+interface formProfileData {
+  nickname: string;
+  phoneNumber: string;
+  address: string;
+}
+
+export async function updateUserProfile(id: number, formData: formProfileData) {
+  const { nickname, phoneNumber, address } = formData;
+  getProfileInfoEdit(id, nickname, phoneNumber, address);
+  revalidatePath("/profile");
 }
