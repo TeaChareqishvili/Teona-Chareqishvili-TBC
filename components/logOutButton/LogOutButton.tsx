@@ -9,14 +9,14 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 const LogOutButton = () => {
   const { user } = useUser();
   return (
-    <div>
+    <div className="mr-[7px] ">
       {user ? (
         <a href="/api/auth/logout">
-          <HiOutlineLogout className="w-7 h-7 text-[#264653] cursor-pointer dark:text-[#ffffff] " />
+          <HiOutlineLogout className="lg:w-[20px] lg:h-[20px] text-[#264653] cursor-pointer dark:text-[#ffffff] dark:hover:text-[#70cbcb] " />
         </a>
       ) : (
         <a href="/api/auth/login">
-          <IoLogIn className="w-7 h-7 text-[#264653] cursor-pointer dark:text-[#ffffff] " />
+          <IoLogIn className="lg:w-[25px] lg:h-[25px] text-[#264653] cursor-pointer dark:text-[#ffffff] dark:hover:text-[#70cbcb] " />
         </a>
       )}
     </div>

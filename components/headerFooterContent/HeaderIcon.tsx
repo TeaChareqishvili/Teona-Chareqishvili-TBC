@@ -18,7 +18,7 @@ const HeaderIcon: React.FC<NavigationProps> = async ({ alignItems }) => {
         <ThemeMode />
         {session?.user && (
           <Link href="/profile">
-            <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400 mr-5 hover:text-[#728a85] dark:text-[#ffffff] dark:hover:text-[#728a85]" />
+            <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400  dark:hover:text-[#70cbcb] dark:text-[#ffffff] " />
           </Link>
         )}
         <Cart />

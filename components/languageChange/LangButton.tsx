@@ -12,11 +12,11 @@ const LangButton = ({ marginBottom }: NavigationProps) => {
   };
   return (
     <>
-      <div>
+      <div className="mr-[7px]">
         <button
           style={{ marginBottom: marginBottom }}
           onClick={handleChangeLang}
-          className=" text-[#111827] dark:border-[#728a85] rounded-md cursor: pointer bg-green lg:text-[20px] dark:text-[#ffffff] py-[6px] px-[12px] dark:hover:border-[#ffffff] dark:hover:text-[#ffffff] transition duration-200"
+          className=" text-[#111827]  cursor: pointer bg-green lg:text-[15px] dark:text-[#ffffff]   dark:hover:text-[#70cbcb] transition duration-200"
         >
           {locale === "en" ? "GE" : "EN"}
         </button>

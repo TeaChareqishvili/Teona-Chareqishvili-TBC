@@ -5,7 +5,6 @@ export default async function Orders() {
   console.log(orders, "orders");
   return (
     <>
-      <h1>Orders</h1>
       <OrdersList orders={orders} />
     </>
   );

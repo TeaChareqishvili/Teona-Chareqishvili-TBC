@@ -30,7 +30,7 @@ export default function HeaderWrapper({
   return (
     <div
       className={`w-full py-4 px-0 border-b z-20 border-[#ffffff] fixed top-0 left-0  transition-all duration-300 ${
-        isHidden ? "hidden" : "bg-[#f4f6f3] dark:bg-[#264653]"
+        isHidden ? "hidden" : "bg-[#f4f6f3] dark:bg-[#1d273d]"
       }`}
     >
       {children}

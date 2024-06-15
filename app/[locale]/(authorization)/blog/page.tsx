@@ -25,7 +25,7 @@ export default async function Blog() {
   // console.log(category, "blog??");
 
   return (
-    <div className=" w-full flex flex-col items-start bg-[#f4f6f3] dark:bg-[#356375] p-[50px]">
+    <div className=" w-full flex flex-col items-start bg-[#f4f6f3] dark:bg-[#14252d] p-[50px]">
       <div className="w-[40%] mt-[120px] ">
         <div className="overflow-hidden rounded-md ">
           <Image

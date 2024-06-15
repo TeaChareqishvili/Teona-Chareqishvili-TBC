@@ -48,32 +48,42 @@ export default function BmiInput() {
   };
 
   return (
-    <div className="mt-[70px] bg-[#f4f6f3]  dark:bg-[#356375] h-[500px] flex items-center flex-col justify-center">
-      <input
-        className="border border-white text-[black] h-[40px] w-[250px] "
-        type="number"
-        placeholder="Weight (kg)"
-        value={weight}
-        onChange={(e) => setWeight(e.target.value)}
-      />
-      <input
-        className="border border-white text-[black] h-[40px] mt-4"
-        type="number"
-        placeholder="Height (cm)"
-        value={height}
-        onChange={(e) => setHeight(e.target.value)}
-      />
+    <div className="mt-[70px] min-h-screen px-[30px] w-full flex items-center flex-col justify-center ">
+      <div className="flex flex-col items-center justify-around w-full">
+        <input
+          className=" h-[60px] mt-4 w-full md:w-[500px] lg:w-[500px] px-3 py-2 bg-[transparent] text-white border-2 border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:border-white"
+          type="number"
+          placeholder="Weight (kg)"
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+        />
+        <input
+          className=" h-[60px] mt-4 w-full md:w-[500px]  lg:w-[500px] px-3 py-2 bg-[transparent] text-white border-2 border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
+          type="number"
+          placeholder="Height (cm)"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+        />
+      </div>
+
       <button
-        className="mt-4 p-2 bg-blue-500 text-white"
+        className=" bmi-btn border-2 border-white color-white text-[18px] py-[20px] px-[30px] relative tracking-widest font-bold mt-[30px]"
         onClick={calculateBmi}
       >
         Calculate BMI
       </button>
       {bmi && (
-        <div className="mt-4 text-white">
-          <p>BMI: {bmi}</p>
-          <p>Category: {bmiCategory}</p>
-          <p>Suggestion{suggestion}</p>
+        <div className="mt-[20px] py-[20px] px-[30px] border-2 border-white bg-[rgba(255,255,255,0.5)] flex flex-col items-center justify-between  ">
+          <p className="text-[#264653]  text-[18px]">
+            <strong className="tracking-wide">BMI:</strong> {bmi}
+          </p>
+          <p className="text-[#264653] text-[18px]">
+            <strong className="tracking-wide">Category: </strong>
+            {bmiCategory}
+          </p>
+          <p className="text-[#264653]  text-[18px]">
+            <strong className="tracking-wide">Suggestion:</strong> {suggestion}
+          </p>
         </div>
       )}
     </div>

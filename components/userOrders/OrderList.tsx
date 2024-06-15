@@ -1,31 +1,15 @@
 "use client";
 
-// import { useUser } from "@auth0/nextjs-auth0/client";
-// import { useEffect, useState } from "react";
-// import { fetchPayments } from "../../app/[locale]/actions";
 import { createRefund } from "../../app/[locale]/actions";
 const OrdersList = ({ orders }: any) => {
-  // const { user } = useUser();
-  // const [payments, setPayments] = useState<any[]>([]);
-
   console.log(orders, "orders");
 
-  // useEffect(() => {
-  //   const fetchUserPayments = async () => {
-  //     if (user && user.email) {
-  //       const allPayments = await fetchPayments(user.email);
-  //       setPayments(allPayments);
-  //     }
-  //   };
-
-  //   fetchUserPayments();
-  // }, [user]);
   const refundHandler = async (charge: string) => {
     await createRefund(charge);
   };
 
   return (
-    <div className="mt-[130px]">
+    <div className="mt-[50px] dark:bg-[#e5e5e5] p-[50px]">
       {orders.map((order: any) => (
         <div
           key={order.latest_charge.id}

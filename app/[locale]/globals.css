@@ -27,6 +27,16 @@
   text-decoration: none;
 }
 
+/* navigation */
+.navigation {
+  transition: all 0.3s;
+}
+
+.navigation:hover {
+  transform: scale(1.5);
+  text-decoration: underline;
+}
+
 .footer-background {
   background-image: url("../../public/assets/image/contact.webp");
   background-position: top;
@@ -103,7 +113,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #264653;
+  background-color: #1d273d;
   color: white;
   display: flex;
   align-items: center;
@@ -187,6 +197,32 @@
 .admin-icon {
   width: 40px;
   height: 40px;
+}
+
+.image-bmi {
+  background-image: url(../../public/assets/image/home/bmi.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.cancel {
+  background-image: url(../../public/assets/image/home/cancel.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.fade-in-out {
+  animation: fadeInOut 1500ms ease-in-out infinite;
 }
 /* contact */
 .contact-layout {
@@ -580,7 +616,7 @@ input[type="number"]:not(:placeholder-shown) {
   margin-bottom: 7px;
 }
 
-/* blog style */
+/* blog style
 
 .blog-content {
   background-color: rgb(247, 243, 243);
@@ -650,25 +686,7 @@ input[type="number"]:not(:placeholder-shown) {
   transform: translateY(0);
 }
 
-.pop-up {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 7px;
-}
 
-.pop-up p {
-  font-size: 18px;
-  font-family: "tbc-helvetica-bold";
-  margin: 10px 0;
-}
 .submit-icon {
   width: 40px;
   height: 40px;
@@ -683,7 +701,7 @@ input[type="number"]:not(:placeholder-shown) {
   border: none;
   border-radius: 7px;
   margin: 10px 0;
-}
+} */
 
 /*  single products */
 
@@ -702,30 +720,4 @@ input[type="number"]:not(:placeholder-shown) {
   align-items: center;
   justify-content: center;
   margin-right: 20px;
-}
-
-@media (min-width: 1024px) {
-  .blog-image {
-    padding: 10px;
-  }
-  /* contact page style */
-
-  .blog-content h2 {
-    font-size: 32px;
-  }
-  .blog-content p {
-    font-size: 26px;
-  }
-  .blog-content span {
-    font-size: 22px;
-  }
-  .blog-content button {
-    font-size: 22px;
-  }
-  /* .blog-image {
-    padding: 10px;
-  } */
-  .log-in-btn {
-    width: 300px;
-  }
 }

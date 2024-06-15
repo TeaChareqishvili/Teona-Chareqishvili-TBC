@@ -5,7 +5,7 @@ export default async function UserMessages() {
   const messages = await getMessages();
 
   return (
-    <div className="w-full dark:bg-black bg-white">
+    <div className="w-full dark:bg-[#e5e5e5] bg-white">
       <Messages messages={messages} />
     </div>
   );

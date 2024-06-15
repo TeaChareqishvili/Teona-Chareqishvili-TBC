@@ -64,8 +64,8 @@ const trainers = [
 
 export default function Stuff() {
   return (
-    <div className="bg-[#f4f6f3] py-[20px] dark:bg-[#356375]">
-      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline dark:text-[white]">
+    <div className="bg-[#f4f6f3] py-[20px] dark:bg-white">
+      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline dark:text-[#1d273d] fade-in-out">
         Meet Our Stuff
       </h2>
       <Swiper
@@ -90,7 +90,7 @@ export default function Stuff() {
               alt="footer-img"
             />
             <div className="trainer flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full cursor-pointer">
-              <p className="bg-[#335f69] text-[#ffffff] p-[10px] rounded-md italic">
+              <p className="bg-[#1d273d] text-[#ffffff] p-[10px] rounded-md italic">
                 {item.name}
               </p>
             </div>
