@@ -11,7 +11,7 @@ export default async function SingleBlog({
   const singleBlog = await getBlogDetail(id);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full min-h-screen mt-[50px]">
       <SingleBlogDetails singleBlog={singleBlog} />
     </div>
   );

@@ -3,8 +3,9 @@ import { getProducts, getUserCart } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
-import CheckOutBtn from "../../../../components/checkoutbtn/CheckOutBtn";
+
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function NewCartProducts() {
   const cart = await getUserCart();
@@ -106,8 +107,7 @@ export default async function NewCartProducts() {
             Crypto
           </button>
         </div>
-
-        <CheckOutBtn filteredProducts={filteredProducts} />
+        <Link href="/userCheckoutInfo">Add Address</Link>
       </div>
     </div>
   );
