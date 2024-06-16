@@ -242,7 +242,7 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
-input[type="number"]::-webkit-outer-spin-button,
+/* input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -258,15 +258,15 @@ input[type="number"]:focus {
   background-color: transparent !important;
   color: #fff;
   outline: none;
-}
+} */
 
 /* Remove background color when content is entered */
-input[type="text"]:not(:placeholder-shown),
+/* input[type="text"]:not(:placeholder-shown),
 input[type="email"]:not(:placeholder-shown),
 input[type="number"]:not(:placeholder-shown) {
   background-color: transparent !important;
   color: #fff;
-}
+} */
 /* styles */
 
 .hover:hover {
@@ -436,7 +436,7 @@ input[type="number"]:not(:placeholder-shown) {
 .user-icon {
   width: 30px;
   height: 30px;
-  color: #4f6966;
+  color: #1d273d;
   cursor: pointer;
   margin-right: 20px;
   margin-left: 20px;
@@ -455,9 +455,9 @@ input[type="number"]:not(:placeholder-shown) {
   justify-content: space-around;
 }
 
-.search-input::-webkit-search-cancel-button {
+/* .search-input::-webkit-search-cancel-button {
   display: none;
-}
+} */
 
 .search-btn {
   height: 65px;

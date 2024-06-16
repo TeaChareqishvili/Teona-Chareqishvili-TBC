@@ -1,16 +1,20 @@
+"use client";
 import { CreateBlogData } from "@/app/[locale]/interface";
 import Image from "next/image";
 import { useState, useRef } from "react";
 import type { PutBlobResult } from "@vercel/blob";
+import { useRouter } from "next/navigation";
 
 import { editBlog } from "@/app/[locale]/actions";
 
 export default function BlogEditForm({
   blog,
   id,
+  handleModalClose,
 }: {
   id: number;
   blog: CreateBlogData;
+  handleModalClose: () => void;
 }) {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
@@ -25,17 +29,20 @@ export default function BlogEditForm({
     description,
     image_url,
   };
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await editBlog(id, formData);
+      router.refresh();
     } catch (error) {
       console.error(error);
     }
-    // window.location.reload();
+    handleModalClose();
   };
 
+  //TODO fix refrsh for edit
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) {
       throw new Error("No file selected");
@@ -60,76 +67,91 @@ export default function BlogEditForm({
     }
   };
   return (
-    <div>
+    <div className="w-full p-4 bg-white rounded-lg">
+      <h2 className="text-xl font-semibold text-center mb-4">Edit Blog</h2>
       <form
-        className="flex flex-col items-center mt-4 bg-[black]"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
         onSubmit={handleSubmit}
       >
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col items-center">
-            <input
-              className="text-black"
-              type="text"
-              name="title"
-              placeholder="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
+        <div className="flex flex-col">
+          <label className="text-[#1d273d] font-medium">Title</label>
+          <input
+            className="mt-1 p-1 bg-transparent text-[#1d273d] border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1d273d]"
+            type="text"
+            name="title"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
 
-            <input
-              className="text-black"
-              type="text"
-              name="category"
-              placeholder="Category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            />
+        <div className="flex flex-col">
+          <label className="text-[#1d273d] font-medium">Category</label>
+          <input
+            className="mt-1 p-1 bg-transparent text-[#1d273d] border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1d273d]"
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
+        </div>
 
-            <input
-              className="text-black"
-              type="text"
-              name="description"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
+        <div className="flex flex-col md:col-span-2">
+          <label className="text-[#1d273d] font-medium">Description</label>
+          <textarea
+            className="mt-1 p-1 border bg-transparent text-[#1d273d] border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1d273d] h-20"
+            name="description"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
 
-            <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
-              <input
-                type="file"
-                name="image_url"
-                ref={inputFileRef}
-                onChange={handleFileChange}
-                required
-              />
-            </label>
-            <Image width={200} height={200} src={image_url} alt="imageblog" />
-          </div>
-          {/* <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
-            choose image
+        <div className="flex flex-col md:col-span-2">
+          <label className="text-gray-700 font-medium">Image</label>
+          <label className="flex items-center justify-center w-full h-24 bg-gray-100 border border-dashed border-gray-300 rounded-md cursor-pointer">
             <input
-              name="file"
-              ref={inputFileRef}
               type="file"
-              required
-              className="absolute w-full h-full top-0 left-0 mb-4 p-2 border border-white rounded file:mr-5 file:py-1 file:px-3 file:border-[1px] file:text-xs file:font-small file:bg-stone-50 file:text-stone-700 hover:file:cursor-pointer hover:file:bg-blue-50 hover:file:text-[#748f80] opacity-0"
+              name="image_url"
+              ref={inputFileRef}
+              onChange={handleFileChange}
+              className="hidden"
             />
-          </label> */}
+            <span className="text-[#1d273d]">Choose file</span>
+          </label>
+          {image_url && (
+            <div className="mt-2 flex justify-center">
+              <Image
+                width={200}
+                height={200}
+                src={image_url}
+                alt="Blog Image"
+                className="rounded-md"
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="md:col-span-2 flex justify-center">
           <button
             type="submit"
-            className="w-[120px] bg-[#76a58b] flex items-center justify-center text-white px-4 py-2 rounded hover:bg-[#748f80] transition duration-300"
+            className="w-full md:w-1/4 py-2 bg-[#1d273d] text-white font-semibold rounded-md hover:bg-[#a4161a] transition duration-300"
           >
-            upload
+            Upload
           </button>
         </div>
 
         {blob && (
-          <div>
-            Blob url:{" "}
-            <Image src={blob.url} alt="blog" width={100} height={100} />
+          <div className="md:col-span-2 mt-2 text-center">
+            <span className="block text-gray-700">Blob URL:</span>
+            <Image
+              src={blob.url}
+              alt="Blob Image"
+              width={100}
+              height={100}
+              className="inline-block rounded-md"
+            />
           </div>
         )}
       </form>

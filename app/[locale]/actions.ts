@@ -193,6 +193,7 @@ export async function createNewContact(formData: contactData) {
 export async function createNewBlog(formData: CreateBlogData) {
   const { title, description, image_url, category } = formData;
   addNewBlog(title, description, image_url, category);
+  revalidatePath("/blog");
 }
 
 // delete single blog
@@ -208,7 +209,7 @@ export async function editBlog(id: number, formData: CreateBlogData) {
   const { title, description, category, image_url } = formData;
 
   getblogById(id, title, description, category, image_url);
-  revalidatePath("/blog");
+  revalidatePath("/singleBlog");
 }
 
 // create new product

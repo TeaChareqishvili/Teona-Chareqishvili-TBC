@@ -209,6 +209,7 @@ export async function addNewBlog(
   category: string
 ) {
   return await fetch(Host + "/api/add-new-blog", {
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({ title, description, image_url, category }),
   });
@@ -237,6 +238,7 @@ export async function getblogById(
 ) {
   try {
     const response = await fetch(`${Host}/api/edit-blog/${id}`, {
+      cache: "no-store",
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

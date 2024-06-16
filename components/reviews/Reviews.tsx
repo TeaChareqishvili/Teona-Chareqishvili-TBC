@@ -7,11 +7,10 @@ import { addProductComment } from "../../app/[locale]/actions";
 
 const SingleProductAddComment = ({ id }: { id: string }) => {
   const { user } = useUser();
-  const [blobUrl, setBlobUrl] = useState("");
+
   const [userId, setUserId] = useState("");
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
-  const [photoUrl, setPhotoUrl] = useState("");
 
   console.log(id, "id");
 
@@ -29,12 +28,6 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
     setRating(ratingValue);
   };
 
-  const handlePhotoUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!blobUrl) {
-      setPhotoUrl(e.target.value);
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -42,15 +35,13 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
       user_id: userId,
       product_id: id,
       comment,
-      main_photo: blobUrl || photoUrl,
+
       rating,
     };
 
     try {
       await addProductComment(formData);
       setComment("");
-      setBlobUrl("");
-      setPhotoUrl("");
       setRating(0);
     } catch (error) {
       console.error("Error submitting comment:", error);
@@ -68,49 +59,42 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
     );
   }
   return (
-    <div className="single-blog-add-comment">
-      <h1>დატოვეთ კომენტარი</h1>
-      {/* <AddReviewImg setBlobUrl={setBlobUrl} /> */}
-      <form onSubmit={handleSubmit} className="single-blog-add-comment-form">
-        <div>
-          <label htmlFor="comment">დაამატეთ კომენტარი</label>
+    <div className=" bg-gray-50 p-5 rounded-lg shadow-lg max-w-md mx-auto my-[25px]">
+      <h1 className="text-2xl mb-5 text-center text-gray-800">
+        Write Your Comment
+      </h1>
+      <form onSubmit={handleSubmit} className=" flex flex-col gap-4">
+        <div className="form-group flex flex-col gap-2">
           <textarea
-            placeholder="დაწერეთ კომენტარი..."
+            placeholder="Write your comment here..."
             id="comment"
             value={comment}
             onChange={handleCommentChange}
+            className="p-2 rounded border bg-transparent border-[#1d273d] resize-y min-h-[100px] text-[#1d273d]"
           ></textarea>
         </div>
-        <div>
-          <label htmlFor="main_photo">სურათის URL</label>
-          <input
-            type="text"
-            name="main_photo"
-            id="main_photo"
-            placeholder="ატვირთეთ ან ხელით ჩააკოპირეთ სურათის URL"
-            value={blobUrl || photoUrl}
-            onChange={handlePhotoUrlChange}
-            disabled={!!blobUrl}
-          />
-        </div>
-        <div className="blog-add-comment-rating">
+        <div className=" flex justify-center gap-2">
           {[1, 2, 3, 4, 5].map((star) => (
             <span
               key={`rating-stars-${star}`}
               onClick={() => handleRatingClick(star)}
-              style={{
-                cursor: "pointer",
-                color: rating >= star ? "orange" : "gray",
-                fontSize: rating >= star ? "1.5em" : "1em",
-                transition: "color 0.2s, font-size 0.2s",
-              }}
+              className={`cursor-pointer ${
+                rating >= star
+                  ? "text-orange-500 text-2xl"
+                  : "text-gray-400 text-xl"
+              } transition duration-200`}
             >
               ⭐
             </span>
           ))}
         </div>
-        <div className="add-comment-button">
-          <button type="submit">დაკომენტარება</button>
+        <div className=" text-center">
+          <button
+            type="submit"
+            className="bg-[#1d273d] text-white py-2 px-4 rounded hover:bg-[#385491] transition duration-200"
+          >
+            Submit Comment
+          </button>
         </div>
       </form>
     </div>

@@ -15,6 +15,8 @@ export interface UserData {
   email: string;
   img: string | null;
   serial_id: number;
+  address?: string;
+  phone_number: string;
 }
 
 const UserIcons = ({ id, users }: { id: string; users: UserData }) => {
@@ -61,8 +63,14 @@ const UserIcons = ({ id, users }: { id: string; users: UserData }) => {
 
   return (
     <div className="flex items-center justify-center">
-      <TiUserDelete className="user-icon" onClick={handleDelete} />
-      <FaUserEdit className="user-icon" onClick={handleModalEditOpen} />
+      <TiUserDelete
+        className="user-icon dark:text-white"
+        onClick={handleDelete}
+      />
+      <FaUserEdit
+        className="user-icon dark:text-white"
+        onClick={handleModalEditOpen}
+      />
       <EditModal isOpen={isModalEditOpen} onClose={handleModalEditClose}>
         <form
           onSubmit={handleSubmit}

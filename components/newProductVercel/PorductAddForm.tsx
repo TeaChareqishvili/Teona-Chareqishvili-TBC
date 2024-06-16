@@ -71,13 +71,16 @@ export default function ProductAddForm() {
 
   return (
     <div className="w-full min-h-[100px] bg-[#cfe1d8] flex flex-col items-center mt-4 p-4 rounded-md dark:bg-[#527361]">
-      <h1 className="text-black text-xl font-semibold dark:text-white">hi</h1>
+      <h1 className="text-black text-xl font-semibold dark:text-white">
+        Add New Product
+      </h1>
       <form
-        className=" w-[50%] flex flex-col items-center mt-4"
+        className="w-full max-w-2xl flex  items-center mt-4 space-y-4"
         onSubmit={handleSubmit}
       >
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col items-center">
+        <div className="w-full flex flex-wrap space-x-4">
+          <div className="flex flex-col flex-1">
+            <label className="block text-gray-700 dark:text-white">Title</label>
             <input
               type="text"
               name="title"
@@ -85,7 +88,11 @@ export default function ProductAddForm() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
+              className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#527361]"
             />
+          </div>
+          <div className="flex flex-col flex-1">
+            <label className="block text-gray-700 dark:text-white">Price</label>
             <input
               type="number"
               name="price"
@@ -93,7 +100,11 @@ export default function ProductAddForm() {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
+              className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#527361]"
             />
+          </div>
+          <div className="flex flex-col flex-1">
+            <label className="block text-gray-700 dark:text-white">Sale</label>
             <input
               type="number"
               name="sale"
@@ -101,7 +112,13 @@ export default function ProductAddForm() {
               value={sale}
               onChange={(e) => setSale(e.target.value)}
               required
+              className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#527361]"
             />
+          </div>
+        </div>
+        <div className="w-full flex flex-wrap space-x-4">
+          <div className="flex flex-col flex-1">
+            <label className="block text-gray-700 dark:text-white">Stock</label>
             <input
               type="number"
               name="stock"
@@ -109,8 +126,13 @@ export default function ProductAddForm() {
               value={stock}
               onChange={(e) => setStock(e.target.value)}
               required
+              className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#527361]"
             />
-
+          </div>
+          <div className="flex flex-col flex-1">
+            <label className="block text-gray-700 dark:text-white">
+              Category
+            </label>
             <input
               type="text"
               name="category"
@@ -118,61 +140,85 @@ export default function ProductAddForm() {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               required
+              className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#527361]"
             />
-
-            <input
-              type="text"
-              name="description"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-
-            <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
-              <input
-                type="file"
-                name="image_url"
-                ref={inputFileRef}
-                onChange={handleFileChange}
-                required
-              />
-            </label>
-            <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
-              <input
-                type="file"
-                name="image_gallery"
-                ref={inputFileRef}
-                onChange={handleFileChange}
-                required
-                multiple
-              />
-            </label>
           </div>
-          {/* <label className="mr-[15px] w-[120px] relative bg-[#76a58b] h-[40px] text-[#ffffff] flex items-center justify-center rounded hover:bg-[#748f80] transition duration-300">
-            choose image
-            <input
-              name="file"
-              ref={inputFileRef}
-              type="file"
-              required
-              className="absolute w-full h-full top-0 left-0 mb-4 p-2 border border-white rounded file:mr-5 file:py-1 file:px-3 file:border-[1px] file:text-xs file:font-small file:bg-stone-50 file:text-stone-700 hover:file:cursor-pointer hover:file:bg-blue-50 hover:file:text-[#748f80] opacity-0"
-            />
-          </label> */}
-          <button
-            type="submit"
-            className="w-[120px] bg-[#76a58b] flex items-center justify-center text-white px-4 py-2 rounded hover:bg-[#748f80] transition duration-300"
-          >
-            upload
-          </button>
         </div>
-
-        {blob && (
-          <div>
-            Blob url:{" "}
-            <Image src={blob.url} alt="blog" width={100} height={100} />
+        <div className="w-full">
+          <label className="block text-gray-700 dark:text-white">
+            Description
+          </label>
+          <textarea
+            name="description"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#527361]"
+          />
+        </div>
+        <div className="w-full">
+          <label className="block text-gray-700 dark:text-white">Image</label>
+          <label className="w-full h-32 flex items-center justify-center border-2 border-dashed rounded-md cursor-pointer bg-gray-100 dark:bg-[#cfe1d8] text-gray-500">
+            <input
+              type="file"
+              name="image_url"
+              ref={inputFileRef}
+              onChange={handleFileChange}
+              className="hidden"
+              required
+            />
+            <span>Choose file</span>
+          </label>
+          {blob && (
+            <div className="mt-2 flex justify-center">
+              <Image
+                src={blob.url}
+                alt="product"
+                width={100}
+                height={100}
+                className="rounded-md"
+              />
+            </div>
+          )}
+        </div>
+        <div className="w-full">
+          <label className="block text-gray-700 dark:text-white">Gallery</label>
+          <div className="flex flex-wrap gap-4">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <label
+                key={index}
+                className="w-24 h-24 flex items-center justify-center border-2 border-dashed rounded-md cursor-pointer bg-gray-100 dark:bg-[#cfe1d8] text-gray-500"
+              >
+                <input
+                  type="file"
+                  name={`image_gallery_${index}`}
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+                <span>Choose file</span>
+              </label>
+            ))}
           </div>
-        )}
+          <div className="mt-2 flex flex-wrap gap-2">
+            {image_gallery.map((url, index) => (
+              <Image
+                key={index}
+                src={url}
+                alt={`gallery ${index}`}
+                width={50}
+                height={50}
+                className="rounded-md"
+              />
+            ))}
+          </div>
+        </div>
+        <button
+          type="submit"
+          className="w-full py-2 bg-[#76a58b] text-white rounded-md hover:bg-[#748f80] transition duration-300"
+        >
+          Upload
+        </button>
       </form>
     </div>
   );
