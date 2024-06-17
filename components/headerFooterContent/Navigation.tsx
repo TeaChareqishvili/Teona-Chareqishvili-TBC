@@ -21,19 +21,20 @@ const Navigation: React.FC<NavigationProps> = ({
   return (
     <nav style={{ display: display }}>
       <ul
-        className="flex items-center"
+        className="flex items-center ul-blur"
         style={{
           flexDirection: flexDirection,
           alignItems: alignItems,
         }}
       >
         <Link
-          href="/"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          href="/homePageLayout"
+          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white "
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
             color: color,
+            fontSize: fontSize,
           }}
         >
           <li
@@ -45,7 +46,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>{" "}
         <Link
           href="/ProductVercel"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white "
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -61,7 +62,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/blog"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -77,7 +78,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/contact"
-          className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+          className=" navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-[white]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -91,30 +92,10 @@ const Navigation: React.FC<NavigationProps> = ({
             {scopedT("contact")}
           </li>
         </Link>
-        {user ? (
-          <Link
-            href="/users"
-            className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
-            style={{
-              marginBottom: marginBottom,
-              marginLeft: marginLeft,
-              color: color,
-            }}
-          >
-            <li
-              className="font-tbc-helvetica-bold"
-              style={{ fontSize: fontSize }}
-            >
-              {scopedT("users")}
-            </li>
-          </Link>
-        ) : (
-          ""
-        )}
         {isAdmin && (
           <Link
             href="/admin"
-            className="text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653] font-bold uppercase cursor-pointer transition all duration-300 transform hover:text-[#728a85] hover:scale-105 dark:text-[#ffffff] dark:hover:text-[#728a85]"
+            className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white "
             style={{
               marginBottom: marginBottom,
               marginLeft: marginLeft,

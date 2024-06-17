@@ -7,8 +7,8 @@ import { useScopedI18n } from "../../locales/client";
 const FooterNavigation = () => {
   const scopedT = useScopedI18n("footer");
   return (
-    <div className="bg-[#ffffff] w-full flex flex-col items-center justify-center py-[50px] px-[30px] ">
-      <div className="bg-[#ffffff] w-full flex-col flex items-center justify-center py-[20px] px-[30px] md:flex-row ">
+    <div className=" w-full flex flex-col items-center justify-center py-[50px] px-[30px]  ">
+      <div className="w-full flex-col flex items-center justify-center py-[20px] px-[30px] md:flex-row ">
         <div className="mb-[20px] ml-[35px] md:mb-0 md:ml-0">
           <SocialLinks />
         </div>

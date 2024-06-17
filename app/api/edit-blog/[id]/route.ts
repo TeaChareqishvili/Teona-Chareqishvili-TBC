@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sql } from "@vercel/postgres";
 
+export const revalidate = 0;
+
 export async function PUT(request: NextRequest) {
   // Extract the blog id
   const id = request.nextUrl.pathname.replace("/api/edit-blog/", "");

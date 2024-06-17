@@ -1,22 +1,23 @@
 "use client";
-import { Host } from "../../apiUsers";
-export default function CheckOutBtn({ filteredProducts }: any) {
+// import { Host } from "../../apiUsers";
+
+export default function CheckOutBtn({ filteredProducts, userForm }: any) {
   const checkout = async () => {
-    await fetch(Host + "/api/checkOut", {
+    await fetch("http://localhost:3000/api/checkOut", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ products: filteredProducts }),
+      body: JSON.stringify({ products: filteredProducts, userForm }),
     })
+      .then((response) => response.json())
       .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        console.log(response);
         if (response.url) {
           window.location.href = response.url;
         }
+      })
+      .catch((error) => {
+        console.error("Error during checkout:", error);
       });
   };
 

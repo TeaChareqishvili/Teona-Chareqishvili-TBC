@@ -10,15 +10,12 @@ export default function ThemeSwitch() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted)
-    return (
-      <span className="w-[25px]"></span>
-    );
+  if (!mounted) return <span className="w-[25px]"></span>;
 
   if (resolvedTheme === "dark") {
     return (
       <FiSun
-        className="cursor-pointer hover:text-[#70cbcb] transition duration-200 hover:scale-125"
+        className="lg:w-[20px] lg:h-[20px] cursor-pointer text-[#ffffff] dark:text-[#ffffff] dark:hover:text-[#748D92]  "
         onClick={() => setTheme("light")}
       />
     );
@@ -27,7 +24,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "light") {
     return (
       <FiMoon
-        className="cursor-pointer hover:text-[#70cbcb] transition duration-200 hover:scale-125 w-[25px]"
+        className="cursor-pointer text-[#ffffff] dark:text-[#ffffff] dark:hover:text-[#748D92] lg:w-[20px] lg:h-[20px] "
         onClick={() => setTheme("dark")}
       />
     );

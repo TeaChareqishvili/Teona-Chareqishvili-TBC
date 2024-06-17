@@ -21,7 +21,7 @@ const EditBlog = ({ blog, id }: { id: number; blog: CreateBlogData }) => {
         EDIT BLOG
       </button>
       <EditBlogModal isOpen={isModalOpen} onClose={handleModalClose}>
-        <BlogEditForm id={id} blog={blog} />
+        <BlogEditForm id={id} blog={blog} handleModalClose={handleModalClose} />
       </EditBlogModal>
     </>
   );

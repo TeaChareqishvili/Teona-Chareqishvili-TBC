@@ -1,56 +1,88 @@
 import Image from "next/image";
-import Banner from "../../../../public/assets/image/userBanner.webp";
+
 import { UserIcons } from "@/components/userIcons/UserIcons";
 import { getUsers } from "../../../../apiUsers";
-import { UserAddButton } from "@/components/addUserform/UserAddButton";
+
 import type { Users } from "../../../../apiUsers";
 
+// interface LoggedUser {
+//   id: string;
+//   email: string;
+//   serial_id: number;
+//   name: string;
+//   phone_number?: string;
+//   address?: number;
+//   img?: string;
+// }
+
 export default async function Users() {
-  const users = await getUsers();
+  const users: any = await getUsers();
 
   return (
-    <div className="w-full mt-[50px]  flex flex-col items-center justify-center mb-[60px]">
-      <Image className="w-full h-[500px] mb-[20px]" src={Banner} alt="banner" />
-      <h3 className="text-[#4b504b] text-[24px] underline tracking-wider mb-[20px]">
-        Our Users
-      </h3>
-      <table className="w-4/5 border-2 border-[#e2e6e1] rounded-lg mt-[30px] mb-[30px]">
-        <thead>
-          <tr className="bg-[#e2e6e1] rounded-md dark:bg-[#264653]">
-            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
-              Name
-            </th>
-            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
-              Email
-            </th>
-            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
-              Age
-            </th>
-            <th className=" py-[15px] text-[18px] text-[#3b4039] dark:text-[#ffffff]">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {users?.map((user: Users) => (
-            <tr key={user.id} className="border-b border-[#e2e6e1]">
-              <td className="pl-[70px] py-[15px] text-[18px] text-[#3b4039]">
-                {user.name}
-              </td>
-              <td className=" py-[15px] text-[18px] text-[#3b4039]">
-                {user.email}
-              </td>
-              <td className=" py-[15px] text-[18px] text-[#3b4039]">
-                {user.age}
-              </td>
-              <td className=" py-[15px] flex items-center justify-center gap-4">
-                <UserIcons users={user} id={user.id} />
-              </td>
+    <div className="w-full lg:min-h-screen dark:bg-[#e5e5e5] mt-12 flex flex-col items-center justify-center mb-16">
+      <div className="overflow-x-auto w-4/5">
+        <table className="min-w-full border-2 border-gray-300 dark:bg-[#1d273d] rounded-lg shadow-lg mt-8 mb-8">
+          <thead>
+            <tr className="bg-gray-300 dark:bg-gray-700">
+              <th className="py-4 px-6 text-lg text-gray-800 dark:text-white">
+                Name
+              </th>
+              <th className="py-4 px-6 text-lg text-gray-800 dark:text-white">
+                Email
+              </th>
+              <th className="py-4 px-6 text-lg text-gray-800 dark:text-white">
+                Phone
+              </th>
+              <th className="py-4 px-6 text-lg text-gray-800 dark:text-white">
+                Address
+              </th>
+              <th className="py-4 px-6 text-lg text-gray-800 dark:text-white">
+                Avatar
+              </th>
+              <th className="py-4 px-6 text-lg text-gray-800 dark:text-white">
+                Actions
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <UserAddButton />
+          </thead>
+          <tbody>
+            {users?.map((user: any) => (
+              <tr
+                key={user.id}
+                className="border-b border-gray-300 dark:border-gray-600"
+              >
+                <td className="pl-8 py-4 text-lg text-gray-800 dark:text-gray-200">
+                  {user.name}
+                </td>
+                <td className="pl-8 py-4 text-lg text-gray-800 dark:text-gray-200">
+                  {user.email}
+                </td>
+                <td className="pl-8 py-4 text-lg text-gray-800 dark:text-gray-200">
+                  {user.phone_number || "N/A"}
+                </td>
+                <td className="pl-8 py-4 text-lg text-gray-800 dark:text-gray-200">
+                  {user.address || "N/A"}
+                </td>
+                <td className="pl-8 py-4 text-lg text-gray-800 dark:text-gray-200">
+                  {user.img ? (
+                    <Image
+                      width={50}
+                      height={50}
+                      src={user.img}
+                      alt="avatar"
+                      className="rounded-full"
+                    />
+                  ) : (
+                    "N/A"
+                  )}
+                </td>
+                <td className="py-4 flex items-center justify-center gap-4">
+                  <UserIcons users={user} id={user.id} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

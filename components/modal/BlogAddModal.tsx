@@ -13,7 +13,7 @@ const BlogAddModal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white p-4 rounded shadow-lg mt-[50px]"
+        className="bg-white p-6 rounded shadow-lg w-full max-w-lg"
         onClick={(e) => e.stopPropagation()}
       >
         {children}

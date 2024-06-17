@@ -8,7 +8,12 @@ import trainer6 from "../../public/assets/image/stuff/trainer6.webp";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// import "swiper/swiper-bundle.min.css";
+import { Autoplay, Mousewheel, Keyboard } from "swiper/modules";
 
+// SwiperCore.use([Autoplay, Mousewheel, Keyboard]);
 const trainers = [
   {
     id: 1,
@@ -59,13 +64,20 @@ const trainers = [
 
 export default function Stuff() {
   return (
-    <div className="bg-[#f4f6f3] py-[20px]">
-      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline">
+    <div className="bg-[#f4f6f3] py-[20px] dark:bg-white">
+      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline dark:text-[#1d273d] fade-in-out">
         Meet Our Stuff
       </h2>
       <Swiper
         slidesPerView="auto"
         className=" flex items-center justify-between overflow-hidden realtive"
+        keyboard={true}
+        pagination={true}
+        modules={[Mousewheel, Keyboard, Autoplay]}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+        }}
       >
         {trainers.map((item) => (
           <SwiperSlide
@@ -78,7 +90,7 @@ export default function Stuff() {
               alt="footer-img"
             />
             <div className="trainer flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full cursor-pointer">
-              <p className="bg-[#335f69] text-[#ffffff] p-[10px] rounded-md italic">
+              <p className="bg-[#1d273d] text-[#ffffff] p-[10px] rounded-md italic">
                 {item.name}
               </p>
             </div>

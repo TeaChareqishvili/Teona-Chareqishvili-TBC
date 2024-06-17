@@ -1,21 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createNewContact } from "../../app/[locale]/actions";
 import ContactModal from "../modal/ContactModal";
 import { MdLocalPostOffice } from "react-icons/md";
 import { contactData } from "@/app/[locale]/interface";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function ContactForm() {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const [formData, setFormData] = useState<contactData>({
-    name: "",
-    email: "",
+    name: " ",
+    email: " ",
     phone: "",
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      setFormData((prevData) => ({
+        ...prevData,
+        name: user.name || "",
+        email: user.email || "",
+      }));
+    }
+  }, [user]);
+
+  console.log(user);
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -44,10 +60,10 @@ export default function ContactForm() {
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <label>
           <input
-            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b border-white text-[15px] text-[#ffffff] w-[300px]"
+            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b-2 border-white text-[15px] text-[#ffffff] w-[300px]"
             type="text"
             name="name"
-            placeholder="Name..."
+            autoComplete="name"
             value={formData.name}
             onChange={handleChange}
             required
@@ -55,10 +71,10 @@ export default function ContactForm() {
         </label>
         <label>
           <input
-            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b border-white text-[15px] text-[#ffffff] w-[300px]"
+            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b-2 border-white text-[15px] text-[#ffffff] w-[300px]"
             type="email"
             name="email"
-            placeholder="Email..."
+            autoComplete="name"
             value={formData.email}
             onChange={handleChange}
             required
@@ -66,7 +82,7 @@ export default function ContactForm() {
         </label>
         <label>
           <input
-            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b border-white text-[15px] text-[#ffffff] w-[300px]"
+            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b-2 border-white text-[15px] text-[#ffffff] w-[300px]"
             type="number"
             name="phone"
             placeholder="Phone Number..."
@@ -77,7 +93,7 @@ export default function ContactForm() {
         </label>
         <label>
           <input
-            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b border-white text-[15px] text-[#ffffff] w-[300px]"
+            className="mb-[15px] outline-none px-[7px] py-[10px] bg-transparent border-b-2 border-white text-[15px] text-[#ffffff] w-[300px] h-[100px]"
             type="text"
             name="message"
             placeholder="Message..."
@@ -87,7 +103,7 @@ export default function ContactForm() {
           />
         </label>
         <button
-          className=" mt-[20px] border border-white px-[15px] py-[7px] text-[17px] text-[#ffffff] bg-transparent cursor-pointer"
+          className=" mt-[20px] border-2 border-white px-[15px] py-[7px] text-[17px] text-[#ffffff] bg-transparent cursor-pointer"
           type="submit"
         >
           Submit

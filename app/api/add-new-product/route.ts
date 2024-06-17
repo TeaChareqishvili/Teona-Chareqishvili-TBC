@@ -6,7 +6,6 @@ export async function POST(request: Request) {
     const {
       title,
       description,
-      stock,
       price,
       sale,
       imageurl,
@@ -17,7 +16,6 @@ export async function POST(request: Request) {
     if (
       !title ||
       !description ||
-      !stock ||
       !price ||
       !sale ||
       !imageurl ||
@@ -25,7 +23,7 @@ export async function POST(request: Request) {
       !image_gallery
     ) {
       throw new Error(
-        "Title, description, stock, price, sale, imageurl, category, and image_gallery are required"
+        "Title, description,  price, sale, imageurl, category, and image_gallery are required"
       );
     }
 
@@ -33,8 +31,8 @@ export async function POST(request: Request) {
     const image_gallery_json = JSON.stringify(image_gallery);
 
     await sql`
-      INSERT INTO shop (title, description, stock, price, sale, imageurl, category, image_gallery)
-      VALUES (${title}, ${description}, ${stock}, ${price}, ${sale}, ${imageurl}, ${category}, ${image_gallery_json})
+      INSERT INTO shop (title, description,  price, sale, imageurl, category, image_gallery)
+      VALUES (${title}, ${description},  ${price}, ${sale}, ${imageurl}, ${category}, ${image_gallery_json})
     `;
 
     const products = await sql`SELECT * FROM shop`;

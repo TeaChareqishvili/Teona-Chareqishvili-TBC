@@ -27,10 +27,138 @@
   text-decoration: none;
 }
 
+/* navigation */
+.navigation {
+  transition: all 0.3s;
+}
+
+.navigation:hover {
+  transform: scale(1.5);
+  text-decoration: underline;
+}
+
+.footer-background {
+  background-image: url("../../public/assets/image/contact.webp");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170%;
+  height: 205%;
+  background-color: #2d3436;
+  opacity: 0.8;
+  transition: all 0.25s;
+  transform: translate(550px, 300px) rotate(45deg);
+}
+.caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  text-transform: uppercase;
+}
+.blog-category {
+  background-color: rgba(37, 150, 190, 0.8);
+  transform: translate(200px, -200px);
+  transform: all 0.25s;
+}
+.card-container:hover .blog-category {
+  transform: translate(0, 0);
+  transition-delay: 0.3s;
+}
+
+.card-container:hover:before {
+  transform: translate(-50px, -150px) rotate(45deg);
+}
+.card-container:hover .blog-title {
+  transform: translate(0, 0);
+  transition-delay: 0.4s;
+}
+.blog-title {
+  text-align: center;
+  width: 80%;
+  transition: all 0.25s;
+  transform: translate(-250px, 200px);
+}
+
+.blog-butons {
+  transition: all 0.25s;
+  transform: translateY(100px);
+}
+.card-container:hover .blog-butons {
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.bmi-btn {
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.bmi-btn:before {
+  content: "BMI Calculator";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1d273d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(5);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.bmi-btn:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+/* INTRO */
+
+.intro {
+  font-size: 16px;
+  color: white;
+  animation: scaleUp 0.5s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.1);
+    text-shadow: none;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
 /* new main page */
 .title {
   animation: fadeIn 3s ease-out infinite;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.bmi {
+  background-image: url(../../public/assets/image/home/bmi.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 @keyframes fadeIn {
@@ -66,6 +194,36 @@
   opacity: 1;
 }
 
+.admin-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.image-bmi {
+  background-image: url(../../public/assets/image/home/bmi.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.cancel {
+  background-image: url(../../public/assets/image/home/cancel.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.fade-in-out {
+  animation: fadeInOut 1500ms ease-in-out infinite;
+}
 /* contact */
 .contact-layout {
   background-image: url(../../public/assets/image/contact.webp);
@@ -73,7 +231,7 @@
   background-position: top;
   height: 800px;
   background-repeat: no-repeat;
-  margin-top: 92px;
+  margin-top: 70px;
 }
 
 .contact-cover {
@@ -84,7 +242,7 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
-input[type="number"]::-webkit-outer-spin-button,
+/* input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -100,15 +258,15 @@ input[type="number"]:focus {
   background-color: transparent !important;
   color: #fff;
   outline: none;
-}
+} */
 
 /* Remove background color when content is entered */
-input[type="text"]:not(:placeholder-shown),
+/* input[type="text"]:not(:placeholder-shown),
 input[type="email"]:not(:placeholder-shown),
 input[type="number"]:not(:placeholder-shown) {
   background-color: transparent !important;
   color: #fff;
-}
+} */
 /* styles */
 
 .hover:hover {
@@ -278,7 +436,7 @@ input[type="number"]:not(:placeholder-shown) {
 .user-icon {
   width: 30px;
   height: 30px;
-  color: #4f6966;
+  color: #1d273d;
   cursor: pointer;
   margin-right: 20px;
   margin-left: 20px;
@@ -297,9 +455,9 @@ input[type="number"]:not(:placeholder-shown) {
   justify-content: space-around;
 }
 
-.search-input::-webkit-search-cancel-button {
+/* .search-input::-webkit-search-cancel-button {
   display: none;
-}
+} */
 
 .search-btn {
   height: 65px;
@@ -458,7 +616,7 @@ input[type="number"]:not(:placeholder-shown) {
   margin-bottom: 7px;
 }
 
-/* blog style */
+/* blog style
 
 .blog-content {
   background-color: rgb(247, 243, 243);
@@ -528,25 +686,7 @@ input[type="number"]:not(:placeholder-shown) {
   transform: translateY(0);
 }
 
-.pop-up {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 7px;
-}
 
-.pop-up p {
-  font-size: 18px;
-  font-family: "tbc-helvetica-bold";
-  margin: 10px 0;
-}
 .submit-icon {
   width: 40px;
   height: 40px;
@@ -561,7 +701,7 @@ input[type="number"]:not(:placeholder-shown) {
   border: none;
   border-radius: 7px;
   margin: 10px 0;
-}
+} */
 
 /*  single products */
 
@@ -580,30 +720,4 @@ input[type="number"]:not(:placeholder-shown) {
   align-items: center;
   justify-content: center;
   margin-right: 20px;
-}
-
-@media (min-width: 1024px) {
-  .blog-image {
-    padding: 10px;
-  }
-  /* contact page style */
-
-  .blog-content h2 {
-    font-size: 32px;
-  }
-  .blog-content p {
-    font-size: 26px;
-  }
-  .blog-content span {
-    font-size: 22px;
-  }
-  .blog-content button {
-    font-size: 22px;
-  }
-  /* .blog-image {
-    padding: 10px;
-  } */
-  .log-in-btn {
-    width: 300px;
-  }
 }

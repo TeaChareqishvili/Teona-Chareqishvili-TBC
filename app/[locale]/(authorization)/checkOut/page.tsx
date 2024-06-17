@@ -1,13 +1,17 @@
 "use server";
-import { getProducts, getUserCart } from "@/apiUsers";
+import { getProducts, getUserCart, getUserInfo } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
-import CheckOutBtn from "../../../../components/checkoutbtn/CheckOutBtn";
+
 import Image from "next/image";
 
+import UserCheckOutForm from "@/components/userProfile/UserCheckOutForm";
+
 export default async function NewCartProducts() {
+  const userForm = await getUserInfo();
   const cart = await getUserCart();
+  console.log(userForm, "formuser");
 
   const cartProductsArray = Object.entries(cart.shop);
 
@@ -91,23 +95,11 @@ export default async function NewCartProducts() {
             )
             .toFixed(2)}
         </p>
-        <h3 className="text-[16px] font-bold text-[#ffffff] uppercase mb-2">
-          Payment Methods
-        </h3>
-        <div className="flex items-center justify-evenly">
-          {" "}
-          <button className="bg-white text-[#264653] py-2 px-4 rounded-md w-[120px] mr-[15px] cursor-pointer hover:bg-[#9b2226] hover:text-[#ffffff] transition-all duration-200">
-            Credit Card
-          </button>
-          <button className="bg-white text-[#264653] py-2 px-4 rounded-md w-[120px] mr-[15px] cursor-pointer hover:bg-[#9b2226] hover:text-[#ffffff] transition-all duration-200">
-            PayPal
-          </button>
-          <button className="bg-white text-[#264653] py-2 px-4 rounded-md w-[120px] mr-[15px] cursor-pointer hover:bg-[#9b2226] hover:text-[#ffffff] transition-all duration-200">
-            Crypto
-          </button>
-        </div>
 
-        <CheckOutBtn filteredProducts={filteredProducts} />
+        <UserCheckOutForm
+          userForm={userForm}
+          filteredProducts={filteredProducts}
+        />
       </div>
     </div>
   );

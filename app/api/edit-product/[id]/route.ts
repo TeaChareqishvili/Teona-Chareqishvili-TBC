@@ -13,7 +13,7 @@ export async function PUT(request: NextRequest) {
   const {
     title,
     description,
-    stock,
+
     price,
     sale,
     imageurl,
@@ -21,10 +21,11 @@ export async function PUT(request: NextRequest) {
     image_gallery,
   } = await request.json();
 
+  console.log("api", title);
+
   if (
     !title ||
     !description ||
-    !stock ||
     !price ||
     !sale ||
     !category ||
@@ -43,7 +44,7 @@ export async function PUT(request: NextRequest) {
       SET 
         title = ${title}, 
         description = ${description}, 
-        stock = ${stock}, 
+      
         price = ${price}, 
         sale = ${sale}, 
         category = ${category}, 

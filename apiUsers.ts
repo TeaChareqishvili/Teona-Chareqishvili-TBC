@@ -6,10 +6,12 @@ export const Host =
     : "https://teona-chareqishvili-tbc.vercel.app";
 
 export type Users = {
-  id: number;
+  id: string;
   name: string;
   email: string;
   age: number;
+  img: string | null;
+  serial_id: number;
 };
 
 export async function getUsers() {
@@ -27,15 +29,9 @@ export async function getUsers() {
   }
 }
 
-export async function createUser(name: string, email: string, age: number) {
-  return await fetch(Host + "/api/add-user", {
-    method: "POST",
-    body: JSON.stringify({ name, email, age }),
-  });
-}
-
 // function to delete user
-export async function deleteUser(id: number) {
+export async function deleteUser(id: string) {
+  // Changed type to string
   const response = await fetch(`${Host}/api/delete-user/${id}`, {
     method: "DELETE",
   });
@@ -47,19 +43,14 @@ export async function deleteUser(id: number) {
   return response.json();
 }
 
-export async function getUserById(
-  id: number,
-  name: string,
-  email: string,
-  age: number
-) {
+export async function getUserById(id: string, name: string) {
   try {
     const response = await fetch(`${Host}/api/edit-user/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, age }),
+      body: JSON.stringify({ name }),
     });
 
     if (!response.ok) {
@@ -98,14 +89,16 @@ export async function getProducts() {
 export async function getProductDetail(id: string) {
   const response = await fetch(`${Host}/api/get-product/${id}`);
   const data = await response.json();
-  const product = data.products?.rows ? data.products.rows[0] : null;
-  return product;
+
+  const reviews = data.reviews ? data.reviews : null;
+  const product = data.products ? data.products : null;
+  return { product, reviews };
 }
 
 // function to get blog details
 export async function getBlogDetail(id: string) {
   const response = await fetch(`${Host}/api/get-all-blogs/${id}`);
-  console.log(response, "response");
+
   const data = await response.json();
   const blog = data.blogs?.rows ? data.blogs.rows[0] : null;
   return blog;
@@ -140,7 +133,7 @@ export async function getUserCart() {
 // function  get logged in user's id
 export async function getUserId() {
   const session = await getSession();
-  // console.log(session, "sesion ");
+
   const user = session ? session.user : null;
   const id = user ? user.sub : null;
 
@@ -209,6 +202,7 @@ export async function addNewBlog(
   category: string
 ) {
   return await fetch(Host + "/api/add-new-blog", {
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({ title, description, image_url, category }),
   });
@@ -237,6 +231,7 @@ export async function getblogById(
 ) {
   try {
     const response = await fetch(`${Host}/api/edit-blog/${id}`, {
+      cache: "no-store",
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -244,7 +239,6 @@ export async function getblogById(
       body: JSON.stringify({ title, description, category, image_url }),
     });
 
-    console.log(response, "resp");
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.error);
@@ -262,7 +256,6 @@ export async function getblogById(
 export async function addNewProduct(
   title: string,
   description: string,
-  stock: number,
   price: string,
   sale: string,
   imageurl: string,
@@ -274,7 +267,6 @@ export async function addNewProduct(
     body: JSON.stringify({
       title,
       description,
-      stock,
       price,
       sale,
       imageurl,
@@ -289,7 +281,7 @@ export async function getProductById(
   id: number,
   title: string,
   description: string,
-  stock: number,
+
   price: string,
   sale: string,
   imageurl: string,
@@ -305,7 +297,7 @@ export async function getProductById(
       body: JSON.stringify({
         title,
         description,
-        stock,
+
         price,
         sale,
         imageurl,
@@ -341,6 +333,108 @@ export async function deleteProductForAdmin(id: number) {
     return await response.json();
   } catch (error) {
     console.error("Error deleting product:", error);
+    throw error;
+  }
+}
+
+// get orders
+
+export const getOrders = async () => {
+  const res = await fetch(`${Host}/api/orders`, {
+    cache: "no-store",
+  });
+  const orders = await res.json();
+  return orders;
+};
+
+// get reviews
+
+export async function getReviews(id: number) {
+  try {
+    const response = await fetch(`${Host}/api/get-product-review/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+    const data = await response.json();
+    const { reviews } = data;
+    return reviews?.rows;
+  } catch (error) {
+    console.error("Failed to fetch reviews:", error);
+    throw error;
+  }
+}
+
+// get user messages from database
+
+export async function getMessages() {
+  try {
+    const response = await fetch(Host + "/api/get-contact");
+    if (!response.ok) {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+    const { users } = await response.json();
+
+    return users.rows;
+  } catch (error) {
+    console.error("Failed to fetch users:", error);
+
+    throw error;
+  }
+}
+
+// get user by id for profile page
+
+export async function getUserInfo() {
+  try {
+    const id = await getUserId();
+
+    const response = await fetch(`${Host}/api/get-user/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch user info: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    if (data.error || !data.user) {
+      throw new Error(data.error || "User data is missing or malformed");
+    }
+
+    return data.user;
+  } catch (error) {
+    console.error("Error in getUserInfo:", error);
+    throw error;
+  }
+}
+
+// edit user by id hos profile info
+
+export async function getProfileInfoEdit(
+  id: number,
+  nickname: string,
+  phoneNumber: string,
+  address: string
+) {
+  console.log(id, "api");
+  try {
+    const response = await fetch(`${Host}/api/edit-profile-info/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id, nickname, phoneNumber, address }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating user:", error);
     throw error;
   }
 }

@@ -8,14 +8,14 @@ export default async function Articles() {
   const selectedBlogs = homeBlog.rows.slice(2, 5);
 
   return (
-    <div className="w-full bg-[#f4f6f3] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#264653]">
+    <div className="w-full bg-[#f4f6f3] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#1d273d]">
       <Link
         href="/blog"
-        className="text-center text-[34px] uppercase text-[#264653] my-[25px] underline cursor-pointer "
+        className="text-center mb-[20px] text-[24px] md:text-[30px] lg:text-[34px] uppercase dark:text-[white] text-[#264653] lg:my-[25px] lg:mb-0 underline cursor-pointer fade-in-out "
       >
         Latest Blogs
       </Link>
-      <div className=" w-full flex flex-wrap items-center justify-center gap-4 p-4 lg:justify-between lg:w-4/5">
+      <div className=" w-full flex flex-wrap items-center justify-center gap-4 lg:p-4 lg:justify-between lg:w-4/5">
         {selectedBlogs.map((item: Blogs) => (
           <div
             key={item.id}

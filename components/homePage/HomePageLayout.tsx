@@ -3,6 +3,8 @@ import ChooseUs from "./ChooseUs";
 import { MainVideo } from "./MainVideo";
 import Offer from "./Offer";
 import Stuff from "./Stuff";
+import BmiCalculator from "./BmiCalculator";
+import OurProducts from "./OurProducts";
 // import { Slider } from "./Slider";
 
 const HomePageLayout = () => {
@@ -11,9 +13,11 @@ const HomePageLayout = () => {
       <div className="flex flex-col">
         {" "}
         <MainVideo />
-        <ChooseUs />
         <Offer />
+        <ChooseUs />
         <Articles />
+        <OurProducts />
+        <BmiCalculator />
         <Stuff />
         {/* <Slider /> */}
       </div>

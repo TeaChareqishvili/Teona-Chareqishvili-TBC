@@ -85,7 +85,7 @@ export interface DetailProductData {
   title: string;
   description: string;
   price: string;
-  stock: number;
+
   category: string;
   imageurl: string;
   sale: string;
@@ -143,4 +143,16 @@ export interface CreateBlogData {
   description: string;
   image_url: string;
   category: string;
+}
+
+export interface ReviewData {
+  review: string;
+}
+
+export interface UserMessage {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  created_at: string;
 }

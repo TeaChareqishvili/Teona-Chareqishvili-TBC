@@ -1,85 +1,96 @@
 "use client";
 import { useScopedI18n } from "@/locales/client";
-import pool from "../../public/assets/image/offers/pool.webp";
-import spa from "../../public/assets/image/offers/spa.webp";
-import weight from "../../public/assets/image/offers/weight.webp";
-import muscle from "../../public/assets/image/offers/muscle.webp";
-import group from "../../public/assets/image/offers/groupclasees.webp";
-import personal from "../../public/assets/image/offers/trainer.webp";
-import yoga from "../../public/assets/image/offers/yoga.webp";
-import cafe from "../../public/assets/image/offers/cafe.webp";
-import Image from "next/image";
+
 import Link from "next/link";
 
 export default function Offer() {
   const t = useScopedI18n("offers");
 
+  const food =
+    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/food-nOy9VXPWEK5ddc61jG2wm5ekqoFMBY.mp4";
+  const group =
+    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/group-q8HQhoIUPkK0aDc0tqapbA7xTR6QkB.mp4";
+  const muscle =
+    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/muscleGain-W9XoXW8OaTqPJTm69dzsV95px6Do5y.mp4";
+  const personal =
+    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/personal-5Whmc7eRltNN9sLzNicJKzCB30d0e1.mp4";
+  const pool =
+    " https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/pool-q74F8NFU6ngXQYiWGQYtTjGeHw9Swg.mp4";
+  const spa =
+    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/spa-1IeAlkOqu3KwAESg4Z1f38nsiolsoY.mp4";
+  const weight =
+    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/weight-NhPhrK614rAKZBOmgXCQQIxwJY7Br1.mp4";
+  const yoga =
+    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/yoga-h6kiBcF6JyHeR8GVDBYIEPN6Q9vkAB.mp4";
+
   const offers = [
     {
       id: 1,
-      img: pool,
+      video: pool,
       title: t("pool"),
     },
     {
       id: 2,
-      img: weight,
+      video: weight,
       title: t("weight"),
     },
     {
       id: 3,
-      img: personal,
+      video: personal,
       title: t("trainer"),
     },
     {
       id: 4,
-      img: muscle,
+      video: muscle,
       title: t("muscle"),
     },
     {
       id: 5,
-      img: yoga,
+      video: yoga,
       title: t("yoga"),
     },
     {
       id: 6,
-      img: group,
+      video: group,
       title: t("group"),
     },
     {
       id: 7,
-      img: spa,
+      video: spa,
       title: t("spa"),
     },
     {
       id: 8,
-      img: cafe,
+      video: food,
       title: t("cafe"),
     },
   ];
 
   return (
-    <div className="w-full bg-[#f4f6f3] py-[30px]">
-      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[20px] underline">
+    <div className="w-full bg-[#f4f6f3] dark:bg-[#1d273d] py-[30px]">
+      <h2 className="text-center text-[24px] md:text-[30px] lg:text-[34px] uppercase text-[#264653] dark:text-[white] lg:my-[25px] lg:mb-[20px]  tracking-widest fade-in-out">
         What We Offer
       </h2>
-      <div className=" w-4/5 m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-[30px]">
+      <div className=" w-full m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-2 py-[30px]">
         {offers.map((item) => (
           <div
             key={item.id}
             className=" offers relative rounded-md cursor-pointer"
           >
-            <Image
-              className="w-full h-full rounded-md object-fill"
-              width={400}
-              height={400}
-              src={item.img}
-              alt={item.title}
+            <video
+              className="rounded-md"
+              src={item.video}
+              autoPlay
+              muted
+              loop
             />
             <div className="cover absolute top-0 left-0 w-full h-full rounded-md flex flex-col items-center justify-center">
               {" "}
-              <p className="text-[20px] text-[#ffffff]">{item.title}</p>
+              <p className="text-[28px] text-[#ffffff] tracking-wider">
+                {item.title}
+              </p>
               <Link
-                className="text-[15px] text-[#ffffff] font-bold hover:text-[18px] transition-all duration-200 mt-[7px] mb-[7px]"
+                className="text-[18px] tracking-widest text-[#ffffff] font-bold hover:text-[18px] transition-all duration-200 mt-[7px] mb-[7px]"
                 href="#"
               >
                 See More
