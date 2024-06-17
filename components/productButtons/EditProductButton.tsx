@@ -9,7 +9,7 @@ const EditProductButton = ({
   productDetail,
 }: {
   id: number;
-  productDetail: DetailProductData;
+  productDetail: DetailProductData[];
 }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const handleModal = () => {
@@ -28,7 +28,11 @@ const EditProductButton = ({
         edit Product
       </button>
       <EditProductModal isOpen={isModalOpen} onClose={handleModalClose}>
-        <EditProductForm id={id} productDetail={productDetail} />
+        <EditProductForm
+          id={id}
+          productDetail={productDetail}
+          handleModalClose={handleModalClose}
+        />
       </EditProductModal>
     </>
   );

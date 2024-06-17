@@ -193,7 +193,7 @@ export async function createNewContact(formData: contactData) {
 export async function createNewBlog(formData: CreateBlogData) {
   const { title, description, image_url, category } = formData;
   addNewBlog(title, description, image_url, category);
-  revalidatePath("/blog");
+  revalidatePath("/adminBlogs");
 }
 
 // delete single blog
@@ -209,7 +209,7 @@ export async function editBlog(id: number, formData: CreateBlogData) {
   const { title, description, category, image_url } = formData;
 
   getblogById(id, title, description, category, image_url);
-  revalidatePath("/singleBlog");
+  revalidatePath(`/singleBlog/${id}`);
 }
 
 // create new product
@@ -241,7 +241,7 @@ export async function editProduct(id: number, formData: DetailProductData) {
   const {
     title,
     description,
-    stock,
+
     sale,
     price,
     imageurl,
@@ -253,14 +253,14 @@ export async function editProduct(id: number, formData: DetailProductData) {
     id,
     title,
     description,
-    stock,
+
     sale,
     price,
     imageurl,
     category,
     image_gallery
   );
-  revalidatePath("/singleProductVercel");
+  revalidatePath(`/singleProductVercel/${id}`);
 }
 
 // function to delete product by admin

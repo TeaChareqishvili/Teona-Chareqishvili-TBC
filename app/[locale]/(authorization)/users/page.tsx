@@ -17,7 +17,7 @@ interface LoggedUser {
 
 export default async function Users() {
   const users = await getUsers();
-  console.log(users, "users");
+  // console.log(users, "users");
   // TODO FIX TYPE
   return (
     <div className="w-full lg:min-h-screen dark:bg-[#e5e5e5] mt-12 flex flex-col items-center justify-center mb-16">

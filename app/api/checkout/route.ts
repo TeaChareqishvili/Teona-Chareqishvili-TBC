@@ -39,7 +39,6 @@ export const POST = async (request: any) => {
   activeProducts = await getActiveProducts();
   let stripeItems: any = [];
 
-  console.log(data, "data");
   console.log(activeProducts, "active");
   for (const product of data) {
     console.log(product, "jjj");

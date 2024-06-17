@@ -96,7 +96,7 @@ export async function getProducts() {
 export async function getProductDetail(id: string) {
   const response = await fetch(`${Host}/api/get-product/${id}`);
   const data = await response.json();
-  console.log(data, "data");
+
   const reviews = data.reviews ? data.reviews : null;
   const product = data.products ? data.products : null;
   return { product, reviews };
@@ -105,7 +105,7 @@ export async function getProductDetail(id: string) {
 // function to get blog details
 export async function getBlogDetail(id: string) {
   const response = await fetch(`${Host}/api/get-all-blogs/${id}`);
-  console.log(response, "response");
+
   const data = await response.json();
   const blog = data.blogs?.rows ? data.blogs.rows[0] : null;
   return blog;
@@ -140,7 +140,7 @@ export async function getUserCart() {
 // function  get logged in user's id
 export async function getUserId() {
   const session = await getSession();
-  // console.log(session, "sesion ");
+
   const user = session ? session.user : null;
   const id = user ? user.sub : null;
 
@@ -246,7 +246,6 @@ export async function getblogById(
       body: JSON.stringify({ title, description, category, image_url }),
     });
 
-    console.log(response, "resp");
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.error);
@@ -291,7 +290,7 @@ export async function getProductById(
   id: number,
   title: string,
   description: string,
-  stock: number,
+
   price: string,
   sale: string,
   imageurl: string,
@@ -307,7 +306,7 @@ export async function getProductById(
       body: JSON.stringify({
         title,
         description,
-        stock,
+
         price,
         sale,
         imageurl,

@@ -22,7 +22,7 @@ const OrdersList = ({ orders }: any) => {
                 Status
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                City
+                number
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Actions
@@ -45,7 +45,7 @@ const OrdersList = ({ orders }: any) => {
                   {order.latest_charge.refunded ? "Refunded" : "Paid"}
                 </td>
                 <td className="px-6 py-7 whitespace-nowrap text-sm text-gray-500">
-                  {order.metadata.city || "N/A"}
+                  {order.metadata.phone || "N/A"}
                 </td>
                 <td className="px-6 py-7 whitespace-nowrap text-sm">
                   <div className="flex items-center space-x-4">

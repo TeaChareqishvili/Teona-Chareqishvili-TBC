@@ -34,6 +34,7 @@ const Navigation: React.FC<NavigationProps> = ({
             marginBottom: marginBottom,
             marginLeft: marginLeft,
             color: color,
+            fontSize: fontSize,
           }}
         >
           <li

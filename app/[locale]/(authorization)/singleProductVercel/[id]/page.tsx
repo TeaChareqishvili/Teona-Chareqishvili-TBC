@@ -1,11 +1,9 @@
 import { getProductDetail } from "@/apiUsers";
-
-// import EditProductButton from "@/components/productButtons/EditProductButton";
-// import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial";
-// import Image from "next/image";
+import EditProductButton from "@/components/productButtons/EditProductButton";
+import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial";
+import { getSession } from "@auth0/nextjs-auth0";
 import SingleProductAddComment from "@/components/reviews/Reviews";
 import SingleProduct from "@/components/newProductVercel/SingleProduct";
-// import { getReviews } from "../../../../../apiUsers";
 
 export default async function SingeleProductVercel({
   params: { id },
@@ -13,19 +11,18 @@ export default async function SingeleProductVercel({
   params: { id: string };
 }) {
   const { product, reviews } = await getProductDetail(id);
+  const session = await getSession();
+  const isAdmin =
+    Array.isArray(session?.user.role) && session?.user.role.includes("admin");
   const img: string[] = product[0].image_gallery;
-  console.log(reviews, "hhh");
-  console.log(img, "img");
-  console.log(product[0], "product");
-  // const reviews = await getReviews(id);
-  // console.log(reviews, "rev");
+  const productId = product[0].id;
 
   return (
     <div className=" w-full lg:mt-[140px] lg:min-h-screen">
       <SingleProduct img={img} product={product} reviews={reviews} />
+      <ShareSocial products={product} />
       <SingleProductAddComment id={id} />
-      {/* <ShareSocial products={product} />
-      <EditProductButton id={product.id} productDetail={product} /> */}
+      {isAdmin && <EditProductButton id={productId} productDetail={product} />}
     </div>
   );
 }
