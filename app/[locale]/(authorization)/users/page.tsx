@@ -5,20 +5,19 @@ import { getUsers } from "../../../../apiUsers";
 
 import type { Users } from "../../../../apiUsers";
 
-interface LoggedUser {
-  id: string;
-  email: string;
-  serial_id: number;
-  name: string;
-  phone_number?: string;
-  address?: number;
-  img?: string;
-}
+// interface LoggedUser {
+//   id: string;
+//   email: string;
+//   serial_id: number;
+//   name: string;
+//   phone_number?: string;
+//   address?: number;
+//   img?: string;
+// }
 
 export default async function Users() {
-  const users = await getUsers();
-  // console.log(users, "users");
-  // TODO FIX TYPE
+  const users: any = await getUsers();
+
   return (
     <div className="w-full lg:min-h-screen dark:bg-[#e5e5e5] mt-12 flex flex-col items-center justify-center mb-16">
       <div className="overflow-x-auto w-4/5">
@@ -46,7 +45,7 @@ export default async function Users() {
             </tr>
           </thead>
           <tbody>
-            {users?.map((user) => (
+            {users?.map((user: any) => (
               <tr
                 key={user.id}
                 className="border-b border-gray-300 dark:border-gray-600"

@@ -1,6 +1,6 @@
 "use client";
 import { DetailProductData } from "../../app/[locale]/interface";
-import { Host } from "../../apiUsers";
+
 import {
   FacebookShareButton,
   TwitterShareButton,

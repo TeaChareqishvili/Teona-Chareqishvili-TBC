@@ -14,6 +14,8 @@ export default function BlogAddForm() {
   const [category, setCategory] = useState("");
   const [image_url, setImage_url] = useState("");
 
+  console.log(blob);
+  // TODO blob
   const router = useRouter();
   const formData = {
     title,

@@ -3,7 +3,7 @@ interface Props {
   display: string;
 }
 
-const ContactUs: React.FC<Props> = ({ fontSize, display }) => {
+export default function ContactData({ fontSize, display }: Props) {
   return (
     <>
       <div className="mt-4 text-center text-sm text-gray-300">
@@ -40,5 +40,4 @@ const ContactUs: React.FC<Props> = ({ fontSize, display }) => {
       </div>
     </>
   );
-};
-export default ContactUs;
+}

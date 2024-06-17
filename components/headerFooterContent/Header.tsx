@@ -1,13 +1,13 @@
 import { Navigation } from "./Navigation";
 import { HeaderIcon } from "./HeaderIcon";
 import Link from "next/link";
-import { Claims } from "@auth0/nextjs-auth0";
+
 import Burger from "../Burger";
 import HeaderWrapper from "./HeaderWrapper";
 import Image from "next/image";
 import Logo from "../../public/assets/image/logo.png";
 
-export default function Header({ session }: { session: Claims | undefined }) {
+export default function Header() {
   return (
     <HeaderWrapper>
       <div className="w-4/5 flex items-center justify-between mx-auto">

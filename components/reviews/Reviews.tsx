@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-
-// import AddReviewImg from "../reviews/AddReviewImg";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { addProductComment } from "../../app/[locale]/actions";
 

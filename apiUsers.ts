@@ -29,13 +29,6 @@ export async function getUsers() {
   }
 }
 
-export async function createUser(name: string, email: string, age: number) {
-  return await fetch(Host + "/api/add-user", {
-    method: "POST",
-    body: JSON.stringify({ name, email, age }),
-  });
-}
-
 // function to delete user
 export async function deleteUser(id: string) {
   // Changed type to string

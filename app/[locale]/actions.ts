@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { getUserById, deleteUser, getProfileInfoEdit } from "../../apiUsers";
-import { createUser, createContact } from "../../apiUsers";
+import { createContact } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
 import { getSession } from "@auth0/nextjs-auth0";
@@ -22,12 +22,6 @@ export async function updateUserAction(id: string, userData: UserData) {
   const { name } = userData;
   getUserById(id, name);
   revalidatePath("/users");
-}
-//function to create new user
-export async function createNewUser(userData: UserData) {
-  const { name, email, age } = userData;
-  revalidatePath("/users");
-  createUser(name, email, age);
 }
 
 // function to delete user

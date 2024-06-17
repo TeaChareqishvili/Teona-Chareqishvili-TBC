@@ -8,7 +8,7 @@ const ContactLayout = () => {
       <div className="contact-cover"></div>
       <div className="z-10 flex flex-col items-center">
         {" "}
-        <ContactData />
+        <ContactData fontSize="28px" display="" />
         <SocialLinks />
       </div>
 
