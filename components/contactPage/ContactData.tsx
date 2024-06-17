@@ -14,25 +14,25 @@ export default function ContactData({ fontSize, display }: Props) {
           Contact us
         </h2>
         <p
-          className="text-white text-[22px] cursor-pointer mb-[15px]"
+          className="text-white cursor-pointer mb-[15px] lg:text-[22px] "
           style={{ fontSize: fontSize }}
         >
-          Rustaveli Aveniu
+          Rustaveli Avenu
         </p>
         <p
-          className="text-white text-[22px] cursor-pointer mb-[15px]"
+          className="text-white cursor-pointer mb-[15px] lg:text-[22px] "
           style={{ fontSize: fontSize }}
         >
           Tbilisi, Georgia
         </p>
         <p
-          className="text-white text-[22px] cursor-pointer mb-[15px]"
+          className="text-white  cursor-pointer mb-[15px] lg:text-[22px]"
           style={{ fontSize: fontSize }}
         >
           Email: contact@viatlityzone.com
         </p>
         <p
-          className="text-white text-[22px] cursor-pointer mb-[15px]"
+          className="text-white  cursor-pointer mb-[15px] lg:text-[22px]"
           style={{ fontSize: fontSize }}
         >
           Phone: (995) 599 557799

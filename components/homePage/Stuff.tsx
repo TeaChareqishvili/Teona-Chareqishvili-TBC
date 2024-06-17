@@ -64,8 +64,8 @@ const trainers = [
 
 export default function Stuff() {
   return (
-    <div className="bg-[#f4f6f3] py-[20px] dark:bg-white">
-      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline dark:text-[#1d273d] fade-in-out">
+    <div className="bg-[#D3D4D9] py-[20px]">
+      <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline dark:text-[#1d273d] ">
         Meet Our Stuff
       </h2>
       <Swiper

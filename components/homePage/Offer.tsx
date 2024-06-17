@@ -67,8 +67,8 @@ export default function Offer() {
   ];
 
   return (
-    <div className="w-full bg-[#f4f6f3] dark:bg-[#1d273d] py-[30px]">
-      <h2 className="text-center text-[24px] md:text-[30px] lg:text-[34px] uppercase text-[#264653] dark:text-[white] lg:my-[25px] lg:mb-[20px]  tracking-widest fade-in-out">
+    <div className="w-full bg-[#D3D9D4] dark:bg-[#2E3944] py-[30px]">
+      <h2 className="text-center text-[24px] md:text-[30px] lg:text-[34px] uppercase text-[#264653] dark:text-[white] lg:my-[25px] lg:mb-[20px]  tracking-widest offers">
         What We Offer
       </h2>
       <div className=" w-full m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-2 py-[30px]">

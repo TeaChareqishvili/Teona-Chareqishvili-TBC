@@ -27,13 +27,14 @@
   text-decoration: none;
 }
 
+/* offer */
+
 /* navigation */
 .navigation {
   transition: all 0.3s;
 }
 
 .navigation:hover {
-  transform: scale(1.5);
   text-decoration: underline;
 }
 
@@ -113,7 +114,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1d273d;
+  background-color: #212a31;
   color: white;
   display: flex;
   align-items: center;

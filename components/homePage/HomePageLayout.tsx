@@ -1,10 +1,10 @@
-// import Articles from "./Articles";
+import Articles from "./Articles";
 import ChooseUs from "./ChooseUs";
 import { MainVideo } from "./MainVideo";
 import Offer from "./Offer";
 import Stuff from "./Stuff";
 import BmiCalculator from "./BmiCalculator";
-// import OurProducts from "./OurProducts";
+import OurProducts from "./OurProducts";
 // import { Slider } from "./Slider";
 
 const HomePageLayout = () => {
@@ -15,8 +15,8 @@ const HomePageLayout = () => {
         <MainVideo />
         <Offer />
         <ChooseUs />
-        {/* <Articles /> */}
-        {/* <OurProducts /> */}
+        <Articles />
+        <OurProducts />
         <BmiCalculator />
         <Stuff />
         {/* <Slider /> */}

@@ -4,11 +4,11 @@ import { SocialLinks } from "@/components/headerFooterContent/SocialLinks";
 
 const ContactLayout = () => {
   return (
-    <div className="contact-layout flex items-center justify-around relative">
+    <div className="contact-layout flex flex-col items-center justify-around relative lg:flex-row">
       <div className="contact-cover"></div>
       <div className="z-10 flex flex-col items-center">
         {" "}
-        <ContactData fontSize="28px" display="" />
+        <ContactData fontSize="20px" display="" />
         <SocialLinks />
       </div>
 
