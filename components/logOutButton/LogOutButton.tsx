@@ -12,11 +12,11 @@ const LogOutButton = () => {
     <div className="mr-[7px] ">
       {user ? (
         <a href="/api/auth/logout">
-          <HiOutlineLogout className="lg:w-[20px] lg:h-[20px] text-[#264653] cursor-pointer dark:text-[#ffffff] dark:hover:text-[#70cbcb] " />
+          <HiOutlineLogout className="lg:w-[20px] lg:h-[20px] text-[#ffffff] cursor-pointer dark:text-[#ffffff] dark:hover:text-[#74bD92] " />
         </a>
       ) : (
         <a href="/api/auth/login">
-          <IoLogIn className="lg:w-[25px] lg:h-[25px] text-[#264653] cursor-pointer dark:text-[#ffffff] dark:hover:text-[#70cbcb] " />
+          <IoLogIn className="lg:w-[25px] lg:h-[25px] text-[#ffffff] cursor-pointer dark:text-[#ffffff] dark:hover:text-[#74bD92] " />
         </a>
       )}
     </div>

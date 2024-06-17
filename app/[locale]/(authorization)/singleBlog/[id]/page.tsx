@@ -1,7 +1,18 @@
 "use server";
 import SingleBlogDetails from "@/components/blogs/SingleBlogDetails";
 
-import { getBlogDetail } from "../../../../../apiUsers";
+import { getBlogDetail, getBlogs } from "../../../../../apiUsers";
+import { Blogs } from "@/app/[locale]/interface";
+
+export async function generateMetadata({ params }: any) {
+  const blogData = await getBlogs();
+  const blog = blogData.rows.find((blog: Blogs) => blog.id == params.id);
+
+  return {
+    title: `${blog.title}`,
+    description: `${blog.description}`,
+  };
+}
 
 export default async function SingleBlog({
   params: { id },

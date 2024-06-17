@@ -29,7 +29,7 @@ const Navigation: React.FC<NavigationProps> = ({
       >
         <Link
           href="/homePageLayout"
-          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653]  uppercase cursor-pointer dark:text-white "
+          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white "
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -46,7 +46,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>{" "}
         <Link
           href="/ProductVercel"
-          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653]  uppercase cursor-pointer dark:text-white "
+          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white "
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -62,7 +62,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/blog"
-          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653]  uppercase cursor-pointer dark:text-white"
+          className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -78,7 +78,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </Link>
         <Link
           href="/contact"
-          className=" navigation text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653]  uppercase cursor-pointer dark:text-[white]"
+          className=" navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-[white]"
           style={{
             marginBottom: marginBottom,
             marginLeft: marginLeft,
@@ -95,7 +95,7 @@ const Navigation: React.FC<NavigationProps> = ({
         {isAdmin && (
           <Link
             href="/admin"
-            className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-[#264653]  uppercase cursor-pointer dark:text-white "
+            className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white "
             style={{
               marginBottom: marginBottom,
               marginLeft: marginLeft,

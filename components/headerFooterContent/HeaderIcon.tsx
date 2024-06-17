@@ -14,17 +14,17 @@ const HeaderIcon: React.FC<NavigationProps> = async ({ alignItems }) => {
   return (
     <div style={{ alignItems: alignItems }} className="hidden lg:flex">
       <div style={{ display: "flex", alignItems: "center" }}>
-        <LogOutButton />
-        <LangButton />
-        <ThemeMode />
-
+        <Cart />
         {session?.user && (
           <Link href="/profile">
             <UserAvatar />
             {/* <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400  dark:hover:text-[#70cbcb] dark:text-[#ffffff] " /> */}
           </Link>
         )}
-        <Cart />
+
+        <LangButton />
+        <ThemeMode />
+        <LogOutButton />
       </div>
     </div>
   );

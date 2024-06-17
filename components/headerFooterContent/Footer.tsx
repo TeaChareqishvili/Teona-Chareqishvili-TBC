@@ -2,15 +2,16 @@
 
 import ContactData from "../contactPage/ContactData";
 import FooterVideo from "./FooterVideo";
-
+import Logo from "../../public/assets/image/logo.png";
 import { Navigation } from "./Navigation";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="dark:bg-[#1d273d] text-white py-[30px]">
+    <footer className="dark:bg-[#212A31] bg-[#748D92] text-white py-[30px]">
       <div className="container mx-auto flex flex-wrap justify-between">
         <div className="w-full md:w-1/4 px-4">
-          <h2 className="text-2xl font-bold mb-4">LOGO</h2>
+          <Image width={60} height={60} src={Logo} alt="logo" />
           <p className="mb-4">
             Join us at Vitality Zone for expert health and fitness tips, workout
             routines, and a supportive community to help you achieve your

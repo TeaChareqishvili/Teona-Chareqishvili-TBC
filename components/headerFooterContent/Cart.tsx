@@ -15,7 +15,7 @@ export default async function Cart() {
       <Link href="/checkOut">
         <div className="relative">
           {" "}
-          <IoCartOutline className="w-7 h-7 text-[#38393b] transition-all duration-400  dark:hover:text-[#70cbcb] dark:text-[#ffffff] " />{" "}
+          <IoCartOutline className="w-7 h-7 text-white transition-all duration-400 hover:text-[#2E3944]  dark:hover:text-[#748D92] dark:text-[#ffffff] " />{" "}
           {finalNum <= 0 ? (
             " "
           ) : (

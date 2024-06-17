@@ -4,27 +4,31 @@ import Link from "next/link";
 import { Claims } from "@auth0/nextjs-auth0";
 import Burger from "../Burger";
 import HeaderWrapper from "./HeaderWrapper";
+import Image from "next/image";
+import Logo from "../../public/assets/image/logo.png";
 
 export default function Header({ session }: { session: Claims | undefined }) {
   return (
     <HeaderWrapper>
       <div className="w-4/5 flex items-center justify-between mx-auto">
-        {" "}
-        <Link href="/">
-          {/* "  <Image
-            className="text-white"
-            src={LogoImage}
-            alt="Logo"
-            width={100}
-            height={50}
-          />" */}
-          <h1>logo</h1>
-        </Link>
-        <div className="hidden lg:block">
-          <Navigation marginLeft="30px" display="flex" />
+        <div className="flex items-center justify-center">
+          <Link href="/">
+            <Image
+              className="text-white "
+              src={Logo}
+              alt="Logo"
+              width={60}
+              height={50}
+            />
+          </Link>
+          <div className="hidden lg:block">
+            <Navigation marginLeft="30px" display="flex" />
+          </div>
         </div>
-        <HeaderIcon marginRight="20px" alignItems="center" />
-        <Burger />
+        <div>
+          <HeaderIcon marginRight="20px" alignItems="center" />
+          <Burger />
+        </div>
       </div>
     </HeaderWrapper>
   );

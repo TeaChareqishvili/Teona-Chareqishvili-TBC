@@ -23,14 +23,14 @@ export default async function SingleBlogDetails({
   return (
     <>
       <div
-        key={singleBlog.id}
+        key={singleBlog?.id}
         className="w-full px-[20px] py-[40px] flex flex-col lg:flex-row lg:items-start lg:justify-between"
       >
         <div className="w-full lg:w-1/2 overflow-hidden rounded-md transition-all duration-200">
           <div
             className="w-full h-[500px] mb-[20px] lg:mb-0 rounded-md hover:scale-125 transition-all duration-200"
             style={{
-              backgroundImage: `url(${singleBlog.image_url})`,
+              backgroundImage: `url(${singleBlog?.image_url})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -39,18 +39,18 @@ export default async function SingleBlogDetails({
         </div>
         <div className="flex flex-col items-center lg:w-2/5">
           <h1 className="text-white text-[22px] mb-[15px] lg:text-[26px]">
-            {singleBlog.title}
+            {singleBlog?.title}
           </h1>
           <p className="text-[#ebebeb] text-[16px] mb-[15px] lg:text-[18px]">
-            {singleBlog.description}
+            {singleBlog?.description}
           </p>
           <p className="text-[12px] text-[#d3d3d3] lg:text-[15px]">
             <i className="text-[12px] mr-[5px] lg:text-[15px]">Added On:</i>
-            {formatDate(singleBlog.date)}
+            {formatDate(singleBlog?.date)}
           </p>
           {isAdmin && (
             <div className="flex flex-col ">
-              <EditBlog id={singleBlog.id} blog={singleBlog} />
+              <EditBlog id={singleBlog?.id} blog={singleBlog} />
             </div>
           )}
         </div>
