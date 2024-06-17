@@ -67,7 +67,6 @@ const UserCheckOutForm: React.FC<UserCheckOutFormProps> = ({
             type="text"
             id="phone_number"
             value={userForm.phone_number}
-            readOnly
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -86,7 +85,7 @@ const UserCheckOutForm: React.FC<UserCheckOutFormProps> = ({
           />
         </div>
       </form>
-      <CheckOutBtn filteredProducts={filteredProducts} />
+      <CheckOutBtn filteredProducts={filteredProducts} userForm={userForm} />
     </div>
   );
 };

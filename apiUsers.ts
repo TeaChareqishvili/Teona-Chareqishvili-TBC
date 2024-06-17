@@ -263,7 +263,6 @@ export async function getblogById(
 export async function addNewProduct(
   title: string,
   description: string,
-  stock: number,
   price: string,
   sale: string,
   imageurl: string,
@@ -275,7 +274,6 @@ export async function addNewProduct(
     body: JSON.stringify({
       title,
       description,
-      stock,
       price,
       sale,
       imageurl,

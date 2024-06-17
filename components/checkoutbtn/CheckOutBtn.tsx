@@ -1,15 +1,14 @@
 "use client";
 // import { Host } from "../../apiUsers";
-import { useUser } from "@auth0/nextjs-auth0/client";
-export default function CheckOutBtn({ filteredProducts }: any) {
-  const { user } = useUser();
+
+export default function CheckOutBtn({ filteredProducts, userForm }: any) {
   const checkout = async () => {
     await fetch("http://localhost:3000/api/checkOut", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ products: filteredProducts, user }),
+      body: JSON.stringify({ products: filteredProducts, userForm }),
     })
       .then((response) => response.json())
       .then((response) => {

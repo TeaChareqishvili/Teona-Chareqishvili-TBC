@@ -8,7 +8,7 @@ export async function GET(
   try {
     // Fetch user data from the database
     const result =
-      await sql`SELECT name, serial_id, email, phone_number, address FROM authousers WHERE serial_id = ${id}`;
+      await sql`SELECT name, serial_id, email, phone_number, img, address FROM authousers WHERE serial_id = ${id}`;
 
     // Handle case where no user is found
     if (result.rows.length === 0) {

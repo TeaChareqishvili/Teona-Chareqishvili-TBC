@@ -218,7 +218,7 @@ export async function createNewProduct(formData: DetailProductData) {
   const {
     title,
     description,
-    stock,
+
     sale,
     price,
     imageurl,
@@ -228,26 +228,18 @@ export async function createNewProduct(formData: DetailProductData) {
   addNewProduct(
     title,
     description,
-    stock,
     sale,
     price,
     imageurl,
     category,
     image_gallery
   );
+  revalidatePath("/adminProducts");
 }
 // function to edit product info
 export async function editProduct(id: number, formData: DetailProductData) {
-  const {
-    title,
-    description,
-
-    sale,
-    price,
-    imageurl,
-    category,
-    image_gallery,
-  } = formData;
+  const { title, description, sale, price, imageurl, category, image_gallery } =
+    formData;
 
   getProductById(
     id,

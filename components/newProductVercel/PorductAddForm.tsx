@@ -10,7 +10,7 @@ export default function ProductAddForm() {
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
-  const [stock, setStock] = useState("");
+
   const [sale, setSale] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -21,14 +21,13 @@ export default function ProductAddForm() {
   const formData = {
     title,
     price,
-    stock: parseInt(stock, 10),
     sale,
     description,
     category,
     imageurl,
     image_gallery,
   };
-  console.log(formData, "formdata");
+  console.log(formData, "formdataadd");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -36,7 +35,6 @@ export default function ProductAddForm() {
     } catch (error) {
       console.error(error);
     }
-    // window.location.reload();
   };
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,7 +73,7 @@ export default function ProductAddForm() {
         Add New Product
       </h1>
       <form
-        className="w-full max-w-2xl flex  items-center mt-4 space-y-4"
+        className="w-full max-w-2xl  mt-4 space-y-4"
         onSubmit={handleSubmit}
       >
         <div className="w-full flex flex-wrap space-x-4">
@@ -117,18 +115,6 @@ export default function ProductAddForm() {
           </div>
         </div>
         <div className="w-full flex flex-wrap space-x-4">
-          <div className="flex flex-col flex-1">
-            <label className="block text-gray-700 dark:text-white">Stock</label>
-            <input
-              type="number"
-              name="stock"
-              placeholder="Stock"
-              value={stock}
-              onChange={(e) => setStock(e.target.value)}
-              required
-              className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#527361]"
-            />
-          </div>
           <div className="flex flex-col flex-1">
             <label className="block text-gray-700 dark:text-white">
               Category

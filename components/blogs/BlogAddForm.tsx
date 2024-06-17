@@ -22,7 +22,6 @@ export default function BlogAddForm() {
     image_url,
   };
 
-  // TODO revalidate for add blogs
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {

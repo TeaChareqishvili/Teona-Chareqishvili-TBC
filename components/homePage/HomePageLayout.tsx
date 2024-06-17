@@ -1,5 +1,5 @@
 import Articles from "./Articles";
-// import ChooseUs from "./ChooseUs";
+import ChooseUs from "./ChooseUs";
 import { MainVideo } from "./MainVideo";
 import Offer from "./Offer";
 import Stuff from "./Stuff";
@@ -14,7 +14,7 @@ const HomePageLayout = () => {
         {" "}
         <MainVideo />
         <Offer />
-        {/* <ChooseUs /> */}
+        <ChooseUs />
         <Articles />
         <OurProducts />
         <BmiCalculator />

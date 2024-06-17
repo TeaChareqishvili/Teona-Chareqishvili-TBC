@@ -42,7 +42,6 @@ export default function BlogEditForm({
     handleModalClose();
   };
 
-  //TODO fix refrsh for edit
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) {
       throw new Error("No file selected");

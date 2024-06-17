@@ -12,7 +12,9 @@ const getActiveProducts = async () => {
 };
 
 export const POST = async (request: any) => {
-  const { products, user } = await request.json();
+  const { products, userForm } = await request.json();
+
+  console.log(userForm, "checkout");
 
   const data: SelectedProduct[] = products;
 
@@ -39,14 +41,11 @@ export const POST = async (request: any) => {
   activeProducts = await getActiveProducts();
   let stripeItems: any = [];
 
-  console.log(activeProducts, "active");
   for (const product of data) {
-    console.log(product, "jjj");
     const stripeProduct = activeProducts?.find(
       (prod: any) => prod?.name?.toLowerCase() == product?.title?.toLowerCase()
     );
 
-    console.log(stripeProduct, "stripeproduct");
     if (stripeProduct) {
       stripeItems.push({
         price: stripeProduct?.default_price,
@@ -58,15 +57,14 @@ export const POST = async (request: any) => {
     throw new Error("No valid items to purchase");
   }
   const session = await stripe.checkout.sessions.create({
-    line_items: stripeItems, // Ensure stripeItems is correctly defined and populated
+    line_items: stripeItems,
     mode: "payment",
-    customer_email: user.email, // Ensure user.email is correctly defined
+    customer_email: userForm.email,
     payment_intent_data: {
       metadata: {
-        id: user.sub, // Ensure user.sub is correctly defined
-        phone: user.phone, // Ensure user.phone is correctly defined
-        city: user.city, // Ensure user.city is correctly defined
-        address: user.address, // Ensure user.address is correctly defined
+        id: userForm.serial_id,
+        phone: userForm.phone_number, // Ensure user.phone is correctly defined
+        address: userForm.address, // Ensure user.address is correctly defined
       },
     },
     success_url: `${Host}/success`, // Ensure Host is correctly defined
