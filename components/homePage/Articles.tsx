@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function Articles() {
   const homeBlog = await getBlogs();
 
-  const selectedBlogs = homeBlog.rows.slice(2, 5);
+  const selectedBlogs = homeBlog?.rows?.slice(2, 5);
 
   return (
     <div className="w-full bg-[#D3D9D4] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#2E3944]">
