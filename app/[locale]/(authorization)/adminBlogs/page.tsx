@@ -103,7 +103,6 @@ export default async function Blog() {
       </div>
 
       <AddNewBlog />
-      {/* <BlogCategoryList category={category} /> */}
     </div>
   );
 }

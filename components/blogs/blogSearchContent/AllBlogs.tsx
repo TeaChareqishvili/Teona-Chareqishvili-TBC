@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Blogs } from "@/app/[locale]/interface";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 
 interface AllBlogsProps {
   firstBlog: Blogs;
@@ -68,7 +68,7 @@ export default function AllBlogs({ firstBlog, blog }: AllBlogsProps) {
 
           <Link
             className=" ml-[20px] dark:text-white text-[15px] text-[#212A31] font-bold cursor-pointer"
-            href={`/singleBlog/${blog.id}`}
+            href={`/singleBlog/${firstBlog.id}`}
           >
             Read more
           </Link>
