@@ -4,7 +4,7 @@ import { MainVideo } from "./MainVideo";
 import Offer from "./Offer";
 import Stuff from "./Stuff";
 import BmiCalculator from "./BmiCalculator";
-import OurProducts from "./OurProducts";
+// import OurProducts from "./OurProducts";
 // import { Slider } from "./Slider";
 
 const HomePageLayout = () => {
@@ -16,7 +16,7 @@ const HomePageLayout = () => {
         <Offer />
         <ChooseUs />
         <Articles />
-        <OurProducts />
+        {/* <OurProducts /> */}
         <BmiCalculator />
         <Stuff />
         {/* <Slider /> */}
