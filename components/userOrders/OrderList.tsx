@@ -10,10 +10,10 @@ const OrdersList = ({ orders }: any) => {
   };
 
   return (
-    <div className="mt-12 dark:bg-gray-200 p-12 min-h-screen">
+    <div className="mt-[80px] dark:bg-gray-200 p-12 min-h-screen">
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-[#1d273d]">
+          <thead className="dark:bg-[#2E3944] bg-[748D92]">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Amount

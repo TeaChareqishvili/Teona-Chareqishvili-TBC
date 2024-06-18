@@ -1,17 +1,13 @@
 "use server";
-import { getProducts, getUserCart, getUserInfo } from "@/apiUsers";
+import { getProducts, getUserCart } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
-
+import Link from "next/link";
 import Image from "next/image";
 
-import UserCheckOutForm from "@/components/userProfile/UserCheckOutForm";
-
 export default async function NewCartProducts() {
-  const userForm = await getUserInfo();
   const cart = await getUserCart();
-  console.log(userForm, "formuser");
 
   const cartProductsArray = Object.entries(cart.shop);
 
@@ -31,40 +27,36 @@ export default async function NewCartProducts() {
     }));
 
   return (
-    <div className=" flex flex-col items-center justify-center  w-full bg-[#dad7cd] px-[20px] py-[20px] lg:justify-between lg:flex-row lg:items-start lg:px-[30px]">
+    <div className=" flex flex-col items-center justify-center  w-full dark:bg-[#2E3944] px-[20px] py-[20px] lg:justify-between lg:flex-row lg:items-start lg:px-[30px]">
       <div className="flex   flex-col mt-[150px]">
-        <div className=" h-[50px] bg-[#999e97] dark:bg-[#264653] w-full flex items-center rounded-t-md">
-          <p className="text-left text-[16px] text-[#ffffff] italic tracking-wider font-bold ml-[15px] ">
-            Your cart
-          </p>
-        </div>
-        <div className="w-full flex flex-col items-center lg:items-start">
+        <div className="w-full flex flex-col items-center lg:items-start ">
           {" "}
           {filteredProducts.map((product: SelectedProduct) => (
             <div
               key={product.id}
-              className=" border-2 border-[#999e97] dark:border-[#264653]  flex flex-col items-center  justify-center   mb-[15px] w-full lg:flex-row lg:justify-between"
+              className=" bg-white rounded-md py-[12px] md:px-[30px] dark:border-[#264653]  flex flex-col items-center  justify-center   mb-[15px] w-full md:flex-row lg:flex-row lg:justify-between"
             >
               <Image
                 width={300}
                 height={300}
                 src={product.imageurl}
                 alt="bag"
-                className="mb-[20px] lg:mb-[0]"
-              />
-              <div className="ml-[40px] text-[#264653] font-bold text-[12px] ">
+                className="mb-[20px] lg:mb-[0] rounded-lg"
+              />{" "}
+              <div className="md:flex md:flex-col md:px-[25px] md:w-[300px]">
                 {" "}
-                <p className="">{product.title}</p>
-                <p>{product.category}</p>
-                <p>${product.price}</p>
-                <p>In Stock: {product.stock}</p>
-                <p>Quantity:{product.quantity}</p>
-                <SingleProductButtons id={product.id} />
+                <p className="text-[#264653] text-[13px]  md:text-[15px] md:font-bold">
+                  {product.title}
+                </p>
+                <p className="text-[#264653]">{product.category}</p>
+                <p className="text-[#264653]">${product.price}</p>
+                <p className="text-[#264653]">Quantity:{product.quantity}</p>
               </div>
-              <p className="flex flex-col items-center  text-[#264653] font-extrabold lg:mr-[20px] ">
+              <SingleProductButtons id={product.id} />
+              <p className="flex flex-col items-center  dark:text-[#9b2226] font-extrabold lg:mr-[20px] ">
                 {" "}
                 Total Price
-                <span className="text-[#264653] font-extrabold ">
+                <span className="dark:text-[#9b2226] font-extrabold ">
                   ${" "}
                   {(
                     (product.quantity || 0) * parseFloat(product.price)
@@ -76,7 +68,7 @@ export default async function NewCartProducts() {
           <DeleteAll />
         </div>
       </div>
-      <div className="bg-[#999e97] dark:bg-[#264653] mt-[150px] px-[15px] py-[30px] flex flex-col items-center justify-center rounded-md lg:ml-[20px]">
+      {/* <div className="bg-[#999e97] dark:bg-[#264653] mt-[150px] px-[15px] py-[30px] flex flex-col items-center justify-center rounded-md lg:ml-[20px]">
         <h2 className="text-[18px] font-bold text-[#ffffff] uppercase mb-[10px]">
           Total Price{" "}
         </h2>
@@ -95,12 +87,8 @@ export default async function NewCartProducts() {
             )
             .toFixed(2)}
         </p>
-
-        <UserCheckOutForm
-          userForm={userForm}
-          filteredProducts={filteredProducts}
-        />
-      </div>
+        <Link href="/userCheckOutInfo">Buy Now</Link>
+      </div> */}
     </div>
   );
 }

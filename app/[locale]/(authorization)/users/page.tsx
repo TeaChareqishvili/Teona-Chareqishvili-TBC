@@ -23,7 +23,7 @@ export default async function Users() {
       <div className="overflow-x-auto w-4/5">
         <table className="min-w-full border-2 border-gray-300 dark:bg-[#1d273d] rounded-lg shadow-lg mt-8 mb-8">
           <thead>
-            <tr className="bg-gray-300 dark:bg-gray-700">
+            <tr className=" bg-[#748D92] dark:bg-[#212A31]">
               <th className="py-4 px-6 text-lg text-gray-800 dark:text-white">
                 Name
               </th>
@@ -48,7 +48,7 @@ export default async function Users() {
             {users?.map((user: any) => (
               <tr
                 key={user.id}
-                className="border-b border-gray-300 dark:border-gray-600"
+                className="border-b border-gray-400 dark:bg-[#2E3944]"
               >
                 <td className="pl-8 py-4 text-lg text-gray-800 dark:text-gray-200">
                   {user.name}

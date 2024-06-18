@@ -103,7 +103,7 @@ export default function ContactForm() {
           />
         </label>
         <button
-          className=" mt-[20px] border-2 border-white px-[15px] py-[7px] text-[17px] text-[#ffffff] bg-transparent cursor-pointer"
+          className=" mt-[20px] border-2 border-white px-[15px] py-[7px] text-[17px] text-[#ffffff] bg-transparent cursor-pointer hover:bg-[#212A31] transition-all duration-200"
           type="submit"
         >
           Submit

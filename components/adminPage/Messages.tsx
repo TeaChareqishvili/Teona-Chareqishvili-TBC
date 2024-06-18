@@ -10,10 +10,10 @@ export default function Messages({ messages }: { messages: UserMessage[] }) {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
   return (
-    <div className="w-11/12 md:w-4/5 m-auto mt-[90px] mb-[70px]">
-      <div className="border-2 border-gray-300 rounded-lg shadow-lg overflow-auto max-h-[500px]">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-[#1d273d]">
+    <div className="w-11/12 md:w-4/5 m-auto mt-[120px] mb-[70px]">
+      <div className="border-2 border-gray-300 rounded-lg shadow-lg overflow-auto max-h-[500px] ">
+        <table className="min-w-full divide-y divide-gray-200 ">
+          <thead className="dark:bg-[#2E3944] bg-[#D3D4D9]">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Name

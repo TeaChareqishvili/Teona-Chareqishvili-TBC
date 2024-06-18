@@ -28,7 +28,7 @@ const Navigation: React.FC<NavigationProps> = ({
         }}
       >
         <Link
-          href="/homePageLayout"
+          href="/"
           className="navigation text-sm md:text-base lg:text-lg xl:text-xl  text-white  uppercase cursor-pointer dark:text-white "
           style={{
             marginBottom: marginBottom,
