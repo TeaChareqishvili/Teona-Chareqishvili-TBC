@@ -6,7 +6,9 @@ export default async function userOrders() {
   const orders = await getOrders();
 
   const userSub = session?.users?.sub;
-  const usersOrder = orders.filter((order) => order.metadata.id === userSub);
+  const usersOrder = orders.filter(
+    (order: any) => order.metadata.id === userSub
+  );
   console.log(usersOrder, "ordersss");
 
   return <div></div>;

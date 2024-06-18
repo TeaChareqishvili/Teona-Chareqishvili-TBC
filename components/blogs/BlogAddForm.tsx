@@ -3,7 +3,7 @@
 import type { PutBlobResult } from "@vercel/blob";
 import { useState, useRef } from "react";
 import { createNewBlog } from "../../app/[locale]/actions";
-import Image from "next/image";
+
 import { useRouter } from "next/navigation";
 
 export default function BlogAddForm() {
