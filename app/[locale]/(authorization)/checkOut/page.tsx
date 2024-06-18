@@ -3,7 +3,7 @@ import { getProducts, getUserCart } from "@/apiUsers";
 import { DeleteAll } from "@/components/productButtons/DeleteAll";
 import { SingleProductButtons } from "@/components/productButtons/SingleProductButtons";
 import { SelectedProduct } from "../../interface";
-import Link from "next/link";
+
 import Image from "next/image";
 
 export default async function NewCartProducts() {
