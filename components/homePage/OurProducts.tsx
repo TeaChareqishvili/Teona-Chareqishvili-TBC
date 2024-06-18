@@ -9,7 +9,7 @@ export default async function OurProducts() {
   const selectedProducts = homeProducts.slice(0, 3);
 
   return (
-    <div className="w-full bg-[#D3D4D9] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#2E3944]">
+    <div className="w-full bg-[#D3D9D4] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#2E3944]">
       <Link
         href="/ProductVercel"
         className="text-center  mb-[20px] text-[24px] md:text-[30px] lg:text-[34px] uppercase  text-[#ffffff] my-[25px] underline cursor-pointer  "
