@@ -41,50 +41,61 @@ export default function UserInfo({
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className="mt-4 w-full bg-[black]">
+    <form onSubmit={handleFormSubmit} className="  bg-transparent">
+      <h2 className="text-[24px] text-left mb-[15px]">
+        You Can Change Your Personal Info here
+      </h2>
       <div className="mb-4">
-        <label className="block text-gray-700">Nickname</label>
+        <label className="block font-bold text-[#212A31] dark:text-[#D3D9D4] mb-[7px]">
+          Nickname:
+        </label>
         <input
           type="text"
           placeholder="name"
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
-          className="mt-1 p-2 border rounded w-full text-black"
+          className="bg-transparent border-b-2 border-white w-[300px] py-[7px] outline-none"
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Email</label>
+        <label className="block font-bold text-[#212A31] dark:text-[#D3D9D4] mb-[7px]">
+          Email:
+        </label>
         <input
           type="text"
           placeholder="email"
           value={user.email}
           readOnly
-          className="mt-1 p-2 border rounded w-full "
+          className="bg-transparent border-b-2 border-white w-[300px] py-[7px] outline-none"
         />
       </div>
 
       <div className="mb-4">
-        <label className="block text-gray-700">Phone Number</label>
+        <label className=" font-bold text-[#212A31] block dark:text-[#D3D9D4] mb-[7px]">
+          Phone Number:
+        </label>
         <input
           type="text"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
-          className="mt-1 p-2 border rounded w-full text-black"
+          className="bg-transparent border-b-2 border-white w-[300px] py-[7px] outline-none"
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Address</label>
+        <label className=" font-bold text-[#212A31] block dark:text-[#D3D9D4] mb-[7px]">
+          Address:
+        </label>
         <input
           type="text"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          className="mt-1 p-2 border rounded w-full text-black"
+          className="bg-transparent border-b-2 border-white w-[300px] py-[7px] outline-none"
         />
       </div>
 
       <button
         type="submit"
-        className="bg-blue-500 text-white py-2 px-4 rounded"
+        className="dark:bg-[#212A31] bg-[#748D82] w-[150px] hover:bg-[#124E66] transition-all duration-200  text-white py-2 px-4 rounded"
       >
         Save
       </button>

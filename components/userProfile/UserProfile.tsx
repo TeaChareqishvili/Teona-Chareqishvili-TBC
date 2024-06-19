@@ -1,12 +1,13 @@
 import { getSession } from "@auth0/nextjs-auth0";
-import Image from "next/image";
+// import Image from "next/image";
 import AvatarUpload from "./AvatarUpload";
 import { Host } from "@/apiUsers";
 // import { getScopedI18n } from "@/locales/server";
 import UserInfo from "./UserInfo";
 import { getUserInfo } from "../../apiUsers";
+import CurrentUserOrders from "./CurrentUserOrders";
 
-export default async function UserProfile() {
+export default async function UserProfile({ usersOrder }: any) {
   const session = await getSession();
   // const t = await getScopedI18n("profile");
   console.log(session, "sesion");
@@ -32,18 +33,12 @@ export default async function UserProfile() {
   const { user } = session;
 
   return (
-    <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg max-w-sm mx-auto">
-      <div className=" w-[250px] h-[250px]">
-        <Image
-          src={data.user.img}
-          alt={user.name}
-          width={250}
-          height={250}
-          className="object-cover rounded-full w-full h-full"
-        />
+    <div className="w-[90%] m-auto flex flex-col items-center justify-center">
+      <div className="w-full flex items-center justify-between m-auto">
+        <AvatarUpload userimg={user} data={data} />
+        <UserInfo user={currentUser} id={currentUser.serial_id} />
       </div>
-      <UserInfo user={currentUser} id={currentUser.serial_id} />
-      <AvatarUpload />
+      <CurrentUserOrders usersOrder={usersOrder} />
     </div>
   );
 }

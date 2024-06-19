@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function NewProduct({ product }: NewProductProps) {
   return (
     <>
-      {product.map((product: VercelProduct) => (
+      {product?.map((product: VercelProduct) => (
         <div
           key={product.id}
           className="max-w-xs bg-white shadow-lg rounded-lg p-5 space-y-4 overflow-hidden mb-10"
