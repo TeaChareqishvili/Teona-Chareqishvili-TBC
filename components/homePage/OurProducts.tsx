@@ -17,7 +17,7 @@ export default async function OurProducts() {
         Our Products
       </Link>
       <div className=" w-full flex flex-wrap items-center justify-center gap-4  lg:p-4 lg:justify-between lg:w-4/5">
-        {selectedProducts.map((item: VercelProduct) => (
+        {selectedProducts?.map((item: VercelProduct) => (
           <div
             key={item.id}
             className=" max-w-xs bg-white shadow-lg rounded-lg p-5  space-y-4 overflow-hidden mb-[40px]"
