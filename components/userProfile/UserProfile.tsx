@@ -1,5 +1,5 @@
 import { getSession } from "@auth0/nextjs-auth0";
-import Image from "next/image";
+// import Image from "next/image";
 import AvatarUpload from "./AvatarUpload";
 import { Host } from "@/apiUsers";
 // import { getScopedI18n } from "@/locales/server";
@@ -32,18 +32,9 @@ export default async function UserProfile() {
   const { user } = session;
 
   return (
-    <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg max-w-sm mx-auto">
-      <div className=" w-[250px] h-[250px]">
-        <Image
-          src={data.user.img}
-          alt={user.name}
-          width={250}
-          height={250}
-          className="object-cover rounded-full w-full h-full"
-        />
-      </div>
+    <div className="w-[90%] flex items-center justify-between m-auto">
+      <AvatarUpload userimg={user} data={data} />
       <UserInfo user={currentUser} id={currentUser.serial_id} />
-      <AvatarUpload />
     </div>
   );
 }

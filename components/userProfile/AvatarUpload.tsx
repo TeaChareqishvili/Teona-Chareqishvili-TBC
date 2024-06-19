@@ -3,66 +3,92 @@ import { handleUpdateImg } from "../../app/[locale]/actions";
 import type { PutBlobResult } from "@vercel/blob";
 import { useState, useRef } from "react";
 import { useScopedI18n } from "@/locales/client";
+import Image from "next/image";
+import { MdPhotoCamera } from "react-icons/md";
+import { FaSpinner } from "react-icons/fa";
 
-export default function AvatarUpload() {
+export default function AvatarUpload({ userimg, data }: any) {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const t = useScopedI18n("profile");
 
   return (
-    <div className="w-full min-h-[100px] bg-[#cfe1d8] flex flex-col items-center mt-4 p-4 rounded-md dark:bg-[#527361]">
-      <h1 className="text-black text-xl font-semibold dark:text-white">
-        {t("picture")}
-      </h1>
-      <form
-        className="flex flex-col items-center mt-4"
-        onSubmit={async (event) => {
-          event.preventDefault();
+    <div className=" w-1/2 flex flex-col items-center justify-center">
+      <div className="relative w-[350px] h-[350px] group">
+        <Image
+          src={data?.user.img}
+          alt={userimg?.name}
+          width={250}
+          height={250}
+          className="object-cover rounded-full w-full h-full"
+        />
+        <label className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full cursor-pointer">
+          {t("chooseFile")}
+          <input
+            name="file"
+            ref={inputFileRef}
+            type="file"
+            required
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          />
+        </label>
+        <div className="absolute bottom-8 right-12 bg-white p-1 rounded-full opacity-100 transition-opacity duration-300">
+          <MdPhotoCamera className="text-black" />
+        </div>
+      </div>
+      <div className=" min-h-[100px]  flex flex-col items-center">
+        <h1 className="text-black text-xl font-semibold dark:text-white">
+          {t("picture")}
+        </h1>
 
-          if (!inputFileRef.current?.files) {
-            throw new Error("No file selected");
-          }
+        <form
+          className="flex flex-col items-center mt-4"
+          onSubmit={async (event) => {
+            event.preventDefault();
 
-          const file = inputFileRef.current.files[0];
+            if (!inputFileRef.current?.files) {
+              throw new Error("No file selected");
+            }
 
-          const response = await fetch(`/api/upload?filename=${file.name}`, {
-            method: "POST",
-            body: file,
-          });
+            setIsLoading(true);
 
-          const newBlob = (await response.json()) as PutBlobResult;
+            const file = inputFileRef.current.files[0];
 
-          setBlob(newBlob);
-          await handleUpdateImg(newBlob);
-        }}
-      >
-        <div className="flex items-center justify-between ">
-          {" "}
-          <label className="mr-[15px] w-[120px] relative bg-[#76a58b]  h-[40px] text-[#ffffff] flex items-center justify-center  rounded hover:bg-[#748f80] transition duration-300">
-            {" "}
-            {t("chooseFile")}
-            <input
-              name="file"
-              ref={inputFileRef}
-              type="file"
-              required
-              className=" absolute w-full h-full top-0 keft-0 mb-4 p-2 border border-white rounded file:mr-5 file:py-1 file:px-3 file:border-[1px]
-                    file:text-xs file:font-small
-                    file:bg-stone-50 file:text-stone-700
-                    hover:file:cursor-pointer hover:file:bg-blue-50
-                    hover:file:text-[#748f80] opacity-0"
-            />
-          </label>
+            try {
+              const response = await fetch(
+                `/api/upload?filename=${file.name}`,
+                {
+                  method: "POST",
+                  body: file,
+                }
+              );
+
+              const newBlob = (await response.json()) as PutBlobResult;
+
+              setBlob(newBlob);
+              await handleUpdateImg(newBlob);
+            } catch (error) {
+              console.error("Error uploading file:", error);
+            } finally {
+              setIsLoading(false);
+            }
+          }}
+        >
           <button
             type="submit"
-            className=" w-[120px] bg-[#76a58b] flex items-center justify-center text-white px-4 py-2 rounded hover:bg-[#748f80] transition duration-300"
+            className="dark:bg-[#212A31] flex items-center h-[40px] justify-center bg-[#748D82] w-[150px] hover:bg-[#124E66] transition-all duration-200  text-white py-2 px-4 rounded"
           >
-            {t("upload")}
+            {isLoading ? (
+              <FaSpinner className="animate-spin mr-2" />
+            ) : (
+              t("upload")
+            )}
           </button>
-        </div>
 
-        {blob && ""}
-      </form>
+          {blob && ""}
+        </form>
+      </div>
     </div>
   );
 }
