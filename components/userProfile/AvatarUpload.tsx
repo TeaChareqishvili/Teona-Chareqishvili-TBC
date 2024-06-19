@@ -7,6 +7,8 @@ import Image from "next/image";
 import { MdPhotoCamera } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
 
+// TODO fix background
+
 export default function AvatarUpload({ userimg, data }: any) {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);

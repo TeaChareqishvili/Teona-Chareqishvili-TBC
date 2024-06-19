@@ -63,8 +63,8 @@ export const POST = async (request: any) => {
     payment_intent_data: {
       metadata: {
         id: userForm.serial_id,
-        phone: formData.phone_number,
-        address: formData.address,
+        phone: formData.phone_number || userForm?.phone_number,
+        address: formData.address || userForm?.address,
       },
     },
     success_url: `${Host}/success`,

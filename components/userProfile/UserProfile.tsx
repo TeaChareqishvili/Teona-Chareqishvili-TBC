@@ -5,8 +5,9 @@ import { Host } from "@/apiUsers";
 // import { getScopedI18n } from "@/locales/server";
 import UserInfo from "./UserInfo";
 import { getUserInfo } from "../../apiUsers";
+import CurrentUserOrders from "./CurrentUserOrders";
 
-export default async function UserProfile() {
+export default async function UserProfile({ usersOrder }: any) {
   const session = await getSession();
   // const t = await getScopedI18n("profile");
   console.log(session, "sesion");
@@ -32,9 +33,12 @@ export default async function UserProfile() {
   const { user } = session;
 
   return (
-    <div className="w-[90%] flex items-center justify-between m-auto">
-      <AvatarUpload userimg={user} data={data} />
-      <UserInfo user={currentUser} id={currentUser.serial_id} />
+    <div className="w-[90%] m-auto flex flex-col items-center justify-center">
+      <div className="w-full flex items-center justify-between m-auto">
+        <AvatarUpload userimg={user} data={data} />
+        <UserInfo user={currentUser} id={currentUser.serial_id} />
+      </div>
+      <CurrentUserOrders usersOrder={usersOrder} />
     </div>
   );
 }
