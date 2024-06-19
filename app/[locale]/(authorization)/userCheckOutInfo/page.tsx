@@ -24,7 +24,7 @@ export default async function UserCheckOutInfo() {
     }));
 
   return (
-    <div>
+    <div className="bg-[#D3D9D4] dark:bg-[#2E3944] min-h-screen w-full flex items-center justify-center">
       <UserCheckOutForm
         userForm={userForm}
         filteredProducts={filteredProducts}

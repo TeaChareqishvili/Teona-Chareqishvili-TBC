@@ -12,7 +12,7 @@ const getActiveProducts = async () => {
 };
 
 export const POST = async (request: any) => {
-  const { products, userForm } = await request.json();
+  const { products, userForm, formData } = await request.json();
 
   console.log(userForm, "checkout");
 
@@ -63,12 +63,12 @@ export const POST = async (request: any) => {
     payment_intent_data: {
       metadata: {
         id: userForm.serial_id,
-        phone: userForm.phone_number, // Ensure user.phone is correctly defined
-        address: userForm.address, // Ensure user.address is correctly defined
+        phone: formData.phone_number,
+        address: formData.address,
       },
     },
-    success_url: `${Host}/success`, // Ensure Host is correctly defined
-    cancel_url: `${Host}/cancel`, // Ensure Host is correctly defined
+    success_url: `${Host}/success`,
+    cancel_url: `${Host}/checkout`,
   });
 
   console.log("Stripe Session:", session);
