@@ -3,9 +3,10 @@ import Image from "next/image";
 import { getBlogs } from "@/apiUsers";
 import { Blogs } from "@/app/[locale]/interface";
 import Link from "next/link";
+import { getScopedI18n } from "@/locales/server";
 export default async function Articles() {
   const homeBlog = await getBlogs();
-
+  const t = await getScopedI18n("article");
   const selectedBlogs = homeBlog?.rows?.slice(2, 5);
 
   return (
@@ -14,7 +15,7 @@ export default async function Articles() {
         href="/blog"
         className="text-center mb-[20px] text-[24px] md:text-[30px] lg:text-[34px] uppercase dark:text-[white] text-[#264653] lg:my-[25px] lg:mb-0 underline cursor-pointer "
       >
-        Latest Blogs
+        {t("article")}
       </Link>
       <div className=" w-full flex flex-wrap items-center justify-center gap-4 lg:p-4 lg:justify-between lg:w-4/5">
         {selectedBlogs.map((item: Blogs) => (

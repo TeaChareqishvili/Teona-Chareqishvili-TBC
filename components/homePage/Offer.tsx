@@ -83,7 +83,7 @@ export default function Offer() {
   return (
     <div className="w-full bg-[#D3D9D4] dark:bg-[#2E3944] py-[30px]">
       <h2 className="text-center text-[24px] md:text-[30px] lg:text-[34px] uppercase text-[#264653] dark:text-[white] lg:my-[25px] lg:mb-[20px]  tracking-widest offers">
-        What We Offer
+        {t("offer")}
       </h2>
       <div className=" w-full m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-2 py-[30px]">
         {offers.map((item) => (
@@ -107,7 +107,7 @@ export default function Offer() {
                 className="text-[18px] tracking-widest text-[#ffffff] font-bold hover:text-[18px] transition-all duration-200 mt-[7px] mb-[7px]"
                 href={item.path}
               >
-                See More
+                {t("seemore")}
               </Link>
             </div>
           </div>

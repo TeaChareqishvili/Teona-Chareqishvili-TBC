@@ -3,10 +3,12 @@ import Image from "next/image";
 import { getProducts } from "@/apiUsers";
 import { VercelProduct } from "@/app/[locale]/interface";
 import Link from "next/link";
+import { getScopedI18n } from "@/locales/server";
 
 export default async function OurProducts() {
   const homeProducts = await getProducts();
   const selectedProducts = homeProducts?.slice(0, 3);
+  const t = await getScopedI18n("product");
 
   return (
     <div className="w-full bg-[#D3D9D4] flex flex-col items-center justify-center py-[40px] px-[30px] lg:justify-between dark:bg-[#2E3944]">
@@ -14,7 +16,7 @@ export default async function OurProducts() {
         href="/ProductVercel"
         className="text-center  mb-[20px] text-[24px] md:text-[30px] lg:text-[34px] uppercase  text-[#ffffff] my-[25px] underline cursor-pointer  "
       >
-        Our Products
+        {t("products")}
       </Link>
       <div className=" w-full flex flex-wrap items-center justify-center gap-4  lg:p-4 lg:justify-between lg:w-4/5">
         {selectedProducts?.map((item: VercelProduct) => (

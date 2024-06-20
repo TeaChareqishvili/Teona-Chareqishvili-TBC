@@ -16,21 +16,7 @@ export default {
     findUs: "მოგვძებნეთ",
     right: " © 2024 ყველა უფლება დაცულია",
   },
-  logIn: {
-    access: " გთხოვთ შეიყვანეთ თქვენი მონაცემები !",
-    userName: "სახელი",
-    password: "პაროლი",
-    logIn: "შესვლა",
-  },
-  logOutbtn: {
-    logOut: "გასვლა",
-  },
-  search: {
-    searchCategory: "შეარჩიეთ კატეგორია",
-    sort: "დასორტე",
-    reset: "დაბრუნება",
-    available: "პროდუქტი ხელმისაწვდომია მაღაზიაში",
-  },
+
   socIcons: {
     find: "მოგვძებნეთ",
   },
@@ -45,15 +31,7 @@ export default {
     time: "სამუშაო საათები",
     email: "მეილი",
   },
-  aboutUs: {
-    about: "ჩვენს შესახებ",
-    lorem: `1993 წლიდან ჩვენ ვმოძრაობთ როგორც ბლოგი ადრეული წლების. ლორემ
-  იპსუმ დოლორ სით ამეტ, კონსექტეტურ ადიპისცინგ ელიტ, სედ დო ეიუსმოდ
-  ტემპორ incididunt უტ ლაბორე ეტ დოლორე მაგნა ალიკუა. უტ enim ad minim
-  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-  ea commodo consequat. დუის აუტე იურე დოლორ ინ reprehenderit ინ
-  voluptate velit esse cillum dolore eu fugiat.`,
-  },
+
   addUser: {
     name: "სახელი",
     email: "მეილი",
@@ -73,6 +51,8 @@ export default {
     upload: "ატვირთვა",
   },
   offers: {
+    seemore: "ნახე მეტი",
+    offer: "ჩვენ გთავაზობთ",
     pool: "აკვა აერობიკა",
     trainer: "პერსონალური ტრენერი",
     group: "ჯგუფური ვარჯიშები",
@@ -81,5 +61,23 @@ export default {
     cafe: "ჯანსაღი კვება",
     muscle: "კუნთოვანი მასის მომატება",
     weight: "წონაში კლება",
+  },
+  chooseUs: {
+    choose: "რატომ ჩვენ",
+    equipment: "თანამედროვე აღწურვილობა",
+    nutrition: "ჯანსაღი კვების გეგმა",
+    training: "პერსონალური ვარჯიშები",
+    needs: "ინდივიდუალური გეგმა",
+    lorem: ` ლორემ იპსუმ ბერლინალეს გამოილევოდა 
+    პეპელასავით აბრის იწამლავ კრებებზედაც. გაბაშვილის უჭირს წიგნიქექიას.`,
+  },
+  article: {
+    article: "უახლესი ბლოგები",
+  },
+  product: {
+    products: "ჩვენი პროდუქტები",
+  },
+  index: {
+    bmi: "BMI კალკულატორი",
   },
 } as const;
