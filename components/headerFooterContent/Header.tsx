@@ -10,7 +10,7 @@ import Logo from "../../public/assets/image/logo.png";
 export default function Header() {
   return (
     <HeaderWrapper>
-      <div className="w-4/5 flex items-center justify-between mx-auto">
+      <div className="w-[95%] flex items-center justify-between mx-auto">
         <div className="flex items-center justify-center">
           <Link href="/">
             <Image
@@ -25,7 +25,7 @@ export default function Header() {
             <Navigation marginLeft="30px" display="flex" />
           </div>
         </div>
-        <div>
+        <div className="w-[30%]">
           <HeaderIcon marginRight="20px" alignItems="center" />
           <Burger />
         </div>

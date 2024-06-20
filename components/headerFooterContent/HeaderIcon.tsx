@@ -1,5 +1,4 @@
 import { NavigationProps } from "@/app/[locale]/interface";
-// import { BsPerson } from "react-icons/bs";
 import Link from "next/link";
 import Cart from "./Cart";
 import { getSession } from "@auth0/nextjs-auth0";
@@ -12,16 +11,17 @@ const HeaderIcon: React.FC<NavigationProps> = async ({ alignItems }) => {
   const session = await getSession();
 
   return (
-    <div style={{ alignItems: alignItems }} className="hidden lg:flex">
-      <div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ alignItems: alignItems }} className="hidden lg:flex w-full">
+      <div
+        style={{ display: "flex", alignItems: "center" }}
+        className="w-full flex items-center justify-evenly"
+      >
         <Cart />
         {session?.user && (
           <Link href="/profile">
             <UserAvatar />
-            {/* <BsPerson className="w-7 h-7 text-[#38393b] transition-all duration-400  dark:hover:text-[#70cbcb] dark:text-[#ffffff] " /> */}
           </Link>
         )}
-
         <LangButton />
         <ThemeMode />
         <LogOutButton />

@@ -52,7 +52,7 @@ const offers = [
 
 export default function FooterVideo() {
   return (
-    <div className=" w-full m-auto grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-2 py-[30px]">
+    <div className=" w-full m-auto grid  grid-cols-3 gap-2 py-[30px]">
       {offers.map((item) => (
         <div
           key={item.id}

@@ -16,21 +16,7 @@ export default {
     findUs: "Find Us",
     right: " © 2024 all rights reserved",
   },
-  logIn: {
-    access: " Access restricted. Please log in to proceed !",
-    userName: "User name",
-    password: "Password",
-    logIn: "Log In",
-  },
-  logOutbtn: {
-    logOut: "Log Out",
-  },
-  search: {
-    searchCategory: "Search Category",
-    sort: "Sort",
-    reset: "Reset",
-    available: "items are available in store",
-  },
+
   socIcons: {
     find: "Find Us",
   },
@@ -44,15 +30,6 @@ export default {
     address: "Address",
     time: "Open Time",
     email: "Email",
-  },
-  aboutUs: {
-    about: "About Us",
-    lorem: `Since 1993 we have roamed is a blog from the earliest years. Lorem
-    ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-    ea commodo consequat. Duis aute irure dolor in reprehenderit in
-    voluptate velit esse cillum dolore eu fugiat.`,
   },
 
   addUser: {
@@ -75,6 +52,8 @@ export default {
     upload: "Upload",
   },
   offers: {
+    seemore: "see more",
+    offer: "what we Offer",
     pool: "Water Aerobics",
     trainer: "Personal Trainer",
     group: "Group Exercise",
@@ -83,5 +62,23 @@ export default {
     cafe: "Healthy Food",
     muscle: "Muscle Gain",
     weight: "weight Loose",
+  },
+  chooseUs: {
+    choose: "why choose us",
+    equipment: "modern equipment",
+    nutrition: "Healthy nutrition plan",
+    training: "training plan",
+    needs: "unique to your needs",
+    lorem: ` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut dolore facilisis.`,
+  },
+  article: {
+    article: "Latest blogs",
+  },
+  product: {
+    products: "Our Products",
+  },
+  index: {
+    bmi: "BMI Calculator",
   },
 } as const;

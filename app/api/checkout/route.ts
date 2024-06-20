@@ -68,7 +68,7 @@ export const POST = async (request: any) => {
       },
     },
     success_url: `${Host}/success`,
-    cancel_url: `${Host}/checkout`,
+    cancel_url: `${Host}/checkOut`,
   });
 
   console.log("Stripe Session:", session);
