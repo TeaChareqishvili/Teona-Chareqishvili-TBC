@@ -2,6 +2,12 @@
 import { useScopedI18n } from "@/locales/client";
 
 import Link from "next/link";
+interface Item {
+  id: number;
+  video: string;
+  title: string;
+  path: string;
+}
 
 export default function Offer() {
   const t = useScopedI18n("offers");
@@ -23,46 +29,54 @@ export default function Offer() {
   const yoga =
     "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/yoga-h6kiBcF6JyHeR8GVDBYIEPN6Q9vkAB.mp4";
 
-  const offers = [
+  const offers: Item[] = [
     {
       id: 1,
       video: pool,
       title: t("pool"),
+      path: "/pool",
     },
     {
       id: 2,
       video: weight,
       title: t("weight"),
+      path: "/looseWeight",
     },
     {
       id: 3,
       video: personal,
       title: t("trainer"),
+      path: "/personalTrainer",
     },
     {
       id: 4,
       video: muscle,
       title: t("muscle"),
+      path: "/muscleGain",
     },
     {
       id: 5,
       video: yoga,
       title: t("yoga"),
+      path: "/yoga",
     },
     {
       id: 6,
       video: group,
       title: t("group"),
+      path: "/groupExercise",
     },
     {
       id: 7,
       video: spa,
       title: t("spa"),
+      path: "/spa",
     },
     {
       id: 8,
       video: food,
       title: t("cafe"),
+      path: "/caffee",
     },
   ];
 
@@ -91,7 +105,7 @@ export default function Offer() {
               </p>
               <Link
                 className="text-[18px] tracking-widest text-[#ffffff] font-bold hover:text-[18px] transition-all duration-200 mt-[7px] mb-[7px]"
-                href="#"
+                href={item.path}
               >
                 See More
               </Link>
