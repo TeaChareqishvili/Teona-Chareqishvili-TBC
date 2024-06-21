@@ -1,9 +1,10 @@
 "use server";
 import { getBlogs } from "@/apiUsers";
-
+import { unstable_noStore as noStore } from "next/cache";
 import AllBlogs from "@/components/blogs/blogSearchContent/AllBlogs";
 
 export default async function Blog() {
+  noStore();
   const blog = await getBlogs();
 
   const firstBlog = blog.rows[7];
