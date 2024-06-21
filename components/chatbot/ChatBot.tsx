@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 
 export default function ChatBot() {
   const [prompt, setPrompt] = useState("");
@@ -8,7 +8,7 @@ export default function ChatBot() {
 
   console.log(response, "res");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setResponse("Loading...");
 
@@ -32,9 +32,9 @@ export default function ChatBot() {
       <form onSubmit={handleSubmit}>
         <textarea
           value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          rows="4"
-          cols="50"
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+            setPrompt(e.target.value)
+          }
         />
         <br />
         <button type="submit">Submit</button>
