@@ -1,6 +1,6 @@
 "use client";
-import { DetailProductData } from "../../app/[locale]/interface";
 
+import { SingleBlogData } from "@/app/[locale]/interface";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -9,31 +9,31 @@ import {
   TwitterIcon,
   LinkedinIcon,
 } from "react-share";
-export default function ShareSocial({
-  products,
-}: {
-  products: DetailProductData;
-}) {
+
+interface ShareBlogsProps {
+  singleBlog: SingleBlogData;
+}
+export default function ShareBlogs({ singleBlog }: ShareBlogsProps) {
   const share = "https://teona-chareqishvili-tbc.vercel.app";
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="w-full flex items-center justify-center mb-[20px]">
       <FacebookShareButton
-        url={`${share}/singleProductVercel/${products.id}`}
-        title={products.title}
+        url={`${share}/singleBlog/${singleBlog.id}`}
+        title={singleBlog.title}
         className="mr-[5px]"
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
       <TwitterShareButton
-        url={`${share}/singleProductVercel/${products.id}`}
-        title={products.title}
+        url={`${share}/singleBlog/${singleBlog.id}`}
+        title={singleBlog.title}
         className="mr-[5px]"
       >
         <TwitterIcon size={32} round />
       </TwitterShareButton>
       <LinkedinShareButton
-        url={`${share}/singleProductVercel/${products.id}`}
-        title={products.title}
+        url={`${share}/singleBlog/${singleBlog.id}`}
+        title={singleBlog.title}
         className="mr-[5px]"
       >
         <LinkedinIcon size={32} round />
