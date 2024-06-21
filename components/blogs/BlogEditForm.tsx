@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import type { PutBlobResult } from "@vercel/blob";
 import { useRouter } from "next/navigation";
+import { FaSpinner } from "react-icons/fa";
 
 import { editBlog } from "@/app/[locale]/actions";
 
@@ -22,6 +23,7 @@ export default function BlogEditForm({
   const [description, setDescription] = useState(blog.description || "");
   const [category, setCategory] = useState(blog.category || "");
   const [image_url, setImage_url] = useState(blog.image_url || "");
+  const [isLoading, setIsLoading] = useState(false);
 
   const formData = {
     title,
@@ -50,6 +52,7 @@ export default function BlogEditForm({
     const file = e.target.files[0];
 
     try {
+      setIsLoading(true);
       const response = await fetch(`/api/upload?filename=${file.name}`, {
         method: "POST",
         body: file,
@@ -63,10 +66,12 @@ export default function BlogEditForm({
       setImage_url(newBlob.url);
     } catch (error) {
       console.error("Error uploading file:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
-    <div className="w-full p-4 bg-white rounded-lg">
+    <div className="w-full p-4 bg-white rounded-lg  ">
       <h2 className="text-xl font-semibold text-center mb-4">Edit Blog</h2>
       <form
         className="grid grid-cols-1 md:grid-cols-2 gap-4"
@@ -137,22 +142,11 @@ export default function BlogEditForm({
             type="submit"
             className="w-full md:w-1/4 py-2 bg-[#1d273d] text-white font-semibold rounded-md hover:bg-[#a4161a] transition duration-300"
           >
-            Upload
+            {isLoading ? <FaSpinner className="animate-spin mr-2" /> : "Upload"}
           </button>
         </div>
 
-        {blob && (
-          <div className="md:col-span-2 mt-2 text-center">
-            <span className="block text-gray-700">Blob URL:</span>
-            <Image
-              src={blob.url}
-              alt="Blob Image"
-              width={100}
-              height={100}
-              className="inline-block rounded-md"
-            />
-          </div>
-        )}
+        {blob && ""}
       </form>
     </div>
   );

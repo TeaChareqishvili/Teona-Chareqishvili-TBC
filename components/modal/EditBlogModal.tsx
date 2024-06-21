@@ -9,7 +9,7 @@ const EditBlogModal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
       onClick={onClose}
     >
       <div

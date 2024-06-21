@@ -1,5 +1,5 @@
 "use client";
-// import { Host } from "../../apiUsers";
+import { Host } from "../../apiUsers";
 
 export default function CheckOutBtn({
   filteredProducts,
@@ -7,7 +7,7 @@ export default function CheckOutBtn({
   formData,
 }: any) {
   const checkout = async () => {
-    await fetch("http://localhost:3000/api/checkOut", {
+    await fetch(`${Host}/api/checkOut`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
