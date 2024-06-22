@@ -1,5 +1,5 @@
 "use client";
-
+import { Host } from "../../apiUsers";
 import { useState, FormEvent, ChangeEvent } from "react";
 
 export default function ChatBot() {
@@ -12,7 +12,7 @@ export default function ChatBot() {
     e.preventDefault();
     setResponse("Loading...");
 
-    const res = await fetch("http://localhost:3000/api/openAi", {
+    const res = await fetch(`${Host}/api/openAi`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
