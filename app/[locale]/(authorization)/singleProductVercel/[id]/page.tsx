@@ -31,8 +31,10 @@ export default async function SingeleProductVercel({
   const img: string[] = product[0].image_gallery;
   const productId = product[0].id;
 
+  console.log(product, "img");
+
   return (
-    <div className=" w-full lg:mt-[140px] lg:min-h-screen">
+    <div className=" w-full lg:mt-[140px] lg:min-h-screen dark:bg-[#2E3944] bg-[#D3D9D4]">
       <SingleProduct img={img} product={product} reviews={reviews} />
       <ShareSocial products={product} />
       <SingleProductAddComment id={id} />

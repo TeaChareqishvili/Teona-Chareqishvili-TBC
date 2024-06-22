@@ -1,10 +1,8 @@
-"use server";
 import SingleBlogDetails from "@/components/blogs/SingleBlogDetails";
-
 import { getBlogDetail, getBlogs } from "../../../../../apiUsers";
 import { Blogs } from "@/app/[locale]/interface";
 import ShareBlogs from "@/components/socilaMediaShare/ShareBlogs";
-
+export const dynamic = "force-static";
 export async function generateMetadata({ params }: any) {
   const blogData = await getBlogs();
   const blog = blogData.rows.find((blog: Blogs) => blog.id == params.id);
