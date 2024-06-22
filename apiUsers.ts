@@ -438,3 +438,34 @@ export async function getProfileInfoEdit(
     throw error;
   }
 }
+
+// calling openai route
+export const getChat = async ({ prompt }: { prompt: string }) => {
+  try {
+    const res = await fetch(`${Host}/api/openAi`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt }),
+    });
+
+    if (!res.ok) {
+      console.error(`HTTP error! status: ${res.status}`, await res.text());
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    const data = await res.json();
+    const messageContent = data?.choices?.[0]?.message?.content;
+
+    if (messageContent) {
+      return messageContent;
+    } else {
+      console.error("Invalid response structure", data);
+      throw new Error("Invalid response structure");
+    }
+  } catch (error) {
+    console.error("Error in getChat:", error);
+    throw error;
+  }
+};

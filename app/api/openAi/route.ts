@@ -1,10 +1,8 @@
-// app/api/openai/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 export async function POST(req: NextRequest) {
@@ -38,7 +36,6 @@ export async function POST(req: NextRequest) {
         { status: error.status }
       );
     } else {
-      // Non-API error
       console.error("Non-API error:", error);
       return NextResponse.json(
         { message: "Internal server error", error: " error.message" },
