@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import CheckOutBtn from "../checkoutbtn/CheckOutBtn";
+
 import { SelectedProduct } from "../../app/[locale]/interface";
 import { useState } from "react";
+import { cartCheckout } from "@/app/[locale]/actions";
 
 interface UserFormType {
   name: string;
@@ -28,12 +29,20 @@ const UserCheckOutForm: React.FC<UserCheckOutFormProps> = ({
     phone_number: phone_number || "",
     address: address || "",
   };
+  const handleCheckout = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await cartCheckout({ products: filteredProducts, userForm, formData });
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="max-w-md mx-auto   bg-white shadow-lg rounded-lg p-[40px] lg:mt-[120px] lg:mb-[30px]">
       <h2 className="text-2xl font-semibold mb-6 text-center text-[#1d273d]">
         Check Your Information To continue Payment Process
       </h2>
-      <form>
+      <form onSubmit={handleCheckout}>
         <div className="mb-4">
           <p className="flex flex-col items-center text-[#212A31] text-[18px]">
             <strong className="text-[#212A31] text-[18px]">Name</strong>
@@ -77,12 +86,10 @@ const UserCheckOutForm: React.FC<UserCheckOutFormProps> = ({
             className="shadow appearance-none rounded-md bg-transparent border-2 border-[#D3D9D4] w-full py-3 px-3  text-[#2E3944]  leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
+        <button className="text-black" type="submit">
+          Buy Now
+        </button>
       </form>
-      <CheckOutBtn
-        filteredProducts={filteredProducts}
-        userForm={userForm}
-        formData={formData}
-      />
     </div>
   );
 };

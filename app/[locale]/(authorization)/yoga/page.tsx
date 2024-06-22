@@ -3,7 +3,7 @@ import yogaImg from "../../../../public/assets/image/offers/yoga.webp";
 
 export default function LooseWeightComponent() {
   const yogaVideo =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/yoga-h6kiBcF6JyHeR8GVDBYIEPN6Q9vkAB.mp4";
+    "https://live.staticflickr.com/video/53807642436/76f9b90e29/1080p.mp4?s=eyJpIjo1MzgwNzY0MjQzNiwiZSI6MTcxOTA0NzEwMiwicyI6ImI0NmQ4NzdkMzYzMzRhNDFmMzFlMTg4OTAwMDIwOTJjZDZmNTMyODEiLCJ2IjoxfQ";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">

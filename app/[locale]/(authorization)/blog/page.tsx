@@ -7,7 +7,7 @@ export default async function Blog() {
   noStore();
   const blog = await getBlogs();
 
-  const firstBlog = blog.rows[7];
+  const firstBlog = blog.rows[5];
   const blogData = blog.rows;
 
   return (

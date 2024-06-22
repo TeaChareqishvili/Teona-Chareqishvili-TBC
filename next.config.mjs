@@ -54,6 +54,18 @@ export default nextVideos({
         hostname: "m.media-amazon.com",
         pathname: "/images/I/**",
       },
+      {
+        protocol: "https",
+        hostname: "ab9vg7azdm14stpx.public.blob.vercel-storage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "geopelie.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn-prod.medicalnewstoday.com",
+      },
     ],
   },
   compiler: {
