@@ -1,7 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { getUserById, deleteUser, getProfileInfoEdit } from "../../apiUsers";
+import {
+  getUserById,
+  deleteUser,
+  getProfileInfoEdit,
+  getChat,
+} from "../../apiUsers";
 import { createContact } from "../../apiUsers";
 import { UserData } from "../../components/userIcons/UserIcons";
 import { Host } from "../../apiUsers";
@@ -330,6 +335,7 @@ export async function updateUserProfile(id: number, formData: formProfileData) {
   revalidatePath("/profile");
 }
 
+// call checkout route
 export const cartCheckout = async ({
   products: filteredProducts,
   userForm,
@@ -356,3 +362,31 @@ export const cartCheckout = async ({
       }
     });
 };
+
+export async function getChatBot({ prompt }: { prompt: string }) {
+  console.log(prompt, "action");
+  try {
+    const response = await getChat({ prompt });
+    return response;
+  } catch (error) {
+    console.error("Error in getChatBot:", error);
+    throw error;
+  }
+}
+
+// export const getChat = async ({ prompt, setResponse }: any) => {
+//   setResponse("Loading...");
+
+//   const res = await fetch(`${Host}/api/openAi`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ prompt }),
+//   });
+
+//   const data = await res.json();
+//   console.log(data, "data");
+//   console.log({ res });
+//   setResponse(data?.choices[0].message.content);
+// };

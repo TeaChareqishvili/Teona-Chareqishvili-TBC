@@ -1,29 +1,26 @@
 "use client";
-import { Host } from "../../apiUsers";
-import { useState, FormEvent, ChangeEvent } from "react";
+import { getChatBot } from "../../app/[locale]/actions";
+
+import { useState, ChangeEvent } from "react";
 
 export default function ChatBot() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
   console.log(response, "res");
+  console.log(prompt, "promt");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setResponse("Loading...");
-
-    const res = await fetch(`${Host}/api/openAi`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt }),
-    });
-
-    const data = await res.json();
-    console.log(data, "data");
-    console.log({ res });
-    setResponse(data?.choices[0].message.content);
+    try {
+      console.log("Submitting prompt:", prompt);
+      const response = await getChatBot({ prompt });
+      console.log("Response received:", response);
+      setResponse(response);
+    } catch (error) {
+      console.error("Error in handleSubmit:", error);
+      setResponse("An error occurred. Please try again.");
+    }
   };
 
   return (
