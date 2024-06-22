@@ -66,6 +66,14 @@ export default nextVideos({
         protocol: "https",
         hostname: "cdn-prod.medicalnewstoday.com",
       },
+      {
+        protocol: "https",
+        hostname: "kingkongfitness.com.au",
+      },
+      {
+        protocol: "https",
+        hostname: "media.veli.store",
+      },
     ],
   },
   compiler: {
