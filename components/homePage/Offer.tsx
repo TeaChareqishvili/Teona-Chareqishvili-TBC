@@ -13,13 +13,13 @@ export default function Offer() {
   const t = useScopedI18n("offers");
 
   const food =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/food-nOy9VXPWEK5ddc61jG2wm5ekqoFMBY.mp4";
+    "https://live.staticflickr.com/video/53808038960/e6aa4f8a0a/1080p.mp4?s=eyJpIjo1MzgwODAzODk2MCwiZSI6MTcxOTA0NDY3MywicyI6ImE4MjA1YWE0ZTZiM2E0OTY3M2M3NzQ3YTlhN2UzMWRjMTYyMGM4MWIiLCJ2IjoxfQ";
   const group =
     "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/group-q8HQhoIUPkK0aDc0tqapbA7xTR6QkB.mp4";
   const muscle =
     "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/muscleGain-W9XoXW8OaTqPJTm69dzsV95px6Do5y.mp4";
   const personal =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/personal-5Whmc7eRltNN9sLzNicJKzCB30d0e1.mp4";
+    "https://live.staticflickr.com/video/53807600741/9e6e34d4a0/1080p.mp4?s=eyJpIjo1MzgwNzYwMDc0MSwiZSI6MTcxOTA0NDgzMCwicyI6IjY0Y2JmOTRjNWU3MGFiM2U0YzcwMDliODAwN2Q3ODE3MjIyMDdkNGIiLCJ2IjoxfQ";
   const pool =
     " https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/pool-q74F8NFU6ngXQYiWGQYtTjGeHw9Swg.mp4";
   const spa =
