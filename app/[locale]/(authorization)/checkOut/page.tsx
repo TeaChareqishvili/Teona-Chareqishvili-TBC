@@ -12,9 +12,10 @@ export default async function NewCartProducts() {
   const session = await getSession();
 
   console.log(session);
+  console.log(cart, "cart");
 
-  const cartProductsArray = Object.entries(cart.shop);
-
+  const cartProductsArray = Object.entries(cart?.shop);
+  console.log(cartProductsArray, "arr");
   const cartProducts = await getProducts();
 
   // //Create a map of cart product IDs and their quantities

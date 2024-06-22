@@ -16,6 +16,7 @@ import { DetailProductData } from "./interface";
 import { addNewProduct } from "../../apiUsers";
 import { getProductById } from "../../apiUsers";
 import { deleteProductForAdmin } from "../../apiUsers";
+import { redirect } from "next/navigation";
 
 // function to update user info
 export async function updateUserAction(id: string, userData: UserData) {
@@ -322,8 +323,36 @@ interface formProfileData {
   address: string;
 }
 
+// update user profile info
 export async function updateUserProfile(id: number, formData: formProfileData) {
   const { nickname, phoneNumber, address } = formData;
   getProfileInfoEdit(id, nickname, phoneNumber, address);
   revalidatePath("/profile");
 }
+
+export const cartCheckout = async ({
+  products: filteredProducts,
+  userForm,
+  formData,
+}: any) => {
+  await fetch(`${Host}/api/checkout`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      products: filteredProducts,
+      userForm,
+      formData,
+    }),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      console.log(response);
+      if (response.url) {
+        redirect(response.url);
+      }
+    });
+};

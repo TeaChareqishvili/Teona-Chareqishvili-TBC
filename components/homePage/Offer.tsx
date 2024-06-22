@@ -13,21 +13,21 @@ export default function Offer() {
   const t = useScopedI18n("offers");
 
   const food =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/food-nOy9VXPWEK5ddc61jG2wm5ekqoFMBY.mp4";
+    "https://live.staticflickr.com/video/53808038960/e6aa4f8a0a/1080p.mp4?s=eyJpIjo1MzgwODAzODk2MCwiZSI6MTcxOTA0NDY3MywicyI6ImE4MjA1YWE0ZTZiM2E0OTY3M2M3NzQ3YTlhN2UzMWRjMTYyMGM4MWIiLCJ2IjoxfQ";
   const group =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/group-q8HQhoIUPkK0aDc0tqapbA7xTR6QkB.mp4";
+    "https://live.staticflickr.com/video/53807642071/8d7a2cb60b/1080p.mp4?s=eyJpIjo1MzgwNzY0MjA3MSwiZSI6MTcxOTA0Njk5MywicyI6IjBlNzhjMDUxYjI3Nzk0ZDkyYzEwNTEwNThiNDE0M2VlMmQzZjc5N2MiLCJ2IjoxfQ";
   const muscle =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/muscleGain-W9XoXW8OaTqPJTm69dzsV95px6Do5y.mp4";
+    "https://live.staticflickr.com/video/53807647656/3744494e6a/1080p.mp4?s=eyJpIjo1MzgwNzY0NzY1NiwiZSI6MTcxOTA0NzMyNiwicyI6ImI0MDhkYzg5YzllMWRkOGEzNmM1MDc0ZWJhMzA2ODA0ZDI1ZjU2MjEiLCJ2IjoxfQ";
   const personal =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/personal-5Whmc7eRltNN9sLzNicJKzCB30d0e1.mp4";
+    "https://live.staticflickr.com/video/53807600741/9e6e34d4a0/1080p.mp4?s=eyJpIjo1MzgwNzYwMDc0MSwiZSI6MTcxOTA0NDgzMCwicyI6IjY0Y2JmOTRjNWU3MGFiM2U0YzcwMDliODAwN2Q3ODE3MjIyMDdkNGIiLCJ2IjoxfQ";
   const pool =
-    " https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/pool-q74F8NFU6ngXQYiWGQYtTjGeHw9Swg.mp4";
+    "https://live.staticflickr.com/video/53807646216/0717956750/1080p.mp4?s=eyJpIjo1MzgwNzY0NjIxNiwiZSI6MTcxOTA0NzIxMywicyI6IjNkMWU0OTAzMjAxMmU5M2NjYzUyYzdlZTI2N2VkNzY0YjU1MzI2MDkiLCJ2IjoxfQ";
   const spa =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/spa-1IeAlkOqu3KwAESg4Z1f38nsiolsoY.mp4";
+    "https://live.staticflickr.com/video/53807888993/40158b3f62/1080p.mp4?s=eyJpIjo1MzgwNzg4ODk5MywiZSI6MTcxOTA0NzE4MywicyI6IjI5YWJhZDQzZTZkOWMwYzQyM2FlMTk4OWZmYjc2MGQzMWRiN2Y5YmUiLCJ2IjoxfQ";
   const weight =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/weight-NhPhrK614rAKZBOmgXCQQIxwJY7Br1.mp4";
+    "https://live.staticflickr.com/video/53808062925/b2dfd6d307/1080p.mp4?s=eyJpIjo1MzgwODA2MjkyNSwiZSI6MTcxOTA0NTk0OCwicyI6IjM3YzU2ZmUyMzc4ODIxM2Q0YjJhN2I5MDU5MzgwZWE4ZTU0NjcwNWMiLCJ2IjoxfQ";
   const yoga =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/yoga-h6kiBcF6JyHeR8GVDBYIEPN6Q9vkAB.mp4";
+    "https://live.staticflickr.com/video/53807642436/76f9b90e29/1080p.mp4?s=eyJpIjo1MzgwNzY0MjQzNiwiZSI6MTcxOTA0NzEwMiwicyI6ImI0NmQ4NzdkMzYzMzRhNDFmMzFlMTg4OTAwMDIwOTJjZDZmNTMyODEiLCJ2IjoxfQ";
 
   const offers: Item[] = [
     {
