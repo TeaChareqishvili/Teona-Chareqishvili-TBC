@@ -1,55 +1,75 @@
 "use client";
 import Link from "next/link";
-
 import { VercelProduct, NewProductProps } from "../../app/[locale]/interface";
-
 import Image from "next/image";
 import ProductDeleteAdmin from "../../components/productButtons/ProductDeleteAdmin";
 
 export default function Products({ product }: NewProductProps) {
   return (
-    <>
-      {product?.map((product: VercelProduct) => (
-        <div
-          key={product.id}
-          className="bg-[#eeede9] border border-[#3d5a4b] w-[300px] mx-[15px] my-[20px] p-[15px] flex items-center flex-col rounded-lg shadow-md hover:shadow-lg   hover:scale-110 transition-scale transition-transform duration-300 cursor-pointer"
-        >
-          <div className="relative img-hover ">
-            <div className="w-[250px] h-[250px]">
-              {" "}
-              <Image
-                width={300}
-                height={300}
-                src={product.imageurl}
-                alt="bag"
-                className="rounded-lg w-full h-full"
-              />
-            </div>
-
-            <div className=" cover absolute top-0 left-0 w-full h-full  flex items-center justify-center">
-              <span className="text-white italic text-[18px] font-bold">
-                New
-              </span>
-            </div>
-          </div>
-
-          <p className="text-[#3d5a4b] text-lg font-semibold">
-            {product.title}
-          </p>
-          <p className="text-[#3d5a4b]">{product.category}</p>
-          <p className="text-[#3d5a4b]">${product.price}</p>
-          <p className="text-[#3d5a4b]">In Stock: {product.stock}</p>
-
-          <Link
-            className="border border-[#b5b4b0] text-center w-[150px] text-white mt-[10px] px-[10px] py-[7px] bg-[#4f7760] rounded-md hover:bg-[#5f8973] transition-colors duration-300"
-            href={`/singleProductVercel/${product.id}`}
-          >
-            View Details
-          </Link>
-
-          <ProductDeleteAdmin id={product.id} />
-        </div>
-      ))}
-    </>
+    <div className="container mx-auto p-4">
+      <div className="overflow-x-auto">
+        <table className="w-full bg-white dark:bg-[#212A31] border border-gray-300 dark:border-gray-700 shadow-md rounded-lg">
+          <thead className="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th className="p-4 border-b dark:border-gray-700 text-left">
+                Image
+              </th>
+              <th className="p-4 border-b dark:border-gray-700 text-left">
+                Title
+              </th>
+              <th className="p-4 border-b dark:border-gray-700 text-left">
+                Category
+              </th>
+              <th className="p-4 border-b dark:border-gray-700 text-left">
+                Price
+              </th>
+              <th className="p-4 border-b dark:border-gray-700 text-center">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {product?.map((product: VercelProduct) => (
+              <tr
+                key={product.id}
+                className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <td className="p-4 border-b dark:border-gray-700">
+                  <div className="w-[100px] h-[100px]">
+                    <Image
+                      width={100}
+                      height={100}
+                      src={product.imageurl}
+                      alt={product.title}
+                      className="rounded-lg w-full h-full object-cover"
+                    />
+                  </div>
+                </td>
+                <td className="p-4 border-b dark:border-gray-700 text-gray-900 dark:text-gray-100">
+                  {product.title}
+                </td>
+                <td className="p-4 border-b dark:border-gray-700 text-gray-900 dark:text-gray-100">
+                  {product.category}
+                </td>
+                <td className="p-4 border-b dark:border-gray-700 text-gray-900 dark:text-gray-100">
+                  ${product.price}
+                </td>
+                <td className="p-4 border-b dark:border-gray-700 text-center">
+                  <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 justify-center items-center">
+                    <Link
+                      className="dark:text-[#2E3944] text-white px-4 py-2 bg-[#2E3944] dark:bg-[#D3D9D4] rounded-md hover:bg-[#517191] dark:hover:bg-[#a6aba7] transition-colors duration-200"
+                      href={`/singleProductVercel/${product.id}`}
+                    >
+                      Details
+                    </Link>
+                    <ProductDeleteAdmin id={product.id} />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }

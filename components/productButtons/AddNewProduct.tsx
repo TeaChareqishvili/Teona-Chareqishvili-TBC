@@ -15,10 +15,10 @@ const AddNewProduct = () => {
   return (
     <>
       <button
-        className="border border-[#5a5f5a] text-[20px] text-[#5a5f5a] tracking-widest uppercase rounded-md mt-[15px] py-[10px] px-[5px] w-[200px] cursor-pointer  dark:bg-[#264653] dark:text-[#ffffff]"
+        className=" mb-[40px] bg-[#124E66] text-white dark:bg-[#D3D9D4] dark:text-[#2E3944] tracking-widest uppercase rounded-md mt-[15px] py-[10px] px-[5px] w-[200px] cursor-pointer  "
         onClick={handleModal}
       >
-        add new Product
+        add Product
       </button>
       <AddProductModal isOpen={isModalOpen} onClose={handleModalClose}>
         <ProductAddForm />

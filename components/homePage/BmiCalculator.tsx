@@ -7,7 +7,7 @@ export default async function BmiCalculator() {
     <div className="w-full  h-[600px] bmi flex items-center justify-center">
       <Link
         href="/bmiCalculate"
-        className="bmi-btn border-2 border-white color-white text-[18px] py-[20px] px-[30px] relative tracking-widest font-bold"
+        className="bmi-btn border-2 border-white color-white dark:color-white text-[18px] py-[20px] px-[30px] relative tracking-widest font-bold"
       >
         {t("bmi")}
       </Link>

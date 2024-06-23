@@ -74,6 +74,17 @@ export default nextVideos({
         protocol: "https",
         hostname: "media.veli.store",
       },
+      {
+        protocol: "https",
+        hostname: "www.bodyworld.eu",
+        pathname: "/media/**",
+      },
+
+      {
+        protocol: "https",
+        hostname: " media.post.rvohealth.io",
+        pathname: "/media/**",
+      },
     ],
   },
   compiler: {

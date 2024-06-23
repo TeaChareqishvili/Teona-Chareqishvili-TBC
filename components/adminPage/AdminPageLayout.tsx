@@ -38,7 +38,7 @@ interface AdminPanel {
 
 export default function AdminPageLyout() {
   return (
-    <div className="w-full h-screen bg-[#D3D4D9] dark:bg-[#010101]  mt-[50px] px-[30px] py-[40px] flex items-center justify-around flex-wrap">
+    <div className="w-full h-screen bg-[#D3D4D9] dark:bg-[#010101]  mt-[50px] px-[30px] py-[40px] flex items-center justify-around flex-wrap mb-[30px]">
       {panel.map((item, id) => (
         <div
           key={id}
