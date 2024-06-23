@@ -85,7 +85,6 @@ export interface DetailProductData {
   title: string;
   description: string;
   price: string;
-
   category: string;
   imageurl: string;
   sale: string;

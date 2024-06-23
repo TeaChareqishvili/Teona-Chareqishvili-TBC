@@ -2,7 +2,7 @@ import { getProductDetail, getProducts } from "@/apiUsers";
 import EditProductButton from "@/components/productButtons/EditProductButton";
 import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial";
 import { getSession } from "@auth0/nextjs-auth0";
-import SingleProductAddComment from "@/components/reviews/Reviews";
+
 import SingleProduct from "@/components/newProductVercel/SingleProduct";
 import { VercelProduct } from "../../../../../app/[locale]/interface";
 
@@ -34,10 +34,9 @@ export default async function SingeleProductVercel({
   console.log(product, "img");
 
   return (
-    <div className=" w-full lg:mt-[140px] lg:min-h-screen dark:bg-[#2E3944] bg-[#D3D9D4]">
-      <SingleProduct img={img} product={product} reviews={reviews} />
-      <ShareSocial products={product} />
-      <SingleProductAddComment id={id} />
+    <div className=" w-full lg:mt-[90px] lg:min-h-screen dark:bg-[#2E3944] bg-[#D3D9D4] flex flex-col items-center">
+      <SingleProduct img={img} product={product} reviews={reviews} />{" "}
+      <ShareSocial products={product} id={id} />
       {isAdmin && <EditProductButton id={productId} productDetail={product} />}
     </div>
   );

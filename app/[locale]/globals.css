@@ -27,6 +27,15 @@
   text-decoration: none;
 }
 
+.review-icon {
+  background-color: rgb(61, 95, 159);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 6px;
+  color: white;
+}
+
 /* blog */
 
 .grid-main {

@@ -55,9 +55,9 @@ export default function SingleProduct({
   };
 
   return (
-    <div className="w-full flex justify-center p-4 mt-20">
+    <div className="w-full flex justify-center p-4 lg:mt-[40px] mt-[100px]">
       {data && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-screen-lg p-6 rounded-lg bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow-xl transform transition duration-500 hover:scale-105">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-screen-lg items-center p-6 rounded-lg bg-gradient-to-r dark:from-gray-700 dark:via-[#212A31] dark:to-[#161e23] shadow-xl from-gray-700 via-[#748D92] to-[#3f4e52] transform transition duration-500 hover:scale-105">
           <div className="md:col-span-1 flex flex-col items-center overflow-hidden">
             <div className="flex justify-center mb-4">{renderStars(rate)}</div>
             <h3 className="text-3xl mb-2 text-white font-bold">{data.title}</h3>
@@ -66,7 +66,7 @@ export default function SingleProduct({
               {data.category}
             </p>
             <div
-              className="w-full h-[400px] bg-cover bg-center mb-4 rounded-md border-4 border-gray-600 shadow-lg"
+              className="w-full h-[400px] bg-cover bg-center mb-4 rounded-md border-4 dark:border-gray-600 border-[#D3D9D4] shadow-lg"
               style={{ backgroundImage: `url(${data.imageurl})` }}
             />
             <Swiper
