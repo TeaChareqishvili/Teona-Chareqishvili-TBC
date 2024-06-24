@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import { FaSpinner } from "react-icons/fa";
 import { updateUserProfile } from "@/app/[locale]/actions";
 
 interface personaldata {
@@ -21,6 +21,7 @@ export default function UserInfo({
   const [nickname, setNickname] = useState(user?.name || "");
   const [phoneNumber, setPhoneNumber] = useState(user?.phone_number || "");
   const [address, setAddress] = useState(user?.address || "");
+  const [isLoading, setIsLoading] = useState(false);
 
   const formData = {
     nickname: nickname || "",
@@ -33,10 +34,13 @@ export default function UserInfo({
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       await updateUserProfile(id, formData);
       console.log("User updated successfully");
     } catch (error) {
       console.error("Failed to update user:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -95,9 +99,9 @@ export default function UserInfo({
 
       <button
         type="submit"
-        className="dark:bg-[#212A31] bg-[#748D82] w-[150px] hover:bg-[#124E66] transition-all duration-200  text-white py-2 px-4 rounded"
+        className="dark:bg-[#212A31] flex otems-center justify-center bg-[#748D82] w-[150px] hover:bg-[#124E66] transition-all duration-200  text-white py-2 px-4 rounded"
       >
-        Save
+        {isLoading ? <FaSpinner className="animate-spin mr-2" /> : "Save"}
       </button>
     </form>
   );

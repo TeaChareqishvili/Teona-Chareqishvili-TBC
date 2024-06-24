@@ -1,12 +1,9 @@
 "use server";
 import { getBlogs } from "@/apiUsers";
-import Image from "next/image";
 import { Blogs } from "../../interface";
 import Link from "next/link";
-
 import { AddNewBlog } from "../../../../components/blogs/AddNewBlog";
 import BlogDeleteBtn from "@/components/blogs/BlogDeleteBtn";
-// import BlogCategoryList from "@/components/blogs/blogSearchContent/BlogCategoryList";
 
 export default async function Blog() {
   const blog = await getBlogs();
@@ -21,88 +18,63 @@ export default async function Blog() {
   };
 
   console.log(blog, "blogsmain");
-  const firtsBlog = blog.rows[7];
-  console.log(firtsBlog, "first");
-
-  // const category = blog.rows.map((blog) => blog.category);
-
-  // console.log(category, "blog??");
+  const firstBlog = blog.rows[0];
+  console.log(firstBlog, "first");
 
   return (
-    <div className=" w-full flex flex-col items-start bg-[#f4f6f3] dark:bg-[#356375] p-[50px]">
-      <div className="w-[40%] mt-[120px] ">
-        <div className="overflow-hidden rounded-md ">
-          <Image
-            src={firtsBlog.image_url}
-            alt="blog"
-            width={150}
-            height={150}
-            className="w-full rounded-md hover cursor-pointer mb-[30px]"
-          />
-        </div>
-
-        <h3 className="dark:text-white text-[22px] text-[#264653]">
-          {firtsBlog.title}
-        </h3>
-        <p className="dark:text-white text-[18px] text-[#264653]">
-          {firtsBlog.category}
-        </p>
-        <span className="dark:text-white text-[15px] text-[#264653]">
-          {formatDate(firtsBlog.date)}
-        </span>
-        <Link
-          className="ml-[20px] dark:text-white text-[15px] text-[#264653] font-bold cursor-pointer"
-          href={`/singleBlog/${blog.id}`}
-        >
-          Read more
-        </Link>
-      </div>
-      <div className="flex items-center justify-between flex-wrap mt-[20px] cursor-pointer">
-        {blog.rows.map((blog: Blogs) => (
-          <div
-            key={blog.id}
-            className="flex flex-col items-center mb-[20px] h-[400px]"
-          >
-            {" "}
-            <div className="w-[300px] h-[300px] relative card-container overflow-hidden">
-              <div
-                className="flex flex-col items-center mb-[20px] h-[300px] w-[300px]  rounded-md"
-                style={{
-                  backgroundImage: `url(${blog.image_url})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-
-              <div className=" caption flex felx-col items-center justify-center">
-                {" "}
-                <p className="text-[18px] text-[white] w-full  text-center blog-category">
-                  {blog.category}
-                </p>
-                <p className="text-[16px] text-[white] blog-title ">
-                  {" "}
+    <div className="container mx-auto p-4 bg-[#f4f6f3] dark:bg-[#356375] mt-[100px] mb-[50px]">
+      <div className="overflow-x-auto">
+        <table className="w-full bg-white dark:bg-[#212A31] border border-gray-300 dark:border-gray-700 shadow-md rounded-lg">
+          <thead className="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th className="p-4 border-b dark:border-gray-700 text-left">
+                Title
+              </th>
+              <th className="p-4 border-b dark:border-gray-700 text-left">
+                Category
+              </th>
+              <th className="p-4 border-b dark:border-gray-700 text-left">
+                Date
+              </th>
+              <th className="p-4 border-b dark:border-gray-700 text-center">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {blog.rows.map((blog: Blogs) => (
+              <tr
+                key={blog.id}
+                className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <td className="p-4 border-b dark:border-gray-700 text-gray-900 dark:text-gray-100">
                   {blog.title}
-                </p>
-                <div className="blog-butons">
-                  {" "}
-                  <span className="text-[12px]">{formatDate(blog.date)}</span>
-                  <br></br>
-                  <Link
-                    className="text-white text-[16px] font-bold cursor-pointer"
-                    href={`/singleBlog/${blog.id}`}
-                  >
-                    Read more
-                  </Link>
-                  <BlogDeleteBtn id={blog.id} />
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+                </td>
+                <td className="p-4 border-b dark:border-gray-700 text-gray-900 dark:text-gray-100">
+                  {blog.category}
+                </td>
+                <td className="p-4 border-b dark:border-gray-700 text-gray-900 dark:text-gray-100">
+                  {formatDate(blog.date)}
+                </td>
+                <td className="p-4 border-b dark:border-gray-700 text-center">
+                  <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 justify-center items-center">
+                    <Link
+                      className="dark:text-[#2E3944] uppercase text-white px-4 py-2 bg-[#2E3944] dark:bg-[#D3D9D4] rounded-md hover:bg-[#517191] dark:hover:bg-[#a6aba7] transition-colors duration-200"
+                      href={`/singleBlog/${blog.id}`}
+                    >
+                      Details
+                    </Link>
+                    <BlogDeleteBtn id={blog.id} />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-
-      <AddNewBlog />
+      <div className="mt-6 w-full flex items-center justify-center">
+        <AddNewBlog />
+      </div>
     </div>
   );
 }

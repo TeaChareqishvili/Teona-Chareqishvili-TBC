@@ -263,6 +263,7 @@ export async function addNewProduct(
   image_gallery: string[]
 ) {
   return await fetch(Host + "/api/add-new-product", {
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({
       title,
@@ -290,6 +291,7 @@ export async function getProductById(
 ) {
   try {
     const response = await fetch(`${Host}/api/edit-product/${id}`, {
+      cache: "no-store",
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

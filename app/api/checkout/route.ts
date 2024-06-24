@@ -67,11 +67,9 @@ export const POST = async (request: any) => {
         address: formData.address || userForm?.address,
       },
     },
-    success_url: `${Host}/success`,
+    success_url: `${Host}/success?from=stripe`,
     cancel_url: `${Host}/checkOut`,
   });
-
-  console.log("Stripe Session:", session);
 
   return NextResponse.json({ url: session.url });
 };

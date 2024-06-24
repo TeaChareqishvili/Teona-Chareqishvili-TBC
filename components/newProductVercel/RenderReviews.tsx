@@ -14,7 +14,7 @@ export default function RenderReviews({
     <div className="p-4">
       <button
         onClick={() => setComment(!comment)}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+        className="px-4 py-2 bg-[#2E3944] text-white rounded-md hover:bg-[#171d23] dark:bg-[#D3D9D4] dark:text-[#2E3944] dark:hover:bg-[#748D92] dark:hover:text-white transition"
       >
         {comment ? "Hide Comments" : "View Comments"}
       </button>

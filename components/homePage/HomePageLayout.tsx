@@ -5,7 +5,7 @@ import Offer from "./Offer";
 import Stuff from "./Stuff";
 import BmiCalculator from "./BmiCalculator";
 import OurProducts from "./OurProducts";
-// import { Slider } from "./Slider";
+import GetInTouchAi from "./GetInTouchAi";
 
 const HomePageLayout = () => {
   return (
@@ -18,8 +18,8 @@ const HomePageLayout = () => {
         <Articles />
         <OurProducts />
         <BmiCalculator />
+        <GetInTouchAi />
         <Stuff />
-        {/* <Slider /> */}
       </div>
     </>
   );

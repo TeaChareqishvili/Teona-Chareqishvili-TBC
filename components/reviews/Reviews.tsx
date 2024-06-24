@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { addProductComment } from "../../app/[locale]/actions";
 
-const SingleProductAddComment = ({ id }: { id: string }) => {
+interface reviewProps {
+  id: string;
+  handleModalClose: () => void;
+}
+
+const SingleProductAddComment = ({ id, handleModalClose }: reviewProps) => {
   const { user } = useUser();
 
   const [userId, setUserId] = useState("");
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
-
-  console.log(id, "id");
 
   useEffect(() => {
     if (user && user.sub) {
@@ -32,9 +35,8 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
     const formData = {
       user_id: userId,
       product_id: id,
-      comment,
-
-      rating,
+      comment: comment,
+      rating: rating,
     };
 
     try {
@@ -44,18 +46,11 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
     } catch (error) {
       console.error("Error submitting comment:", error);
     }
+    setTimeout(() => {
+      handleModalClose();
+    }, 500);
   };
 
-  if (!user || !user.sub) {
-    return (
-      <div className="single-blog-add-comment">
-        კომენტარის დასატოვებლად გაიარეთ{" "}
-        <a href="/api/auth/login" className="underline">
-          ავტორიზაცია
-        </a>
-      </div>
-    );
-  }
   return (
     <div className=" bg-gray-50 p-5 rounded-lg shadow-lg max-w-md mx-auto my-[25px]">
       <h1 className="text-2xl mb-5 text-center text-gray-800">

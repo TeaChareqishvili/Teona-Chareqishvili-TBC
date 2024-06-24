@@ -2,9 +2,9 @@ import { getProductDetail, getProducts } from "@/apiUsers";
 import EditProductButton from "@/components/productButtons/EditProductButton";
 import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial";
 import { getSession } from "@auth0/nextjs-auth0";
-import SingleProductAddComment from "@/components/reviews/Reviews";
+
 import SingleProduct from "@/components/newProductVercel/SingleProduct";
-import { VercelProduct } from "../../../../../app/[locale]/interface";
+import { VercelProduct } from "../../../interface";
 
 export async function generateMetadata({ params }: any) {
   const productsData = await getProducts();
@@ -25,19 +25,17 @@ export default async function SingeleProductVercel({
 }) {
   const { product, reviews } = await getProductDetail(id);
   const session = await getSession();
+  console.log(reviews, "page");
 
   const isAdmin =
     Array.isArray(session?.user.role) && session?.user.role.includes("admin");
   const img: string[] = product[0].image_gallery;
   const productId = product[0].id;
 
-  console.log(product, "img");
-
   return (
-    <div className=" w-full lg:mt-[140px] lg:min-h-screen dark:bg-[#2E3944] bg-[#D3D9D4]">
-      <SingleProduct img={img} product={product} reviews={reviews} />
-      <ShareSocial products={product} />
-      <SingleProductAddComment id={id} />
+    <div className=" w-full lg:mt-[90px] lg:min-h-screen dark:bg-[#2E3944] bg-[#D3D9D4] flex flex-col items-center">
+      <SingleProduct img={img} product={product} reviews={reviews} />{" "}
+      <ShareSocial products={product} id={id} />
       {isAdmin && <EditProductButton id={productId} productDetail={product} />}
     </div>
   );

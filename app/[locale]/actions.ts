@@ -215,16 +215,8 @@ export async function editBlog(id: number, formData: CreateBlogData) {
 // create new product
 
 export async function createNewProduct(formData: DetailProductData) {
-  const {
-    title,
-    description,
-
-    sale,
-    price,
-    imageurl,
-    category,
-    image_gallery,
-  } = formData;
+  const { title, description, sale, price, imageurl, category, image_gallery } =
+    formData;
   addNewProduct(
     title,
     description,
@@ -245,7 +237,6 @@ export async function editProduct(id: number, formData: DetailProductData) {
     id,
     title,
     description,
-
     sale,
     price,
     imageurl,
@@ -302,7 +293,8 @@ export async function createRefund(charge: string) {
 
 export async function addProductComment(formData: any) {
   try {
-    const response = await fetch(Host + "/api/add-product-comment", {
+    const response = await fetch(`${Host}/api/add-product-comment`, {
+      cache: "no-store",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -364,7 +356,6 @@ export const cartCheckout = async ({
 };
 
 export async function getChatBot({ prompt }: { prompt: string }) {
-  console.log(prompt, "action");
   try {
     const response = await getChat({ prompt });
     return response;
@@ -373,20 +364,3 @@ export async function getChatBot({ prompt }: { prompt: string }) {
     throw error;
   }
 }
-
-// export const getChat = async ({ prompt, setResponse }: any) => {
-//   setResponse("Loading...");
-
-//   const res = await fetch(`${Host}/api/openAi`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ prompt }),
-//   });
-
-//   const data = await res.json();
-//   console.log(data, "data");
-//   console.log({ res });
-//   setResponse(data?.choices[0].message.content);
-// };
