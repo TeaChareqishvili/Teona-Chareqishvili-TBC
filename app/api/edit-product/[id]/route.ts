@@ -26,7 +26,6 @@ export async function PUT(request: NextRequest) {
   }
 
   try {
-    // Serialize image_gallery array to JSON string
     const image_gallery_json = JSON.stringify(image_gallery);
 
     await sql`

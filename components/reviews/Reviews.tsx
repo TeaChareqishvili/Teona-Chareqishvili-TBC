@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { addProductComment } from "../../app/[locale]/actions";
 
-const SingleProductAddComment = ({ id }: { id: string }) => {
+interface reviewProps {
+  id: string;
+  handleModalClose: () => void;
+}
+
+const SingleProductAddComment = ({ id, handleModalClose }: reviewProps) => {
   const { user } = useUser();
 
   const [userId, setUserId] = useState("");
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
-
-  console.log(id, "id");
 
   useEffect(() => {
     if (user && user.sub) {
@@ -36,7 +39,6 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
       rating: rating,
     };
 
-    console.log(formData, "review");
     try {
       await addProductComment(formData);
       setComment("");
@@ -44,6 +46,9 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
     } catch (error) {
       console.error("Error submitting comment:", error);
     }
+    setTimeout(() => {
+      handleModalClose();
+    }, 500);
   };
 
   return (

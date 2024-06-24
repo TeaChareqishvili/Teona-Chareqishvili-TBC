@@ -22,7 +22,7 @@ const AddReview = ({ id }: { id: string }) => {
       />
 
       <ReviewModal isOpen={isModalOpen} onClose={handleModalClose}>
-        <SingleProductAddComment id={id} />
+        <SingleProductAddComment id={id} handleModalClose={handleModalClose} />
       </ReviewModal>
     </>
   );

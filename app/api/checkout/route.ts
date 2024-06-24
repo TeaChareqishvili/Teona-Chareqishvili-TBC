@@ -71,7 +71,5 @@ export const POST = async (request: any) => {
     cancel_url: `${Host}/checkOut`,
   });
 
-  console.log("Stripe Session:", session);
-
   return NextResponse.json({ url: session.url });
 };

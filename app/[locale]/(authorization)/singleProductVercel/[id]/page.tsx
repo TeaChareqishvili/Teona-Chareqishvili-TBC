@@ -4,7 +4,7 @@ import ShareSocial from "../../../../../components/socilaMediaShare/ShareSocial"
 import { getSession } from "@auth0/nextjs-auth0";
 
 import SingleProduct from "@/components/newProductVercel/SingleProduct";
-import { VercelProduct } from "../../../../../app/[locale]/interface";
+import { VercelProduct } from "../../../interface";
 
 export async function generateMetadata({ params }: any) {
   const productsData = await getProducts();
@@ -31,8 +31,6 @@ export default async function SingeleProductVercel({
     Array.isArray(session?.user.role) && session?.user.role.includes("admin");
   const img: string[] = product[0].image_gallery;
   const productId = product[0].id;
-
-  console.log(product, "img");
 
   return (
     <div className=" w-full lg:mt-[90px] lg:min-h-screen dark:bg-[#2E3944] bg-[#D3D9D4] flex flex-col items-center">
