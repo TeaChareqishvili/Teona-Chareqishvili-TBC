@@ -26,6 +26,7 @@ import { redirect } from "next/navigation";
 // function to update user info
 export async function updateUserAction(id: string, userData: UserData) {
   const { name } = userData;
+
   getUserById(id, name);
   revalidatePath("/users");
 }
