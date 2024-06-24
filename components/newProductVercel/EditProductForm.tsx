@@ -4,6 +4,7 @@ import type { PutBlobResult } from "@vercel/blob";
 import { DetailProductData } from "../../app/[locale]/interface";
 import { editProduct } from "@/app/[locale]/actions";
 import { FaSpinner } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function EditProductForm({
   id,
@@ -30,6 +31,7 @@ export default function EditProductForm({
     detailedData.image_gallery || []
   );
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   // Create refs for each image input
   const inputFileRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -44,11 +46,11 @@ export default function EditProductForm({
     image_gallery,
   };
 
-  console.log(formData, "formdata");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await editProduct(id, formData);
+      router.refresh();
     } catch (error) {
       console.error(error);
     }

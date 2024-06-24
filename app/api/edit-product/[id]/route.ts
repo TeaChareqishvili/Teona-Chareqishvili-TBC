@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sql } from "@vercel/postgres";
-
+export const revalidate = 0;
 export async function PUT(request: NextRequest) {
   // Extract the product id
   const id = request.nextUrl.pathname.replace("/api/edit-product/", "");
@@ -10,18 +10,8 @@ export async function PUT(request: NextRequest) {
   }
 
   // Get product data
-  const {
-    title,
-    description,
-
-    price,
-    sale,
-    imageurl,
-    category,
-    image_gallery,
-  } = await request.json();
-
-  console.log("api", title);
+  const { title, description, price, sale, imageurl, category, image_gallery } =
+    await request.json();
 
   if (
     !title ||
