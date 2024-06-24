@@ -6,7 +6,11 @@ import { createNewBlog } from "../../app/[locale]/actions";
 import { FaSpinner } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
-export default function BlogAddForm() {
+interface BlogAddProps {
+  handleModalClose: () => void;
+}
+
+export default function BlogAddForm({ handleModalClose }: BlogAddProps) {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
   const [title, setTitle] = useState("");
@@ -31,6 +35,9 @@ export default function BlogAddForm() {
     } catch (error) {
       console.error(error);
     }
+    setTimeout(() => {
+      handleModalClose();
+    }, 500);
   };
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {

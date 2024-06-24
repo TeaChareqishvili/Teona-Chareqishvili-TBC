@@ -1,9 +1,12 @@
+"use client";
+import { useScopedI18n } from "@/locales/client";
 interface Props {
   fontSize: string;
   display: string;
 }
 
 export default function ContactData({ fontSize, display }: Props) {
+  const t = useScopedI18n("footer");
   return (
     <>
       <div className="mt-4 text-center text-sm text-gray-300">
@@ -11,31 +14,31 @@ export default function ContactData({ fontSize, display }: Props) {
           className="text-[white] text-[32px] mb-[20px]"
           style={{ fontSize: fontSize, display: display }}
         >
-          Contact us
+          {t("contact")}
         </h2>
         <p
           className="text-white cursor-pointer mb-[15px] lg:text-[22px] "
           style={{ fontSize: fontSize }}
         >
-          Rustaveli Avenu
+          {t("rustaveli")}
         </p>
         <p
           className="text-white cursor-pointer mb-[15px] lg:text-[22px] "
           style={{ fontSize: fontSize }}
         >
-          Tbilisi, Georgia
+          {t("tbilisi")}
         </p>
         <p
           className="text-white  cursor-pointer mb-[15px] lg:text-[22px]"
           style={{ fontSize: fontSize }}
         >
-          Email: contact@viatlityzone.com
+          {t("email")}: contact@viatlityzone.com
         </p>
         <p
           className="text-white  cursor-pointer mb-[15px] lg:text-[22px]"
           style={{ fontSize: fontSize }}
         >
-          Phone: (995) 599 557799
+          {t("phone")}: (995) 599 557799
         </p>
       </div>
     </>

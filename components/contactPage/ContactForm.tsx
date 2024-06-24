@@ -5,8 +5,10 @@ import ContactModal from "../modal/ContactModal";
 import { MdLocalPostOffice } from "react-icons/md";
 import { contactData } from "@/app/[locale]/interface";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { useScopedI18n } from "@/locales/client";
 
 export default function ContactForm() {
+  const t = useScopedI18n("contact");
   const [isModalOpen, setModalOpen] = useState(false);
 
   const [formData, setFormData] = useState<contactData>({
@@ -56,7 +58,9 @@ export default function ContactForm() {
 
   return (
     <div className=" flex flex-col items-center justify-center relative">
-      <h2 className="text-[28px] text-[#ffffff] mb-[20px]">Leave Message</h2>
+      <h2 className="text-[28px] text-[#ffffff] mb-[20px]">
+        {t("leaveMessage")}
+      </h2>
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <label>
           <input
@@ -106,7 +110,7 @@ export default function ContactForm() {
           className=" mt-[20px] border-2 border-white px-[15px] py-[7px] text-[17px] text-[#ffffff] bg-transparent cursor-pointer hover:bg-[#212A31] transition-all duration-200"
           type="submit"
         >
-          Submit
+          {t("submit")}
         </button>
       </form>
 
@@ -115,7 +119,7 @@ export default function ContactForm() {
           {" "}
           <MdLocalPostOffice className="text-[#2f3e46] w-[50px] h-[50px] mb-[10px]" />
           <p className="text-[15px] text-[#2f3e46] tracking-wider font-bold">
-            We received your message!
+            {t("message")}
           </p>
         </div>
       </ContactModal>

@@ -1,34 +1,7 @@
 "use client";
 import Link from "next/link";
 import { MdAdminPanelSettings } from "react-icons/md";
-
-const panel: AdminPanel[] = [
-  {
-    id: 1,
-    title: "Products",
-    path: "/adminProducts",
-  },
-  {
-    id: 2,
-    title: "Blogs",
-    path: "/adminBlogs",
-  },
-  {
-    id: 3,
-    title: "Orders",
-    path: "/orders",
-  },
-  {
-    id: 4,
-    title: "Users",
-    path: "/users",
-  },
-  {
-    id: 5,
-    title: "User's Messages",
-    path: "/userMessages",
-  },
-];
+import { useScopedI18n } from "@/locales/client";
 
 interface AdminPanel {
   id: number;
@@ -37,8 +10,37 @@ interface AdminPanel {
 }
 
 export default function AdminPageLyout() {
+  const t = useScopedI18n("admin");
+  const panel: AdminPanel[] = [
+    {
+      id: 1,
+      title: t("products"),
+      path: "/adminProducts",
+    },
+    {
+      id: 2,
+      title: t("blogs"),
+      path: "/adminBlogs",
+    },
+    {
+      id: 3,
+      title: t("orders"),
+      path: "/orders",
+    },
+    {
+      id: 4,
+      title: t("users"),
+      path: "/users",
+    },
+    {
+      id: 5,
+      title: t("message"),
+      path: "/userMessages",
+    },
+  ];
+
   return (
-    <div className="w-full h-screen bg-[#D3D4D9] dark:bg-[#010101]  mt-[50px] px-[30px] py-[40px] flex items-center justify-around flex-wrap mb-[30px]">
+    <div className="w-full  bg-[#D3D4D9] dark:bg-[#010101]  mt-[50px] px-[30px] py-[60px] flex items-center justify-around flex-wrap ">
       {panel.map((item, id) => (
         <div
           key={id}
@@ -52,7 +54,7 @@ export default function AdminPageLyout() {
             className="text-[white] font-bold cursor-pointer text-[18px] hover:text-[#c2c5aa] hover:tracking-widest  transition-all duration-150"
             href={item.path}
           >
-            OPEN
+            {t("open")}
           </Link>
         </div>
       ))}
