@@ -41,7 +41,9 @@ export default function BlogEditForm({
     } catch (error) {
       console.error(error);
     }
-    handleModalClose();
+    setTimeout(() => {
+      handleModalClose();
+    }, 500);
   };
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -140,7 +142,7 @@ export default function BlogEditForm({
         <div className="md:col-span-2 flex justify-center">
           <button
             type="submit"
-            className="w-full md:w-1/4 py-2 bg-[#1d273d] text-white font-semibold rounded-md hover:bg-[#a4161a] transition duration-300"
+            className="w-full md:w-1/4 flex items-center justify-center py-2 bg-[#1d273d] text-white font-semibold rounded-md hover:bg-[#a4161a] transition duration-300"
           >
             {isLoading ? <FaSpinner className="animate-spin mr-2" /> : "Upload"}
           </button>

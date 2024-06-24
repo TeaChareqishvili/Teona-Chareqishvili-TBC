@@ -25,6 +25,7 @@ export default async function SingeleProductVercel({
 }) {
   const { product, reviews } = await getProductDetail(id);
   const session = await getSession();
+  console.log(reviews, "page");
 
   const isAdmin =
     Array.isArray(session?.user.role) && session?.user.role.includes("admin");

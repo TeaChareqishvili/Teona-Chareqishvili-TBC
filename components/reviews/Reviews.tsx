@@ -32,11 +32,11 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
     const formData = {
       user_id: userId,
       product_id: id,
-      comment,
-
-      rating,
+      comment: comment,
+      rating: rating,
     };
 
+    console.log(formData, "review");
     try {
       await addProductComment(formData);
       setComment("");
@@ -46,16 +46,6 @@ const SingleProductAddComment = ({ id }: { id: string }) => {
     }
   };
 
-  // if (!user || !user.sub) {
-  //   return (
-  //     <div className="single-blog-add-comment">
-  //       კომენტარის დასატოვებლად გაიარეთ{" "}
-  //       <a href="/api/auth/login" className="underline">
-  //         ავტორიზაცია
-  //       </a>
-  //     </div>
-  //   );
-  // }
   return (
     <div className=" bg-gray-50 p-5 rounded-lg shadow-lg max-w-md mx-auto my-[25px]">
       <h1 className="text-2xl mb-5 text-center text-gray-800">

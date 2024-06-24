@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import type { PutBlobResult } from "@vercel/blob";
 import { DetailProductData } from "../../app/[locale]/interface";
 import { editProduct } from "@/app/[locale]/actions";
+import { FaSpinner } from "react-icons/fa";
 
 export default function EditProductForm({
   id,
@@ -28,8 +29,7 @@ export default function EditProductForm({
   const [image_gallery, setImage_gallery] = useState(
     detailedData.image_gallery || []
   );
-
-  console.log(setImageurl);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Create refs for each image input
   const inputFileRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -65,6 +65,7 @@ export default function EditProductForm({
       throw new Error("No file selected");
     }
 
+    setIsLoading(true);
     const file = e.target.files[0];
 
     try {
@@ -95,6 +96,8 @@ export default function EditProductForm({
       }
     } catch (error) {
       console.error("Error uploading file:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -219,9 +222,9 @@ export default function EditProductForm({
         <div className="flex justify-center mt-4">
           <button
             type="submit"
-            className="w-24 bg-[#1d273d] text-white py-2 rounded-md hover:bg-[#485f92] transition duration-300"
+            className="w-24 bg-[#1d273d] flex items-center justify-center text-white py-2 rounded-md hover:bg-[#485f92] transition duration-300"
           >
-            Upload
+            {isLoading ? <FaSpinner className="animate-spin mr-2" /> : "Upload"}
           </button>
         </div>
         {blob && (

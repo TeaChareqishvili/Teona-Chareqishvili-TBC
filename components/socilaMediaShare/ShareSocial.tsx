@@ -20,7 +20,7 @@ export default function ShareSocial({
 }) {
   const share = "https://teona-chareqishvili-tbc.vercel.app";
   return (
-    <div className="w-full flex items-center justify-center mt-[20px]">
+    <div className="w-full flex items-center justify-center mt-[20px] mb-[40px]">
       <FacebookShareButton
         url={`${share}/singleProductVercel/${products.id}`}
         title={products.title}

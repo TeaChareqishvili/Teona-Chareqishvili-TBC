@@ -1,17 +1,12 @@
-"use client";
-import { handleClearCart } from "../../actions";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import SuccsessStripe from "@/components/SuccessStripe";
 
 export default function Success() {
-  const router = useRouter();
-
-  useEffect(() => {
-    handleClearCart();
-    router.refresh();
-  }, []);
-
-  return <div className="text-red">sncs</div>;
+  return (
+    <div className="text-red">
+      <SuccsessStripe />
+      <h2 className="h-[400px] bg-[#fffff]">goo</h2>
+    </div>
+  );
 }
 // "use client";
 

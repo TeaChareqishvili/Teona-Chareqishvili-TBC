@@ -16,7 +16,7 @@ const Navigation: React.FC<NavigationProps> = ({
   const { user } = useUser();
 
   const isAdmin = Array.isArray(user?.role) && user.role.includes("admin");
-
+  console.log(isAdmin, "admin");
   const scopedT = useScopedI18n("navigation");
   return (
     <nav style={{ display: display }}>

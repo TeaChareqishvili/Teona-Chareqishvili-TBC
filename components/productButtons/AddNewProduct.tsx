@@ -21,7 +21,7 @@ const AddNewProduct = () => {
         add Product
       </button>
       <AddProductModal isOpen={isModalOpen} onClose={handleModalClose}>
-        <ProductAddForm />
+        <ProductAddForm handleModalClose={handleModalClose} />
       </AddProductModal>
     </>
   );

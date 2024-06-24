@@ -29,8 +29,8 @@ export default async function middleware(request: NextRequest) {
 
   if (!session?.user && isPathProtected(pathName))
     return NextResponse.redirect(new URL("/api/auth/login", request.nextUrl));
-  if (!session?.user?.role.includes("admin") && pathName.startsWith("/admin"))
-    return NextResponse.redirect(new URL("/", request.nextUrl));
+  // if (!session?.user?.role.includes("admin") && pathName.startsWith("/admin"))
+  //   return NextResponse.redirect(new URL("/", request.nextUrl));
 
   const I18nMiddleware = createI18nMiddleware({
     locales: ["en", "ge"],

@@ -35,6 +35,7 @@ export default function SingleProduct({
     (review) => review.comment.trim() !== ""
   );
 
+  console.log(reviews, "reviewproduct");
   const commentCount = validComments.length;
 
   const renderStars = (rating: number) => {

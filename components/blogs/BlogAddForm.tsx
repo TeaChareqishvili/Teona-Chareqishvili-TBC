@@ -3,7 +3,7 @@
 import type { PutBlobResult } from "@vercel/blob";
 import { useState, useRef } from "react";
 import { createNewBlog } from "../../app/[locale]/actions";
-
+import { FaSpinner } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
 export default function BlogAddForm() {
@@ -13,9 +13,8 @@ export default function BlogAddForm() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [image_url, setImage_url] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  console.log(blob);
-  // TODO blob
   const router = useRouter();
   const formData = {
     title,
@@ -32,14 +31,13 @@ export default function BlogAddForm() {
     } catch (error) {
       console.error(error);
     }
-    // window.location.reload();
   };
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) {
       throw new Error("No file selected");
     }
-
+    setIsLoading(true);
     const file = e.target.files[0];
 
     try {
@@ -52,10 +50,12 @@ export default function BlogAddForm() {
       console.log("File uploaded successfully:", newBlob);
 
       setBlob(newBlob);
-      console.log(newBlob.url);
+
       setImage_url(newBlob.url);
     } catch (error) {
       console.error("Error uploading file:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -129,11 +129,12 @@ export default function BlogAddForm() {
         </div>
         <button
           type="submit"
-          className="w-full py-2 bg-[#212A31] text-white rounded-md hover:bg-[#4d6272] transition duration-300"
+          className="w-full py-2 flex items-center justify-center bg-[#212A31] text-white rounded-md hover:bg-[#4d6272] transition duration-300"
         >
-          Upload
+          {isLoading ? <FaSpinner className="animate-spin mr-2" /> : "Upload"}
         </button>
       </form>
+      {blob && ""}
     </div>
   );
 }

@@ -215,16 +215,8 @@ export async function editBlog(id: number, formData: CreateBlogData) {
 // create new product
 
 export async function createNewProduct(formData: DetailProductData) {
-  const {
-    title,
-    description,
-
-    sale,
-    price,
-    imageurl,
-    category,
-    image_gallery,
-  } = formData;
+  const { title, description, sale, price, imageurl, category, image_gallery } =
+    formData;
   addNewProduct(
     title,
     description,
@@ -245,7 +237,6 @@ export async function editProduct(id: number, formData: DetailProductData) {
     id,
     title,
     description,
-
     sale,
     price,
     imageurl,
@@ -302,7 +293,7 @@ export async function createRefund(charge: string) {
 
 export async function addProductComment(formData: any) {
   try {
-    const response = await fetch(Host + "/api/add-product-comment", {
+    const response = await fetch(`${Host}/api/add-product-comment`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

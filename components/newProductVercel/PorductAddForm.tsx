@@ -4,8 +4,12 @@ import type { PutBlobResult } from "@vercel/blob";
 import { useState, useRef } from "react";
 import { createNewProduct } from "../../app/[locale]/actions";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-export default function ProductAddForm() {
+interface modalCloseProp {
+  handleModalClose: () => void;
+}
+const ProductAddForm: React.FC<modalCloseProp> = ({ handleModalClose }) => {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
   const [title, setTitle] = useState("");
@@ -16,6 +20,8 @@ export default function ProductAddForm() {
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
   const [image_gallery, setImage_gallery] = useState<string[]>([]);
+
+  const router = useRouter();
 
   console.log(setBlob);
   const formData = {
@@ -32,8 +38,13 @@ export default function ProductAddForm() {
     e.preventDefault();
     try {
       await createNewProduct(formData);
+      router.refresh();
     } catch (error) {
       console.error(error);
+    } finally {
+      setTimeout(() => {
+        handleModalClose();
+      }, 500);
     }
   };
 
@@ -208,4 +219,6 @@ export default function ProductAddForm() {
       </form>
     </div>
   );
-}
+};
+
+export default ProductAddForm;

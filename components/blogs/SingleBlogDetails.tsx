@@ -1,16 +1,16 @@
-"use server";
 import { SingleBlogData } from "../../app/[locale]/interface";
-import { getSession } from "@auth0/nextjs-auth0";
+// import { getSession } from "@auth0/nextjs-auth0";
 import { EditBlog } from "./EditBlog";
 export default async function SingleBlogDetails({
   singleBlog,
 }: {
   singleBlog: SingleBlogData;
 }) {
-  const session = await getSession();
-
-  const isAdmin =
-    Array.isArray(session?.user.role) && session?.user.role.includes("admin");
+  // const session = await getSession();
+  // console.log(session, "ses");
+  // const isAdmin =
+  //   Array.isArray(session?.user?.role) && session?.user?.role.includes("admin");
+  // console.log(isAdmin, "admin?");
 
   const formatDate = (dateString: string): string => {
     const options: Intl.DateTimeFormatOptions = {
@@ -48,11 +48,10 @@ export default async function SingleBlogDetails({
             <i className="text-[12px] mr-[5px] lg:text-[15px]">Added On:</i>
             {formatDate(singleBlog?.date)}
           </p>
-          {isAdmin && (
-            <div className="flex flex-col ">
-              <EditBlog id={singleBlog?.id} blog={singleBlog} />
-            </div>
-          )}
+
+          <div className="flex flex-col ">
+            <EditBlog id={singleBlog?.id} blog={singleBlog} />
+          </div>
         </div>
       </div>
     </>

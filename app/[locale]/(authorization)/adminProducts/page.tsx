@@ -1,10 +1,11 @@
 import { getProducts } from "../../../../apiUsers";
-
+import { unstable_noStore as noStore } from "next/cache";
 import AddNewProduct from "../../../../components/productButtons/AddNewProduct";
 import Products from "@/components/adminPage/Products";
 
 export default async function ProductVercel() {
   const Product = await getProducts();
+  noStore();
 
   return (
     <div className=" mt-[40px] lg:mt-[90px] w-full  bg-[#D3D9D4] dark:bg-[#2E3944]">
