@@ -20,7 +20,7 @@ export default function Burger() {
           width="26"
           height="26"
           fill="currentColor"
-          className="text-[#264653] dark:text-[#fff]"
+          className="text-[#fff]"
           viewBox="0 0 16 16"
         >
           <path

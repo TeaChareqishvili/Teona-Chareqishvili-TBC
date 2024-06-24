@@ -11,7 +11,7 @@ const HeaderIcon: React.FC<NavigationProps> = async ({ alignItems }) => {
   const session = await getSession();
 
   return (
-    <div style={{ alignItems: alignItems }} className="hidden lg:flex w-full">
+    <div style={{ alignItems: alignItems }} className=" lg:flex w-full">
       <div
         style={{ display: "flex", alignItems: "center" }}
         className="w-full flex items-center justify-evenly"
