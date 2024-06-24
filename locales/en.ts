@@ -9,12 +9,17 @@ export default {
     admin: "Admin",
   },
   footer: {
-    subscribe: "Subscribe Newsletter",
-    sale: "Subscribe newsletter to get 5% on all products",
-    email: "Email",
-    button: "Subscribe",
-    findUs: "Find Us",
+    zone: `Join us at Vitality Zone for expert health and fitness tips, workout
+    routines, and a supportive community to help you achieve your
+    fitness goals.`,
     right: " © 2024 all rights reserved",
+    links: "Links",
+    contact: "Our Contacts",
+    rustaveli: "Rustaveli Avenu",
+    tbilisi: "Tbilisi, Georgia",
+    email: "email",
+    phone: "Phone",
+    offers: "Offers",
   },
 
   socIcons: {
@@ -22,8 +27,8 @@ export default {
   },
   contact: {
     leaveMessage: " Leave Message",
-    stuff: " Our staff will call back later and answer your questions.",
-    comment: "  Post Comment",
+    submit: "Submit",
+    message: " We received your message! ",
   },
   contactInformation: {
     phone: "Phone",
@@ -80,5 +85,20 @@ export default {
   },
   index: {
     bmi: "BMI Calculator",
+  },
+  Ai: {
+    Ai: " Receive a personal consultation from our chatBot",
+    click: "Click",
+  },
+  stuff: {
+    stuff: "Meet Our Stuff",
+  },
+  admin: {
+    products: "Products",
+    open: "Open",
+    blogs: "Blogs",
+    orders: "Orders",
+    users: "Users",
+    message: "User's Messages",
   },
 } as const;

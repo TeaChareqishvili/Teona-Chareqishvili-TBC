@@ -5,15 +5,15 @@ import trainer3 from "../../public/assets/image/stuff/trainer3.webp";
 import trainer4 from "../../public/assets/image/stuff/trainer4.webp";
 import trainer5 from "../../public/assets/image/stuff/trainer5.webp";
 import trainer6 from "../../public/assets/image/stuff/trainer6.webp";
+import { useScopedI18n } from "@/locales/client";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// import "swiper/swiper-bundle.min.css";
+
 import { Autoplay, Mousewheel, Keyboard } from "swiper/modules";
 
-// SwiperCore.use([Autoplay, Mousewheel, Keyboard]);
 const trainers = [
   {
     id: 1,
@@ -63,10 +63,11 @@ const trainers = [
 ];
 
 export default function Stuff() {
+  const t = useScopedI18n("stuff");
   return (
     <div className="bg-[#D3D9D4] py-[20px]">
       <h2 className="text-center text-[34px] uppercase text-[#264653] my-[25px] mb-[40px] underline dark:text-[#1d273d] ">
-        Meet Our Stuff
+        {t("stuff")}
       </h2>
       <Swiper
         slidesPerView="auto"

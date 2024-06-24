@@ -27,8 +27,8 @@ export default function Header() {
         </div>
         <div className="w-[30%]">
           <HeaderIcon marginRight="20px" alignItems="center" />
-          <Burger />
         </div>
+        <Burger />
       </div>
     </HeaderWrapper>
   );

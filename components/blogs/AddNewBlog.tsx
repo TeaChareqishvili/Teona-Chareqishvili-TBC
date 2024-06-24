@@ -21,7 +21,7 @@ const AddNewBlog = () => {
         add new blog
       </button>
       <BlogAddModal isOpen={isModalOpen} onClose={handleModalClose}>
-        <BlogAddForm />
+        <BlogAddForm handleModalClose={handleModalClose} />
       </BlogAddModal>
     </>
   );
