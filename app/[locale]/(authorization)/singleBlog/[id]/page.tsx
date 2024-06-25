@@ -4,7 +4,7 @@ import { Blogs } from "@/app/[locale]/interface";
 import ShareBlogs from "@/components/socilaMediaShare/ShareBlogs";
 import { getSingleBlogAction } from "@/app/[locale]/actions";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: any) {
   const blogData = await getBlogs();
   const blog = blogData.rows.find((blog: Blogs) => blog.id == params.id);
