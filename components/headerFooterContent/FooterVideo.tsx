@@ -1,20 +1,19 @@
 const food =
-  "https://live.staticflickr.com/video/53808038960/e6aa4f8a0a/1080p.mp4?s=eyJpIjo1MzgwODAzODk2MCwiZSI6MTcxOTA0NDY3MywicyI6ImE4MjA1YWE0ZTZiM2E0OTY3M2M3NzQ3YTlhN2UzMWRjMTYyMGM4MWIiLCJ2IjoxfQ";
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/food-Ld4EJceoeEIDC1pQjhmRFqu47NU4z7.mp4";
 const group =
-  "https://live.staticflickr.com/video/53807642071/8d7a2cb60b/1080p.mp4?s=eyJpIjo1MzgwNzY0MjA3MSwiZSI6MTcxOTA0Njk5MywicyI6IjBlNzhjMDUxYjI3Nzk0ZDkyYzEwNTEwNThiNDE0M2VlMmQzZjc5N2MiLCJ2IjoxfQ";
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/group-bKoHqiHzCbBGZapMDiDUg8tEcuUu2P.mp4";
 const muscle =
-  "https://live.staticflickr.com/video/53807647656/3744494e6a/1080p.mp4?s=eyJpIjo1MzgwNzY0NzY1NiwiZSI6MTcxOTA0NzMyNiwicyI6ImI0MDhkYzg5YzllMWRkOGEzNmM1MDc0ZWJhMzA2ODA0ZDI1ZjU2MjEiLCJ2IjoxfQ";
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/muscleGain-Z95MsIm5XiVcqOZiXRUtarjdJv9XQ3.mp4";
 const personal =
-  "https://live.staticflickr.com/video/53807600741/9e6e34d4a0/1080p.mp4?s=eyJpIjo1MzgwNzYwMDc0MSwiZSI6MTcxOTA0NDgzMCwicyI6IjY0Y2JmOTRjNWU3MGFiM2U0YzcwMDliODAwN2Q3ODE3MjIyMDdkNGIiLCJ2IjoxfQ";
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/personal-f2JHKfdmnLmvZ98PJJhI1mtDxyL3Gx.mp4";
 const pool =
-  "https://live.staticflickr.com/video/53807646216/0717956750/1080p.mp4?s=eyJpIjo1MzgwNzY0NjIxNiwiZSI6MTcxOTA0NzIxMywicyI6IjNkMWU0OTAzMjAxMmU5M2NjYzUyYzdlZTI2N2VkNzY0YjU1MzI2MDkiLCJ2IjoxfQ";
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/pool-1ONJIm6dwemEkueXQQEQBTr8kc3ANc.mp4";
 const spa =
-  "https://live.staticflickr.com/video/53807888993/40158b3f62/1080p.mp4?s=eyJpIjo1MzgwNzg4ODk5MywiZSI6MTcxOTA0NzE4MywicyI6IjI5YWJhZDQzZTZkOWMwYzQyM2FlMTk4OWZmYjc2MGQzMWRiN2Y5YmUiLCJ2IjoxfQ";
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/spa-yMZAx5Bfc4aTxXsnE4Uh6ZeQ7DAVrc.mp4";
 const weight =
-  "https://live.staticflickr.com/video/53808062925/b2dfd6d307/1080p.mp4?s=eyJpIjo1MzgwODA2MjkyNSwiZSI6MTcxOTA0NTk0OCwicyI6IjM3YzU2ZmUyMzc4ODIxM2Q0YjJhN2I5MDU5MzgwZWE4ZTU0NjcwNWMiLCJ2IjoxfQ";
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/weight-6OtEu3TD1QODoYxfgcjWSc2s9mrkHk.mp4";
 const yoga =
-  "https://live.staticflickr.com/video/53807642436/76f9b90e29/1080p.mp4?s=eyJpIjo1MzgwNzY0MjQzNiwiZSI6MTcxOTA0NzEwMiwicyI6ImI0NmQ4NzdkMzYzMzRhNDFmMzFlMTg4OTAwMDIwOTJjZDZmNTMyODEiLCJ2IjoxfQ";
-
+  "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/yoga-OqpMaCJOpbhQRzb3CzVR6kSRUcb1Iy.mp4";
 const offers = [
   {
     id: 1,
