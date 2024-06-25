@@ -373,7 +373,7 @@ export async function getSingleBlogAction(id: string) {
     method: "POST",
     body: JSON.stringify({ id }),
   });
-  revalidatePath(`/singleBlog/${id}`);
+  revalidatePath("/");
   const data = await response.json();
 
   return data.response[0];
