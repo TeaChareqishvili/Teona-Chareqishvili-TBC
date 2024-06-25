@@ -210,7 +210,7 @@ export async function editBlog(id: number, formData: CreateBlogData) {
   const { title, description, category, image_url } = formData;
 
   getblogById(id, title, description, category, image_url);
-  revalidatePath(`/singleBlog/${id}`);
+  revalidatePath(`/`);
 }
 
 // create new product
@@ -364,4 +364,16 @@ export async function getChatBot({ prompt }: { prompt: string }) {
     console.error("Error in getChatBot:", error);
     throw error;
   }
+}
+
+// test
+export async function getSingleBlogAction(id: string) {
+  const response = await fetch(Host + "/api/get-single-blog/", {
+    cache: "no-store",
+    method: "POST",
+    body: JSON.stringify({ id }),
+  });
+  const data = await response.json();
+
+  return data.response[0];
 }
