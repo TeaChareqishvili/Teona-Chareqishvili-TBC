@@ -6,15 +6,18 @@ export default function CurrentUserOrders({ usersOrder }: any) {
   const handleShowOrders = () => {
     setOrders(!orders);
   };
+
   return (
     <div className="p-4 mt-[30px]">
-      {usersOrder && (
+      {usersOrder.length > 0 ? (
         <button
           onClick={handleShowOrders}
           className="dark:bg-[#212A31] flex items-center h-[40px] justify-center bg-[#748D82] w-[150px] hover:bg-[#124E66] transition-all duration-200  text-white py-2 px-4 rounded"
         >
           {orders ? "Close" : "See your orders"}
         </button>
+      ) : (
+        ""
       )}
       {orders && (
         <div className="mt-4">

@@ -7,8 +7,6 @@ import Image from "next/image";
 import { MdPhotoCamera } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
 
-// TODO fix background
-
 export default function AvatarUpload({ userimg, data }: any) {
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
@@ -40,7 +38,7 @@ export default function AvatarUpload({ userimg, data }: any) {
         </div>
       </div>
       <div className=" min-h-[100px]  flex flex-col items-center">
-        <h1 className="text-black text-xl font-semibold dark:text-white">
+        <h1 className="text-black text-xl font-semibold dark:text-white text-[12px] md:text-[18px] text-center">
           {t("picture")}
         </h1>
 

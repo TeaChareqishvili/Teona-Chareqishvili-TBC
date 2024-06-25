@@ -14,7 +14,7 @@ export default async function NewCartProducts() {
   console.log(session, "check");
 
   const cartProductsArray = Object.entries(cart?.shop);
-
+  console.log(cartProductsArray, "arr");
   const cartProducts = await getProducts();
 
   // //Create a map of cart product IDs and their quantities
@@ -31,7 +31,7 @@ export default async function NewCartProducts() {
     }));
 
   return (
-    <div className=" flex flex-col items-center justify-center  w-full dark:bg-[#2E3944] px-[20px] py-[20px] lg:justify-around lg:flex-row lg:items-start lg:px-[30px]">
+    <div className=" flex flex-col items-center justify-center  w-full min-h-screen dark:bg-[#2E3944] px-[20px] py-[20px] lg:justify-around lg:flex-row lg:items-start lg:px-[30px]">
       <div className="flex   flex-col mt-[150px]">
         <div className="w-full flex flex-col items-center lg:items-start ">
           {" "}

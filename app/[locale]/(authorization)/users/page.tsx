@@ -19,7 +19,7 @@ export default async function Users() {
   const users: any = await getUsers();
 
   return (
-    <div className="w-full lg:min-h-screen dark:bg-[#e5e5e5] mt-12 flex flex-col items-center justify-center mb-16">
+    <div className="w-full lg:min-h-screen mt-[100px] lg:mt-0 flex flex-col items-center justify-center mb-16">
       <div className="overflow-x-auto w-4/5">
         <table className="min-w-full border-2 border-gray-300 dark:bg-[#1d273d] rounded-lg shadow-lg mt-8 mb-8">
           <thead>

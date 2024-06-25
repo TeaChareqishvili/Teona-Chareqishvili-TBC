@@ -29,8 +29,6 @@ export default function UserInfo({
     address: address || "",
   };
 
-  console.log(formData, "profile");
-  console.log(id, "profilepage");
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -45,8 +43,8 @@ export default function UserInfo({
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className="  bg-transparent">
-      <h2 className="text-[24px] text-left mb-[15px]">
+    <form onSubmit={handleFormSubmit} className="  bg-transparent ml-[10px]">
+      <h2 className="text-[18px] lg:text-[24px] text-left mb-[15px] mt-[15px] md:mt-0">
         You Can Change Your Personal Info here
       </h2>
       <div className="mb-4">

@@ -1,6 +1,6 @@
 const MainVideo = () => {
   const videoUrl =
-    "https://live.staticflickr.com/video/53808037585/846f3047a2/1080p.mp4?s=eyJpIjo1MzgwODAzNzU4NSwiZSI6MTcxOTA0NDc3NCwicyI6IjZmNDMyNTNhY2JkMDkwZjMwOGYyMGU4YmI5Y2Q5Mzc1YTRhOTA1NTciLCJ2IjoxfQ";
+    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/bannertest-GSB1xCqxPTdyp69rpta7JU0qO5QurG.mp4";
 
   return (
     <div className="w-full">

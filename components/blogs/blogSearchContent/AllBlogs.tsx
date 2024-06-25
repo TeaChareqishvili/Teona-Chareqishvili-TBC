@@ -61,7 +61,7 @@ export default function AllBlogs({ firstBlog, blog }: AllBlogsProps) {
             {firstBlog.title}
           </h3>
           {date && (
-            <span className="dark:text-white text-[15px] text-[#28333b]">
+            <span className="dark:text-white text-[15px] text-[#28333b] px-[10px] lg:px-0">
               {formatDate(firstBlog.date)}
             </span>
           )}
@@ -74,7 +74,7 @@ export default function AllBlogs({ firstBlog, blog }: AllBlogsProps) {
           </Link>
         </div>
       </div>
-      <div className="w-full mt-[20px] px-4 lg:px-8 py-8 bg-gray-100 rounded-md flex flex-col items-center">
+      <div className="w-full mt-[20px] px-4 lg:px-8 py-8 bg-gray-100 rounded-md flex flex-col items-center mb-[10px] lg:mb-0">
         <h2 className="text-2xl font-semibold mb-6 text-gray-900">
           Search Category
         </h2>

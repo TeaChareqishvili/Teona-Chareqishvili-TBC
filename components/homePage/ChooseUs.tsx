@@ -9,7 +9,7 @@ export default function ChooseUs() {
   const t = useScopedI18n("chooseUs");
   return (
     <div className=" w-full  py-[30px] img flex flex-col items-center ">
-      <h2 className="text-center text-[24px] md:text-[30px] lg:text-[34px] uppercase dark:text-[#ffffff] my-[25px]  ">
+      <h2 className="text-center text-[24px] md:text-[30px] lg:text-[34px] uppercase text-white dark:text-[#ffffff] my-[25px]  ">
         {t("choose")}
       </h2>
       <div className="w-[95%] m-auto flex flex-col items-center justify-between  lg:flex-row ">
