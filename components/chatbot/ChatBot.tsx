@@ -40,6 +40,7 @@ export default function ChatBot() {
 
   return (
     <div className="flex flex-col px-[30px] py-[40px]">
+      <div className="banner"></div>
       <div className="flex flex-col w-full items-center justify-center lg:flex-row lg:justify-around m-auto">
         <div className=" md:w-[600px]">
           <div className="text-center mb-4">

@@ -7,7 +7,7 @@ export default function GetInTouchAi() {
   const t = useScopedI18n("Ai");
   return (
     <div className="w-full h-[350px] flex flex-col items-center justify-center">
-      <h3 className="text-shadow-drop-center  dark:text-white text-[32px] tracking-wide text-[#212A31]">
+      <h3 className="text-shadow-drop-center text-[18px] px-[20px] text-center lg:px-0 md:text-[24px] dark:text-white lg:text-[32px] tracking-wide text-[#212A31]">
         {t("Ai")}
       </h3>
 

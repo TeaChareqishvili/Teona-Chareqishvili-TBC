@@ -25,7 +25,7 @@ export default function Header() {
             <Navigation marginLeft="30px" display="flex" />
           </div>
         </div>
-        <div className="w-[30%]">
+        <div className="w-[60%] lg:w-[30%]">
           <HeaderIcon marginRight="20px" alignItems="center" />
         </div>
         <Burger />

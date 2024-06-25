@@ -35,7 +35,7 @@ export default async function UserProfile({ usersOrder }: any) {
 
   return (
     <div className="w-[90%] m-auto flex flex-col items-center justify-center">
-      <div className="w-full flex items-center justify-between m-auto">
+      <div className="w-full flex flex-col items-center justify-center m-auto px-[15px] md:flex-row md:justify-between md:px-0 md:items-center">
         <AvatarUpload userimg={user} data={data} />
         <UserInfo user={currentUser} id={currentUser.serial_id} />
       </div>
