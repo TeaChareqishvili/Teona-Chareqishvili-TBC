@@ -17,6 +17,7 @@ import type { Users } from "../../../../apiUsers";
 
 export default async function Users() {
   const users: any = await getUsers();
+  console.log(users, "users");
 
   return (
     <div className="w-full lg:min-h-screen mt-[100px] lg:mt-0 flex flex-col items-center justify-center mb-16">
@@ -76,7 +77,7 @@ export default async function Users() {
                   )}
                 </td>
                 <td className="py-4 flex items-center justify-center gap-4">
-                  <UserIcons users={user} id={user.id} />
+                  <UserIcons users={user} id={user.serial_id} />
                 </td>
               </tr>
             ))}

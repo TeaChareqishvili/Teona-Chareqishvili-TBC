@@ -6,9 +6,9 @@ export default function CurrentUserOrders({ usersOrder }: any) {
   const handleShowOrders = () => {
     setOrders(!orders);
   };
-
+  console.log(usersOrder, "orders");
   return (
-    <div className="p-4 mt-[30px]">
+    <div className="p-4 mt-[30px] w-full">
       {usersOrder.length > 0 ? (
         <button
           onClick={handleShowOrders}
@@ -20,16 +20,22 @@ export default function CurrentUserOrders({ usersOrder }: any) {
         ""
       )}
       {orders && (
-        <div className="mt-4">
+        <div className="mt-4 w-full">
           {usersOrder.map((order: any) => (
             <div
               key={order.latest_charge.id}
-              className="border border-gray-300 rounded-lg p-4 mb-4 shadow-md"
+              className="border border-gray-300 rounded-lg p-4 mb-4 shadow-md md:w-full flex flex-col items-center justify-between md:flex-row"
             >
               <p className="text-lg font-semibold dark:text-white">
                 Amount: ${(order.amount / 100).toFixed(2)}
               </p>
-              <p className="text-sm `${order.latest_charge.refunded ? text-[#d62828] : text-[#52b69a]}`">
+              <p
+                className={`text-sm ${
+                  order.latest_charge.refunded
+                    ? "text-[#d62828]"
+                    : "text-[#52b69a]"
+                }`}
+              >
                 status:{" "}
                 {order.latest_charge.refunded === true ? "Refunded" : "Paid"}
               </p>
