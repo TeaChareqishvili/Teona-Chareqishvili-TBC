@@ -86,7 +86,10 @@ const UserCheckOutForm: React.FC<UserCheckOutFormProps> = ({
             className="shadow appearance-none rounded-md bg-transparent border-2 border-[#D3D9D4] w-full py-3 px-3  text-[#2E3944]  leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <button className="text-black" type="submit">
+        <button
+          className="text-[#212A31] border border-black px-[10px] py-[9px] hover:bg-[#212A31] hover:text-white transition-all duration-200 rounded-md"
+          type="submit"
+        >
           Buy Now
         </button>
       </form>

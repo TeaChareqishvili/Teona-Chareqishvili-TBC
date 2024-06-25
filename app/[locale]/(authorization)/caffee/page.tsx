@@ -3,7 +3,7 @@ import foodImg from "../../../../public/assets/image/offers/food.webp";
 
 export default function HealthyFood() {
   const foodVideo =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/food-nOy9VXPWEK5ddc61jG2wm5ekqoFMBY.mp4";
+    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/food-Ld4EJceoeEIDC1pQjhmRFqu47NU4z7.mp4";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">

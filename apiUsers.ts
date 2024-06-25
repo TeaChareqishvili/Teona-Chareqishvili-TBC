@@ -282,7 +282,6 @@ export async function getProductById(
   id: number,
   title: string,
   description: string,
-
   price: string,
   sale: string,
   imageurl: string,
@@ -299,7 +298,6 @@ export async function getProductById(
       body: JSON.stringify({
         title,
         description,
-
         price,
         sale,
         imageurl,
@@ -308,7 +306,6 @@ export async function getProductById(
       }),
     });
 
-    console.log(response, "resp");
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.error);

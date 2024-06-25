@@ -3,7 +3,7 @@ import weightImg from "../../../../public/assets/image/offers/muscleGain.webp";
 
 export default function LooseWeightComponent() {
   const muscleGain =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/muscleGain-W9XoXW8OaTqPJTm69dzsV95px6Do5y.mp4";
+    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/muscleGain-Z95MsIm5XiVcqOZiXRUtarjdJv9XQ3.mp4";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">

@@ -3,11 +3,10 @@ import groupImg from "../../../../public/assets/image/offers/group.webp";
 
 export default function LooseWeightComponent() {
   const group =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/group-q8HQhoIUPkK0aDc0tqapbA7xTR6QkB.mp4";
+    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/group-bKoHqiHzCbBGZapMDiDUg8tEcuUu2P.mp4";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">
-      {/* Video Section */}
       <div className="rounded-lg overflow-hidden mb-8">
         <div className="lg:h-[500px]">
           <video
@@ -21,7 +20,7 @@ export default function LooseWeightComponent() {
       </div>
       <div className="p-4 hidden lg:absolute lg:bottom-[200px] lg:right-[20px] lg:block">
         <h2 className="text-2xl font-semibold text-white">Group Exercises</h2>
-        <p className="mt-2 text-white">
+        <p className="mt-2 text-white  md:w-[200px]">
           Explore the benefits of group exercises and how they can improve your
           fitness journey.
         </p>

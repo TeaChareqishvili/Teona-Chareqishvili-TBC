@@ -3,7 +3,7 @@ import poolImg from "../../../../public/assets/image/offers/pool.webp";
 
 export default function Pool() {
   const poolVideo =
-    "https://rdawkbs6qlsqqeww.public.blob.vercel-storage.com/pool-q74F8NFU6ngXQYiWGQYtTjGeHw9Swg.mp4";
+    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/pool-1ONJIm6dwemEkueXQQEQBTr8kc3ANc.mp4";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">

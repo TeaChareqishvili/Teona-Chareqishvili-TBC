@@ -1,4 +1,4 @@
-const Loading = () => {
+export default function Loading() {
   return (
     <section className="w-full min-h-screen flex items-center justify-center relative bg-[#2E3944]">
       {" "}
@@ -8,6 +8,4 @@ const Loading = () => {
       </div>
     </section>
   );
-};
-
-export { Loading };
+}
