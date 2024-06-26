@@ -1,3 +1,55 @@
+
+VITALITY ZONE 
+
+## Features
+
+### For Users
+1. **Product Shop**: Browse and purchase a variety of fitness-related products.
+2. **Blogs**: Read blogs on fitness tips, healthy lifestyle advice, and more.
+3. **BMI Calculation**: Calculate your Body Mass Index (BMI) to keep track of your fitness goals.
+4. **Chatbot Consultation**: Get personalized advice through our AI chatbot.
+5. **User Management**: Update your personal information and send messages to the admin.
+6. **Secure Payments**: Make purchases securely through Stripe.
+
+   
+### For Admins
+1. **Admin Panel**: Manage the website through an intuitive admin panel.
+2. **Product Management**: Add, edit, or delete products in the shop.
+3. **Blog Management**: Add, edit, or delete blog posts.
+4. **User Management**: Edit or delete user accounts.
+
+   
+## User Guide
+
+### Browsing Products
+1. Navigate to the Shop page to browse available products.
+2. Add products to your cart and proceed to checkout to complete your purchase.
+
+### Reading Blogs
+1. Visit the Blogs section to read the latest posts.
+2. Use the search and filter options to find specific topics of interest.
+
+### BMI Calculation
+1. Go to the BMI Calculator page.
+2. Enter your height and weight to calculate your BMI.
+
+### Chatbot Consultation
+1. Open the Chatbot from the main menu.
+2. Ask questions or seek advice on fitness and healthy living.
+
+### User Account Management
+1. Log in to your account.
+2. Update your personal information and view your purchase history.
+3. Send messages to the admin for support or inquiries.
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
