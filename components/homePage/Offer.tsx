@@ -13,21 +13,21 @@ export default function Offer() {
   const t = useScopedI18n("offers");
 
   const food =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/food-Ld4EJceoeEIDC1pQjhmRFqu47NU4z7.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/food-QaVlw0KeX9bkLIliX1lFSr4J6Nu3K0.mp4";
   const group =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/group-bKoHqiHzCbBGZapMDiDUg8tEcuUu2P.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/group-NuexT8gZ4XlBdXwXluKcSNr5VFhUzr.mp4";
   const muscle =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/muscleGain-Z95MsIm5XiVcqOZiXRUtarjdJv9XQ3.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/muscleGain-DSfLcbPrfc7yDpnLkivMNtGMFXzITC.mp4";
   const personal =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/personal-f2JHKfdmnLmvZ98PJJhI1mtDxyL3Gx.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/personal-dNeUHzHVEtx6Q6w1zkUgfXf5F4Koa4.mp4";
   const pool =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/pool-1ONJIm6dwemEkueXQQEQBTr8kc3ANc.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/pool-sjZHnSZwgssMzOmAuLy5s96XakwYPy.mp4";
   const spa =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/spa-yMZAx5Bfc4aTxXsnE4Uh6ZeQ7DAVrc.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/spa-Kts9N5t5CDrqGEwj46Msv9aYJrFOBe.mp4";
   const weight =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/weight-6OtEu3TD1QODoYxfgcjWSc2s9mrkHk.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/weight-uf1Y9CldKKQIbzKXeW6gZh6Tidyk1o.mp4";
   const yoga =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/yoga-OqpMaCJOpbhQRzb3CzVR6kSRUcb1Iy.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/yoga-Dw7bylulYMzk5mqwdaJsl9yVbfudWR.mp4";
 
   const offers: Item[] = [
     {
@@ -95,6 +95,7 @@ export default function Offer() {
               className="rounded-md"
               src={item.video}
               autoPlay
+              playsInline
               muted
               loop
             />

@@ -3,7 +3,7 @@ import groupImg from "../../../../public/assets/image/offers/group.webp";
 
 export default function LooseWeightComponent() {
   const group =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/group-bKoHqiHzCbBGZapMDiDUg8tEcuUu2P.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/group-NuexT8gZ4XlBdXwXluKcSNr5VFhUzr.mp4";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">

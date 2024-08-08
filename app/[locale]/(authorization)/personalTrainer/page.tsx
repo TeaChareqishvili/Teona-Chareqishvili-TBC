@@ -3,7 +3,7 @@ import personalImg from "../../../../public/assets/image/offers/trainer.webp";
 
 export default function PersonalTrainer() {
   const personal =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/personal-f2JHKfdmnLmvZ98PJJhI1mtDxyL3Gx.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/personal-dNeUHzHVEtx6Q6w1zkUgfXf5F4Koa4.mp4";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">
