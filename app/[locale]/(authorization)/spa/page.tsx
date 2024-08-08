@@ -3,7 +3,7 @@ import spaImg from "../../../../public/assets/image/offers/spaoffer.webp";
 
 export default function Spa() {
   const spa =
-    "https://ab9vg7azdm14stpx.public.blob.vercel-storage.com/spa-yMZAx5Bfc4aTxXsnE4Uh6ZeQ7DAVrc.mp4";
+    "https://tvpca3wafgomkw7i.public.blob.vercel-storage.com/spa-Kts9N5t5CDrqGEwj46Msv9aYJrFOBe.mp4";
 
   return (
     <div className="container mx-auto px-4 py-8 relative">

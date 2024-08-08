@@ -85,6 +85,14 @@ export default nextVideos({
         hostname: " media.post.rvohealth.io",
         pathname: "/media/**",
       },
+      {
+        protocol: "https",
+        hostname: "media.self.com",
+      },
+      {
+        protocol: "https",
+        hostname: "blog.nasm.org",
+      },
     ],
   },
   compiler: {
