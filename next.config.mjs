@@ -93,6 +93,46 @@ export default nextVideos({
         protocol: "https",
         hostname: "blog.nasm.org",
       },
+      {
+        protocol: "https",
+        hostname: "tvpca3wafgomkw7i.public.blob.vercel-storage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.myfoxbag.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.strideeurope.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i5.walmartimages.com",
+      },
+      {
+        protocol: "https",
+        hostname: "fuelled.in",
+      },
+      {
+        protocol: "https",
+        hostname: "snappytowels.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.power-systems.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.staticans.com",
+      },
+      {
+        protocol: "https",
+        hostname: "rspnutrition.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.puma.com",
+      },
     ],
   },
   compiler: {
